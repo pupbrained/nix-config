@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Marshall's NixOS Config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
