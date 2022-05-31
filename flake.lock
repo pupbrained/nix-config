@@ -1,0 +1,184 @@
+{
+  "nodes": {
+    "catppuccin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648871477,
+        "narHash": "sha256-AjJ+o1eJeznfJoJzM/l3315PAVc3wgmLuPIDRFhR/tE=",
+        "owner": "catppuccin",
+        "repo": "discord",
+        "rev": "dbd0d06c8a2a727bd05de1ec315b8a13f16ecc95",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "discord",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1653518057,
+        "narHash": "sha256-cam3Nfae5ADeEs6mRPzr0jXB7+DhyMIXz0/0Q13r/yk=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "64831f938bd413cefde0b0cf871febc494afaa4f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "lavender-discord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1652619540,
+        "narHash": "sha256-CoNk5h66dBeH9wXUA3dGqquYDmbCzKX3noVdOifBE0Q=",
+        "owner": "Lavender-Discord",
+        "repo": "Lavender",
+        "rev": "dc8f70122095b0320c35f5f2b39b4d9a3356226d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lavender-Discord",
+        "repo": "Lavender",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1653955403,
+        "narHash": "sha256-3f81DQkfbueIsFEPkPZbJL+w6a5J4uiqkEhCiQOK3hI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ef44c71d983d65dcb01eabdb459caaa522b7d962",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1653581809,
+        "narHash": "sha256-Uvka0V5MTGbeOfWte25+tfRL3moECDh1VwokWSZUdoY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "83658b28fe638a170a19b8933aa008b30640fbd1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nur": {
+      "locked": {
+        "lastModified": 1653921337,
+        "narHash": "sha256-RLPxioFVRFbjV9pxURW4y2A8FF9Yl825Ycb/8Uh+bj4=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "604b1c1a24776329920ec934276e320117058563",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
+    "powercord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653709209,
+        "narHash": "sha256-OKtVYpmFtoN52NTY4Bz9bQDnXsDW8sxH72CpdabfbmE=",
+        "owner": "powercord-org",
+        "repo": "powercord",
+        "rev": "8a471180c79573b2ec1688237b33fe1b9e6684c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "powercord-org",
+        "repo": "powercord",
+        "type": "github"
+      }
+    },
+    "powercord-overlay": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "powercord": "powercord"
+      },
+      "locked": {
+        "lastModified": 1653786230,
+        "narHash": "sha256-BLBq5WDtd7/q3QFMYxJdhYFYX6BMDTm9YrPp1QH+hos=",
+        "owner": "LavaDesu",
+        "repo": "powercord-overlay",
+        "rev": "8c1e37509ec38a5e571551789a474dc582d3405e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LavaDesu",
+        "repo": "powercord-overlay",
+        "type": "github"
+      }
+    },
+    "powercord-tiktok-tts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651498215,
+        "narHash": "sha256-IBjCkqVMRg+WJyDvhwS8HEGv3TtiGAUxX5uQpK38nEU=",
+        "owner": "oatmealine",
+        "repo": "powercord-tiktok-tts",
+        "rev": "aac39816eadd6f89dba7ddf52b4e8e88513462d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oatmealine",
+        "repo": "powercord-tiktok-tts",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "catppuccin": "catppuccin",
+        "home-manager": "home-manager",
+        "lavender-discord": "lavender-discord",
+        "nixpkgs": "nixpkgs",
+        "nur": "nur",
+        "powercord-overlay": "powercord-overlay",
+        "powercord-tiktok-tts": "powercord-tiktok-tts",
+        "theme-toggler": "theme-toggler"
+      }
+    },
+    "theme-toggler": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1652316667,
+        "narHash": "sha256-zEaHdOsa3WZODXA1L67meQbWh7YB4Tfl7+WKBI2qDd4=",
+        "owner": "redstonekasi",
+        "repo": "theme-toggler",
+        "rev": "85b8bccb0b6eaf82180113b89f44bdeb44516cb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "redstonekasi",
+        "repo": "theme-toggler",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
