@@ -83,6 +83,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1629481132,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "997f7efcb746a9c140ce1f13c72263189225f482",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -320,7 +335,8 @@
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "powercord-tiktok-tts": "powercord-tiktok-tts",
-        "theme-toggler": "theme-toggler"
+        "theme-toggler": "theme-toggler",
+        "vscodeInsiders": "vscodeInsiders"
       }
     },
     "theme-toggler": {
@@ -336,6 +352,41 @@
       "original": {
         "owner": "redstonekasi",
         "repo": "theme-toggler",
+        "type": "github"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1630140382,
+        "narHash": "sha256-ntXepAHFlAEtaYIU5EzckRUODeeMgpu1u2Yug+4LFNc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "08ef0f28e3a41424b92ba1d203de64257a9fca6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "vscodeInsiders": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "unstable": "unstable"
+      },
+      "locked": {
+        "lastModified": 1653897991,
+        "narHash": "sha256-BCJ32FxezW8uizFpVrv/VjPp5C4VdyMCpCjmbuV00J8=",
+        "owner": "cideM",
+        "repo": "visual-studio-code-insiders-nix",
+        "rev": "5e995694fa880f9e1c5de605fedcb027737ccdb7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cideM",
+        "repo": "visual-studio-code-insiders-nix",
         "type": "github"
       }
     }
