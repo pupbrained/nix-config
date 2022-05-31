@@ -44,6 +44,8 @@
                     environment.systemPackages = [
                       pkgs.nur.repos.marsupialgutz.draconis
                       flake-firefox-nightly.packages.x86_64-linux.firefox-nightly-bin
+                      pkgs.zsh
+                      pkgs.kitty
                       pkgs.discord-plugged
                       pkgs.neovim-nightly
                       (pkgs.discord-plugged.override
