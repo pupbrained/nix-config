@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   nix = {
@@ -30,6 +30,15 @@
         gtk3Support = true;
       };
     })
+    (self: super: {
+      vscodeInsiders =
+        inputs.vscodeInsiders.packages.${super.system}.vscodeInsiders;
+      firefox-nightly-bin =
+        inputs.flake-firefox-nightly.packages.${super.system}.firefox-nightly-bin;
+    })
+    inputs.powercord-overlay.overlay
+    inputs.nur.overlay
+    inputs.neovim-nightly-overlay.overlay
   ];
 
   imports = [ ./hardware-configuration.nix ];
@@ -105,6 +114,18 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA12eoS+C+n1Pa1XaygSmx4+CGkO6oYV5bZeSeBU28Y mars@possums.xyz"
     ];
+  };
+
+  home-manager = {
+    # Pass inputs to all home-manager modules
+    # Isn't used currently, but could be useful
+    extraSpecialArgs = { inherit inputs; };
+    # Use packages configured by NixOS configuration (overlays & allowUnfree)
+    useGlobalPackages = true;
+    users.marshall = {
+      imports = [ ../home ];
+      home.stateVersion = "22.05";
+    };
   };
 
   system.activationScripts = {
