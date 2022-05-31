@@ -17,6 +17,7 @@
     cmake
     dbus
     dbus.dev
+    exa
     feh
     ffmpeg
     file
