@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cachix": {
+      "locked": {
+        "lastModified": 1635350005,
+        "narHash": "sha256-tAMJnUwfaDEB2aa31jGcu7R7bzGELM9noc91L2PbVjg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1c1f5649bb9c1b0d98637c8c365228f57126f361",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "flake": false,
       "locked": {
@@ -13,6 +29,26 @@
       "original": {
         "owner": "catppuccin",
         "repo": "discord",
+        "type": "github"
+      }
+    },
+    "flake-firefox-nightly": {
+      "inputs": {
+        "cachix": "cachix",
+        "mozilla": "mozilla",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1653946727,
+        "narHash": "sha256-aOHbnUmlrADgk+ld8bmAua3sBkef6jpk7iamt1jAGlE=",
+        "owner": "colemickens",
+        "repo": "flake-firefox-nightly",
+        "rev": "f2e80ddc2e3126a2acde406c95f02b1a0eb509c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "colemickens",
+        "repo": "flake-firefox-nightly",
         "type": "github"
       }
     },
@@ -52,7 +88,39 @@
         "type": "github"
       }
     },
+    "mozilla": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651008893,
+        "narHash": "sha256-N6xPE/wNynlKhDSGxvYKkX9PJFsENIXR/RMVc9NzILU=",
+        "owner": "colemickens",
+        "repo": "nixpkgs-mozilla",
+        "rev": "dac859ea535d8abcd2146346d1dca1ee8fc50210",
+        "type": "github"
+      },
+      "original": {
+        "owner": "colemickens",
+        "repo": "nixpkgs-mozilla",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1653845079,
+        "narHash": "sha256-7ghaQZ+7JXLI9FgNH8+RQHAt3/ubT92j8NtjZleP6t4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b62ada430501de88dfbb08cea4eb98ead3a5e3e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1653955403,
         "narHash": "sha256-3f81DQkfbueIsFEPkPZbJL+w6a5J4uiqkEhCiQOK3hI=",
@@ -68,7 +136,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1653581809,
         "narHash": "sha256-Uvka0V5MTGbeOfWte25+tfRL3moECDh1VwokWSZUdoY=",
@@ -117,7 +185,7 @@
     },
     "powercord-overlay": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "powercord": "powercord"
       },
       "locked": {
@@ -153,9 +221,10 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "flake-firefox-nightly": "flake-firefox-nightly",
         "home-manager": "home-manager",
         "lavender-discord": "lavender-discord",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "powercord-tiktok-tts": "powercord-tiktok-tts",

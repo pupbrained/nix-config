@@ -21,6 +21,7 @@
           rev = "c539e0e4350a42f813952fc28dd8490f42d934b3";
           sha256 = "10k1bkif7mqqhgwbvh0vi13gf1qgxszack3r0shmsdainm37hqz3";
         };
+        patches = [ ];
         GI_TYPELIB_PATH = "${prev.playerctl}/lib/girepository-1.0:"
           + "${prev.upower}/lib/girepository-1.0:"
           + old.GI_TYPELIB_PATH;

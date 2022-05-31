@@ -58,6 +58,7 @@
     python
     python310
     redshift
+    rofi
     rustup
     rust-analyzer
     scrot

@@ -13,9 +13,10 @@
     powercord-tiktok-tts = { url = "github:oatmealine/powercord-tiktok-tts"; flake = false; };
     lavender-discord = { url = "github:Lavender-Discord/Lavender"; flake = false; };
     catppuccin = { url = "github:catppuccin/discord"; flake = false; };
+    flake-firefox-nightly = { url = "github:colemickens/flake-firefox-nightly"; };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, powercord-overlay, theme-toggler, powercord-tiktok-tts, lavender-discord, catppuccin }:
+  outputs = { self, nixpkgs, home-manager, nur, powercord-overlay, theme-toggler, powercord-tiktok-tts, lavender-discord, catppuccin, flake-firefox-nightly }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -37,6 +38,8 @@
                   {
                     environment.systemPackages = [
                       pkgs.nur.repos.marsupialgutz.draconis
+                      flake-firefox-nightly.packages.x86_64-linux.firefox-nightly-bin
+                      pkgs.discord-plugged
                       (pkgs.discord-plugged.override
                         {
                           plugins = [
