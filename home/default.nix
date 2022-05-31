@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ inputs, pkgs, config, ... }: {
   home.packages = with pkgs; [
     pkgs.nur.repos.marsupialgutz.draconis
     firefox-nightly-bin
@@ -75,8 +75,8 @@
     zsh
 
     (pkgs.discord-plugged.override {
-      plugins = [ theme-toggler powercord-tiktok-tts ];
-      themes = [ lavender-discord catppuccin ];
+      plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
+      themes = with inputs; [ lavender-discord catppuccin ];
     })
   ];
   programs.vscode = with pkgs; {

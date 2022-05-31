@@ -118,7 +118,6 @@
 
   home-manager = {
     # Pass inputs to all home-manager modules
-    # Isn't used currently, but could be useful
     extraSpecialArgs = { inherit inputs; };
     # Use packages configured by NixOS configuration (overlays & allowUnfree)
     useGlobalPackages = true;
