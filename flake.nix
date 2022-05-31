@@ -3,20 +3,25 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
-    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    nur.url = github:nix-community/NUR;
+
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = github:nix-community/NUR;
+
+    flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     theme-toggler = { url = "github:redstonekasi/theme-toggler"; flake = false; };
     powercord-tiktok-tts = { url = "github:oatmealine/powercord-tiktok-tts"; flake = false; };
     lavender-discord = { url = "github:Lavender-Discord/Lavender"; flake = false; };
     catppuccin = { url = "github:catppuccin/discord"; flake = false; };
-    flake-firefox-nightly = { url = "github:colemickens/flake-firefox-nightly"; };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, powercord-overlay, theme-toggler, powercord-tiktok-tts, lavender-discord, catppuccin, flake-firefox-nightly }:
+  outputs = { self, nixpkgs, home-manager, nur, powercord-overlay, neovim-nightly-overlay, theme-toggler, powercord-tiktok-tts, lavender-discord, catppuccin, flake-firefox-nightly }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -33,13 +38,14 @@
               inherit system;
               modules = [
                 ./sys/configuration.nix
-                { nixpkgs.overlays = [ powercord-overlay.overlay nur.overlay ]; }
+                { nixpkgs.overlays = [ powercord-overlay.overlay nur.overlay neovim-nightly-overlay.overlay ]; }
                 ({ pkgs, ... }:
                   {
                     environment.systemPackages = [
                       pkgs.nur.repos.marsupialgutz.draconis
                       flake-firefox-nightly.packages.x86_64-linux.firefox-nightly-bin
                       pkgs.discord-plugged
+                      pkgs.neovim-nightly
                       (pkgs.discord-plugged.override
                         {
                           plugins = [
