@@ -89,13 +89,7 @@
                 home.packages = with pkgs; [
                   pkgs.nur.repos.marsupialgutz.draconis
                   flake-firefox-nightly.packages.x86_64-linux.firefox-nightly-bin
-                  zsh
-                  kitty
-                  neovim-nightly
-                  (pkgs.discord-plugged.override {
-                    plugins = [ theme-toggler powercord-tiktok-tts ];
-                    themes = [ lavender-discord catppuccin ];
-                  })
+
                   acpi
                   acpid
                   audacity
@@ -125,6 +119,7 @@
                   jq
                   keychain
                   killall
+                  kitty
                   kotatogram-desktop
                   libnotify
                   lua52Packages.lgi
@@ -136,6 +131,7 @@
                   mpv
                   ncmpcpp
                   neovide
+                  neovim-nightly
                   nerdfonts
                   nixfmt
                   nix-prefetch-scripts
@@ -159,12 +155,17 @@
                   unrar
                   unzip
                   upower
-                  uutils-coreutils
                   wineWowPackages.full
                   xclip
                   xdotool
                   yarn
                   zoxide
+                  zsh
+
+                  (pkgs.discord-plugged.override {
+                    plugins = [ theme-toggler powercord-tiktok-tts ];
+                    themes = [ lavender-discord catppuccin ];
+                  })
                 ];
                 programs.vscode = with pkgs; {
                   enable = true;
