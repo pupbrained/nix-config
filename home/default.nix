@@ -63,6 +63,7 @@
     scrot
     spicetify-cli
     spot
+    steam
     sumneko-lua-language-server
     unrar
     unzip
@@ -79,6 +80,7 @@
       themes = [ lavender-discord catppuccin ];
     })
   ];
+
   programs.vscode = with pkgs; {
     enable = true;
     package = vscodeInsiders;

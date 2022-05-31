@@ -49,6 +49,7 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_testing;
+    extraModprobeConfig = "options hid_apple fnmode=1";
   };
 
   networking = {
@@ -121,7 +122,7 @@
     # Isn't used currently, but could be useful
     extraSpecialArgs = { inherit inputs; };
     # Use packages configured by NixOS configuration (overlays & allowUnfree)
-    useGlobalPackages = true;
+    useGlobalPkgs = true;
     users.marshall = {
       imports = [ ../home ];
       home.stateVersion = "22.05";
