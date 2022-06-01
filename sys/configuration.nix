@@ -149,6 +149,7 @@
   nixpkgs.config.allowUnfree = true;
   security.sudo.wheelNeedsPassword = false;
   programs.dconf.enable = true;
+  programs.command-not-found.enable = false;
 
   system.stateVersion = "21.11";
 }

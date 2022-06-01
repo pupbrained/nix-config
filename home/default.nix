@@ -17,6 +17,7 @@
     feh
     ffmpeg
     file
+    fluffychat
     gcc
     gh
     gnomeExtensions.appindicator
@@ -46,12 +47,14 @@
     neovim-nightly
     nerdfonts
     nixfmt
+    nix-index
     nix-prefetch-scripts
     nodejs
     noto-fonts-cjk-sans
     pamixer
     papirus-icon-theme
     pavucontrol
+    pinentry_qt5.tty
     playerctl
     polymc
     python
@@ -73,7 +76,6 @@
     xdotool
     yarn
     zoxide
-    zsh
 
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
@@ -90,6 +92,53 @@
     enable = true;
     userName = "marsupialgutz";
     userEmail = "mars@possums.xyz";
+    # signing = {
+    # key = null;
+    # signByDefault = true;
+    # };
+  };
+
+  programs.zsh = {
+    enable = true;
+    initExtraFirst = ''
+      source ~/.cache/p10k-instant-prompt-marshall.zsh
+    '';
+    shellAliases = {
+      se = "sudoedit";
+      gc = "git commit -S";
+    };
+    initExtra = ''
+      source /nix/store/z3d56ipbv9ibsba0fn0fb1jna20yw5rk-nix-index-unstable-2022-03-07/etc/profile.d/command-not-found.sh
+
+      export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
+      export EDITOR=lvim
+      export VISUAL=lvim
+      export GPG_TTY=$(tty)
+
+      run() {
+      	nix-shell -p $1 --run \'$1\'
+      }
+
+      draconis
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-syntax-highlighting"; }
+        { name = "RitchieS/zsh-exa"; }
+        { name = "chisui/zsh-nix-shell"; }
+        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+        { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
+      ];
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [ "--cmd" "cd" ];
   };
 
   services.picom = {
