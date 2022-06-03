@@ -33,6 +33,10 @@
       url = "github:catppuccin/discord";
       flake = false;
     };
+    horizontal-server-list = {
+      url = "github:DiscordStyles/HorizontalServerList";
+      flake = false;
+    };
   };
 
   outputs =

@@ -68,7 +68,7 @@
 
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
-      themes = with inputs; [ lavender-discord catppuccin ];
+      themes = with inputs; [ lavender-discord catppuccin horizontal-server-list ];
     })
   ];
 

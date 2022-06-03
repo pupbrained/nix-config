@@ -118,6 +118,22 @@
         "type": "github"
       }
     },
+    "horizontal-server-list": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653555899,
+        "narHash": "sha256-5JYBj3e921RImddwWOKNH5DT5o/F8DtQ2nrWwLcjkzA=",
+        "owner": "DiscordStyles",
+        "repo": "HorizontalServerList",
+        "rev": "e7281c758ef0ddab978026a9b0575632c99af18c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DiscordStyles",
+        "repo": "HorizontalServerList",
+        "type": "github"
+      }
+    },
     "lavender-discord": {
       "flake": false,
       "locked": {
@@ -329,6 +345,7 @@
         "catppuccin": "catppuccin",
         "flake-firefox-nightly": "flake-firefox-nightly",
         "home-manager": "home-manager",
+        "horizontal-server-list": "horizontal-server-list",
         "lavender-discord": "lavender-discord",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_3",
