@@ -132,12 +132,10 @@
     fixVsCodeWriteAsSudo = {
       text = ''
         mkdir -m 0755 -p /bin
-        # HACK: Get path dynamically
         ln -sf "/run/current-system/sw/bin/bash" /bin/.bash.tmp
-        mv /bin/.bash.tmp /bin/bash # atomically replace it
-        # HACK: Get path dynamically
+        mv /bin/.bash.tmp /bin/bash
         ln -sf "/run/wrappers/bin/pkexec" /usr/bin/.pkexec.tmp
-        mv /usr/bin/.pkexec.tmp /usr/bin/pkexec # atomically replace it
+        mv /usr/bin/.pkexec.tmp /usr/bin/pkexec
         eval $(/run/current-system/sw/bin/ssh-agent)
       '';
       deps = [ ];
