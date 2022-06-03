@@ -8,7 +8,6 @@
     binutils
     brightnessctl
     cargo-binutils
-    chrome-gnome-shell
     cinnamon.nemo
     cmake
     dbus
