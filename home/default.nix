@@ -19,9 +19,6 @@
     fluffychat
     gcc
     gh
-    gnomeExtensions.appindicator
-    gnomeExtensions.pop-shell
-    gnome.gnome-tweaks
     gnome.seahorse
     gnumake
     gpick
@@ -39,9 +36,6 @@
     mate.engrampa
     micro
     minecraft
-    mpd
-    mpv
-    ncmpcpp
     neovide
     neovim-nightly
     nerdfonts
@@ -112,6 +106,7 @@
     shellAliases = {
       se = "sudoedit";
       gc = "git commit -S";
+      ga = "git add .";
     };
     initExtra = ''
       source /nix/store/z3d56ipbv9ibsba0fn0fb1jna20yw5rk-nix-index-unstable-2022-03-07/etc/profile.d/command-not-found.sh
