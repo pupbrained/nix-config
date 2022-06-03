@@ -107,7 +107,7 @@
     };
   };
 
-  users.extraUsers.marshall = {
+  users.users.marshall = {
     isNormalUser = true;
     home = "/home/marshall";
     extraGroups = [ "wheel" "networkmanager" ];

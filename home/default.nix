@@ -25,9 +25,9 @@
     gnome.gnome-tweaks
     gnome.seahorse
     gnumake
-    gnupg
     gpick
     headsetcontrol
+    inotifyTools.out
     jamesdsp
     jq
     keychain
@@ -50,11 +50,11 @@
     nix-index
     nix-prefetch-scripts
     nodejs
+    notion-app-enhanced
     noto-fonts-cjk-sans
     pamixer
     papirus-icon-theme
     pavucontrol
-    pinentry_qt5.tty
     playerctl
     polymc
     python
@@ -75,7 +75,6 @@
     xclip
     xdotool
     yarn
-    zoxide
 
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
@@ -88,18 +87,26 @@
     package = vscodeInsiders;
   };
 
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    enableZshIntegration = true;
+    pinentryFlavor = "tty";
+  };
+
   programs.git = {
     enable = true;
     userName = "marsupialgutz";
     userEmail = "mars@possums.xyz";
-    # signing = {
-    # key = null;
-    # signByDefault = true;
-    # };
+    signing = {
+      key = null;
+      signByDefault = true;
+    };
   };
 
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
     initExtraFirst = ''
       source ~/.cache/p10k-instant-prompt-marshall.zsh
     '';
@@ -110,14 +117,23 @@
     initExtra = ''
       source /nix/store/z3d56ipbv9ibsba0fn0fb1jna20yw5rk-nix-index-unstable-2022-03-07/etc/profile.d/command-not-found.sh
 
+      bindkey "^[[H" beginning-of-line
+      bindkey "^[[F" end-of-line
+      bindkey '^[[1;5C' emacs-forward-word
+      bindkey '^[[1;5D' emacs-backward-word
+      bindkey '^[[A' history-substring-search-up
+      bindkey '^[[B' history-substring-search-down
+      
       export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
       export EDITOR=lvim
       export VISUAL=lvim
       export GPG_TTY=$(tty)
 
       run() {
-      	nix-shell -p $1 --run \'$1\'
+        nix-shell -p $1 --run \'$1\'
       }
+
+      compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
       draconis
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -127,6 +143,7 @@
       plugins = [
         { name = "zsh-users/zsh-autosuggestions"; }
         { name = "zsh-users/zsh-syntax-highlighting"; }
+        { name = "zsh-users/zsh-history-substring-search"; }
         { name = "RitchieS/zsh-exa"; }
         { name = "chisui/zsh-nix-shell"; }
         { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
