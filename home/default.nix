@@ -21,6 +21,7 @@
     gnumake
     gpick
     headsetcontrol
+    herbe.out
     inotifyTools.out
     jamesdsp
     jq
