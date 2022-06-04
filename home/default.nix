@@ -97,8 +97,6 @@
         ga = "git add .";
       };
       initExtra = ''
-        source /nix/store/z3d56ipbv9ibsba0fn0fb1jna20yw5rk-nix-index-unstable-2022-03-07/etc/profile.d/command-not-found.sh
-
         bindkey "^[[H" beginning-of-line
         bindkey "^[[F" end-of-line
         bindkey '^[[1;5C' emacs-forward-word
