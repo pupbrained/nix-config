@@ -17,6 +17,7 @@
     fluffychat
     gcc
     gh
+    gnome.eog.out
     gnome.seahorse
     gnumake
     gpick
