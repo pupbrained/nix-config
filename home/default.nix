@@ -3,10 +3,10 @@
     pkgs.nur.repos.marsupialgutz.draconis
     firefox-nightly-bin
     acpi
-    acpid
     audacity
     binutils
     brightnessctl
+    busybox
     cargo-binutils
     cinnamon.nemo
     cmake
@@ -17,20 +17,20 @@
     fluffychat
     gcc
     gh
-    gnome.eog.out
+    gnome.eog
     gnome.seahorse
     gnumake
     gpick
     headsetcontrol
-    herbe.out
-    inotifyTools.out
+    herbe
+    inotifyTools
     jamesdsp
     jq
     keychain
-    killall
     kitty
     kotatogram-desktop
     libnotify
+    libsForQt5.qtstyleplugin-kvantum
     lua52Packages.lgi
     lxappearance
     mate.engrampa
@@ -44,6 +44,7 @@
     nodejs
     notion-app-enhanced
     noto-fonts-cjk-sans
+    p7zip
     pamixer
     papirus-icon-theme
     pavucontrol
@@ -60,6 +61,7 @@
     spot
     steam
     sumneko-lua-language-server
+    themechanger
     unrar
     unzip
     upower
@@ -70,7 +72,7 @@
 
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
-      themes = with inputs; [ lavender-discord catppuccin horizontal-server-list ];
+      themes = with inputs; [ lavender-discord catppuccin horizontal-server-list sur-cord ];
     })
   ];
 

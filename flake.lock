@@ -352,8 +352,25 @@
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "powercord-tiktok-tts": "powercord-tiktok-tts",
+        "sur-cord": "sur-cord",
         "theme-toggler": "theme-toggler",
         "vscodeInsiders": "vscodeInsiders"
+      }
+    },
+    "sur-cord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1654541044,
+        "narHash": "sha256-T3UI+UoAjkteeSnxdQluUJPkKDpRIqRlj1vn5S38Peo=",
+        "owner": "SlippingGitty",
+        "repo": "surCord",
+        "rev": "f259fa00943b7c37c870f1946008a6a4e31a845d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SlippingGitty",
+        "repo": "surCord",
+        "type": "github"
       }
     },
     "theme-toggler": {
