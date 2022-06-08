@@ -1,17 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
+  nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (final: prev: {
       awesome = (prev.awesome.overrideAttrs (old: {
@@ -41,47 +31,21 @@
     inputs.neovim-nightly-overlay.overlay
   ];
 
-  imports = [ ./hardware-configuration.nix ];
-
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    kernelPackages = pkgs.linuxPackages_testing;
-    extraModprobeConfig = "options hid_apple fnmode=1";
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
-  networking = {
-    hostName = "nix";
-    useDHCP = false;
-    networkmanager.enable = true;
-  };
-
-  services = {
-    gnome.gnome-keyring.enable = true;
-    flatpak.enable = true;
-    xserver = {
-      enable = true;
-
-      displayManager = {
-        gdm.enable = true;
-        defaultSession = "none+awesome";
-      };
-
-      windowManager.i3 = {
-        enable = true;
-        package = pkgs.i3-rounded;
-        extraPackages = with pkgs; [ feh polybar i3lock ];
-      };
-
-      windowManager.awesome.enable = true;
-
-      videoDrivers = [ "nvidia" ];
-    };
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
+  home-manager = {
+    # Pass inputs to all home-manager modules
+    extraSpecialArgs = { inherit inputs; };
+    # Use packages configured by NixOS configuration (overlays & allowUnfree)
+    useGlobalPkgs = true;
+    users.marshall = {
+      imports = [ ../home ];
+      home.stateVersion = "22.05";
     };
   };
 
@@ -99,14 +63,6 @@
     };
   };
 
-  hardware = {
-    nvidia.modesetting.enable = true;
-    opengl = {
-      enable = true;
-      driSupport32Bit = true;
-    };
-  };
-
   users.users.marshall = {
     isNormalUser = true;
     home = "/home/marshall";
@@ -115,17 +71,6 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA12eoS+C+n1Pa1XaygSmx4+CGkO6oYV5bZeSeBU28Y mars@possums.xyz"
     ];
-  };
-
-  home-manager = {
-    # Pass inputs to all home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    # Use packages configured by NixOS configuration (overlays & allowUnfree)
-    useGlobalPkgs = true;
-    users.marshall = {
-      imports = [ ../home ];
-      home.stateVersion = "22.05";
-    };
   };
 
   system.activationScripts = {
@@ -143,11 +88,7 @@
   };
 
   time.timeZone = "America/New_York";
-  xdg.portal.enable = true;
-  nixpkgs.config.allowUnfree = true;
   security.sudo.wheelNeedsPassword = false;
   programs.dconf.enable = true;
   programs.command-not-found.enable = false;
-
-  system.stateVersion = "21.11";
 }

@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
     nur.url = "github:nix-community/NUR";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -47,6 +48,7 @@
     { self
     , nixpkgs
     , home-manager
+    , nixos-wsl
     , ...
     } @ inputs:
     let
@@ -59,7 +61,17 @@
           # Pass inputs to NixOS modules
           specialArgs = { inherit inputs; };
           modules = [
-            ./sys/configuration.nix
+            ./sys/nix/configuration.nix
+            home-manager.nixosModule
+          ];
+        };
+        wsl = lib.nixosSystem {
+          system = "x86_64-linux";
+          # Pass inputs to NixOS modules
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./sys/wsl.nix
+            nixos-wsl.nixosModules.wsl
             home-manager.nixosModule
           ];
         };
