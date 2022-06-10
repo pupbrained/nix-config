@@ -1,3 +1,0 @@
-[submodule "dotfiles"]
-	path = dotfiles
-	url = git@github.com:marsupialgutz/nix-dotfiles
