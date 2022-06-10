@@ -3,6 +3,7 @@
     pkgs.nur.repos.marsupialgutz.draconis
     firefox-nightly-bin
     acpi
+    android-tools
     audacity
     binutils
     brightnessctl
@@ -10,6 +11,7 @@
     cargo-binutils
     cinnamon.nemo
     cmake
+    dmd
     exa
     feh
     ffmpeg
