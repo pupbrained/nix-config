@@ -1,4 +1,5 @@
 { inputs, pkgs, config, ... }: {
+  imports = [ ./dotfiles.nix ];
   home.packages = with pkgs; [
     pkgs.nur.repos.marsupialgutz.draconis
     firefox-nightly-bin
@@ -11,7 +12,6 @@
     cargo-binutils
     cinnamon.nemo
     cmake
-    dmd
     exa
     feh
     ffmpeg
