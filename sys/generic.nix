@@ -8,8 +8,8 @@
         src = prev.fetchFromGitHub {
           owner = "awesomeWM";
           repo = "awesome";
-          rev = "c539e0e4350a42f813952fc28dd8490f42d934b3";
-          sha256 = "10k1bkif7mqqhgwbvh0vi13gf1qgxszack3r0shmsdainm37hqz3";
+          rev = "3a542219f3bf129546ae79eb20e384ea28fa9798";
+          sha256 = "1qyy650rwxaakw4hmnvwv7lqxjz22xhbzq8vqlv6ry5g5gmg0gg3";
         };
         patches = [ ];
         GI_TYPELIB_PATH = "${prev.playerctl}/lib/girepository-1.0:"
