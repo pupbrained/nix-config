@@ -30,7 +30,10 @@
       enable = true;
 
       displayManager = {
-        gdm.enable = true;
+        gdm = {
+          enable = true;
+          wayland = false;
+        };
         defaultSession = "none+awesome";
       };
 

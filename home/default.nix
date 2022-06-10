@@ -12,7 +12,6 @@
     cargo-binutils
     cinnamon.nemo
     cmake
-    dmd
     exa
     feh
     ffmpeg
