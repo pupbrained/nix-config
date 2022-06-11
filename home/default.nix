@@ -80,6 +80,7 @@
 
   programs = {
     gpg.enable = true;
+    direnv.enable = true;
     nix-index.enable = true;
 
     vscode = with pkgs; {
