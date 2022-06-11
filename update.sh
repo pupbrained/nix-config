@@ -1,0 +1,2 @@
+nvfetcher
+nix flake update
