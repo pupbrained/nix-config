@@ -1,0 +1,40 @@
+{
+    "awesome": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "awesome",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "awesomeWM",
+            "repo": "awesome",
+            "rev": "3a542219f3bf129546ae79eb20e384ea28fa9798",
+            "sha256": "sha256-4z3w6iuv+Gw2xRvhv2AX4suO6dl82woJn0p1nkEx3uM=",
+            "type": "github"
+        },
+        "version": "3a542219f3bf129546ae79eb20e384ea28fa9798"
+    },
+    "picom": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "picom",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ibhagwan",
+            "repo": "picom",
+            "rev": "c4107bb6cc17773fdc6c48bb2e475ef957513c7a",
+            "sha256": "sha256-1hVFBGo4Ieke2T9PqMur1w4D0bz/L3FAvfujY9Zergw=",
+            "type": "github"
+        },
+        "version": "c4107bb6cc17773fdc6c48bb2e475ef957513c7a"
+    }
+}
