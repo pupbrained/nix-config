@@ -4,6 +4,7 @@
     pkgs.nur.repos.marsupialgutz.draconis
     firefox-nightly-bin
     acpi
+    adoptopenjdk-bin
     android-tools
     audacity
     binutils
@@ -38,6 +39,7 @@
     mate.engrampa
     micro
     minecraft
+    mpv
     neovide
     neovim-nightly
     nerdfonts
