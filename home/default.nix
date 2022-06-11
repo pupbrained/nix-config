@@ -81,6 +81,7 @@
   ];
 
   programs = {
+    direnv.enable = true;
     gpg.enable = true;
     nix-index.enable = true;
 
