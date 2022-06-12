@@ -28,9 +28,11 @@
 
   environment.systemPackages =
     let
-      sddm_theme = pkgs.stdenv.mkDerivation {
+      inherit (pkgs) plasma5Packages;
+      sddm_theme = plasma5Packages.mkDerivation {
         name = "sddm-theme";
         src = ./sugar-candy.tar.gz;
+        propagatedUserEnvPkgs = with plasma5Packages; [ qtgraphicaleffects ];
         installPhase = ''
           mkdir -p $out/share/sddm/themes
           cp -r ./. $out/share/sddm/themes/sugar-candy
