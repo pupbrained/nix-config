@@ -20,7 +20,10 @@
   networking = {
     hostName = "nix";
     useDHCP = false;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "random";
+    };
   };
 
   services = {
