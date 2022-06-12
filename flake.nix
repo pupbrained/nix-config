@@ -53,6 +53,7 @@
     } @ inputs:
     let
       inherit (nixpkgs) lib;
+      forSystems = lib.genAttrs lib.systems.flakeExposed;
     in
     {
       nixosConfigurations = {
@@ -76,5 +77,13 @@
           ];
         };
       };
+      devShells = forSystems (system:
+        let pkgs = nixpkgs.legacyPackages."${system}";
+        in {
+          default = pkgs.mkShellNoCC {
+            packages = with pkgs; [ nvfetcher ];
+          };
+        }
+      );
     };
 }

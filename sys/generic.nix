@@ -1,16 +1,17 @@
 { inputs, pkgs, ... }:
 
+let
+  sources = pkgs.callPackage ../_sources/generated.nix { };
+in
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (final: prev: {
+      picom = prev.picom.overrideAttrs (o: {
+        inherit (sources.picom) src pname version;
+      });
       awesome = (prev.awesome.overrideAttrs (old: {
-        src = prev.fetchFromGitHub {
-          owner = "awesomeWM";
-          repo = "awesome";
-          rev = "3a542219f3bf129546ae79eb20e384ea28fa9798";
-          sha256 = "1qyy650rwxaakw4hmnvwv7lqxjz22xhbzq8vqlv6ry5g5gmg0gg3";
-        };
+        inherit (sources.awesome) src pname version;
         patches = [ ];
         GI_TYPELIB_PATH = "${prev.playerctl}/lib/girepository-1.0:"
           + "${prev.upower}/lib/girepository-1.0:"
