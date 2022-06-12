@@ -1,7 +1,7 @@
 { inputs, pkgs, config, ... }: {
   imports = [ ./dotfiles.nix ];
   home.packages = with pkgs; [
-    pkgs.nur.repos.marsupialgutz.draconis
+    draconis
     firefox-nightly-bin
     acpi
     adoptopenjdk-bin
