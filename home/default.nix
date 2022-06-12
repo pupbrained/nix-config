@@ -14,7 +14,6 @@
     cinnamon.nemo
     cmake
     exa
-    feh
     ffmpeg
     file
     fluffychat
