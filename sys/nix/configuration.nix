@@ -26,6 +26,17 @@
     };
   };
 
+  environment.systemPackages =
+    let
+      sddm_theme = pkgs.stdenv.mkDerivation {
+        name = "sddm-theme";
+        src = ./sugar-candy.tar.gz;
+        installPhase = ''
+          mkdir -p $out/share/sddm/themes
+          cp -r ./. $out/share/sddm/themes/sugar-candy
+        '';
+      };
+    in [sddm_theme];
   services = {
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
@@ -33,9 +44,9 @@
       enable = true;
 
       displayManager = {
-        gdm = {
+        sddm = {
           enable = true;
-          wayland = false;
+          theme = "sugar-candy";
         };
         defaultSession = "none+awesome";
       };
