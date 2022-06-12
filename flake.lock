@@ -87,11 +87,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1654961365,
-        "narHash": "sha256-RsGC38gn9sPkvA+NRud1+PQRh4KkzDXy+07ZUcsHAZA=",
+        "lastModified": 1654993175,
+        "narHash": "sha256-EgvufH1L3Einixk60pIIb98ZFr0PA+TQT+gB+dD1zRE=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "4e020229ccb367669bc91a32d3aa51994047e43a",
+        "rev": "42ed2139618b023b47b20e5ca63d597a8b1a5df5",
         "type": "github"
       },
       "original": {
