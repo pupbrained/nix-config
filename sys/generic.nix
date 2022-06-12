@@ -27,7 +27,7 @@ in
       firefox-nightly-bin =
         inputs.flake-firefox-nightly.packages.${super.system}.firefox-nightly-bin;
       draconis =
-        inputs.draconis;
+        inputs.draconis.defaultPackage.${super.system};
     })
     inputs.powercord-overlay.overlay
     inputs.nur.overlay
