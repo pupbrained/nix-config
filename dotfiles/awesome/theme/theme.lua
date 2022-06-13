@@ -34,7 +34,7 @@ theme.xcolor13 = "#f5c2e7"
 theme.xcolor14 = "#89dceb"
 theme.xcolor15 = "#d9e0ee"
 theme.darker_bg = "#1e1e2e"
-theme.lighter_bg = "#575268"
+theme.lighter_bg = "#302d41"
 theme.transparent = "#00000000"
 
 -- ░█▀▀░█▀█░█▀█░▀█▀░█▀▀
