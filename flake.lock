@@ -55,11 +55,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1655070576,
-        "narHash": "sha256-jiUNGqnd1229vxZo6cxDD/DqkaB0L7Zb4IJpykT8ZiQ=",
+        "lastModified": 1655086612,
+        "narHash": "sha256-0UjQcQ2Vbryhswgmxz3VCAkoIv6R8fvG7O1E2a2oHr8=",
         "owner": "marsupialgutz",
         "repo": "draconis",
-        "rev": "744f3560bc54c95874925d5d6a807db7a6f7f94e",
+        "rev": "2848991d7a5a2642728b8abb80935eeb4c26dfdb",
         "type": "github"
       },
       "original": {
@@ -139,11 +139,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1655037317,
-        "narHash": "sha256-1k1IRvoatAICwwyAy53qWqUBmkI6fB/ZnUkdLWomNtc=",
+        "lastModified": 1655085012,
+        "narHash": "sha256-LlrglLDoIklzDIxrQB0Tu75bSkIANTDn8fGLI7wD370=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "ce96b027e33a8effd23fae622efea5fe92e72660",
+        "rev": "b0ec64ec3aeeb4ffd1d7415671dd0dfb26702528",
         "type": "github"
       },
       "original": {
@@ -668,11 +668,11 @@
     "sur-cord": {
       "flake": false,
       "locked": {
-        "lastModified": 1655061708,
-        "narHash": "sha256-Oo2jwKoqG0cZbPR+wtk3uzBj1gZi/4jTYqkRHvTXASw=",
+        "lastModified": 1655082661,
+        "narHash": "sha256-sgfmwmn6Wk7PrmXQPX+neNuNfospI1f6i5agHZ7Y7js=",
         "owner": "SlippingGitty",
         "repo": "surCord",
-        "rev": "b1f579e1b0a3669dcb626c8f9c4b053575af3726",
+        "rev": "23bbdcca3ab2fc889fece70491a0723d736f910d",
         "type": "github"
       },
       "original": {
