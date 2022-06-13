@@ -94,7 +94,7 @@
       userEmail = "mars@possums.xyz";
       signing = {
         signByDefault = true;
-        key = null;
+        key = "DB41891AE0A1ED4D";
       };
     };
     zsh = {
