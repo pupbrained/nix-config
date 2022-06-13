@@ -36,6 +36,7 @@
         installPhase = ''
           mkdir -p $out/share/sddm/themes
           cp -r ./. $out/share/sddm/themes/sugar-candy
+          cp ${./sugar-candy.conf} $out/share/sddm/themes/sugar-candy/theme.conf
         '';
       };
     in
