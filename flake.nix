@@ -2,7 +2,7 @@
   description = "Marshall's NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nur.url = "github:nix-community/NUR";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
@@ -13,7 +13,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/70824bb5c790b820b189f62f643f795b1d2ade2e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
