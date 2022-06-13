@@ -92,6 +92,10 @@
       enable = true;
       userName = "marsupialgutz";
       userEmail = "mars@possums.xyz";
+      signing = {
+        signByDefault = true;
+        key = null;
+      };
     };
     zsh = {
       enable = true;
@@ -115,7 +119,6 @@
         export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
         export EDITOR=lvim
         export VISUAL=lvim
-        export GPG_TTY=$(tty)
 
         run() {
           nix-shell -p $1 --run \'$1\'
@@ -150,7 +153,7 @@
     gpg-agent = {
       enable = true;
       enableZshIntegration = true;
-      pinentryFlavor = "tty";
+      pinentryFlavor = "gnome3";
     };
     picom = {
       enable = true;

@@ -38,7 +38,8 @@
           cp -r ./. $out/share/sddm/themes/sugar-candy
         '';
       };
-    in [sddm_theme];
+    in
+    [ sddm_theme ];
   services = {
     gnome.gnome-keyring.enable = true;
     flatpak.enable = true;
@@ -68,6 +69,16 @@
       pulse.enable = true;
     };
   };
+
+  environment.loginShellInit = ''
+    dbus-update-activation-environment --systemd DISPLAY
+    eval $(ssh-agent)
+    eval $(gnome-keyring-daemon --start)
+    export GPG_TTY=$TTY
+  '';
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
+  powerManagement.cpuFreqGovernor = "performance";
 
   hardware = {
     nvidia.modesetting.enable = true;
