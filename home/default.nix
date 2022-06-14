@@ -101,6 +101,7 @@
       enable = true;
       package = vscodeInsiders;
     };
+
     git = {
       enable = true;
       userName = "marsupialgutz";
@@ -110,6 +111,7 @@
         key = "DB41891AE0A1ED4D";
       };
     };
+
     zsh = {
       enable = true;
       dotDir = ".config/zsh";
@@ -150,10 +152,39 @@
         ];
       };
     };
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
       options = [ "--cmd" "cd" ];
+    };
+
+    kitty = {
+      enable = true;
+      font = {
+        name = "Rec Mono Casual";
+        size = 12;
+      };
+      settings = {
+        editor = "nvim";
+        placement_strategy = "center";
+        hide_window_decorations = "titlebar-only";
+        background_opacity = 0.95;
+        inactive_text_alpha = 1;
+        scrollback_lines = 5000;
+        wheel_scroll_multiplier = 5;
+        touch_scroll_multiplier = 1;
+        tab_bar_min_tabs = 1;
+        tab_bar_edge = "bottom";
+        tab_bar_style = "powerline";
+        tab_powerline_style = "slanted";
+        tab_title_template = "{index} - {title}";
+        cursor_shape = "beam";
+        active_tab_font_style = "bold";
+        inactive_tab_font_style = "normal";
+        adjust_line_height = 5;
+        adjust_column_width = 0;
+      };
     };
   };
 
