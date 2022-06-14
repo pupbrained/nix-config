@@ -1,8 +1,6 @@
 { inputs, pkgs, config, ... }: {
   imports = [ ./dotfiles.nix ];
   home.packages = with pkgs; [
-    draconis
-    firefox-nightly-bin
     acpi
     android-tools
     audacity
@@ -12,9 +10,11 @@
     cargo-binutils
     cinnamon.nemo
     cmake
+    draconis
     exa
     ffmpeg
     file
+    firefox-nightly-bin
     fluffychat
     gcc
     gh
@@ -70,7 +70,6 @@
     xclip
     xdotool
     yarn
-
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
       themes = with inputs; [ lavender-discord catppuccin horizontal-server-list sur-cord ];
