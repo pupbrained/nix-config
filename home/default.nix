@@ -71,18 +71,18 @@
     xdotool
     yarn
     (spotify-spicetified.override {
-      theme = "Dribbblish";
+      theme = "catppuccin";
 
-      colorScheme = "base";
+      colorScheme = "lavender";
 
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
       customExtensions = {
-        "dribbblish.js" = "${spicetify-themes}/Dribbblish/dribbblish.js";
+        "catppuccin.js" = "${spicetify-themes}/catppuccin/catppuccin.js";
       };
       enabledExtensions = [
-        "dribbblish.js"
+        "catppuccin.js"
       ];
       extraConfig = ''
         [Patch]
