@@ -79,7 +79,7 @@
       replaceColors = true;
       overwriteAssets = true;
       customExtensions = {
-        "dribbblish.js" = "${catppuccin-spicetify}/catppuccin.js";
+        "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
       };
       enabledExtensions = [
         "catppuccin.js"
