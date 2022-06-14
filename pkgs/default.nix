@@ -10,6 +10,9 @@ in
       cp -r ./jsHelper ./Themes ./Extensions ./CustomApps ./globals.d.ts ./css-map.json $out/bin
     '';
   });
+  spicetify-themes = sources.spicetify-themes.src;
+  spotify-spicetified = final.callPackage ./spotify-spicetified { };
+
   picom = prev.picom.overrideAttrs (o: {
     inherit (sources.picom) src pname version;
   });

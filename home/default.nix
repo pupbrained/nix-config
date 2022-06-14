@@ -70,6 +70,26 @@
     xclip
     xdotool
     yarn
+    (spotify-spicetified.override {
+      theme = "Dribbblish";
+
+      colorScheme = "base";
+
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      customExtensions = {
+        "dribbblish.js" = "${spicetify-themes}/Dribbblish/dribbblish.js";
+      };
+      enabledExtensions = [
+        "dribbblish.js"
+      ];
+      extraConfig = ''
+        [Patch]
+        xpui.js_find_8008 = ,(\w+=)32,
+        xpui.js_repl_8008 = ,''${1}56,
+      '';
+    })
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
       themes = with inputs; [ lavender-discord catppuccin horizontal-server-list sur-cord ];
