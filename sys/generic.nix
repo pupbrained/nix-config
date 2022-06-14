@@ -6,21 +6,6 @@ in
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (final: prev: {
-      picom = prev.picom.overrideAttrs (o: {
-        inherit (sources.picom) src pname version;
-      });
-      awesome = (prev.awesome.overrideAttrs (old: {
-        inherit (sources.awesome) src pname version;
-        patches = [ ];
-        GI_TYPELIB_PATH = "${prev.playerctl}/lib/girepository-1.0:"
-          + "${prev.upower}/lib/girepository-1.0:"
-          + old.GI_TYPELIB_PATH;
-      })).override {
-        stdenv = prev.clangStdenv;
-        gtk3Support = true;
-      };
-    })
     (self: super: {
       vscodeInsiders =
         inputs.vscodeInsiders.packages.${super.system}.vscodeInsiders;
@@ -32,6 +17,7 @@ in
     inputs.powercord-overlay.overlay
     inputs.nur.overlay
     inputs.neovim-nightly-overlay.overlay
+    (import ../pkgs)
   ];
 
   nix = {
@@ -55,10 +41,7 @@ in
     # Use packages configured by NixOS configuration (overlays & allowUnfree)
     useGlobalPkgs = true;
     users.marshall = {
-      imports = [
-        ../home
-        (import "${inputs.spicetify-nix}/module.nix")
-      ];
+      imports = [ ../home ];
       home.stateVersion = "22.05";
     };
   };
