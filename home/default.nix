@@ -132,6 +132,7 @@
         export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
         export EDITOR=lvim
         export VISUAL=lvim
+        export NIXPKGS_ALLOW_UNFREE=1
 
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
