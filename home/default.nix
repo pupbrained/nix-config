@@ -80,10 +80,10 @@
       overwriteAssets = true;
       customExtensions = {
         "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
-        enabledExtensions = [
-          "catppuccin.js"
-        ];
       };
+      enabledExtensions = [
+        "catppuccin.js"
+      ];
     })
     (pkgs.discord-plugged.override {
       plugins = with inputs;
