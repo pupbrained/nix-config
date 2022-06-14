@@ -11,6 +11,7 @@ in
     '';
   });
   spicetify-themes = sources.spicetify-themes.src;
+  catppuccin-spicetify = sources.catppuccin-spicetify.src;
   spotify-spicetified = final.callPackage ./spotify-spicetified { };
 
   picom = prev.picom.overrideAttrs (o: {

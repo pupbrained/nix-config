@@ -12,6 +12,17 @@
       sha256 = "sha256-4z3w6iuv+Gw2xRvhv2AX4suO6dl82woJn0p1nkEx3uM=";
     });
   };
+  catppuccin-spicetify = {
+    pname = "catppuccin-spicetify";
+    version = "0fb701a7b94b0c938c8f6da75b82cf5bcb0f848a";
+    src = fetchFromGitHub ({
+      owner = "catppuccin";
+      repo = "spicetify";
+      rev = "0fb701a7b94b0c938c8f6da75b82cf5bcb0f848a";
+      fetchSubmodules = false;
+      sha256 = "sha256-Q45Kal0qqqjYPpRv97XZAgkUnY5gYCAuBBaPKGLfckU=";
+    });
+  };
   picom = {
     pname = "picom";
     version = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";

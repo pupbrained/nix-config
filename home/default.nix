@@ -73,22 +73,16 @@
     (spotify-spicetified.override {
       theme = "catppuccin";
 
-      colorScheme = "lavender";
+      colorScheme = "mauve";
 
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
       customExtensions = {
-        "catppuccin.js" = "${spicetify-themes}/catppuccin/catppuccin.js";
-      };
+        "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
       enabledExtensions = [
         "catppuccin.js"
       ];
-      extraConfig = ''
-        [Patch]
-        xpui.js_find_8008 = ,(\w+=)32,
-        xpui.js_repl_8008 = ,''${1}56,
-      '';
     })
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];

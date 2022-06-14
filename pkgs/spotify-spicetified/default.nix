@@ -2,6 +2,7 @@
 , spotify-unwrapped
 , spicetify-cli
 , spicetify-themes
+, catppuccin-spicetify
 , writeText
 
 , theme ? ""
@@ -66,6 +67,7 @@ spotify-unwrapped.overrideAttrs (o: {
     mkdir -p Themes Extensions CustomApps
 
     find ${spicetify-themes}/ -maxdepth 1 -type d -exec ln -s {} Themes \;
+    cp -r ${catppuccin-spicetify}/ Themes/catppuccin
     
     ${spicetifyLnCommands}
 
