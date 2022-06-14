@@ -80,12 +80,14 @@
       overwriteAssets = true;
       customExtensions = {
         "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
-      enabledExtensions = [
-        "catppuccin.js"
-      ];
+        enabledExtensions = [
+          "catppuccin.js"
+        ];
+      };
     })
     (pkgs.discord-plugged.override {
-      plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];
+      plugins = with inputs;
+        [ theme-toggler powercord-tiktok-tts ];
       themes = with inputs; [ lavender-discord catppuccin horizontal-server-list sur-cord ];
     })
   ];
@@ -130,10 +132,6 @@
         export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
         export EDITOR=lvim
         export VISUAL=lvim
-
-        run() {
-          nix-shell -p $1 --run \'$1\'
-        }
 
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
