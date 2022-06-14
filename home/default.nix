@@ -17,7 +17,6 @@
     cinnamon.nemo
     cmake
     draconis
-    exa
     ffmpeg
     file
     firefox-nightly-bin
@@ -116,6 +115,26 @@
       };
     };
 
+    exa = {
+      enable = true;
+      enableAliases = true;
+    };
+
+    bat = {
+      enable = true;
+      themes = {
+        catppuccin = builtins.readFile (pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "sublime-text";
+            rev = "0b7ac201ce4ec7bac5e0063b9a7483ca99907bbf";
+            sha256 = "1kn5v8g87r6pjzzij9p8j7z9afc6fj0n8drd24qyin8p1nrlifi1";
+          }
+          + "/Catppuccin.tmTheme");
+      };
+      config.theme = "catppuccin";
+    };
+
     zsh = {
       enable = true;
       dotDir = ".config/zsh";
@@ -126,6 +145,8 @@
         se = "sudoedit";
         gc = "git commit";
         ga = "git add .";
+        gcap = "ga; gc; gp";
+        cat = "bat";
       };
       initExtra = ''
         bindkey "^[[H" beginning-of-line
@@ -149,7 +170,6 @@
           {name = "zsh-users/zsh-autosuggestions";}
           {name = "zsh-users/zsh-syntax-highlighting";}
           {name = "zsh-users/zsh-history-substring-search";}
-          {name = "RitchieS/zsh-exa";}
           {name = "chisui/zsh-nix-shell";}
           {
             name = "romkatv/powerlevel10k";

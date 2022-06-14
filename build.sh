@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-alejandra . -q
+nix run nixpkgs#alejandra -- . -q
 
 for i in $(nix profile list | cut -d' ' -f1); do
   nix profile remove 0
