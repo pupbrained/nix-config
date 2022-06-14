@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   xdg.configFile = {
     "awesome" = {
       source = ../dotfiles/awesome;

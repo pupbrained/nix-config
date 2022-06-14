@@ -1,12 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, config, pkgs, ... }:
-
 {
-
-  imports = [ ./hardware-configuration.nix ../generic.nix ];
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix ../generic.nix];
 
   boot = {
     loader = {
@@ -26,22 +27,20 @@
     };
   };
 
-  environment.systemPackages =
-    let
-      inherit (pkgs) plasma5Packages;
-      sddm_theme = plasma5Packages.mkDerivation {
-        name = "sddm-theme";
-        src = ./sugar-candy.tar.gz;
-        propagatedUserEnvPkgs = with plasma5Packages; [ qtgraphicaleffects ];
-        installPhase = ''
-          mkdir -p $out/share/sddm/themes
-          cp -r ./. $out/share/sddm/themes/sugar-candy
-          cp ${./sugar-candy.conf} $out/share/sddm/themes/sugar-candy/theme.conf
-          cp ${./NixLogo.png} $out/share/sddm/themes/sugar-candy/Backgrounds/NixLogo.png
-        '';
-      };
-    in
-    [ sddm_theme ];
+  environment.systemPackages = let
+    inherit (pkgs) plasma5Packages;
+    sddm_theme = plasma5Packages.mkDerivation {
+      name = "sddm-theme";
+      src = ./sugar-candy.tar.gz;
+      propagatedUserEnvPkgs = with plasma5Packages; [qtgraphicaleffects];
+      installPhase = ''
+        mkdir -p $out/share/sddm/themes
+        cp -r ./. $out/share/sddm/themes/sugar-candy
+        cp ${./sugar-candy.conf} $out/share/sddm/themes/sugar-candy/theme.conf
+        cp ${./NixLogo.png} $out/share/sddm/themes/sugar-candy/Backgrounds/NixLogo.png
+      '';
+    };
+  in [sddm_theme];
   services = {
     gnome.gnome-keyring.enable = true;
     xserver = {
@@ -58,12 +57,12 @@
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-rounded;
-        extraPackages = with pkgs; [ feh polybar i3lock ];
+        extraPackages = with pkgs; [feh polybar i3lock];
       };
 
       windowManager.awesome.enable = true;
 
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = ["nvidia"];
     };
     pipewire = {
       enable = true;

@@ -248,6 +248,14 @@ lvim.plugins = {
   'lambdalisue/suda.vim'
 }
 
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "alejandra",
+    filetypes = { "nix" }
+  }
+}
+
 -- vim.g.tokyonight_style = "night"
 -- vim.g.tokyonight_colors = { bg = "#1a1b27" }
 

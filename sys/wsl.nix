@@ -1,7 +1,9 @@
-{ inputs, pkgs, ... }:
-
 {
-  imports = [ ./generic.nix ];
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [./generic.nix];
   wsl = {
     enable = true;
     automountPath = "/mnt";
@@ -13,9 +15,7 @@
 
     # Enable integration with Docker Desktop (needs to be installed)
     # docker-desktop.enable = true;
-
   };
 
   system.stateVersion = "22.05";
 }
-

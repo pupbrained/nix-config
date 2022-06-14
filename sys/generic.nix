@@ -1,9 +1,10 @@
-{ inputs, pkgs, ... }:
-
-let
-  sources = pkgs.callPackage ../_sources/generated.nix { };
-in
 {
+  inputs,
+  pkgs,
+  ...
+}: let
+  sources = pkgs.callPackage ../_sources/generated.nix {};
+in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (self: super: {
@@ -37,17 +38,17 @@ in
 
   home-manager = {
     # Pass inputs to all home-manager modules
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     # Use packages configured by NixOS configuration (overlays & allowUnfree)
     useGlobalPkgs = true;
     users.marshall = {
-      imports = [ ../home ];
+      imports = [../home];
       home.stateVersion = "22.05";
     };
   };
 
   systemd = {
-    user.services.pipewire-pulse.path = [ pkgs.pulseaudio ];
+    user.services.pipewire-pulse.path = [pkgs.pulseaudio];
     services.ssh-agent = {
       enable = true;
       description = "SSH key agent";
@@ -56,14 +57,14 @@ in
         Environment = "SSH_AUTH_SOCK=%t/ssh-agent.socket";
         ExecStart = "/run/current-system/sw/bin/ssh-agent -D -a $SSH_AUTH_SOCK";
       };
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = ["multi-user.target"];
     };
   };
 
   users.users.marshall = {
     isNormalUser = true;
     home = "/home/marshall";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA12eoS+C+n1Pa1XaygSmx4+CGkO6oYV5bZeSeBU28Y mars@possums.xyz"
@@ -80,7 +81,7 @@ in
         mv /usr/bin/.pkexec.tmp /usr/bin/pkexec
         eval $(/run/current-system/sw/bin/ssh-agent)
       '';
-      deps = [ ];
+      deps = [];
     };
   };
 

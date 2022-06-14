@@ -13,7 +13,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
     home-manager = {
-      url = "github:nix-community/home-manager/70824bb5c790b820b189f62f643f795b1d2ade2e";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,47 +48,45 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , nixos-wsl
-    , ...
-    } @ inputs:
-    let
-      inherit (nixpkgs) lib;
-      forSystems = lib.genAttrs lib.systems.flakeExposed;
-    in
-    {
-      nixosConfigurations = {
-        nix = lib.nixosSystem {
-          system = "x86_64-linux";
-          # Pass inputs to NixOS modules
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./sys/nix/configuration.nix
-            home-manager.nixosModule
-          ];
-        };
-        wsl = lib.nixosSystem {
-          system = "x86_64-linux";
-          # Pass inputs to NixOS modules
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./sys/wsl.nix
-            nixos-wsl.nixosModules.wsl
-            home-manager.nixosModule
-          ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-wsl,
+    ...
+  } @ inputs: let
+    inherit (nixpkgs) lib;
+    forSystems = lib.genAttrs lib.systems.flakeExposed;
+  in {
+    nixosConfigurations = {
+      nix = lib.nixosSystem {
+        system = "x86_64-linux";
+        # Pass inputs to NixOS modules
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./sys/nix/configuration.nix
+          home-manager.nixosModule
+        ];
       };
-      devShells = forSystems (system:
-        let pkgs = nixpkgs.legacyPackages."${system}";
-        in
-        {
-          default = pkgs.mkShellNoCC {
-            packages = with pkgs; [ nvfetcher ];
-          };
-        }
-      );
+      wsl = lib.nixosSystem {
+        system = "x86_64-linux";
+        # Pass inputs to NixOS modules
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./sys/wsl.nix
+          nixos-wsl.nixosModules.wsl
+          home-manager.nixosModule
+        ];
+      };
     };
+    devShells = forSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages."${system}";
+      in {
+        default = pkgs.mkShellNoCC {
+          packages = with pkgs; [nvfetcher];
+        };
+      }
+    );
+  };
 }

@@ -1,7 +1,13 @@
-{ inputs, pkgs, config, ... }: {
-  imports = [ ./dotfiles.nix ];
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
+  imports = [./dotfiles.nix];
   home.packages = with pkgs; [
     acpi
+    alejandra
     android-tools
     audacity
     binutils
@@ -85,9 +91,8 @@
       ];
     })
     (pkgs.discord-plugged.override {
-      plugins = with inputs;
-        [ theme-toggler powercord-tiktok-tts ];
-      themes = with inputs; [ lavender-discord catppuccin horizontal-server-list sur-cord ];
+      plugins = with inputs; [theme-toggler powercord-tiktok-tts];
+      themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord];
     })
   ];
 
@@ -129,7 +134,7 @@
         bindkey '^[[1;5D' emacs-backward-word
         bindkey '^[[A' up-line-or-search
         bindkey '^[[B' down-line-or-search
-      
+
         export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
         export EDITOR=lvim
         export VISUAL=lvim
@@ -141,13 +146,19 @@
       zplug = {
         enable = true;
         plugins = [
-          { name = "zsh-users/zsh-autosuggestions"; }
-          { name = "zsh-users/zsh-syntax-highlighting"; }
-          { name = "zsh-users/zsh-history-substring-search"; }
-          { name = "RitchieS/zsh-exa"; }
-          { name = "chisui/zsh-nix-shell"; }
-          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-          { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
+          {name = "zsh-users/zsh-autosuggestions";}
+          {name = "zsh-users/zsh-syntax-highlighting";}
+          {name = "zsh-users/zsh-history-substring-search";}
+          {name = "RitchieS/zsh-exa";}
+          {name = "chisui/zsh-nix-shell";}
+          {
+            name = "romkatv/powerlevel10k";
+            tags = [as:theme depth:1];
+          }
+          {
+            name = "plugins/git";
+            tags = [from:oh-my-zsh];
+          }
         ];
       };
     };
@@ -155,7 +166,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = [ "--cmd" "cd" ];
+      options = ["--cmd" "cd"];
     };
 
     kitty = {
@@ -239,7 +250,7 @@
       '';
       experimentalBackends = true;
 
-      shadowExclude = [ "bounding_shaped && !rounded_corners" ];
+      shadowExclude = ["bounding_shaped && !rounded_corners"];
 
       fade = true;
       fadeDelta = 7;
