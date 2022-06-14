@@ -71,24 +71,19 @@
     xdotool
     yarn
     (spotify-spicetified.override {
-      theme = "Dribbblish";
+      theme = "catppuccin";
 
-      colorScheme = "base";
+      colorScheme = "mauve";
 
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
       customExtensions = {
-        "dribbblish.js" = "${spicetify-themes}/Dribbblish/dribbblish.js";
+        "dribbblish.js" = "${catppuccin-spicetify}/catppuccin.js";
       };
       enabledExtensions = [
-        "dribbblish.js"
+        "catppuccin.js"
       ];
-      extraConfig = ''
-        [Patch]
-        xpui.js_find_8008 = ,(\w+=)32,
-        xpui.js_repl_8008 = ,''${1}56,
-      '';
     })
     (pkgs.discord-plugged.override {
       plugins = with inputs; [ theme-toggler powercord-tiktok-tts ];

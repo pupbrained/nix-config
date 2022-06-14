@@ -14,3 +14,7 @@ fetch.github = "khanhas/spicetify-cli"
 [spicetify-themes]
 src.git = "https://github.com/morpheusthewhite/spicetify-themes"
 fetch.github = "morpheusthewhite/spicetify-themes"
+
+[catppuccin-spicetify]
+src.git = "https://github.com/catppuccin/spicetify"
+fetch.github = "catppuccin/spicetify"

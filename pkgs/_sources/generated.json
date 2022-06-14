@@ -18,6 +18,25 @@
         },
         "version": "3a542219f3bf129546ae79eb20e384ea28fa9798"
     },
+    "catppuccin-spicetify": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "catppuccin-spicetify",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "spicetify",
+            "rev": "0fb701a7b94b0c938c8f6da75b82cf5bcb0f848a",
+            "sha256": "sha256-Q45Kal0qqqjYPpRv97XZAgkUnY5gYCAuBBaPKGLfckU=",
+            "type": "github"
+        },
+        "version": "0fb701a7b94b0c938c8f6da75b82cf5bcb0f848a"
+    },
     "picom": {
         "cargoLocks": null,
         "extract": null,
