@@ -55,10 +55,7 @@ in
     # Use packages configured by NixOS configuration (overlays & allowUnfree)
     useGlobalPkgs = true;
     users.marshall = {
-      imports = [
-        ../home
-        (import "${inputs.spicetify-nix}/module.nix")
-      ];
+      imports = [ ../home ];
       home.stateVersion = "22.05";
     };
   };

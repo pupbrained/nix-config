@@ -661,26 +661,9 @@
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "powercord-tiktok-tts": "powercord-tiktok-tts",
-        "spicetify-nix": "spicetify-nix",
         "sur-cord": "sur-cord",
         "theme-toggler": "theme-toggler",
         "vscodeInsiders": "vscodeInsiders"
-      }
-    },
-    "spicetify-nix": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1655169273,
-        "narHash": "sha256-qKVT3qaj95c3YnCCHDz9uj5DPy83lRM7kkAgLOUxFYM=",
-        "owner": "marsupialgutz",
-        "repo": "spicetify-nix",
-        "rev": "8673406b9dfc89e888c12168ecb09e34ec8f8109",
-        "type": "github"
-      },
-      "original": {
-        "owner": "marsupialgutz",
-        "repo": "spicetify-nix",
-        "type": "github"
       }
     },
     "sur-cord": {

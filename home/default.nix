@@ -142,11 +142,6 @@
       enableZshIntegration = true;
       options = [ "--cmd" "cd" ];
     };
-
-    spicetify = {
-      enable = true;
-      enabledCustomApps = [ "spicetify_marketplace" ];
-    };
   };
 
   services = {
