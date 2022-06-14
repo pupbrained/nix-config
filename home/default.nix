@@ -46,7 +46,6 @@
     neovide
     neovim-nightly
     nerdfonts
-    nixfmt
     nix-prefetch-scripts
     nodejs
     notion-app-enhanced
