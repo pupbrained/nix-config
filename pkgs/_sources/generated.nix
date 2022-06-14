@@ -23,4 +23,26 @@
       sha256 = "sha256-1hVFBGo4Ieke2T9PqMur1w4D0bz/L3FAvfujY9Zergw=";
     });
   };
+  spicetify-cli = {
+    pname = "spicetify-cli";
+    version = "v2.10.1";
+    src = fetchFromGitHub ({
+      owner = "khanhas";
+      repo = "spicetify-cli";
+      rev = "v2.10.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-d5YuBLCsC7tHSzSa12rUcO0gr5f6gQ2s0wnQ3OMZO3U=";
+    });
+  };
+  spicetify-themes = {
+    pname = "spicetify-themes";
+    version = "dd7a7e13e0dc7a717cc06bba9ea04ed29d70a30e";
+    src = fetchFromGitHub ({
+      owner = "morpheusthewhite";
+      repo = "spicetify-themes";
+      rev = "dd7a7e13e0dc7a717cc06bba9ea04ed29d70a30e";
+      fetchSubmodules = false;
+      sha256 = "sha256-v6KRTeXYgsL6bVSAY7qRjBCnKKELe9SSx7FVNRkbiRU=";
+    });
+  };
 }
