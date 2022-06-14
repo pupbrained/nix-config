@@ -80,7 +80,6 @@
       overwriteAssets = true;
       customExtensions = {
         "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
-      };
       enabledExtensions = [
         "catppuccin.js"
       ];
