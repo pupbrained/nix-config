@@ -122,7 +122,7 @@
     bat = {
       enable = true;
       themes = {
-        catppuccin = builtins.readFile (pkgs.fetchFromGitHub
+        Catppuccin = builtins.readFile (pkgs.fetchFromGitHub
           {
             owner = "catppuccin";
             repo = "sublime-text";
@@ -131,7 +131,7 @@
           }
           + "/Catppuccin.tmTheme");
       };
-      config.theme = "catppuccin";
+      config.theme = "Catppuccin";
     };
 
     zsh = {
