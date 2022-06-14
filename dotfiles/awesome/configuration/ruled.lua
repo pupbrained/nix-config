@@ -62,6 +62,7 @@ ruled.client.connect_signal("request::rules", function()
       },
       name = {
         "Event Tester", -- xev
+        "Galactic Trivia"
       },
       role = {
         "AlarmWindow",

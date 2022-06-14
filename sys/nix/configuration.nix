@@ -44,7 +44,6 @@
     [ sddm_theme ];
   services = {
     gnome.gnome-keyring.enable = true;
-    flatpak.enable = true;
     xserver = {
       enable = true;
 

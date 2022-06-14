@@ -46,6 +46,11 @@
       url = "github:DiscordStyles/HorizontalServerList";
       flake = false;
     };
+
+    spicetify-nix = {
+      url = "github:marsupialgutz/spicetify-nix";
+      flake = false;
+    };
   };
 
   outputs =

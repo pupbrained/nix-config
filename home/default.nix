@@ -4,7 +4,6 @@
     draconis
     firefox-nightly-bin
     acpi
-    adoptopenjdk-bin
     android-tools
     audacity
     binutils
@@ -27,6 +26,7 @@
     herbe
     inotifyTools
     jamesdsp
+    jetbrains.idea-ultimate
     jq
     keychain
     kitty
@@ -47,6 +47,7 @@
     nodejs
     notion-app-enhanced
     noto-fonts-cjk-sans
+    openjdk16-bootstrap
     p7zip
     pamixer
     papirus-icon-theme
@@ -60,9 +61,6 @@
     rustup
     rust-analyzer
     scrot
-    spicetify-cli
-    spot
-    steam
     sumneko-lua-language-server
     themechanger
     unrar
@@ -113,8 +111,8 @@
         bindkey "^[[F" end-of-line
         bindkey '^[[1;5C' emacs-forward-word
         bindkey '^[[1;5D' emacs-backward-word
-        bindkey '^[[A' history-substring-search-up
-        bindkey '^[[B' history-substring-search-down
+        bindkey '^[[A' up-line-or-search
+        bindkey '^[[B' down-line-or-search
       
         export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
         export EDITOR=lvim
@@ -123,8 +121,6 @@
         run() {
           nix-shell -p $1 --run \'$1\'
         }
-
-        compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -146,6 +142,11 @@
       enable = true;
       enableZshIntegration = true;
       options = [ "--cmd" "cd" ];
+    };
+
+    spicetify = {
+      enable = true;
+      enabledCustomApps = [ "spicetify_marketplace" ];
     };
   };
 
@@ -180,4 +181,10 @@
     };
   };
 
+  xdg.desktopEntries."idea-ultimate" = {
+    name = "Intellij IDEA";
+    exec = "steam-run idea-ultimate";
+    icon = "idea-ultimate";
+    settings.StartupWMClass = "jetbrains-idea";
+  };
 }

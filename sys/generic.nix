@@ -55,7 +55,10 @@ in
     # Use packages configured by NixOS configuration (overlays & allowUnfree)
     useGlobalPkgs = true;
     users.marshall = {
-      imports = [ ../home ];
+      imports = [
+        ../home
+        (import "${inputs.spicetify-nix}/module.nix")
+      ];
       home.stateVersion = "22.05";
     };
   };
@@ -101,5 +104,9 @@ in
   time.timeZone = "America/New_York";
   security.sudo.wheelNeedsPassword = false;
   programs.dconf.enable = true;
+  programs.steam.enable = true;
   programs.command-not-found.enable = false;
+  environment.pathsToLink = [
+    "/share/zsh"
+  ];
 }

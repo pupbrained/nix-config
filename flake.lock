@@ -139,11 +139,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1655132173,
-        "narHash": "sha256-8bNwshGyBRbmxlepfeUj5F/G1fJZfcv1iH0WF5JGd5E=",
+        "lastModified": 1655167238,
+        "narHash": "sha256-Y3vbRVdBtIW1T7RtAJFqS5o4tSmnxLVC2x+RLrasmtI=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "58e03f60efcf2fc901fc7ae487b1a115a12ebce9",
+        "rev": "3b057a2057c6b47c417db6ef79bbbeca237e6a38",
         "type": "github"
       },
       "original": {
@@ -534,11 +534,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1654230545,
-        "narHash": "sha256-8Vlwf0x8ow6pPOK2a04bT+pxIeRnM1+O0Xv9/CuDzRs=",
+        "lastModified": 1655043425,
+        "narHash": "sha256-A+oT+aQGhW5lXy8H0cqBLsYtgcnT5glmGOXWQDcGw6I=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "236cc2971ac72acd90f0ae3a797f9f83098b17ec",
+        "rev": "914ef51ffa88d9b386c71bdc88bffc5273c08ada",
         "type": "github"
       },
       "original": {
@@ -582,11 +582,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1655154663,
-        "narHash": "sha256-AwlTRUTv+XsniYrPru5ncq+NOd+xpjunO06jJjunGCc=",
+        "lastModified": 1655167413,
+        "narHash": "sha256-D3UN8AzyKlb67km63YHnDPyDzCIC6QA+CzMmrv9Fm5g=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "49298d4e46f36c9685f65f056de1610f8b0cf525",
+        "rev": "834d53bf16ace0284f1d0d1b0c7254876b435652",
         "type": "github"
       },
       "original": {
@@ -598,11 +598,11 @@
     "powercord": {
       "flake": false,
       "locked": {
-        "lastModified": 1654542630,
-        "narHash": "sha256-m1o0Ahox1Uc58608kJCBmkAYKvsStbcuNl1bEsPjco4=",
+        "lastModified": 1655085833,
+        "narHash": "sha256-SZRzEiBs6PLYMTH0XnPqgzEhnBYKSlClkZa7Uxnahi8=",
         "owner": "powercord-org",
         "repo": "powercord",
-        "rev": "92ceae90cd7b7f2c31a11da84e8622095025a25a",
+        "rev": "cedd005690d5e99f174b4308ce1fb5c1a686ee7f",
         "type": "github"
       },
       "original": {
@@ -617,11 +617,11 @@
         "powercord": "powercord"
       },
       "locked": {
-        "lastModified": 1654563187,
-        "narHash": "sha256-yU5o8yk3AKE8wRWmCHG7jof75Isr7eU2kHhCWV28eSk=",
+        "lastModified": 1655169109,
+        "narHash": "sha256-0PjyTNx/+LWbEOEQRBZXtwP+linKziRQY+ANiTUYNHw=",
         "owner": "LavaDesu",
         "repo": "powercord-overlay",
-        "rev": "f69ef0a94c8e16b69e5b3b2b19132e28610bea6a",
+        "rev": "a807129f695db927e2ff5b3fee44b7ef0483c824",
         "type": "github"
       },
       "original": {
@@ -661,9 +661,26 @@
         "nur": "nur",
         "powercord-overlay": "powercord-overlay",
         "powercord-tiktok-tts": "powercord-tiktok-tts",
+        "spicetify-nix": "spicetify-nix",
         "sur-cord": "sur-cord",
         "theme-toggler": "theme-toggler",
         "vscodeInsiders": "vscodeInsiders"
+      }
+    },
+    "spicetify-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1655169273,
+        "narHash": "sha256-qKVT3qaj95c3YnCCHDz9uj5DPy83lRM7kkAgLOUxFYM=",
+        "owner": "marsupialgutz",
+        "repo": "spicetify-nix",
+        "rev": "8673406b9dfc89e888c12168ecb09e34ec8f8109",
+        "type": "github"
+      },
+      "original": {
+        "owner": "marsupialgutz",
+        "repo": "spicetify-nix",
+        "type": "github"
       }
     },
     "sur-cord": {
