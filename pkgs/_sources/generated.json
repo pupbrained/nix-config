@@ -10,13 +10,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "3ximus",
+            "owner": "replaycoding",
             "repo": "aerial-sddm-theme",
-            "rev": "9d354bb8f3bece90c91f3c0f39eeb45e9da80b0b",
-            "sha256": "sha256-/FTn2okYVG5se1tu4zfyk6mhSBq+rmoJn0D4dkgsXyY=",
+            "rev": "5b451282b73deb6840181cfc47ac137e25eff4f7",
+            "sha256": "sha256-ATIrLF81Bw5YkRDaPnjt57jLiqwrm3AoFR7FcMwkR6U=",
             "type": "github"
         },
-        "version": "9d354bb8f3bece90c91f3c0f39eeb45e9da80b0b"
+        "version": "5b451282b73deb6840181cfc47ac137e25eff4f7"
     },
     "awesome": {
         "cargoLocks": null,
