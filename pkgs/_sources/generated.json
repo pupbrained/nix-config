@@ -1,4 +1,23 @@
 {
+    "aerial-sddm-theme": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "aerial-sddm-theme",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "3ximus",
+            "repo": "aerial-sddm-theme",
+            "rev": "9d354bb8f3bece90c91f3c0f39eeb45e9da80b0b",
+            "sha256": "sha256-/FTn2okYVG5se1tu4zfyk6mhSBq+rmoJn0D4dkgsXyY=",
+            "type": "github"
+        },
+        "version": "9d354bb8f3bece90c91f3c0f39eeb45e9da80b0b"
+    },
     "awesome": {
         "cargoLocks": null,
         "extract": null,
