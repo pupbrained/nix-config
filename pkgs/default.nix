@@ -28,4 +28,12 @@ in {
       stdenv = prev.clangStdenv;
       gtk3Support = true;
     };
+  mySddmTheme = plasma5Packages.mkDerivation {
+    inherit (sources.aerial-sddm-theme) src pname version;
+    propagatedUserEnvPkgs = with plasma5Packages; [qtgraphicaleffects];
+    installPhase = ''
+      mkdir -p $out/share/sddm/themes
+      cp -r ./. $out/share/sddm/themes/aerial-sddm-theme
+    '';
+  };
 }

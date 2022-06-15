@@ -18,3 +18,7 @@ fetch.github = "morpheusthewhite/spicetify-themes"
 [catppuccin-spicetify]
 src.git = "https://github.com/catppuccin/spicetify"
 fetch.github = "catppuccin/spicetify"
+
+[aerial-sddm-theme]
+src.git = "https://github.com/3ximus/aerial-sddm-theme"
+fetch.github = "3ximus/aerial-sddm-theme"
