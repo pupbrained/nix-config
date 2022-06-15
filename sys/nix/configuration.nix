@@ -27,20 +27,7 @@
     };
   };
 
-  environment.systemPackages = let
-    inherit (pkgs) plasma5Packages;
-    sddm_theme = plasma5Packages.mkDerivation {
-      name = "sddm-theme";
-      src = ./sugar-candy.tar.gz;
-      propagatedUserEnvPkgs = with plasma5Packages; [qtgraphicaleffects];
-      installPhase = ''
-        mkdir -p $out/share/sddm/themes
-        cp -r ./. $out/share/sddm/themes/sugar-candy
-        cp ${./sugar-candy.conf} $out/share/sddm/themes/sugar-candy/theme.conf
-        cp ${./NixLogo.png} $out/share/sddm/themes/sugar-candy/Backgrounds/NixLogo.png
-      '';
-    };
-  in [sddm_theme];
+  environment.systemPackages = [mySddmTheme];
   services = {
     gnome.gnome-keyring.enable = true;
     xserver = {
@@ -49,7 +36,7 @@
       displayManager = {
         sddm = {
           enable = true;
-          theme = "sugar-candy";
+          theme = "aerial-sddm-theme";
         };
         defaultSession = "none+awesome";
       };
