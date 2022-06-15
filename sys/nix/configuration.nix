@@ -27,7 +27,7 @@
     };
   };
 
-  environment.systemPackages = [mySddmTheme];
+  environment.systemPackages = [pkgs.mySddmTheme];
   services = {
     gnome.gnome-keyring.enable = true;
     xserver = {
