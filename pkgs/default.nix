@@ -30,7 +30,7 @@ in {
     };
   mySddmTheme = prev.plasma5Packages.mkDerivation {
     inherit (sources.aerial-sddm-theme) src pname version;
-    propagatedUserEnvPkgs = with prev.plasma5Packages; [qtgraphicaleffects];
+    propagatedUserEnvPkgs = with prev.plasma5Packages; [qtgraphicaleffects qtmultimedia qtquickcontrols];
     installPhase = ''
       mkdir -p $out/share/sddm/themes
       cp -r ./. $out/share/sddm/themes/aerial-sddm-theme
