@@ -61,7 +61,6 @@
     python310
     redshift
     rofi
-    rustup
     rust-analyzer
     scrot
     sumneko-lua-language-server
@@ -92,6 +91,13 @@
       plugins = with inputs; [theme-toggler powercord-tiktok-tts];
       themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord];
     })
+    (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
   ];
 
   programs = {

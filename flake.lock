@@ -68,6 +68,27 @@
         "type": "github"
       }
     },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1655188051,
+        "narHash": "sha256-Cf/qNGb7Xw84TPPep0iIZLLhSXiFq9h+tt6TnfaQMrE=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "522a4e99be1f8fcc94b94666c3a44677d668f539",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -581,11 +602,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1655231108,
-        "narHash": "sha256-6vFxn1m+26y1FkQ7Lrg0+Wg8zKjuXWl3oA59QvGDNPM=",
+        "lastModified": 1655245946,
+        "narHash": "sha256-byRY0DIaY5UZR3iEYOIKF2DaaenAejtSsJap40RMUu0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "eb1dacad726fbd6291b74ed65ba8283701a78b9b",
+        "rev": "da622a66f342e830a3782f002d0effb7c09296d2",
         "type": "github"
       },
       "original": {
@@ -649,6 +670,7 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "draconis": "draconis",
+        "fenix": "fenix",
         "flake-firefox-nightly": "flake-firefox-nightly",
         "home-manager": "home-manager",
         "horizontal-server-list": "horizontal-server-list",
@@ -663,6 +685,23 @@
         "sur-cord": "sur-cord",
         "theme-toggler": "theme-toggler",
         "vscodeInsiders": "vscodeInsiders"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1655114284,
+        "narHash": "sha256-2yz3TexDtxXMMjYKn1SImavH3Zflkxte6/5ESncu5E4=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "7db73875ac0d9280ae93b14232249d9c1496583a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "sur-cord": {

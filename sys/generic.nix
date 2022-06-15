@@ -18,6 +18,7 @@ in {
     inputs.powercord-overlay.overlay
     inputs.nur.overlay
     inputs.neovim-nightly-overlay.overlay
+    inputs.fenix.overlay
     (import ../pkgs)
   ];
 
