@@ -80,6 +80,10 @@
   security.pam.services.sddm.enableGnomeKeyring = true;
   powerManagement.cpuFreqGovernor = "performance";
 
+  i18n.extraLocaleSettings = {
+    LC_TIME = "en_US.UTF-8";
+  };
+
   hardware = {
     nvidia.modesetting.enable = true;
     opengl = {
