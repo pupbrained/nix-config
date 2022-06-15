@@ -13,9 +13,11 @@
     binutils
     brightnessctl
     busybox
+    cachix
     cargo-binutils
     cinnamon.nemo
     cmake
+    comma
     draconis
     ffmpeg
     file
@@ -23,6 +25,7 @@
     fluffychat
     gcc
     gh
+    gitkraken
     gnome.eog
     gnome.seahorse
     gnumake
@@ -63,6 +66,7 @@
     rofi
     rust-analyzer
     scrot
+    statix
     sumneko-lua-language-server
     themechanger
     unrar
@@ -118,6 +122,7 @@
         signByDefault = true;
         key = "DB41891AE0A1ED4D";
       };
+      diff-so-fancy.enable = true;
     };
 
     exa = {
@@ -178,11 +183,11 @@
           {name = "chisui/zsh-nix-shell";}
           {
             name = "romkatv/powerlevel10k";
-            tags = [as:theme depth:1];
+            tags = ["as:theme" "depth:1"];
           }
           {
             name = "plugins/git";
-            tags = [from:oh-my-zsh];
+            tags = ["from:oh-my-zsh"];
           }
         ];
       };

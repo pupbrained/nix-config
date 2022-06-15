@@ -2,6 +2,7 @@
 set -eo pipefail
 
 nix run nixpkgs#alejandra -- . -q
+nix run nixpkgs#statix -- fix .
 
 for i in $(nix profile list | cut -d' ' -f1); do
   nix profile remove 0

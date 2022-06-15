@@ -8,10 +8,8 @@ in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (self: super: {
-      vscodeInsiders =
-        inputs.vscodeInsiders.packages.${super.system}.vscodeInsiders;
-      firefox-nightly-bin =
-        inputs.flake-firefox-nightly.packages.${super.system}.firefox-nightly-bin;
+      inherit (inputs.vscodeInsiders.packages.${super.system}) vscodeInsiders;
+      inherit (inputs.flake-firefox-nightly.packages.${super.system}) firefox-nightly-bin;
       draconis =
         inputs.draconis.defaultPackage.${super.system};
     })
