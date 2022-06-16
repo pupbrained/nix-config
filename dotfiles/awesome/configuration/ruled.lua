@@ -58,11 +58,11 @@ ruled.client.connect_signal("request::rules", function()
       class = {
         "Lxappearance",
         "Nm-connection-editor",
-        ".*.exe"
+        ".*.exe",
+        "Main"
       },
       name = {
         "Event Tester", -- xev
-        "Galactic Trivia"
       },
       role = {
         "AlarmWindow",
