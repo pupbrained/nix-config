@@ -25,7 +25,7 @@
     fluffychat
     gcc
     gh
-    gitkraken
+    github-desktop
     gnome.eog
     gnome.seahorse
     gnumake
