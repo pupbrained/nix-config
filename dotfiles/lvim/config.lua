@@ -20,10 +20,6 @@ lvim.colorscheme = "catppuccin"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<Leader>be"] = "<Plug>(cokeline-pick-close)"
-lvim.keys.normal_mode["<Leader>bb"] = "<Plug>(cokeline-focus-prev)"
-lvim.keys.normal_mode["L"] = "<Plug>(cokeline-focus-next)"
-lvim.keys.normal_mode["H"] = "<Plug>(cokeline-focus-prev)"
 lvim.keys.normal_mode["<C-w>"] = ":SudaWrite<cr>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
@@ -67,7 +63,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.bufferline.active = false
+lvim.builtin.bufferline.active = true
 lvim.builtin.lualine.style = "default"
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -175,65 +171,6 @@ lvim.plugins = {
 
   -- Browser support
   "glacambre/firenvim",
-
-  -- Bufferline
-  {
-    "noib3/nvim-cokeline",
-    config = function()
-      local get_hex = require('cokeline/utils').get_hex
-
-      require('cokeline').setup({
-        show_if_buffers_are_at_least = 2,
-
-        default_hl = {
-          fg = function(buffer)
-            return buffer.is_focused
-                and get_hex('Normal', 'fg')
-                or get_hex('Comment', 'fg')
-          end,
-          bg = get_hex('ColorColumn', 'bg'),
-        },
-
-        components = {
-          {
-            text = ' ',
-            bg = get_hex('Normal', 'bg'),
-          },
-          {
-            text = '',
-            fg = get_hex('ColorColumn', 'bg'),
-            bg = get_hex('Normal', 'bg'),
-          },
-          {
-            text = function(buffer)
-              return buffer.devicon.icon
-            end,
-            fg = function(buffer)
-              return buffer.devicon.color
-            end,
-          },
-          {
-            text = ' ',
-          },
-          {
-            text = function(buffer) return buffer.filename .. '  ' end,
-            style = function(buffer)
-              return buffer.is_focused and 'bold' or nil
-            end,
-          },
-          {
-            text = '',
-            delete_buffer_on_left_click = true,
-          },
-          {
-            text = '',
-            fg = get_hex('ColorColumn', 'bg'),
-            bg = get_hex('Normal', 'bg'),
-          },
-        },
-      })
-    end
-  },
 
   -- Markdown previewing
   'ellisonleao/glow.nvim',

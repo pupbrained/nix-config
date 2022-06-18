@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     acpi
     alejandra
+    amp
     android-tools
     audacity
     binutils
