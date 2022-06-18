@@ -245,7 +245,10 @@ lvim.plugins = {
   'wakatime/vim-wakatime',
 
   -- Write with sudo
-  'lambdalisue/suda.vim'
+  'lambdalisue/suda.vim',
+
+  -- Magit for Neovim
+  'TimUntersberger/neogit'
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
