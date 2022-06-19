@@ -184,7 +184,10 @@ lvim.plugins = {
   'lambdalisue/suda.vim',
 
   -- Magit for Neovim
-  'TimUntersberger/neogit'
+  'TimUntersberger/neogit',
+
+  -- Code context
+  'SmiteshP/nvim-navic'
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
