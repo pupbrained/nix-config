@@ -307,5 +307,8 @@
   wayland.windowManager.sway = {
     enable = true;
     extraOptions = ["--unsupported-gpu"];
+    extraSessionCommands = ''
+      export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+    '';
   };
 }

@@ -28,13 +28,13 @@
   };
   catppuccin-spicetify = {
     pname = "catppuccin-spicetify";
-    version = "0fb701a7b94b0c938c8f6da75b82cf5bcb0f848a";
+    version = "093e0ac6ce377fadc4f772fc13838e77ae2e793f";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "spicetify";
-      rev = "0fb701a7b94b0c938c8f6da75b82cf5bcb0f848a";
+      rev = "093e0ac6ce377fadc4f772fc13838e77ae2e793f";
       fetchSubmodules = false;
-      sha256 = "sha256-Q45Kal0qqqjYPpRv97XZAgkUnY5gYCAuBBaPKGLfckU=";
+      sha256 = "sha256-OYxx33DucrN/27q306aIV3mKmrnKvZ0Uuh33QnpNnwg=";
     };
   };
   picom = {
