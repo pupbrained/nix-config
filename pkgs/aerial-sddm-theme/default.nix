@@ -3,7 +3,6 @@
   qtgraphicaleffects,
   qtmultimedia,
   qtquickcontrols,
-  gstreamer,
   phonon,
   phonon-backend-gstreamer,
   gst_all_1,
