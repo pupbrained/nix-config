@@ -28,5 +28,5 @@ in {
       stdenv = prev.clangStdenv;
       gtk3Support = true;
     };
-  mySddmTheme = prev.plasma5Packages.callPackage ./aerial-sddm-theme { inherit sources; };
+  mySddmTheme = prev.plasma5Packages.callPackage ./aerial-sddm-theme {inherit sources;};
 }

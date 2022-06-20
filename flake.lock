@@ -35,11 +35,11 @@
     "catppuccin": {
       "flake": false,
       "locked": {
-        "lastModified": 1655747504,
-        "narHash": "sha256-taLB1Zy/fHu8rliiXK0RoEHcIae+AS/2ZOCg9WTCG2A=",
+        "lastModified": 1655749526,
+        "narHash": "sha256-FFYEeuw9in/n771lkgfIuJE69iwGK54XblKNtoP0bDU=",
         "owner": "catppuccin",
         "repo": "discord",
-        "rev": "84fd3ddcf2d6107265333ed16562d23c0b431a06",
+        "rev": "54a97640a145c252f9d65584be7111c60514c911",
         "type": "github"
       },
       "original": {
@@ -602,11 +602,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1655739339,
-        "narHash": "sha256-ykV5RQgltIJl5EXbGdndf6IcncfCP8RnyH57TyKFazE=",
+        "lastModified": 1655759340,
+        "narHash": "sha256-bkO6ASVrS34/tl9fJfWSB8Yg9B5HuC2lhPTW+fmM0tM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "0cadcae82c23de1ec4b4a5bbe1e2f75e59752317",
+        "rev": "8f8c66e33fd27731d2413e0e502e5f9f3d207b64",
         "type": "github"
       },
       "original": {
