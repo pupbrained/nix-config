@@ -17,6 +17,7 @@ in {
     inputs.nur.overlay
     inputs.neovim-nightly-overlay.overlay
     inputs.fenix.overlay
+    inputs.nixpkgs-wayland.overlay
     (import ../pkgs)
   ];
 
