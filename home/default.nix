@@ -303,4 +303,9 @@
     icon = "idea-ultimate";
     settings.StartupWMClass = "jetbrains-idea";
   };
+
+  wayland.windowManager.sway = {
+    enable = true;
+    extraOptions = ["--unsupported-gpu"];
+  };
 }

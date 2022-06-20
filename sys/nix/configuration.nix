@@ -38,12 +38,6 @@
         defaultSession = "none+awesome";
       };
 
-      windowManager.i3 = {
-        enable = true;
-        package = pkgs.i3-rounded;
-        extraPackages = with pkgs; [feh polybar i3lock];
-      };
-
       windowManager.awesome.enable = true;
 
       videoDrivers = ["nvidia"];

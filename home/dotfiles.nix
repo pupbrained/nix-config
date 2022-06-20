@@ -4,7 +4,6 @@ _: {
       source = ../dotfiles/awesome;
       recursive = true;
     };
-    "i3".source = ../dotfiles/i3;
     "lvim" = {
       source = ../dotfiles/lvim;
       recursive = true;
