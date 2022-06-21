@@ -46,6 +46,7 @@
     mate.engrampa
     micro
     minecraft
+    most
     mpv
     neovide
     neovim-nightly
@@ -69,7 +70,7 @@
     scrot
     statix
     sumneko-lua-language-server
-    themechanger
+    tldr
     unrar
     unzip
     upower
@@ -171,6 +172,7 @@
         export EDITOR=lvim
         export VISUAL=lvim
         export NIXPKGS_ALLOW_UNFREE=1
+        export PAGER=most
 
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -264,6 +266,18 @@
         color15 = "#BAC2DE";
       };
     };
+
+    nixvim = {
+      enable = true;
+      options = {
+        number = true;
+        relativenumber = true;
+      };
+      extraPlugins = with pkgs.vimPlugins; [
+        catppuccin-nvim
+      ];
+      colorschemes.gruvbox.enable = true;
+    };
   };
 
   services = {
@@ -308,7 +322,16 @@
     enable = true;
     extraOptions = ["--unsupported-gpu"];
     extraSessionCommands = ''
-      export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+      export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+      export CLUTTER_BACKEND=wayland
+      export SDL_VIDEODRIVER=wayland
+      export XDG_SESSION_TYPE=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+      export MOZ_ENABLE_WAYLAND=1
+      export GBM_BACKEND=nvidia-drm
+      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export WLR_NO_HARDWARE_CURSORS=1
     '';
   };
 }

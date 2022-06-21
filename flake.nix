@@ -2,19 +2,20 @@
   description = "Marshall's NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nur.url = "github:nix-community/NUR";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     draconis.url = "github:marsupialgutz/draconis";
+    flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
-    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixvim.url = "github:pta2002/nixvim";
+    nur.url = "github:nix-community/NUR";
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin = {
+      url = "github:catppuccin/discord";
+      flake = false;
     };
 
     fenix = {
@@ -22,13 +23,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    theme-toggler = {
-      url = "github:redstonekasi/theme-toggler";
-      flake = false;
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    powercord-tiktok-tts = {
-      url = "github:oatmealine/powercord-tiktok-tts";
+    horizontal-server-list = {
+      url = "github:DiscordStyles/HorizontalServerList";
       flake = false;
     };
 
@@ -37,8 +38,8 @@
       flake = false;
     };
 
-    catppuccin = {
-      url = "github:catppuccin/discord";
+    powercord-tiktok-tts = {
+      url = "github:oatmealine/powercord-tiktok-tts";
       flake = false;
     };
 
@@ -47,8 +48,8 @@
       flake = false;
     };
 
-    horizontal-server-list = {
-      url = "github:DiscordStyles/HorizontalServerList";
+    theme-toggler = {
+      url = "github:redstonekasi/theme-toggler";
       flake = false;
     };
   };
@@ -58,6 +59,7 @@
     nixpkgs,
     home-manager,
     nixos-wsl,
+    nixvim,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -66,16 +68,15 @@
     nixosConfigurations = {
       nix = lib.nixosSystem {
         system = "x86_64-linux";
-        # Pass inputs to NixOS modules
         specialArgs = {inherit inputs;};
         modules = [
           ./sys/nix/configuration.nix
           home-manager.nixosModule
+          nixvim.homeManagerModules.nixvim
         ];
       };
       wsl = lib.nixosSystem {
         system = "x86_64-linux";
-        # Pass inputs to NixOS modules
         specialArgs = {inherit inputs;};
         modules = [
           ./sys/wsl.nix
