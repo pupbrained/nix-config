@@ -72,7 +72,6 @@
         modules = [
           ./sys/nix/configuration.nix
           home-manager.nixosModule
-          nixvim.homeManagerModules.nixvim
         ];
       };
       wsl = lib.nixosSystem {
