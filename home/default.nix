@@ -479,7 +479,7 @@
     enable = true;
     extraOptions = ["--unsupported-gpu"];
     extraSessionCommands = ''
-        export WLR_DRM_DEVICES = /dev/dri/card1:/dev/dri/card0
+      export WLR_DRM_DEVICES = /dev/dri/card1:/dev/dri/card0
       export CLUTTER_BACKEND=wayland
       export SDL_VIDEODRIVER=wayland
       export XDG_SESSION_TYPE=wayland
