@@ -308,6 +308,9 @@
             "                                       "
             "              N Y A V I M              "
           ];
+          footer = [
+            "nyaa :3c meow x3 meow mrowww nyaaaa :333"
+          ];
         };
         treesitter = {
           enable = true;
@@ -339,6 +342,7 @@
         vim.g.mapleader = ' '
         vim.o.showmode = false
         vim.cmd('set mouse=a')
+        vim.cmd('set guifont=Rec\\ Mono\\ Casual:h13')
 
         function map(mode, lhs, rhs, opts)
           local options = { noremap = true }
