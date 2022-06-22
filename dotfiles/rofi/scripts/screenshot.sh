@@ -19,13 +19,13 @@ options="$screen\n$area\n$window"
 chosen="$(echo -e "$options" | $rofi_command -p '' -dmenu -selected-row 1)"
 case $chosen in
     $screen)
-		sleep 0.4; scrot -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
+		scrot -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
         ;;
     $area)
 		scrot -s --line mode=edge -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
         ;;
     $window)
-		sleep 0.4; scrot -u -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
+		scrot -u -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
         ;;
 esac
 

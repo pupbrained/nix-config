@@ -83,9 +83,7 @@
     yarn
     (spotify-spicetified.override {
       theme = "catppuccin";
-
       colorScheme = "mauve";
-
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
@@ -275,29 +273,90 @@
       options = {
         number = true;
         relativenumber = true;
+        shiftwidth = 0;
+        tabstop = 2;
+        smarttab = true;
+        expandtab = true;
       };
       plugins = {
-        lsp.enable = true;
+        lsp = {
+          enable = true;
+          servers = {
+            rnix-lsp.enable = true;
+          };
+        };
+        lualine.enable = true;
+        telescope.enable = true;
+        nvim-tree.enable = true;
+
+        dashboard = {
+          enable = true;
+          executive = "telescope";
+          header = [
+            "          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄         "
+            "        ▄▀░░░░░░░░░░░░▄░░░░░░░▀▄       "
+            "        █░░▄░░░░▄░░░░░░░░░░░░░░█       "
+            "        █░░░░░░░░░░░░▄█▄▄░░▄░░░█ ▄▄▄   "
+            " ▄▄▄▄▄  █░░░░░░▀░░░░▀█░░▀▄░░░░░█▀▀░██  "
+            " ██▄▀██▄█░░░▄░░░░░░░██░░░░▀▀▀▀▀░░░░██  "
+            "  ▀██▄▀██░░░░░░░░▀░██▀░░░░░░░░░░░░░▀██ "
+            "    ▀████░▀░░░░▄░░░██░░░▄█░░░░▄░▄█░░██ "
+            "       ▀█░░░░▄░░░░░██░░░░▄░░░▄░░▄░░░██ "
+            "       ▄█▄░░░░░░░░░░░▀▄░░▀▀▀▀▀▀▀▀░░▄▀  "
+            "      █▀▀█████████▀▀▀▀████████████▀    "
+            "      ████▀  ███▀      ▀███  ▀██▀      "
+            "                                       "
+            "              N Y A V I M              "
+          ];
+        };
         treesitter = {
           enable = true;
           ensureInstalled = "all";
+          nixGrammars = true;
         };
-        lualine.enable = true;
       };
       extraPlugins = with pkgs.vimPlugins; [
         catppuccin-nvim
         lualine-nvim
+        neogit
+        null-ls-nvim
+        presence-nvim
+        toggleterm-nvim
+        trouble-nvim
+        which-key-nvim
+        vim-cool
+        vim-smoothie
       ];
       colorscheme = "catppuccin";
       extraConfigLua = ''
+        vim.g.mapleader = ' '
+        vim.o.showmode = false
+        vim.cmd('set mouse=a')
+
+        function map(mode, lhs, rhs, opts)
+          local options = { noremap = true }
+          if opts then
+            options = vim.tbl_extend("force", options, opts)
+          end
+          vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+        end
+
+        map("n", "<Leader>fb", ":DashboardJumpMarks<CR>")
+        map("n", "<Leader>tc", ":DashboardChangeColorscheme<CR>")
+        map("n", "<Leader>ff", ":DashboardFindFile<CR>")
+        map("n", "<Leader>fh", ":DashboardFindHistory<CR>")
+        map("n", "<Leader>fa", ":DashboardFindWord<CR>")
+        map("n", "<Leader>cn", ":DashboardNewFile<CR>")
+        map("n", "<Leader>e", ":NvimTreeToggle<CR>")
+
         local colors = {
-          blue   = '#80a0ff',
-          cyan   = '#79dac8',
-          black  = '#080808',
-          white  = '#c6c6c6',
-          red    = '#ff5189',
-          violet = '#d183e8',
-          grey   = '#303030',
+          blue   = '#89b4fa',
+          cyan   = '#89dceb',
+          black  = '#1e1e2e',
+          white  = '#cdd6f4',
+          red    = '#f38ba8',
+          violet = '#CBA6F7',
+          grey   = '#12131F',
         }
 
         local bubbles_theme = {
@@ -347,6 +406,29 @@
           tabline = {},
           extensions = {},
         }
+
+        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+        require("which-key").setup()
+        require("toggleterm").setup()
+
+        require("null-ls").setup({
+          sources = {
+            require("null-ls").builtins.formatting.alejandra,
+          },
+          on_attach = function(client, bufnr)
+            if client.supports_method("textDocument/formatting") then
+              vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+              vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                  vim.lsp.buf.format({bufnr = bufnr})
+                end,
+              })
+            end
+          end,
+        })
       '';
     };
   };
@@ -370,6 +452,10 @@
 
       fade = true;
       fadeDelta = 7;
+      fadeExclude = [
+        "class_g = 'Rofi'"
+      ];
+
       vSync = true;
       opacityRule = [
         "100:class_g   *?= 'Chromium-browser'"
@@ -393,7 +479,7 @@
     enable = true;
     extraOptions = ["--unsupported-gpu"];
     extraSessionCommands = ''
-      export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+        export WLR_DRM_DEVICES = /dev/dri/card1:/dev/dri/card0
       export CLUTTER_BACKEND=wayland
       export SDL_VIDEODRIVER=wayland
       export XDG_SESSION_TYPE=wayland
