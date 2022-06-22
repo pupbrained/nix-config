@@ -279,13 +279,6 @@
         expandtab = true;
       };
       plugins = {
-        lsp = {
-          enable = true;
-          servers = {
-            rnix-lsp.enable = true;
-            rust-analyzer.enable = true;
-          };
-        };
         lualine.enable = true;
         telescope.enable = true;
         nvim-autopairs.enable = true;
@@ -327,11 +320,18 @@
         comment-nvim.enable = true;
       };
       extraPlugins = with pkgs.vimPlugins; [
+        pkgs.myCopilotVim
+
+        cmp_luasnip
+        cmp-path
+        cmp-buffer
+        cmp-nvim-lsp
         catppuccin-nvim
-        myCopilotVim
         lualine-nvim
         neogit
         null-ls-nvim
+        nvim-cmp
+        nvim-lspconfig
         presence-nvim
         toggleterm-nvim
         trouble-nvim
@@ -442,6 +442,38 @@
             end
           end,
         })
+
+        local cmp = require('cmp')
+
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            end,
+          },
+          mapping = cmp.mapping.preset.insert({
+            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          }),
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+            { name = 'path' },
+            { name = 'buffer' },
+          })
+        })
+
+        vim.opt.completeopt="menu,menuone,noselect"
+
+        local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        for _, server in ipairs({"rnix", "rust_analyzer"}) do
+          require('lspconfig')[server].setup {
+            capabilities = capabilities
+          }
+        end
       '';
     };
   };
