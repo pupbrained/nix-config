@@ -314,6 +314,13 @@
           ensureInstalled = "all";
           nixGrammars = true;
         };
+        barbar = {
+          enable = true;
+          animations = true;
+          autoHide = true;
+          closeable = true;
+          icons = true;
+        };
       };
       extraPlugins = with pkgs.vimPlugins; [
         catppuccin-nvim
