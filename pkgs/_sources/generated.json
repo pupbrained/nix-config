@@ -56,6 +56,25 @@
         },
         "version": "9b2170628eeab74b4582be4df646f4739f5e5b0a"
     },
+    "copilot-vim": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "copilot-vim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "github",
+            "repo": "copilot.vim",
+            "rev": "c2e75a3a7519c126c6fdb35984976df9ae13f564",
+            "sha256": "sha256-V13La54aIb3hQNDE7BmOIIZWy7In5cG6kE0fti/wxVQ=",
+            "type": "github"
+        },
+        "version": "c2e75a3a7519c126c6fdb35984976df9ae13f564"
+    },
     "picom": {
         "cargoLocks": null,
         "extract": null,

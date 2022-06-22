@@ -37,6 +37,17 @@
       sha256 = "sha256-9glV3NvpVmVkGLD6BZufg++Ucx6XA7zNk/+5Ytn9K1g=";
     };
   };
+  copilot-vim = {
+    pname = "copilot-vim";
+    version = "c2e75a3a7519c126c6fdb35984976df9ae13f564";
+    src = fetchFromGitHub {
+      owner = "github";
+      repo = "copilot.vim";
+      rev = "c2e75a3a7519c126c6fdb35984976df9ae13f564";
+      fetchSubmodules = false;
+      sha256 = "sha256-V13La54aIb3hQNDE7BmOIIZWy7In5cG6kE0fti/wxVQ=";
+    };
+  };
   picom = {
     pname = "picom";
     version = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";

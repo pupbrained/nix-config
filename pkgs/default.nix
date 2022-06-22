@@ -15,6 +15,11 @@ in {
   picom = prev.picom.overrideAttrs (o: {
     inherit (sources.picom) src pname version;
   });
+
+  myCopilotVim = prev.vimPlugins.copilot-vim.overrideAttrs (o: {
+    inherit (sources.copilot-vim) src pname version;
+  });
+
   awesome =
     (prev.awesome.overrideAttrs (old: {
       inherit (sources.awesome) src pname version;

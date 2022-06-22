@@ -283,10 +283,12 @@
           enable = true;
           servers = {
             rnix-lsp.enable = true;
+            rust-analyzer.enable = true;
           };
         };
         lualine.enable = true;
         telescope.enable = true;
+        nvim-autopairs.enable = true;
         nvim-tree.enable = true;
 
         dashboard = {
@@ -317,16 +319,16 @@
           ensureInstalled = "all";
           nixGrammars = true;
         };
-        barbar = {
+        bufferline = {
           enable = true;
-          animations = true;
-          autoHide = true;
-          closeable = true;
-          icons = true;
+          alwaysShowBufferline = false;
+          diagnostics = "nvim_lsp";
         };
+        comment-nvim.enable = true;
       };
       extraPlugins = with pkgs.vimPlugins; [
         catppuccin-nvim
+        myCopilotVim
         lualine-nvim
         neogit
         null-ls-nvim
