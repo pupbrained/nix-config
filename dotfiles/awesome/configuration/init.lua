@@ -142,7 +142,7 @@ awful.screen.connect_for_each_screen(function(s)
 			end,
 		},
 		{ "Manual", apps.default.terminal .. " -e man awesome" },
-		{ "Edit Config", apps.default.text_editor .. " " .. awesome.conffile },
+		{ "Edit Config", apps.default.code_editor .. " " .. awesome.conffile },
 		{ "Restart", awesome.restart },
 		{
 			"Quit",

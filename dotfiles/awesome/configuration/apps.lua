@@ -9,10 +9,8 @@ return {
     terminal = "kitty",
     -- Default music client
     music_player = "kitty --class music -e ncmpcpp",
-    -- Default text editor
-    text_editor = "neovide --neovim-bin /home/marshall/.local/bin/lvim",
     -- Default code editor
-    code_editor = "code-insiders",
+    code_editor = "neovide",
     -- Default web browser
     web_browser = "firefox",
     -- Default file manager
