@@ -289,32 +289,24 @@
           enable = true;
           executive = "telescope";
           header = [
-            "          ▒▒                          ▒▒         "
-            "        ██░░██                      ██░░▓▓       "
-            "      ▓▓▒▒░░▒▒██                  ██▒▒░░▒▒▓▓     "
-            "      ██░░  ░░▒▒▓▓              ▓▓▒▒░░  ░░██     "
-            "      ██░░    ░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░    ░░██     "
-            "      ██░░    ░░██░░░░░░░░░░░░░░██░░    ░░██     "
-            "      ██░░      ░░░░░░░░░░░░░░░░░░      ░░██     "
-            "      ██░░  ░░░░░░░░░░░░░░░░░░░░░░░░░░  ░░██     "
-            "      ██░░░░░░░░      ░░░░░░      ░░░░░░░░██     "
-            "      ██░░░░░░░░░░░░  ░░░░░░  ░░░░░░░░░░░░██     "
-            "    ▓▓▒▒░░░░░░▓▓▓▓░░░░░░░░░░░░░░▓▓▓▓░░░░░░▒▒▓▓   "
-            "  ██░░░░░░░░░░████▓▓░░░    ░░░▓▓████░░░░░░░░░░██ "
-            "  ██░░  ░░░░░░▓▓░░░░          ░░░░▓▓░░░░░░  ░░██ "
-            "  ██░░                ██████                ░░██ "
-            "  ██░░          ██      ██      ██          ░░██ "
-            "    ██░░          ██▓▓▓▓██▓▓▓▓██          ░░██   "
-            "    ██░░░░            ▒▒▒▒▒▒            ░░░░██   "
-            "    ░░▓▓░░░░          ▒▒▒▒▒▒          ░░░░▓▓░░   "
-            "      ░░▓▓░░░░░░░░    ░░░░░░    ░░░░░░░░▓▓░░     "
-            "          ████████░░░░░░░░░░░░░░████████         "
-            "                  ██████████████                 "
-            "                                                 "
-            "                      MarVim                     "
+            "                                         _.oo."
+            "                 _.u[[/;:,.         .odMMMMMM´"
+            "              .o888UU[[[/;:-.  .o@P^    MMM^  "
+            "             oN88888UU[[[/;::-.        dP^    "
+            "            dNMMNN888UU[[[/;:--.   .o@P^      "
+            "           ,MMMMMMN888UU[[/;::-. o@^          "
+            "           NNMMMNN888UU[[[/~.o@P^             "
+            "           888888888UU[[[/o@^-..              "
+            "          oI8888UU[[[/o@P^:--..               "
+            "       .@^  YUU[[[/o@^;::---..                "
+            "     oMP     ^/o@P^;:::---..                  "
+            "  .dMMM    .o@^ ^;::---...                    "
+            " dMMMMMMM@^`       `^^^^                      "
+            "YMMMUP^                                       "
+            " ^^                                           "
           ];
           footer = [
-            "nyaa :3c meow x3 meow mrowww nyaaaa :333"
+            "ooh, spacey"
           ];
         };
         treesitter = {
@@ -362,40 +354,9 @@
           vim.api.nvim_set_keymap(mode, lhs, rhs, options)
         end
 
-        map("n", "<Leader>tc", ":DashboardChangeColorscheme<CR>")
-        map("n", "<Leader>cn", ":DashboardNewFile<CR>")
-        map("n", "<Leader>e", ":NvimTreeToggle<CR>")
-        map("n", "<Leader>be", "<Plug>(cokeline-pick-close)")
-        map("n", "<Leader>bj", "<Plug>(cokeline-pick-focus)")
-
         local wk = require("which-key")
 
         wk.setup({
-          plugins = {
-            marks = true, -- shows a list of your marks on ' and `
-            registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-            -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-            -- No actual key bindings are created
-            presets = {
-              operators = false, -- adds help for operators like d, y, ...
-              motions = false, -- adds help for motions
-              text_objects = false, -- help for text objects triggered after entering an operator
-              windows = false, -- default bindings on <c-w>
-              nav = true, -- misc bindings to work with windows
-              z = true, -- bindings for folds, spelling and others prefixed with z
-              g = true, -- bindings for prefixed with g
-            },
-            spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
-          },
-          icons = {
-            breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-            separator = "➜", -- symbol used between a key and it's label
-            group = "+", -- symbol prepended to a group
-          },
-          popup_mappings = {
-            scroll_down = "<c-d>", -- binding to scroll down inside the popup
-            scroll_up = "<c-u>", -- binding to scroll up inside the popup
-          },
           window = {
             border = "single", -- none, single, double, shadow
             position = "bottom", -- bottom, top
@@ -409,28 +370,29 @@
             spacing = 3, -- spacing between columns
             align = "left", -- align columns left, center or right
           },
-          hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-          ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-          show_help = true, -- show help message on the command line when the popup is visible
-          triggers = "auto", -- automatically setup triggers
-          -- triggers = {"<leader>"} -- or specify a list manually
-          triggers_blacklist = {
-            -- list of mode / prefixes that should never be hooked by WhichKey
-            -- this is mostly relevant for key maps that start with a native binding
-            -- most people should not need to change this
-            i = { "j", "k" },
-            v = { "j", "k" },
-          },
         })
 
         wk.register({
+          c = {
+            n = { "<cmd>DashboardNewFile<CR>", "New File" },
+          },
+          e = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
           f = {
             name = "Find",
             f = { "<cmd>DashboardFindFile<cr>", "Find File"},
             h = { "<cmd>DashboardFindHistory<cr>", "Find History"},
             a = { "<cmd>DashboardFindWord<cr>", "Find Word"},
-          }
+          },
+          b = {
+            name = "Buffer",
+            e = { "<Plug>(cokeline-pick-close)", "Close"},
+            j = { "<Plug>(cokeline-pick-focus)", "Focus"},
+          };
         }, { prefix = "<Leader>" })
+
+        wk.register({
+          ["<c-t>"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Terminal" },
+        })
 
         local colors = {
           blue   = '#89b4fa',
@@ -565,8 +527,11 @@
 
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-        require("which-key").setup()
-        require("toggleterm").setup()
+        require("toggleterm").setup({
+          float_opts = {
+            border = 'curved',
+          }
+        })
 
         local cmp = require('cmp')
         local lspkind = require('lspkind')
