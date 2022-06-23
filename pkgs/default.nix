@@ -20,6 +20,10 @@ in {
     inherit (sources.copilot-vim) src pname version;
   });
 
+  myCokelinePlugin = prev.vimUtils.buildVimPlugin {
+    inherit (sources.nvim-cokeline) src pname version;
+  };
+
   awesome =
     (prev.awesome.overrideAttrs (old: {
       inherit (sources.awesome) src pname version;

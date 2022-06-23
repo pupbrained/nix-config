@@ -69,6 +69,7 @@
     python310
     redshift
     rofi
+    rnix-lsp
     rust-analyzer
     scrot
     statix
@@ -288,20 +289,29 @@
           enable = true;
           executive = "telescope";
           header = [
-            "          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄         "
-            "        ▄▀░░░░░░░░░░░░▄░░░░░░░▀▄       "
-            "        █░░▄░░░░▄░░░░░░░░░░░░░░█       "
-            "        █░░░░░░░░░░░░▄█▄▄░░▄░░░█ ▄▄▄   "
-            " ▄▄▄▄▄  █░░░░░░▀░░░░▀█░░▀▄░░░░░█▀▀░██  "
-            " ██▄▀██▄█░░░▄░░░░░░░██░░░░▀▀▀▀▀░░░░██  "
-            "  ▀██▄▀██░░░░░░░░▀░██▀░░░░░░░░░░░░░▀██ "
-            "    ▀████░▀░░░░▄░░░██░░░▄█░░░░▄░▄█░░██ "
-            "       ▀█░░░░▄░░░░░██░░░░▄░░░▄░░▄░░░██ "
-            "       ▄█▄░░░░░░░░░░░▀▄░░▀▀▀▀▀▀▀▀░░▄▀  "
-            "      █▀▀█████████▀▀▀▀████████████▀    "
-            "      ████▀  ███▀      ▀███  ▀██▀      "
-            "                                       "
-            "              N Y A V I M              "
+            "          ▒▒                          ▒▒         "
+            "        ██░░██                      ██░░▓▓       "
+            "      ▓▓░░░░▒▒██                  ██▒▒░░▒▒▓▓     "
+            "      ██░░  ░░▒▒▓▓              ▓▓▒▒░░  ░░██     "
+            "      ██░░    ░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░    ░░██     "
+            "      ██░░    ░░██░░░░░░░░░░░░░░██░░    ░░██     "
+            "      ██░░      ░░░░░░░░░░░░░░░░░░      ░░██     "
+            "      ██░░  ░░░░░░░░░░░░░░░░░░░░░░░░░░  ░░██     "
+            "      ██░░░░░░░░      ░░░░░░      ░░░░░░░░██     "
+            "      ██░░░░░░░░░░░░  ░░░░░░  ░░░░░░░░░░░░██     "
+            "    ▓▓▒▒░░░░░░▓▓▓▓░░░░░░░░░░░░░░▓▓▓▓░░░░░░░░▓▓   "
+            "  ▒▒░░░░░░░░░░████▓▓░░    ░░░░▓▓████░░░░░░░░▒▒██ "
+            "  ██░░  ░░░░░░▒▒░░░░          ░░░░▓▓░░░░░░  ░░██ "
+            "  ██░░                ██████                ░░██ "
+            "  ██░░          ██      ██      ██        ░░░░██ "
+            "    ██░░          ██▓▓▓▓██▓▓▓▓██          ░░██   "
+            "    ██░░░░            ▒▒▒▒▒▒            ░░░░██   "
+            "    ░░▓▓░░░░          ▒▒▒▒▒▒          ░░░░▒▒░░   "
+            "      ░░▓▓░░░░░░░░    ░░░░░░    ░░  ░░░░▓▓░░     "
+            "          ████████░░░░░░░░░░░░░░████████         "
+            "                  ██████████████                 "
+            "                                                 "
+            "                      MarVim                     "
           ];
           footer = [
             "nyaa :3c meow x3 meow mrowww nyaaaa :333"
@@ -312,21 +322,19 @@
           ensureInstalled = "all";
           nixGrammars = true;
         };
-        bufferline = {
-          enable = true;
-          alwaysShowBufferline = false;
-          diagnostics = "nvim_lsp";
-        };
         comment-nvim.enable = true;
       };
       extraPlugins = with pkgs.vimPlugins; [
         pkgs.myCopilotVim
+        pkgs.myCokelinePlugin
 
         cmp_luasnip
         cmp-path
         cmp-buffer
         cmp-nvim-lsp
         catppuccin-nvim
+        lightspeed-nvim
+        lspkind-nvim
         lualine-nvim
         neogit
         null-ls-nvim
@@ -347,20 +355,82 @@
         vim.cmd('set guifont=Rec\\ Mono\\ Casual:h13')
 
         function map(mode, lhs, rhs, opts)
-          local options = { noremap = true }
+          local options = { noremap = true, silent = true }
           if opts then
             options = vim.tbl_extend("force", options, opts)
           end
           vim.api.nvim_set_keymap(mode, lhs, rhs, options)
         end
 
-        map("n", "<Leader>fb", ":DashboardJumpMarks<CR>")
         map("n", "<Leader>tc", ":DashboardChangeColorscheme<CR>")
-        map("n", "<Leader>ff", ":DashboardFindFile<CR>")
-        map("n", "<Leader>fh", ":DashboardFindHistory<CR>")
-        map("n", "<Leader>fa", ":DashboardFindWord<CR>")
         map("n", "<Leader>cn", ":DashboardNewFile<CR>")
         map("n", "<Leader>e", ":NvimTreeToggle<CR>")
+        map("n", "<Leader>be", "<Plug>(cokeline-pick-close)")
+        map("n", "<Leader>bj", "<Plug>(cokeline-pick-focus)")
+
+        local wk = require("which-key")
+
+        wk.setup({
+          plugins = {
+            marks = true, -- shows a list of your marks on ' and `
+            registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+            -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+            -- No actual key bindings are created
+            presets = {
+              operators = false, -- adds help for operators like d, y, ...
+              motions = false, -- adds help for motions
+              text_objects = false, -- help for text objects triggered after entering an operator
+              windows = false, -- default bindings on <c-w>
+              nav = true, -- misc bindings to work with windows
+              z = true, -- bindings for folds, spelling and others prefixed with z
+              g = true, -- bindings for prefixed with g
+            },
+            spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
+          },
+          icons = {
+            breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+            separator = "➜", -- symbol used between a key and it's label
+            group = "+", -- symbol prepended to a group
+          },
+          popup_mappings = {
+            scroll_down = "<c-d>", -- binding to scroll down inside the popup
+            scroll_up = "<c-u>", -- binding to scroll up inside the popup
+          },
+          window = {
+            border = "single", -- none, single, double, shadow
+            position = "bottom", -- bottom, top
+            margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+            padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+            winblend = 0,
+          },
+          layout = {
+            height = { min = 4, max = 25 }, -- min and max height of the columns
+            width = { min = 20, max = 50 }, -- min and max width of the columns
+            spacing = 3, -- spacing between columns
+            align = "left", -- align columns left, center or right
+          },
+          hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+          ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+          show_help = true, -- show help message on the command line when the popup is visible
+          triggers = "auto", -- automatically setup triggers
+          -- triggers = {"<leader>"} -- or specify a list manually
+          triggers_blacklist = {
+            -- list of mode / prefixes that should never be hooked by WhichKey
+            -- this is mostly relevant for key maps that start with a native binding
+            -- most people should not need to change this
+            i = { "j", "k" },
+            v = { "j", "k" },
+          },
+        })
+
+        wk.register({
+          f = {
+            name = "Find",
+            f = { "<cmd>DashboardFindFile<cr>", "Find File"},
+            h = { "<cmd>DashboardFindHistory<cr>", "Find History"},
+            a = { "<cmd>DashboardFindWord<cr>", "Find Word"},
+          }
+        }, { prefix = "<Leader>" })
 
         local colors = {
           blue   = '#89b4fa',
@@ -420,10 +490,126 @@
           extensions = {},
         }
 
+        local get_hex = require('cokeline/utils').get_hex
+        local is_picking_focus = require("cokeline/mappings").is_picking_focus
+        local is_picking_close = require("cokeline/mappings").is_picking_close
+
+        require('cokeline').setup({
+          show_if_buffers_are_at_least = 2,
+          default_hl = {
+            fg = function(buffer)
+              return
+                buffer.is_focused
+                and get_hex('Normal', 'fg')
+                 or get_hex('Comment', 'fg')
+            end,
+            bg = get_hex('ColorColumn', 'bg'),
+          },
+
+          components = {
+            {
+              text = ' ',
+              bg = get_hex('Normal', 'bg'),
+            },
+            {
+              text = '',
+              fg = get_hex('ColorColumn', 'bg'),
+              bg = get_hex('Normal', 'bg'),
+            },
+            {
+                text = function(buffer)
+                    if is_picking_focus() or is_picking_close() then
+                        return buffer.pick_letter .. " "
+                    end
+
+                    return buffer.devicon.icon
+                end,
+                fg = function(buffer)
+                    if is_picking_focus() then
+                        return yellow
+                    end
+                    if is_picking_close() then
+                        return red
+                    end
+
+                    if buffer.is_focused then
+                        return dark
+                    else
+                        return light
+                    end
+                end,
+                style = function(_)
+                    return (is_picking_focus() or is_picking_close()) and "italic,bold" or nil
+                end
+            },
+            {
+              text = ' ',
+            },
+            {
+              text = function(buffer) return buffer.filename .. '  ' end,
+              style = function(buffer)
+                return buffer.is_focused and 'bold' or nil
+              end,
+            },
+            {
+              text = '',
+              delete_buffer_on_left_click = true,
+            },
+            {
+              text = '',
+              fg = get_hex('ColorColumn', 'bg'),
+              bg = get_hex('Normal', 'bg'),
+            },
+          },
+        })
+
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
         require("which-key").setup()
         require("toggleterm").setup()
+
+        local cmp = require('cmp')
+        local lspkind = require('lspkind')
+
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            end,
+          },
+          window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
+          },
+          mapping = cmp.mapping.preset.insert({
+            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          }),
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+            { name = 'path' },
+            { name = 'buffer' },
+          }),
+          formatting = {
+            format = lspkind.cmp_format({
+              mode = 'symbol',
+              maxwidth = 50,
+            })
+          }
+        })
+
+        vim.opt.completeopt="menu,menuone,noselect"
+
+        local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+        for _, server in ipairs({"rnix", "rust_analyzer"}) do
+          require('lspconfig')[server].setup {
+            capabilities = capabilities
+          }
+        end
 
         require("null-ls").setup({
           sources = {
@@ -442,38 +628,6 @@
             end
           end,
         })
-
-        local cmp = require('cmp')
-
-        cmp.setup({
-          snippet = {
-            expand = function(args)
-              require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            end,
-          },
-          mapping = cmp.mapping.preset.insert({
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          }),
-          sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-            { name = 'path' },
-            { name = 'buffer' },
-          })
-        })
-
-        vim.opt.completeopt="menu,menuone,noselect"
-
-        local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-        for _, server in ipairs({"rnix", "rust_analyzer"}) do
-          require('lspconfig')[server].setup {
-            capabilities = capabilities
-          }
-        end
       '';
     };
   };

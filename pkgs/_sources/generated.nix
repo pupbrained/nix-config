@@ -48,6 +48,17 @@
       sha256 = "sha256-V13La54aIb3hQNDE7BmOIIZWy7In5cG6kE0fti/wxVQ=";
     };
   };
+  nvim-cokeline = {
+    pname = "nvim-cokeline";
+    version = "8d5022789014a605d5a2ec02ed5133eb85874aff";
+    src = fetchFromGitHub {
+      owner = "noib3";
+      repo = "nvim-cokeline";
+      rev = "8d5022789014a605d5a2ec02ed5133eb85874aff";
+      fetchSubmodules = false;
+      sha256 = "sha256-mG0cJelaZLNth5mc9QNBuhlWzo+1pfeOAz+REtgUY8o=";
+    };
+  };
   picom = {
     pname = "picom";
     version = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";

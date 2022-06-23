@@ -26,3 +26,7 @@ fetch.github = "replaycoding/aerial-sddm-theme"
 [copilot-vim]
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"
+
+[nvim-cokeline]
+src.git = "https://github.com/noib3/nvim-cokeline"
+fetch.github = "noib3/nvim-cokeline"
