@@ -97,7 +97,7 @@
     })
     (pkgs.discord-plugged.override {
       plugins = with inputs; [theme-toggler powercord-tiktok-tts];
-      themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord];
+      themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord compact-settings];
     })
     (fenix.complete.withComponents [
       "cargo"
@@ -387,7 +387,12 @@
             name = "Buffer",
             e = { "<Plug>(cokeline-pick-close)", "Close"},
             j = { "<Plug>(cokeline-pick-focus)", "Focus"},
-          };
+          },
+          l = {
+            name = "LSP",
+            a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
+            f = { "<cmd>lua require(\"which-key\").execute(5)<cr>", "Format"},
+          },
         }, { prefix = "<Leader>" })
 
         wk.register({

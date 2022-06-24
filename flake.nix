@@ -18,6 +18,11 @@
       flake = false;
     };
 
+    compact-settings = {
+      url = "github:FayneAldan/CompactSettings";
+      flake = false;
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
