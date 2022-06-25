@@ -328,6 +328,7 @@
         lightspeed-nvim
         lspkind-nvim
         lualine-nvim
+        luasnip
         neogit
         null-ls-nvim
         nvim-cmp
@@ -391,7 +392,7 @@
           l = {
             name = "LSP",
             a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
-            f = { "<cmd>lua require(\"which-key\").execute(5)<cr>", "Format"},
+            k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
           },
         }, { prefix = "<Leader>" })
 
@@ -577,7 +578,19 @@
         local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
         for _, server in ipairs({"rnix", "rust_analyzer"}) do
           require('lspconfig')[server].setup {
-            capabilities = capabilities
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+              if client.supports_method("textDocument/formatting") then
+                vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                  group = augroup,
+                  buffer = bufnr,
+                  callback = function()
+                    vim.lsp.buf.format({bufnr = bufnr})
+                  end,
+                })
+              end
+            end,
           }
         end
 
@@ -585,18 +598,6 @@
           sources = {
             require("null-ls").builtins.formatting.alejandra,
           },
-          on_attach = function(client, bufnr)
-            if client.supports_method("textDocument/formatting") then
-              vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-              vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                  vim.lsp.buf.format({bufnr = bufnr})
-                end,
-              })
-            end
-          end,
         })
       '';
     };
