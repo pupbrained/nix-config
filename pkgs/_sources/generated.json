@@ -31,11 +31,11 @@
             "name": null,
             "owner": "awesomeWM",
             "repo": "awesome",
-            "rev": "29c0057795efcd52616e97a8f61c98a4660ae2af",
-            "sha256": "sha256-2YK5IPxpvDyoGcxpvqjiYhgHNQTXzRDRGj6IoyYjLBE=",
+            "rev": "02fa372d9e6e692b608cb2e1b46df45984830df1",
+            "sha256": "sha256-65fwx5IlnMO0mSkWG4Z8JmKMnCHS5fk5d4BzGYJVH8Y=",
             "type": "github"
         },
-        "version": "29c0057795efcd52616e97a8f61c98a4660ae2af"
+        "version": "02fa372d9e6e692b608cb2e1b46df45984830df1"
     },
     "catppuccin-spicetify": {
         "cargoLocks": null,
@@ -126,11 +126,11 @@
             "name": null,
             "owner": "khanhas",
             "repo": "spicetify-cli",
-            "rev": "v2.10.1",
-            "sha256": "sha256-d5YuBLCsC7tHSzSa12rUcO0gr5f6gQ2s0wnQ3OMZO3U=",
+            "rev": "v2.10.2",
+            "sha256": "sha256-chaCz4+RXPUP/MZymxA0h1ATuWYRgru3JMELiWPEBcE=",
             "type": "github"
         },
-        "version": "v2.10.1"
+        "version": "v2.10.2"
     },
     "spicetify-themes": {
         "cargoLocks": null,

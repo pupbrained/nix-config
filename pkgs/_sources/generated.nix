@@ -17,13 +17,13 @@
   };
   awesome = {
     pname = "awesome";
-    version = "29c0057795efcd52616e97a8f61c98a4660ae2af";
+    version = "02fa372d9e6e692b608cb2e1b46df45984830df1";
     src = fetchFromGitHub {
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "29c0057795efcd52616e97a8f61c98a4660ae2af";
+      rev = "02fa372d9e6e692b608cb2e1b46df45984830df1";
       fetchSubmodules = false;
-      sha256 = "sha256-2YK5IPxpvDyoGcxpvqjiYhgHNQTXzRDRGj6IoyYjLBE=";
+      sha256 = "sha256-65fwx5IlnMO0mSkWG4Z8JmKMnCHS5fk5d4BzGYJVH8Y=";
     };
   };
   catppuccin-spicetify = {
@@ -72,13 +72,13 @@
   };
   spicetify-cli = {
     pname = "spicetify-cli";
-    version = "v2.10.1";
+    version = "v2.10.2";
     src = fetchFromGitHub {
       owner = "khanhas";
       repo = "spicetify-cli";
-      rev = "v2.10.1";
+      rev = "v2.10.2";
       fetchSubmodules = false;
-      sha256 = "sha256-d5YuBLCsC7tHSzSa12rUcO0gr5f6gQ2s0wnQ3OMZO3U=";
+      sha256 = "sha256-chaCz4+RXPUP/MZymxA0h1ATuWYRgru3JMELiWPEBcE=";
     };
   };
   spicetify-themes = {
