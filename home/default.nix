@@ -7,6 +7,7 @@
   imports = [
     ./dotfiles.nix
     inputs.nixvim.homeManagerModules.nixvim
+    inputs.nix-doom-emacs.hmModule
   ];
   home.packages = with pkgs; [
     acpi
@@ -267,6 +268,11 @@
         color7 = "#BAC2DE";
         color15 = "#BAC2DE";
       };
+    };
+
+    doom-emacs = {
+      enable = true;
+      doomPrivateDir = ../dotfiles/doom.d;
     };
 
     nixvim = {

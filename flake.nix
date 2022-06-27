@@ -9,6 +9,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixvim.url = "github:pta2002/nixvim";
+    nix-doom-emacs.url = "github:vlaci/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
@@ -65,6 +66,7 @@
     home-manager,
     nixos-wsl,
     nixvim,
+    nix-doom-emacs,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
