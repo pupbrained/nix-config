@@ -272,7 +272,7 @@
 
     doom-emacs = {
       enable = true;
-      doomPrivateDir = ../dotfiles/doom.d;
+      doomPrivateDir = ../doom.d;
       emacsPackage = pkgs.emacsNativeComp;
       emacsPackagesOverlay = self: super: {
         gitignore-mode = pkgs.emacsPackages.git-modes;
