@@ -272,7 +272,7 @@
 
     doom-emacs = {
       enable = true;
-      doomPrivateDir = ./dotfiles/doom.d;
+      doomPrivateDir = ../dotfiles/doom.d;
     };
 
     nixvim = {
