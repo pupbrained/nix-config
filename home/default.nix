@@ -271,13 +271,8 @@
     };
 
     doom-emacs = {
-      enable = true;
+      enable = false;
       doomPrivateDir = ../doom.d;
-      emacsPackage = pkgs.emacsNativeComp;
-      emacsPackagesOverlay = self: super: {
-        gitignore-mode = pkgs.emacsPackages.git-modes;
-        gitconfig-mode = pkgs.emacsPackages.git-modes;
-      };
     };
 
     nixvim = {

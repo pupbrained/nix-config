@@ -9,6 +9,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixvim.url = "github:pta2002/nixvim";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
@@ -20,17 +21,6 @@
 
     compact-settings = {
       url = "github:FayneAldan/CompactSettings";
-      flake = false;
-    };
-
-    nix-doom-emacs = {
-      url = "github:vlaci/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
-    };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
       flake = false;
     };
 
