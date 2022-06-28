@@ -331,6 +331,7 @@
         cmp-buffer
         cmp-nvim-lsp
         catppuccin-nvim
+        FTerm-nvim
         lightspeed-nvim
         lspkind-nvim
         lualine-nvim
@@ -340,7 +341,6 @@
         nvim-cmp
         nvim-lspconfig
         presence-nvim
-        toggleterm-nvim
         trouble-nvim
         which-key-nvim
         vim-cool
@@ -403,8 +403,12 @@
         }, { prefix = "<Leader>" })
 
         wk.register({
-          ["<c-t>"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Terminal" },
-        })
+          ["<c-t>"] = { "<cmd>lua require(\"FTerm\").toggle()<CR>", "Toggle Terminal" },
+        }, { mode = "n" })
+
+        wk.register({
+          ["<c-t>"] = { "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>", "Toggle Terminal" },
+        }, { mode = "t" })
 
         local colors = {
           blue   = '#89b4fa',
@@ -539,10 +543,12 @@
 
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-        require("toggleterm").setup({
-          float_opts = {
-            border = 'curved',
-          }
+        require'FTerm'.setup({
+            border = 'double',
+            dimensions  = {
+                height = 0.9,
+                width = 0.9,
+            },
         })
 
         local cmp = require('cmp')
