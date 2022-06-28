@@ -98,7 +98,7 @@
     })
     (pkgs.discord-plugged.override {
       plugins = with inputs; [theme-toggler powercord-tiktok-tts];
-      themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord compact-settings];
+      themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord compact-settings essence-theme];
     })
     (fenix.complete.withComponents [
       "cargo"
@@ -271,7 +271,7 @@
     };
 
     doom-emacs = {
-      enable = false;
+      enable = true;
       doomPrivateDir = ../dotfiles/doom.d;
     };
 

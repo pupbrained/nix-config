@@ -24,6 +24,11 @@
       flake = false;
     };
 
+    essence-theme = {
+      url = "github:discord-extensions/essence";
+      flake = false;
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
