@@ -3,9 +3,9 @@ src.git = "https://github.com/awesomeWM/awesome"
 fetch.github = "awesomeWM/awesome"
 
 [picom]
-src.git = "https://github.com/ibhagwan/picom"
-src.branch = "next-rebase"
-fetch.github = "ibhagwan/picom"
+src.git = "https://github.com/pijulius/picom"
+src.branch = "implement-window-animations"
+fetch.github = "pijulius/picom"
 
 [spicetify-cli]
 src.github = "khanhas/spicetify-cli"
