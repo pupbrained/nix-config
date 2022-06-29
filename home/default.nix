@@ -623,30 +623,7 @@
     };
     picom = {
       enable = true;
-      blur = true;
-      extraOptions = ''
-        blur-method = "dual_kawase";
-        strength = 15;
-      '';
-      experimentalBackends = true;
-
-      shadowExclude = ["bounding_shaped && !rounded_corners"];
-
-      fade = true;
-      fadeDelta = 7;
-      fadeExclude = [
-        "class_g = 'Rofi'"
-      ];
-
-      vSync = true;
-      opacityRule = [
-        "100:class_g   *?= 'Chromium-browser'"
-        "100:class_g   *?= 'Firefox'"
-        "100:class_g   *?= 'gitkraken'"
-        "100:class_g   *?= 'emacs'"
-        "100:class_g   ~=  'jetbrains'"
-        "100:class_g   *?= 'slack'"
-      ];
+      extraOptions = builtins.readFile ..dotfiles/picom.conf;
     };
   };
 
