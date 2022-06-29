@@ -621,10 +621,6 @@
       enableZshIntegration = true;
       pinentryFlavor = "gnome3";
     };
-    picom = {
-      enable = true;
-      extraOptions = builtins.readFile ../dotfiles/picom.conf;
-    };
   };
 
   xdg.desktopEntries."idea-ultimate" = {
