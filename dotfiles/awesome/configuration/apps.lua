@@ -26,8 +26,6 @@ return {
   run_on_start_up = {
     -- Compositor
     "picom -b --experimental-backends --config " .. config_dir .. "/configuration/picom.conf",
-    -- Network Manager applet
-    "nm-applet",
     -- Resolution
     "xrandr --output DP-0 --mode 1920x1080 --rate 144",
   },

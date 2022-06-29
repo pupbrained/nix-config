@@ -64,6 +64,7 @@
     pamixer
     papirus-icon-theme
     pavucontrol
+    picom
     playerctl
     polymc
     python
