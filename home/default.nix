@@ -623,7 +623,7 @@
     };
     picom = {
       enable = true;
-      extraOptions = builtins.readFile ..dotfiles/picom.conf;
+      extraOptions = builtins.readFile ../dotfiles/picom.conf;
     };
   };
 
