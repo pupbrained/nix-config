@@ -105,7 +105,7 @@ theme.music_accent = theme.lighter_bg
 -- ░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░░▀░░▀▀▀
 
 -- Wallpaper
-theme.wallpaper = gfs.get_configuration_dir() .. "theme/assets/wallpaper-lofi.png"
+theme.wallpaper = gfs.get_configuration_dir() .. "theme/assets/wallpaper-view.png"
 
 -- Pfp
 theme.pfp = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/pfp.png")
