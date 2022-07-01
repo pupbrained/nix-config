@@ -24,6 +24,10 @@ in {
     inherit (sources.nvim-cokeline) src pname version;
   };
 
+  myTailwindPlugin = prev.vimUtils.buildVimPlugin {
+    inherit (sources.coc-tailwindcss3) src pname version;
+  };
+
   awesome =
     (prev.awesome.overrideAttrs (old: {
       inherit (sources.awesome) src pname version;

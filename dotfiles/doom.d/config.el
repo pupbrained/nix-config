@@ -1,4 +1,7 @@
 (setq doom-font (font-spec :family "Rec Mono Casual" :size 15))
 (set-fontset-font t nil (font-spec :size 15 :name "JetBrainsMono Nerd Font Mono"))
 (setq doom-theme 'catppuccin)
-
+(setq evil-ex-search-highlight-all nil)
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+(setq display-line-numbers-type 'relative)

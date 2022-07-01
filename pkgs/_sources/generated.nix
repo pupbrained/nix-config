@@ -17,13 +17,13 @@
   };
   awesome = {
     pname = "awesome";
-    version = "02fa372d9e6e692b608cb2e1b46df45984830df1";
+    version = "9ca7bb487a5d1d2d5c102f94cd9e8cb5b6e7ffaa";
     src = fetchFromGitHub {
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "02fa372d9e6e692b608cb2e1b46df45984830df1";
+      rev = "9ca7bb487a5d1d2d5c102f94cd9e8cb5b6e7ffaa";
       fetchSubmodules = false;
-      sha256 = "sha256-65fwx5IlnMO0mSkWG4Z8JmKMnCHS5fk5d4BzGYJVH8Y=";
+      sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
     };
   };
   catppuccin-spicetify = {
@@ -35,6 +35,17 @@
       rev = "9b2170628eeab74b4582be4df646f4739f5e5b0a";
       fetchSubmodules = false;
       sha256 = "sha256-9glV3NvpVmVkGLD6BZufg++Ucx6XA7zNk/+5Ytn9K1g=";
+    };
+  };
+  coc-tailwindcss3 = {
+    pname = "coc-tailwindcss3";
+    version = "3f19005191c865058db13f722b36eec51c42d258";
+    src = fetchFromGitHub {
+      owner = "yaegassy";
+      repo = "coc-tailwindcss3";
+      rev = "3f19005191c865058db13f722b36eec51c42d258";
+      fetchSubmodules = false;
+      sha256 = "sha256-+IfoauAuhKQdaEVh1KG7kaAung+AN8Fc4nQODkCUJxQ=";
     };
   };
   copilot-vim = {
@@ -61,13 +72,13 @@
   };
   picom = {
     pname = "picom";
-    version = "982bb43e5d4116f1a37a0bde01c9bda0b88705b9";
+    version = "51b21355696add83f39ccdb8dd82ff5009ba0ae5";
     src = fetchFromGitHub {
-      owner = "pijulius";
+      owner = "dccsillag";
       repo = "picom";
-      rev = "982bb43e5d4116f1a37a0bde01c9bda0b88705b9";
+      rev = "51b21355696add83f39ccdb8dd82ff5009ba0ae5";
       fetchSubmodules = false;
-      sha256 = "sha256-YiuLScDV9UfgI1MiYRtjgRkJ0VuA1TExATA2nJSJMhM=";
+      sha256 = "sha256-crCwRJd859DCIC0pEerpDqdX2j8ZrNAzVaSSB3mTPN8=";
     };
   };
   spicetify-cli = {

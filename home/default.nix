@@ -23,6 +23,7 @@
     cinnamon.nemo
     cmake
     comma
+    deno
     draconis
     ffmpeg
     file
@@ -51,7 +52,7 @@
     micro
     minecraft
     most
-    mpv
+    mpvScripts.mpris
     neovide
     neovim-nightly
     nerdfonts
@@ -112,8 +113,16 @@
 
   programs = {
     direnv.enable = true;
+    go.enable = true;
     gpg.enable = true;
     nix-index.enable = true;
+
+    mpv = {
+      enable = true;
+      scripts = with pkgs; [
+        mpvScripts.mpris
+      ];
+    };
 
     vscode = with pkgs; {
       enable = true;
@@ -326,6 +335,7 @@
       extraPlugins = with pkgs.vimPlugins; [
         pkgs.myCopilotVim
         pkgs.myCokelinePlugin
+        pkgs.myTailwindPlugin
 
         cmp_luasnip
         cmp-path
