@@ -152,11 +152,11 @@
     "essence-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1656632280,
-        "narHash": "sha256-HSRxKA6TGECe2Tbsd6Z4U1LjSEAde/bELzgj9xUZ5Ro=",
+        "lastModified": 1656714670,
+        "narHash": "sha256-aog09h07q84SNPAUSWiK9ZM4J2vGnOpJxmCFRHtrZLE=",
         "owner": "discord-extensions",
         "repo": "essence",
-        "rev": "d0c7f15d57f4b4e81ed94aa523de74525d19cc50",
+        "rev": "a9d1bb200f9be554620d537142e20d067cc1a9a2",
         "type": "github"
       },
       "original": {
@@ -321,11 +321,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1656684331,
-        "narHash": "sha256-lO6/H9I0oo/o8mJt/75I58JA29KCJQjlv+J3FwdkGNQ=",
+        "lastModified": 1656730205,
+        "narHash": "sha256-ehj5kNVKUkGyi2rMAAb0Q0nhbF3D8+1Yu0EdaVfE1tQ=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "5cd7ee120d1255b7cf0fd12104bba7a102373590",
+        "rev": "fb026bcf81ac064f6f98fd2aebbedd65f84ee4ee",
         "type": "github"
       },
       "original": {
@@ -931,11 +931,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1656689843,
-        "narHash": "sha256-BCMvd3f5Jdg20OpaGepRx1b5XLQVfacMzDteFgaUnO4=",
+        "lastModified": 1656728189,
+        "narHash": "sha256-z9q14OQWccfS00m4kw4aJvVRnnwAgcy4FmOs0GCZrL0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "771f32733a171f7a55819a16194b0627120b8fd5",
+        "rev": "9b8f5d05e856a6c68fd915fe724d99414cea726b",
         "type": "github"
       },
       "original": {

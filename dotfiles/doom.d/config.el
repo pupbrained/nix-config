@@ -5,3 +5,5 @@
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
 (setq display-line-numbers-type 'relative)
+(use-package! lsp-tailwindcss)
+(add-hook 'deno-mode-local-vars-hook #'lsp!)

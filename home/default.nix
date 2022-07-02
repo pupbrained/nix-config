@@ -342,7 +342,6 @@
         cmp-buffer
         cmp-nvim-lsp
         catppuccin-nvim
-        coc-nvim
         FTerm-nvim
         lightspeed-nvim
         lspkind-nvim
@@ -412,11 +411,6 @@
             a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
             k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
           },
-          c = {
-            name = "coc",
-            d = { "<Plug>(coc-definition)", "Find Definition"},
-            y = { "<Plug>(coc-type-definition)", "Find Type Definition"},
-          }
         }, { prefix = "<Leader>" })
 
         wk.register({
@@ -578,6 +572,8 @@
             end,
           },
           window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
           },
           mapping = cmp.mapping.preset.insert({
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
