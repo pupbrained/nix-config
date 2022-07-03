@@ -72,13 +72,13 @@
   };
   picom = {
     pname = "picom";
-    version = "51b21355696add83f39ccdb8dd82ff5009ba0ae5";
+    version = "db16da3907b2ba540be5a53d0f0e28e2d3b5b705";
     src = fetchFromGitHub {
-      owner = "dccsillag";
+      owner = "yaocccc";
       repo = "picom";
-      rev = "51b21355696add83f39ccdb8dd82ff5009ba0ae5";
+      rev = "db16da3907b2ba540be5a53d0f0e28e2d3b5b705";
       fetchSubmodules = false;
-      sha256 = "sha256-crCwRJd859DCIC0pEerpDqdX2j8ZrNAzVaSSB3mTPN8=";
+      sha256 = "sha256-q0VI5/5jPQR+Rd7cxdLF+bMNeO+JoxTmBwAS0WqW7gQ=";
     };
   };
   spicetify-cli = {

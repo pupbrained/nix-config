@@ -1152,11 +1152,11 @@
     "sur-cord": {
       "flake": false,
       "locked": {
-        "lastModified": 1656700626,
-        "narHash": "sha256-pfv3GffAkrBcIKiwFDnYT53UUk37YOHaTYpTImSLanw=",
+        "lastModified": 1656878538,
+        "narHash": "sha256-9d2bWOWXRvNR6nH7xBXbEWV7Kjg7e9Ic2PzhEL8u0b8=",
         "owner": "SlippingGitty",
         "repo": "surCord",
-        "rev": "653309e79b4f6da1bdad27c2433320bd67a2f27d",
+        "rev": "a12d706c40e7358df94bb6e2682665260c72d1b8",
         "type": "github"
       },
       "original": {
