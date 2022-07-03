@@ -23,7 +23,6 @@
     cinnamon.nemo
     cmake
     comma
-    deno
     draconis
     ffmpeg
     file
@@ -53,7 +52,6 @@
     minecraft
     most
     mpvScripts.mpris
-    neovide
     neovim-nightly
     nerdfonts
     nix-prefetch-scripts
@@ -225,7 +223,7 @@
         editor = "nvim";
         placement_strategy = "center";
         hide_window_decorations = "titlebar-only";
-        background_opacity = "0.95";
+        background_opacity = "0.8";
         inactive_text_alpha = 1;
         scrollback_lines = 5000;
         wheel_scroll_multiplier = 5;
