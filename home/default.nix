@@ -56,6 +56,8 @@
     nerdfonts
     nix-prefetch-scripts
     nodejs
+    nodePackages.yo
+    nodePackages.generator-code
     notion-app-enhanced
     noto-fonts-cjk-sans
     openjdk16-bootstrap
