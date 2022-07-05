@@ -12,7 +12,7 @@ return {
     -- Default code editor
     code_editor = "neovide",
     -- Default web browser
-    web_browser = "firefox",
+    web_browser = "librewolf",
     -- Default file manager
     file_manager = "nemo",
     -- Default network manager

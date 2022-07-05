@@ -94,13 +94,13 @@
   };
   spicetify-themes = {
     pname = "spicetify-themes";
-    version = "2f25fa371e6e2a3d201102254e47344856763ab9";
+    version = "54e006038c28092aa8b2cc88fad139a8edb3ce6c";
     src = fetchFromGitHub {
       owner = "morpheusthewhite";
       repo = "spicetify-themes";
-      rev = "2f25fa371e6e2a3d201102254e47344856763ab9";
+      rev = "54e006038c28092aa8b2cc88fad139a8edb3ce6c";
       fetchSubmodules = false;
-      sha256 = "sha256-FqUXL0QBO24U7XgH64Lzy5At3TGw8fTic0a+qFfTWqA=";
+      sha256 = "sha256-vK5496rGwgCxKjVO8V7CYkXigpKRonidmwWXMOrMN3I=";
     };
   };
 }

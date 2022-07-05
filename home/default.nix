@@ -20,13 +20,14 @@
     busybox
     cachix
     cargo-binutils
+    cargo-edit
     cinnamon.nemo
     cmake
     comma
+    deno
     draconis
     ffmpeg
     file
-    firefox-nightly-bin
     fluffychat
     gcc
     gh
@@ -44,6 +45,7 @@
     keychain
     kotatogram-desktop
     libnotify
+    librewolf
     libsForQt5.qtstyleplugin-kvantum
     lua52Packages.lgi
     lxappearance
@@ -77,10 +79,10 @@
     scrot
     statix
     sumneko-lua-language-server
+    thefuck
     tldr
     unrar
     unzip
-    upower
     wineWowPackages.full
     xclip
     xdotool
