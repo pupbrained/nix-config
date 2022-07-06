@@ -74,7 +74,7 @@
     };
   };
 
-  nix.trustedUsers = ["root" "marshall"];
+  nix.settings.trusted-users = ["root" "marshall"];
 
   xdg.portal.enable = true;
 

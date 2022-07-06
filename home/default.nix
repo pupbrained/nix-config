@@ -77,6 +77,7 @@
     rnix-lsp
     rust-analyzer
     scrot
+    starship
     statix
     sumneko-lua-language-server
     thefuck
