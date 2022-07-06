@@ -62,6 +62,7 @@
     nodePackages.generator-code
     notion-app-enhanced
     noto-fonts-cjk-sans
+    nushell
     openjdk16-bootstrap
     p7zip
     pamixer
