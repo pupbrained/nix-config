@@ -37,7 +37,6 @@
     gnumake
     gpick
     headsetcontrol
-    herbe
     inotifyTools
     jamesdsp
     jetbrains.idea-ultimate
@@ -64,6 +63,7 @@
     notion-app-enhanced
     noto-fonts-cjk-sans
     nushell
+    odin
     openjdk16-bootstrap
     p7zip
     pamixer
