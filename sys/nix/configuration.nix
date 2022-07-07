@@ -67,7 +67,10 @@
   };
 
   hardware = {
-    nvidia.modesetting.enable = true;
+    nvidia = {
+      package = pkgs.linuxKernel.packages.linux_zen.nvidia_x11;
+      modesetting.enable = true;
+    };
     opengl = {
       enable = true;
       driSupport32Bit = true;
