@@ -86,6 +86,7 @@
     tldr
     unrar
     unzip
+    waybar
     wineWowPackages.full
     xclip
     xdotool
@@ -651,7 +652,7 @@
     enable = true;
     extraOptions = ["--unsupported-gpu"];
     extraSessionCommands = ''
-      export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+      export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
       export CLUTTER_BACKEND=wayland
       export SDL_VIDEODRIVER=wayland
       export XDG_SESSION_TYPE=wayland
@@ -661,7 +662,7 @@
       export GBM_BACKEND=nvidia-drm
       export __GLX_VENDOR_LIBRARY_NAME=nvidia
       export WLR_NO_HARDWARE_CURSORS=1
-      export WLR_RENDERER=vulkan
+      export WLR_BACKEND=vulkan
     '';
   };
 }

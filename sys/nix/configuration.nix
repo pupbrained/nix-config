@@ -69,6 +69,7 @@
   hardware = {
     nvidia = {
       package = pkgs.linuxKernel.packages.linux_zen.nvidia_x11;
+      open = true;
       modesetting.enable = true;
     };
     opengl = {
