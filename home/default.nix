@@ -12,13 +12,11 @@
   home.packages = with pkgs; [
     acpi
     alejandra
-    amp
     android-tools
     audacity
     binutils
     brightnessctl
     cachix
-    cargo-binutils
     cargo-edit
     cinnamon.nemo
     cmake
@@ -31,8 +29,6 @@
     file
     fluffychat
     gcc
-    gh
-    github-desktop
     glib
     gnome.eog
     gnome.seahorse
@@ -66,8 +62,6 @@
     nodePackages.generator-code
     notion-app-enhanced
     noto-fonts-cjk-sans
-    nushell
-    nwg-panel
     odin
     openjdk16-bootstrap
     p7zip
@@ -79,17 +73,14 @@
     polymc
     python
     python310
-    python3Packages.pygobject3
-    python3Packages.requests
-    redshift
     rofi
     rnix-lsp
     rust-analyzer
     scrot
     slurp
-    starship
     statix
     sumneko-lua-language-server
+    swaynotificationcenter
     thefuck
     tldr
     unrar
