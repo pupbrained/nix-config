@@ -187,7 +187,7 @@ gaps outer 10
 # Some useful shortcuts
 bindsym $mod+w exec librewolf
 bindsym $mod+x exec /home/marshall/nix-config/dotfiles/rofi/scripts/powermenu.sh
-bindsym $mod+s exec /home/marshall/nix-config/dotfiles/rofi/scripts/powermenu.sh
+bindsym $mod+s exec /home/marshall/nix-config/dotfiles/rofi/scripts/screenshot.sh
 
 # Media controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%

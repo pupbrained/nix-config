@@ -34,3 +34,11 @@ fetch.github = "noib3/nvim-cokeline"
 [coc-tailwindcss3]
 src.git = "https://github.com/yaegassy/coc-tailwindcss3"
 fetch.github = "yaegassy/coc-tailwindcss3"
+
+[yambar]
+src.git = "https://codeberg.org/dnkl/yambar"
+fetch.git = "https://codeberg.org/dnkl/yambar"
+
+[nwg-panel]
+src.github = "nwg-piotr/nwg-panel"
+fetch.github = "nwg-piotr/nwg-panel"

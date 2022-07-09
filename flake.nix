@@ -8,7 +8,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixpkgs.url = "github:marsupialgutz/nixpkgs-nvidia-open/nixos-unstable-small";
+    nixpkgs.url = "github:marsupialgutz/nixpkgs-nvidia-open";
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
@@ -45,6 +45,11 @@
       flake = false;
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lavender-discord = {
       url = "github:Lavender-Discord/Lavender";
       flake = false;
@@ -73,6 +78,7 @@
     nixos-wsl,
     nixvim,
     nix-doom-emacs,
+    hyprland,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -85,6 +91,8 @@
         modules = [
           ./sys/nix/configuration.nix
           home-manager.nixosModule
+          hyprland.nixosModules.default
+          {programs.hyprland.enable = true;}
         ];
       };
       wsl = lib.nixosSystem {

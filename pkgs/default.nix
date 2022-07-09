@@ -16,6 +16,14 @@ in {
     inherit (sources.picom) src pname version;
   });
 
+  yambar = prev.yambar.overrideAttrs (o: {
+    inherit (sources.yambar) src pname version;
+  });
+
+  # nwg-panel = prev.nwg-panel.overrideAttrs (o: {
+  # inherit (sources.nwg-panel) src pname version;
+  # });
+
   myCopilotVim = prev.vimPlugins.copilot-vim.overrideAttrs (o: {
     inherit (sources.copilot-vim) src pname version;
   });

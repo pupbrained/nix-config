@@ -17,7 +17,6 @@
     audacity
     binutils
     brightnessctl
-    busybox
     cachix
     cargo-binutils
     cargo-edit
@@ -25,17 +24,22 @@
     cmake
     comma
     deno
+    discord
     draconis
+    eww
     ffmpeg
     file
     fluffychat
     gcc
     gh
     github-desktop
+    glib
     gnome.eog
     gnome.seahorse
     gnumake
     gpick
+    grim
+    gsettings-desktop-schemas
     headsetcontrol
     inotifyTools
     jamesdsp
@@ -63,6 +67,7 @@
     notion-app-enhanced
     noto-fonts-cjk-sans
     nushell
+    nwg-panel
     odin
     openjdk16-bootstrap
     p7zip
@@ -74,11 +79,14 @@
     polymc
     python
     python310
+    python3Packages.pygobject3
+    python3Packages.requests
     redshift
     rofi
     rnix-lsp
     rust-analyzer
     scrot
+    slurp
     starship
     statix
     sumneko-lua-language-server
@@ -87,7 +95,8 @@
     unrar
     unzip
     waybar
-    wineWowPackages.full
+    wineWowPackages.waylandFull
+    wl-clipboard
     xclip
     xdotool
     yarn
@@ -651,18 +660,9 @@
   wayland.windowManager.sway = {
     enable = true;
     extraOptions = ["--unsupported-gpu"];
-    extraSessionCommands = ''
-      export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
-      export CLUTTER_BACKEND=wayland
-      export SDL_VIDEODRIVER=wayland
-      export XDG_SESSION_TYPE=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-      export MOZ_ENABLE_WAYLAND=1
-      export GBM_BACKEND=nvidia-drm
-      export __GLX_VENDOR_LIBRARY_NAME=nvidia
-      export WLR_NO_HARDWARE_CURSORS=1
-      export WLR_BACKEND=vulkan
-    '';
+    wrapperFeatures = {
+      base = true;
+      gtk = true;
+    };
   };
 }

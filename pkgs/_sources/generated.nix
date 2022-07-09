@@ -70,6 +70,17 @@
       sha256 = "sha256-mG0cJelaZLNth5mc9QNBuhlWzo+1pfeOAz+REtgUY8o=";
     };
   };
+  nwg-panel = {
+    pname = "nwg-panel";
+    version = "v0.7.1";
+    src = fetchFromGitHub {
+      owner = "nwg-piotr";
+      repo = "nwg-panel";
+      rev = "v0.7.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-ucuqUI96xpwv1aOtUqWjN9lyMdaqx/F1ps2DQFHBcjw=";
+    };
+  };
   picom = {
     pname = "picom";
     version = "db16da3907b2ba540be5a53d0f0e28e2d3b5b705";
@@ -101,6 +112,18 @@
       rev = "54e006038c28092aa8b2cc88fad139a8edb3ce6c";
       fetchSubmodules = false;
       sha256 = "sha256-vK5496rGwgCxKjVO8V7CYkXigpKRonidmwWXMOrMN3I=";
+    };
+  };
+  yambar = {
+    pname = "yambar";
+    version = "b331473a6b4b9de2f35462236ece1db11f876071";
+    src = fetchgit {
+      url = "https://codeberg.org/dnkl/yambar";
+      rev = "b331473a6b4b9de2f35462236ece1db11f876071";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-xjxwhCzGUukAytvJ1lrQ7JJNbBffOZtBgUzXXojEC68=";
     };
   };
 }
