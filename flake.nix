@@ -7,7 +7,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nixpkgs.url = "github:marsupialgutz/nixpkgs-nvidia-open";
+    nixpkgs.url = "github:marsupialgutz/nixpkgs-nvidia-open/nixos-unstable-small";
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";

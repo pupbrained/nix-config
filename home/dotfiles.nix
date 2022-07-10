@@ -13,5 +13,6 @@ _: {
     "rofi".source = ../dotfiles/rofi;
     "sway".source = ../dotfiles/sway;
     "waybar".source = ../dotfiles/waybar;
+    "hypr".source = ../dotfiles/hypr;
   };
 }

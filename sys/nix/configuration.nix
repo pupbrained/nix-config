@@ -39,7 +39,7 @@
           enable = true;
           theme = "aerial-sddm-theme";
         };
-        defaultSession = "none+awesome";
+        defaultSession = "hyprland";
       };
 
       windowManager.awesome.enable = true;
