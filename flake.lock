@@ -104,11 +104,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1657256227,
-        "narHash": "sha256-G7NwzdBA2qjwJQgAuffjXhzfmUUMudLLgWr4ruaWOOY=",
+        "lastModified": 1657495177,
+        "narHash": "sha256-Oyeb78XquhxOtbEaDLiyM+VLdP2U99whfzGfQ24RKWI=",
         "owner": "marsupialgutz",
         "repo": "draconis",
-        "rev": "f93dcf9dd036e5cf1d12db9bab2730d3b019468a",
+        "rev": "2fec2e5112d8884ba7dd9138b77a5c5d089d650d",
         "type": "github"
       },
       "original": {
