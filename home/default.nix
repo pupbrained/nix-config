@@ -25,7 +25,6 @@
     discord
     draconis
     eww
-    ffmpeg
     file
     fluffychat
     gcc
@@ -39,6 +38,7 @@
     headsetcontrol
     inotifyTools
     jamesdsp
+    jellyfin-ffmpeg
     jetbrains.idea-ultimate
     jq
     keychain
@@ -86,6 +86,7 @@
     unrar
     unzip
     waybar
+    wf-recorder
     wineWowPackages.waylandFull
     wl-clipboard
     xclip

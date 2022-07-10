@@ -1,7 +1,7 @@
 {
     "position": "bottom", 
     "height": 30,
-    "modules-center": ["wlr/workspaces", "tray", "custom/notification", "network", "pulseaudio", "custom/date", "clock"],
+    "modules-center": ["wlr/workspaces", "tray", "custom/notification", "network", "custom/media", "pulseaudio", "custom/date", "clock"],
 	"wlr/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -17,6 +17,7 @@
       "8": "八",
       "9": "九",
       "10": "〇",
+      "default": "一",
       "active": "●",
       }
      },
@@ -24,6 +25,17 @@
     "icon-size": 13,
     "spacing": 10
   },
+  "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": " ",
+            "default": "🎜 "
+        },
+        "escape": true,
+        "exec": "$HOME/nix-config/dotfiles/waybar/mediaplayer.sh"
+    },
 	"custom/date": {
     "format": "  {}",
 		"interval": 3600,
