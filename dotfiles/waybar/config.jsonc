@@ -31,7 +31,7 @@
         "max-length": 40,
         "format-icons": {
             "spotify": " ",
-            "default": "🎜 "
+            "default": " "
         },
         "escape": true,
         "exec": "$HOME/nix-config/dotfiles/waybar/mediaplayer.sh"

@@ -43,6 +43,7 @@
     jq
     keychain
     kotatogram-desktop
+    libappindicator
     libnotify
     librewolf
     libsForQt5.qtstyleplugin-kvantum
