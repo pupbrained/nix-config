@@ -22,6 +22,7 @@
       enable = true;
       wifi.macAddress = "random";
     };
+    extraHosts = "192.168.1.237 umbrel.local";
   };
 
   environment.systemPackages = [pkgs.mySddmTheme];
