@@ -16,6 +16,10 @@ in {
     inherit (sources.picom) src pname version;
   });
 
+  zscroll = prev.zscroll.overrideAttrs (o: {
+    inherit (sources.zscroll) src pname version;
+  });
+
   yambar = prev.yambar.overrideAttrs (o: {
     inherit (sources.yambar) src pname version;
   });

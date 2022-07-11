@@ -93,6 +93,7 @@
     xclip
     xdotool
     yarn
+    zscroll
     (spotify-spicetified.override {
       theme = "catppuccin";
       colorScheme = "mauve";

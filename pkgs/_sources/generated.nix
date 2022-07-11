@@ -126,4 +126,15 @@
       sha256 = "sha256-xjxwhCzGUukAytvJ1lrQ7JJNbBffOZtBgUzXXojEC68=";
     };
   };
+  zscroll = {
+    pname = "zscroll";
+    version = "788be9650b647f61f8f899054ad1213eee42e8a4";
+    src = fetchFromGitHub {
+      owner = "noctuid";
+      repo = "zscroll";
+      rev = "788be9650b647f61f8f899054ad1213eee42e8a4";
+      fetchSubmodules = false;
+      sha256 = "sha256-gEluWzCbztO4N1wdFab+2xH7l9w5HqZVzp2LrdjHSRM=";
+    };
+  };
 }

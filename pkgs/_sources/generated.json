@@ -206,5 +206,24 @@
             "url": "https://codeberg.org/dnkl/yambar"
         },
         "version": "b331473a6b4b9de2f35462236ece1db11f876071"
+    },
+    "zscroll": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "zscroll",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "noctuid",
+            "repo": "zscroll",
+            "rev": "788be9650b647f61f8f899054ad1213eee42e8a4",
+            "sha256": "sha256-gEluWzCbztO4N1wdFab+2xH7l9w5HqZVzp2LrdjHSRM=",
+            "type": "github"
+        },
+        "version": "788be9650b647f61f8f899054ad1213eee42e8a4"
     }
 }

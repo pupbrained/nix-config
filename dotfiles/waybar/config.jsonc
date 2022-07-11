@@ -27,14 +27,13 @@
   },
   "custom/media": {
         "format": "{icon} {}",
-        "return-type": "json",
         "max-length": 40,
         "format-icons": {
             "spotify": " ",
             "default": " "
         },
         "escape": true,
-        "exec": "$HOME/nix-config/dotfiles/waybar/mediaplayer.sh"
+        "exec": "$HOME/nix-config/dotfiles/waybar/scroll_spotify_status.sh"
     },
 	"custom/date": {
     "format": "  {}",

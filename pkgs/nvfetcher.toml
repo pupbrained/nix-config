@@ -7,6 +7,10 @@ src.git = "https://github.com/yaocccc/picom"
 src.branch = "feat-animation-extra"
 fetch.github = "yaocccc/picom"
 
+[zscroll]
+src.git = "https://github.com/noctuid/zscroll"
+fetch.github = "noctuid/zscroll"
+
 [spicetify-cli]
 src.github = "khanhas/spicetify-cli"
 fetch.github = "khanhas/spicetify-cli"
