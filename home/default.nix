@@ -14,6 +14,7 @@
     alejandra
     android-tools
     audacity
+    authy
     binutils
     brightnessctl
     cachix

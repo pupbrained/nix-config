@@ -19,13 +19,13 @@ options="$screen\n$area\n$window"
 chosen="$(echo -e "$options" | $rofi_command -p '' -dmenu -selected-row 1)"
 case $chosen in
     $screen)
-  	sleep 1; grim -t png - | wl-copy -t image/png
+  	sleep 0.4; grim -t png - | wl-copy -t image/png
         ;;
     $area)
 		grim -g "$(slurp)" -t png - | wl-copy -t image/png
         ;;
     $window)
-		sleep 1; grim -g "$(hyprctl activewindow | grep at: | cut -d' ' -f2) $(hyprctl activewindow | grep size: | cut -d' ' -f2 | sed 's/,/x/g')" - | wl-copy
+		sleep 0.4; grim -g "$(hyprctl activewindow | grep at: | cut -d' ' -f2) $(hyprctl activewindow | grep size: | cut -d' ' -f2 | sed 's/,/x/g')" - | wl-copy
         ;;
 esac
 
