@@ -33,6 +33,7 @@
     gnome.eog
     gnome.seahorse
     gnumake
+    gparted
     gpick
     grim
     gsettings-desktop-schemas
@@ -54,6 +55,7 @@
     mate.engrampa
     micro
     minecraft
+    mullvad-vpn
     most
     mpvScripts.mpris
     neovim-nightly
@@ -87,6 +89,7 @@
     tldr
     unrar
     unzip
+    usbimager
     waybar
     wf-recorder
     wineWowPackages.waylandFull
@@ -314,7 +317,6 @@
 
         dashboard = {
           enable = true;
-          executive = "telescope";
           header = [
             "                                         _.oo."
             "                 _.u[[/;:,.         .odMMMMMM´"

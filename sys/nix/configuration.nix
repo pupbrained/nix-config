@@ -47,9 +47,15 @@
 
       videoDrivers = ["nvidia"];
     };
+
     pipewire = {
       enable = true;
       pulse.enable = true;
+    };
+
+    tor = {
+      enable = true;
+      torsocks.enable = true;
     };
   };
 

@@ -31,11 +31,11 @@
             "name": null,
             "owner": "awesomeWM",
             "repo": "awesome",
-            "rev": "9ca7bb487a5d1d2d5c102f94cd9e8cb5b6e7ffaa",
-            "sha256": "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=",
+            "rev": "b7bac1dc761f7e231355e76351500a97b27b6803",
+            "sha256": "sha256-SxydaQScu0kvBn3VOnT29/Sji0Y+7my+tO46mpMggAQ=",
             "type": "github"
         },
-        "version": "9ca7bb487a5d1d2d5c102f94cd9e8cb5b6e7ffaa"
+        "version": "b7bac1dc761f7e231355e76351500a97b27b6803"
     },
     "catppuccin-spicetify": {
         "cargoLocks": null,

@@ -1,5 +1,5 @@
 {
-    "position": "bottom", 
+    "position": "top", 
     "height": 30,
     "modules-center": ["wlr/workspaces", "tray", "custom/notification", "network", "custom/media", "pulseaudio", "custom/date", "clock"],
 	"wlr/workspaces": {
@@ -69,7 +69,7 @@
 	},
 	"pulseaudio": {
 		"format": "{icon}  {volume}%",
-        	"format-muted": "󰖁 Muted",
+        	"format-muted": "ﱝ Muted",
         	"format-icons": {
             	"headphone": "",
             	"hands-free": "",
