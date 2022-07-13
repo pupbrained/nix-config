@@ -10,6 +10,8 @@
     inputs.nix-doom-emacs.hmModule
   ];
   home.packages = with pkgs; [
+    web-greeter
+
     acpi
     alejandra
     android-tools

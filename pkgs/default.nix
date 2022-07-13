@@ -32,7 +32,7 @@ in {
     inherit (sources.coc-tailwindcss3) src pname version;
   };
 
-  nody-greeter = final.callPackage ./nody-greeter.nix {
+  web-greeter = final.callPackage ./web-greeter.nix {
   };
 
   awesome =

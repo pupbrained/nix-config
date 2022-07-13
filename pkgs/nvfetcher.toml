@@ -43,6 +43,6 @@ fetch.github = "yaegassy/coc-tailwindcss3"
 src.github = "nwg-piotr/nwg-panel"
 fetch.github = "nwg-piotr/nwg-panel"
 
-[nody-greeter]
-src.github = "JezerM/nody-greeter"
-fetch.github = "JezerM/nody-greeter"
+[web-greeter]
+src.github = "JezerM/web-greeter"
+fetch.github = "JezerM/web-greeter"
