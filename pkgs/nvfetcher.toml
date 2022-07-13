@@ -46,3 +46,4 @@ fetch.github = "nwg-piotr/nwg-panel"
 [web-greeter]
 src.github = "JezerM/web-greeter"
 fetch.github = "JezerM/web-greeter"
+git.fetchSubmodules = true
