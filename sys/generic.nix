@@ -35,6 +35,9 @@ in {
       discord = super.discord.override {
         withOpenASAR = true;
       };
+      discord-canary = super.discord-canary.override {
+        nss = pkgs.nss_latest;
+      };
       waybar = super.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       });

@@ -62,6 +62,7 @@
     mullvad-vpn
     most
     mpvScripts.mpris
+    neovim-nightly
     nerdfonts
     nix-prefetch-scripts
     nodejs
@@ -80,6 +81,7 @@
     polymc
     python
     python310
+    ranger
     rofi
     rnix-lsp
     rust-analyzer
@@ -307,7 +309,7 @@
     };
 
     nixvim = {
-      enable = false;
+      enable = true;
       options = {
         number = true;
         relativenumber = true;

@@ -8,6 +8,6 @@ for i in $(nix profile list | cut -d' ' -f1); do
   nix profile remove 0
 done
 
-nix-shell -p git --run "nixos-rebuild switch --flake .# --use-remote-sudo"
+nix-shell -p git --run "nixos-rebuild switch --flake .# --use-remote-sudo --impure"
 
 sudo systemctl restart home-manager-marshall
