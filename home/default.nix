@@ -22,17 +22,18 @@
     cinnamon.nemo
     cmake
     comma
+    ddcutil
     deno
     discord
     draconis
     eww
     file
-    fluffychat
     gcc
     glib
     gnome.eog
     gnome.seahorse
     gnumake
+    gotktrix
     gparted
     gpick
     grim
@@ -48,6 +49,7 @@
     libappindicator
     libnotify
     librewolf
+    libffi
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
     lua52Packages.lgi
@@ -58,7 +60,6 @@
     mullvad-vpn
     most
     mpvScripts.mpris
-    neovim-nightly
     nerdfonts
     nix-prefetch-scripts
     nodejs
@@ -126,9 +127,13 @@
 
   programs = {
     direnv.enable = true;
-    go.enable = true;
     gpg.enable = true;
     nix-index.enable = true;
+
+    go = {
+      enable = true;
+      package = pkgs.go_1_18;
+    };
 
     mpv = {
       enable = true;
@@ -195,7 +200,7 @@
         bindkey '^[[B' down-line-or-search
         bindkey '^[[E' backward-delete-word
 
-        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin"
+        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin"
         export EDITOR=lvim
         export VISUAL=lvim
         export NIXPKGS_ALLOW_UNFREE=1
@@ -300,7 +305,7 @@
     };
 
     nixvim = {
-      enable = true;
+      enable = false;
       options = {
         number = true;
         relativenumber = true;
