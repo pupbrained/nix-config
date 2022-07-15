@@ -105,11 +105,11 @@
   };
   spicetify-themes = {
     pname = "spicetify-themes";
-    version = "54e006038c28092aa8b2cc88fad139a8edb3ce6c";
+    version = "755c10a8894790be280bbccc508a4a9c5af56adb";
     src = fetchFromGitHub {
       owner = "morpheusthewhite";
       repo = "spicetify-themes";
-      rev = "54e006038c28092aa8b2cc88fad139a8edb3ce6c";
+      rev = "755c10a8894790be280bbccc508a4a9c5af56adb";
       fetchSubmodules = false;
       sha256 = "sha256-vK5496rGwgCxKjVO8V7CYkXigpKRonidmwWXMOrMN3I=";
     };

@@ -23,6 +23,10 @@
       wifi.macAddress = "random";
     };
     extraHosts = "192.168.1.237 umbrel.local";
+    nameservers = [
+      "192.168.1.80"
+      "1.1.1.1"
+    ];
   };
 
   environment.systemPackages = [pkgs.mySddmTheme];
@@ -93,6 +97,7 @@
       enable = true;
       driSupport32Bit = true;
     };
+    i2c.enable = true;
   };
 
   nix.settings.trusted-users = ["root" "marshall"];
