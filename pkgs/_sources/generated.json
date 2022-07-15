@@ -187,7 +187,7 @@
             "sha256": "sha256-C0h9SsupYIg5vrtthKtRMh8JVB3CRoBd1+vXkUXxHd8=",
             "type": "github"
         },
-        "version": "755c10a8894790be280bbccc508a4a9c5af56adb"
+        "version": "54e006038c28092aa8b2cc88fad139a8edb3ce6c"
     },
     "zscroll": {
         "cargoLocks": null,

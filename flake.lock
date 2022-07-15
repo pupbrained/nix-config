@@ -1120,7 +1120,8 @@
         "powercord-tiktok-tts": "powercord-tiktok-tts",
         "sur-cord": "sur-cord",
         "theme-toggler": "theme-toggler",
-        "vscodeInsiders": "vscodeInsiders"
+        "vscodeInsiders": "vscodeInsiders",
+        "web-greeter": "web-greeter"
       }
     },
     "rotate-text": {
@@ -1283,6 +1284,24 @@
         "owner": "cideM",
         "repo": "visual-studio-code-insiders-nix",
         "type": "github"
+      }
+    },
+    "web-greeter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657694511,
+        "narHash": "sha256-JP31uYsBLM6htfYedy4x4bQzUcx5GOsURLeilqF133c=",
+        "ref": "master",
+        "rev": "9240129793e19c34d166071ce1b3d55b5d033d74",
+        "revCount": 819,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/JezerM/web-greeter"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/JezerM/web-greeter"
       }
     },
     "wlroots": {

@@ -111,7 +111,7 @@
       repo = "spicetify-themes";
       rev = "755c10a8894790be280bbccc508a4a9c5af56adb";
       fetchSubmodules = false;
-      sha256 = "sha256-C0h9SsupYIg5vrtthKtRMh8JVB3CRoBd1+vXkUXxHd8=";
+      sha256 = "sha256-vK5496rGwgCxKjVO8V7CYkXigpKRonidmwWXMOrMN3I=";
     };
   };
   zscroll = {

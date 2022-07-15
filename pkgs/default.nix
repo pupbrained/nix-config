@@ -1,4 +1,4 @@
-final: prev: let
+inputs: final: prev: let
   sources = prev.callPackage ./_sources/generated.nix {};
 in {
   spicetify-cli = with prev;
@@ -30,6 +30,10 @@ in {
 
   myTailwindPlugin = prev.vimUtils.buildVimPlugin {
     inherit (sources.coc-tailwindcss3) src pname version;
+  };
+
+  web-greeter = final.callPackage ./web-greeter.nix {
+    web-greeter-src = inputs.web-greeter;
   };
 
   awesome =
