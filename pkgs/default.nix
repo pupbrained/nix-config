@@ -1,4 +1,4 @@
-final: prev: let
+inputs: final: prev: let
   sources = prev.callPackage ./_sources/generated.nix {};
 in {
   spicetify-cli = with prev;
@@ -33,6 +33,7 @@ in {
   };
 
   web-greeter = final.callPackage ./web-greeter.nix {
+    web-greeter-src = inputs.web-greeter;
   };
 
   awesome =

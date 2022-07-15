@@ -189,25 +189,6 @@
         },
         "version": "54e006038c28092aa8b2cc88fad139a8edb3ce6c"
     },
-    "web-greeter": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "web-greeter",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "JezerM",
-            "repo": "web-greeter",
-            "rev": "3.5.0",
-            "sha256": "sha256-uGsNIE//7DJZVti1hmOub2D/6ORGrFDqE9lTGSHZswk=",
-            "type": "github"
-        },
-        "version": "3.5.0"
-    },
     "zscroll": {
         "cargoLocks": null,
         "extract": null,

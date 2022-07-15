@@ -1,10 +1,23 @@
-{ nodejs, rsync, pkg-config, python3Packages, callPackage }:
-
-let sources = callPackage ./_sources/generated.nix { };
-in
-python3Packages.buildPythonApplication {
-  inherit (sources.web-greeter) src pname version;
-  nativeBuildInputs = [ nodejs rsync pkg-config ];
+{ stdenv
+, web-greeter-src
+, nodejs
+, rsync
+, pkg-config
+, python3Packages
+, gobject-introspection
+, lightdm
+, xorg
+, libsForQt5
+, callPackage
+,
+}:
+stdenv.mkDerivation {
+  pname = "web-greeter";
+  version = web-greeter-src.rev;
+  src = web-greeter-src;
+  dontWrapQtApps = true;
+  nativeBuildInputs = [ nodejs rsync pkg-config python3Packages.pyqt5 ];
+  buildInputs = with python3Packages; [ lightdm pygobject3 pyqt5 pyqtwebengine ruamel_yaml pyinotify gobject-introspection xorg.libX11 libsForQt5.qtwebengine ];
   __noChroot = true;
   buildPhase = ''
     HOME=$(mktemp -d)
@@ -14,4 +27,5 @@ python3Packages.buildPythonApplication {
   installPhase = ''
     make install
   '';
+  DESTDIR = placeholder "out";
 }

@@ -68,6 +68,13 @@
       url = "github:redstonekasi/theme-toggler";
       flake = false;
     };
+
+    web-greeter = {
+      type = "git";
+      url = "https://github.com/JezerM/web-greeter";
+      submodules = true;
+      flake = false;
+    };
   };
 
   outputs = {

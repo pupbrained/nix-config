@@ -42,8 +42,3 @@ fetch.github = "yaegassy/coc-tailwindcss3"
 [nwg-panel]
 src.github = "nwg-piotr/nwg-panel"
 fetch.github = "nwg-piotr/nwg-panel"
-
-[web-greeter]
-src.github = "JezerM/web-greeter"
-fetch.github = "JezerM/web-greeter"
-git.fetchSubmodules = true
