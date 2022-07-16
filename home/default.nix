@@ -28,6 +28,7 @@
     deno
     discord
     draconis
+    edgedb
     eww
     file
     gcc
@@ -90,7 +91,6 @@
     statix
     sumneko-lua-language-server
     swaynotificationcenter
-    thefuck
     tldr
     unrar
     unzip

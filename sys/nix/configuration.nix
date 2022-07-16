@@ -4,7 +4,12 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix ../generic.nix];
+  disabledModules = ["services/hardware/udev.nix"];
+  imports = [
+    ./hardware-configuration.nix
+    ../generic.nix
+    ../patches/udev.nix
+  ];
 
   boot = {
     loader = {

@@ -39,13 +39,13 @@
   };
   coc-tailwindcss3 = {
     pname = "coc-tailwindcss3";
-    version = "3f19005191c865058db13f722b36eec51c42d258";
+    version = "c76f14d0025aca3f0a0bc7725c5e8c49aa34e952";
     src = fetchFromGitHub {
       owner = "yaegassy";
       repo = "coc-tailwindcss3";
-      rev = "3f19005191c865058db13f722b36eec51c42d258";
+      rev = "c76f14d0025aca3f0a0bc7725c5e8c49aa34e952";
       fetchSubmodules = false;
-      sha256 = "sha256-+IfoauAuhKQdaEVh1KG7kaAung+AN8Fc4nQODkCUJxQ=";
+      sha256 = "sha256-THQ+Fakp/XzWpZKnlBoJtq2NhXftzRkSasKrwAX09Gk=";
     };
   };
   copilot-vim = {
@@ -111,7 +111,7 @@
       repo = "spicetify-themes";
       rev = "755c10a8894790be280bbccc508a4a9c5af56adb";
       fetchSubmodules = false;
-      sha256 = "sha256-vK5496rGwgCxKjVO8V7CYkXigpKRonidmwWXMOrMN3I=";
+      sha256 = "sha256-C0h9SsupYIg5vrtthKtRMh8JVB3CRoBd1+vXkUXxHd8=";
     };
   };
   zscroll = {
