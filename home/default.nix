@@ -118,7 +118,7 @@
     })
     (pkgs.discord-plugged.override {
       plugins = with inputs; [theme-toggler powercord-tiktok-tts];
-      themes = with inputs; [lavender-discord catppuccin horizontal-server-list sur-cord compact-settings essence-theme];
+      themes = with inputs; [catppuccin horizontal-server-list essence-theme];
     })
     (fenix.complete.withComponents [
       "cargo"

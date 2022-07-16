@@ -3,7 +3,6 @@
 
   inputs = {
     draconis.url = "github:marsupialgutz/draconis";
-    flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -16,11 +15,6 @@
 
     catppuccin = {
       url = "github:catppuccin/discord";
-      flake = false;
-    };
-
-    compact-settings = {
-      url = "github:FayneAldan/CompactSettings";
       flake = false;
     };
 
@@ -49,18 +43,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lavender-discord = {
-      url = "github:Lavender-Discord/Lavender";
-      flake = false;
-    };
-
     powercord-tiktok-tts = {
       url = "github:oatmealine/powercord-tiktok-tts";
-      flake = false;
-    };
-
-    sur-cord = {
-      url = "github:SlippingGitty/surCord";
       flake = false;
     };
 
