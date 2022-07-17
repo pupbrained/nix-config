@@ -42,7 +42,7 @@ in {
     '';
   });
 
-  hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override { inherit (final) wlroots; };
+  hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {inherit (final) wlroots;};
 
   awesome =
     (prev.awesome.overrideAttrs (old: {
