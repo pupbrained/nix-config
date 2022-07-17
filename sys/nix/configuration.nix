@@ -68,6 +68,11 @@
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland-nvidia;
+  };
+
   environment.loginShellInit = ''
     dbus-update-activation-environment --systemd DISPLAY
     eval $(ssh-agent)

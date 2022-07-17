@@ -42,6 +42,8 @@ in {
     '';
   });
 
+  hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override { inherit (final) wlroots; };
+
   awesome =
     (prev.awesome.overrideAttrs (old: {
       inherit (sources.awesome) src pname version;
