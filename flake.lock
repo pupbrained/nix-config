@@ -722,16 +722,16 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1657907510,
-        "narHash": "sha256-4sH259ROLAp825Ir38AmnxEysu/xSz8P5j792rviiuA=",
-        "owner": "marsupialgutz",
-        "repo": "nixpkgs-nvidia-open",
-        "rev": "9c7c0cab3a2312efbff63516c982af9af2093333",
+        "lastModified": 1658017223,
+        "narHash": "sha256-mVtJv3x9/yUb8mCK1jkh+k1p4LYLx9GDpk8MMd3pUJM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "57bfdfae1747fa296400ab0558eb9f8ab5916118",
         "type": "github"
       },
       "original": {
-        "owner": "marsupialgutz",
-        "repo": "nixpkgs-nvidia-open",
+        "owner": "nixos",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
