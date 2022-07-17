@@ -241,7 +241,7 @@
     kitty = {
       enable = true;
       font = {
-        name = "Rec Mono Casual";
+        name = "Comic Code Ligatures";
         size = 12;
       };
       settings = {
@@ -261,7 +261,7 @@
         cursor_shape = "beam";
         active_tab_font_style = "bold";
         inactive_tab_font_style = "normal";
-        adjust_line_height = 5;
+        adjust_line_height = 3;
         adjust_column_width = 0;
         foreground = "#CDD6F4";
         background = "#1E1E2E";
