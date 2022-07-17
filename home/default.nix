@@ -147,7 +147,7 @@
 
     vscode = with pkgs; {
       enable = true;
-      package = vscodeInsiders;
+      package = vscode-fhs;
     };
 
     git = {
