@@ -28,7 +28,6 @@
     deno
     discord
     draconis
-    edgedb
     eww
     file
     gcc
@@ -187,6 +186,7 @@
       dotDir = ".config/zsh";
       initExtraFirst = ''
         source ~/.cache/p10k-instant-prompt-marshall.zsh
+        fpath+=~/.zfunc
       '';
       shellAliases = {
         se = "sudoedit";

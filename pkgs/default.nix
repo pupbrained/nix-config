@@ -36,6 +36,12 @@ in {
     web-greeter-src = inputs.web-greeter;
   };
 
+  wlroots = prev.wlroots.overrideAttrs (oldAttrs: {
+    patchPhase = ''
+      substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
+    '';
+  });
+
   awesome =
     (prev.awesome.overrideAttrs (old: {
       inherit (sources.awesome) src pname version;

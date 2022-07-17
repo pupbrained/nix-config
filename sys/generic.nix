@@ -41,11 +41,6 @@ in {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       });
-      wlroots = super.wlroots.overrideAttrs (oldAttrs: {
-        patchPhase = ''
-          substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-        '';
-      });
     })
     inputs.powercord-overlay.overlay
     inputs.nur.overlay
