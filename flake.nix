@@ -63,6 +63,7 @@
 
   outputs = {
     self,
+    fenix,
     nixpkgs,
     home-manager,
     nixos-wsl,
@@ -74,6 +75,7 @@
     inherit (nixpkgs) lib;
     forSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
+    defaultPackage.x86_64-linux = fenix.packages.x86_64-linux.minimal.toolchain;
     nixosConfigurations = {
       nix = lib.nixosSystem {
         system = "x86_64-linux";
