@@ -21,6 +21,7 @@
     brightnessctl
     cachix
     cargo-edit
+    cargo-udeps
     cinnamon.nemo
     cmake
     comma
