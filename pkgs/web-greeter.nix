@@ -28,4 +28,5 @@ stdenv.mkDerivation {
     make install
   '';
   DESTDIR = placeholder "out";
+  PREFIX = "/";
 }
