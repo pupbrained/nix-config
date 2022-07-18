@@ -34,7 +34,7 @@
     ];
   };
 
-  environment.systemPackages = [pkgs.mySddmTheme];
+  environment.systemPackages = [];
   services = {
     gnome = {
       glib-networking.enable = true;
@@ -45,9 +45,13 @@
       enable = true;
 
       displayManager = {
-        sddm = {
+        lightdm = {
           enable = true;
-          theme = "aerial-sddm-theme";
+          greeter = {
+            enable = true;
+            package = pkgs.web-greeter;
+            name = "web-greeter";
+          };
         };
         defaultSession = "hyprland";
       };
