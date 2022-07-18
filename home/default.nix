@@ -188,6 +188,16 @@
       initExtraFirst = ''
         source ~/.cache/p10k-instant-prompt-marshall.zsh
         fpath+=~/.zfunc
+
+        git() {
+          ROOT="$(/usr/bin/git rev-parse --show-toplevel)"
+          LOCATION="/.git/hooks/post-push"
+          if [ "$1" == "push" ] && [ -f "$ROOT$LOCATION" ]; then
+            /usr/bin/git $* && eval $ROOT$LOCATION
+          else
+            /usr/bin/git $*
+          fi
+        }
       '';
       shellAliases = {
         se = "sudoedit";
@@ -210,16 +220,6 @@
         export VISUAL=lvim
         export NIXPKGS_ALLOW_UNFREE=1
         export PAGER=most
-
-        git() {
-          ROOT="$(/usr/bin/git rev-parse --show-toplevel)"
-          LOCATION="/.git/hooks/post-push"
-          if [ "$1" == "push" ] && [ -f "$ROOT$LOCATION" ]; then
-            /usr/bin/git $* && eval $ROOT$LOCATION
-          else
-            /usr/bin/git $*
-          fi
-        }
 
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
