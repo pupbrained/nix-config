@@ -160,7 +160,7 @@
         key = "DB41891AE0A1ED4D";
       };
       aliases = {
-        "pushall" = "git remote | xargs -L1 git push --all";
+        "pushall" = "git remote | xargs -L1 git push";
       };
       diff-so-fancy.enable = true;
     };
@@ -196,8 +196,7 @@
         se = "sudoedit";
         gc = "git commit";
         ga = "git add .";
-        gp = "git remote | xargs -L1 git push --all";
-        gcap = "ga; gc; gp";
+        gcap = "ga; gc; git pushall";
         cat = "bat";
       };
       initExtra = ''
