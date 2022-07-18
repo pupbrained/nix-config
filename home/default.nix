@@ -188,21 +188,12 @@
       initExtraFirst = ''
         source ~/.cache/p10k-instant-prompt-marshall.zsh
         fpath+=~/.zfunc
-
-        git() {
-          ROOT="$(/usr/bin/git rev-parse --show-toplevel)"
-          LOCATION="/.git/hooks/post-push"
-          if [ "$1" == "push" ] && [ -f "$ROOT$LOCATION" ]; then
-            /usr/bin/git $* && eval $ROOT$LOCATION
-          else
-            /usr/bin/git $*
-          fi
-        }
       '';
       shellAliases = {
         se = "sudoedit";
         gc = "git commit";
         ga = "git add .";
+        gp = "git remote | xargs -L1 git push --all";
         gcap = "ga; gc; gp";
         cat = "bat";
       };
