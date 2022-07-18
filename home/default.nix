@@ -160,7 +160,7 @@
         key = "DB41891AE0A1ED4D";
       };
       aliases = {
-        "pushall" = "git remote | xargs -L1 git push";
+        "pushall" = "!git remote | xargs -L1 git push";
       };
       diff-so-fancy.enable = true;
     };
