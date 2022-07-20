@@ -69,11 +69,11 @@
             "name": null,
             "owner": "yaegassy",
             "repo": "coc-tailwindcss3",
-            "rev": "c76f14d0025aca3f0a0bc7725c5e8c49aa34e952",
-            "sha256": "sha256-THQ+Fakp/XzWpZKnlBoJtq2NhXftzRkSasKrwAX09Gk=",
+            "rev": "263eeeaa14e7efe7056fdca92e0c60801425b912",
+            "sha256": "sha256-71x7h91ruLgckVIJFWCGp7LellIS25nHfGd7uzDYEyk=",
             "type": "github"
         },
-        "version": "c76f14d0025aca3f0a0bc7725c5e8c49aa34e952"
+        "version": "263eeeaa14e7efe7056fdca92e0c60801425b912"
     },
     "copilot-vim": {
         "cargoLocks": null,
@@ -126,11 +126,11 @@
             "name": null,
             "owner": "nwg-piotr",
             "repo": "nwg-panel",
-            "rev": "v0.7.1",
-            "sha256": "sha256-ucuqUI96xpwv1aOtUqWjN9lyMdaqx/F1ps2DQFHBcjw=",
+            "rev": "v0.7.2",
+            "sha256": "sha256-kQow8jBHxMTgtTaOvq8uT5YjWxml+GoYaoUH3hMQN8g=",
             "type": "github"
         },
-        "version": "v0.7.1"
+        "version": "v0.7.2"
     },
     "picom": {
         "cargoLocks": null,

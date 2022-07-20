@@ -39,13 +39,13 @@
   };
   coc-tailwindcss3 = {
     pname = "coc-tailwindcss3";
-    version = "c76f14d0025aca3f0a0bc7725c5e8c49aa34e952";
+    version = "263eeeaa14e7efe7056fdca92e0c60801425b912";
     src = fetchFromGitHub {
       owner = "yaegassy";
       repo = "coc-tailwindcss3";
-      rev = "c76f14d0025aca3f0a0bc7725c5e8c49aa34e952";
+      rev = "263eeeaa14e7efe7056fdca92e0c60801425b912";
       fetchSubmodules = false;
-      sha256 = "sha256-THQ+Fakp/XzWpZKnlBoJtq2NhXftzRkSasKrwAX09Gk=";
+      sha256 = "sha256-71x7h91ruLgckVIJFWCGp7LellIS25nHfGd7uzDYEyk=";
     };
   };
   copilot-vim = {
@@ -72,13 +72,13 @@
   };
   nwg-panel = {
     pname = "nwg-panel";
-    version = "v0.7.1";
+    version = "v0.7.2";
     src = fetchFromGitHub {
       owner = "nwg-piotr";
       repo = "nwg-panel";
-      rev = "v0.7.1";
+      rev = "v0.7.2";
       fetchSubmodules = false;
-      sha256 = "sha256-ucuqUI96xpwv1aOtUqWjN9lyMdaqx/F1ps2DQFHBcjw=";
+      sha256 = "sha256-kQow8jBHxMTgtTaOvq8uT5YjWxml+GoYaoUH3hMQN8g=";
     };
   };
   picom = {
