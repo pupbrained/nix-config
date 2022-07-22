@@ -94,24 +94,24 @@
   };
   spicetify-cli = {
     pname = "spicetify-cli";
-    version = "v2.10.2";
+    version = "v2.11.1";
     src = fetchFromGitHub {
       owner = "khanhas";
       repo = "spicetify-cli";
-      rev = "v2.10.2";
+      rev = "v2.11.1";
       fetchSubmodules = false;
-      sha256 = "sha256-chaCz4+RXPUP/MZymxA0h1ATuWYRgru3JMELiWPEBcE=";
+      sha256 = "sha256-NX3qbnnbV2mLxBQCjfl7xNicyir6usi2uYGw6Yij/ho=";
     };
   };
   spicetify-themes = {
     pname = "spicetify-themes";
-    version = "86f72355ffefe7461ca28edf7f9491b404a7d0d3";
+    version = "e466bf82db281ccd4ef9691fcc47a1f61de77d12";
     src = fetchFromGitHub {
       owner = "morpheusthewhite";
       repo = "spicetify-themes";
-      rev = "86f72355ffefe7461ca28edf7f9491b404a7d0d3";
+      rev = "e466bf82db281ccd4ef9691fcc47a1f61de77d12";
       fetchSubmodules = false;
-      sha256 = "sha256-NBqTfB0IA4ziphEZ+b1CSOf26p+AALWrvrKgWXhv2q0=";
+      sha256 = "sha256-72ag8DB8TpR9zdpj5vBlAyrhDHwu4Ti25BxqNCNoWEw=";
     };
   };
   zscroll = {

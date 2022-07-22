@@ -15,6 +15,7 @@
     acpi
     alejandra
     android-tools
+    appflowy
     audacity
     authy
     binutils
