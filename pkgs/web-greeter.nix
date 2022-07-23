@@ -35,6 +35,10 @@ in
       xorg.libX11
       libsForQt5.qtwebengine
     ];
+    propagatedBuildInputs = [
+      lightdm
+      gobject-introspection
+    ];
     __noChroot = true;
     buildPhase = ''
       sed -i 's/python3/${lib.strings.escape ["/"] (toString myPython)}\/bin\/python3/g' Makefile
