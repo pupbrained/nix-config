@@ -11,6 +11,7 @@
   lightdm,
   xorg,
   libsForQt5,
+  wrapGAppsHook,
   callPackage,
 }: let
   myPython = python3.withPackages (p:
@@ -34,6 +35,7 @@ in
       gobject-introspection
       xorg.libX11
       libsForQt5.qtwebengine
+      wrapGAppsHook
     ];
     propagatedBuildInputs = [
       lightdm
