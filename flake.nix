@@ -12,6 +12,7 @@
     nur.url = "github:nix-community/NUR";
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
+    polymc.url = "github:PolyMC/PolyMC";
 
     catppuccin = {
       url = "github:catppuccin/discord";

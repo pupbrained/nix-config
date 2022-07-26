@@ -50,6 +50,7 @@ in {
     inputs.neovim-nightly-overlay.overlay
     inputs.fenix.overlay
     inputs.nixpkgs-wayland.overlay
+    inputs.polymc.overlay
     (import ../pkgs inputs)
   ];
 
