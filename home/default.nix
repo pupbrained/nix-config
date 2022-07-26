@@ -73,7 +73,8 @@
     notion-app-enhanced
     noto-fonts-cjk-sans
     odin
-    openjdk
+    openal
+    openjdk16-bootstrap
     p7zip
     pamixer
     papirus-icon-theme
@@ -81,6 +82,7 @@
     picom
     playerctl
     polymc
+    pulseaudio
     python
     python310
     ranger
