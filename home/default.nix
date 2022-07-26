@@ -73,7 +73,7 @@
     notion-app-enhanced
     noto-fonts-cjk-sans
     odin
-    openjdk16-bootstrap
+    openjdk
     p7zip
     pamixer
     papirus-icon-theme
