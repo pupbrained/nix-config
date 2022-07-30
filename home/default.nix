@@ -92,6 +92,7 @@
     slurp
     statix
     sumneko-lua-language-server
+    swaybg
     swaynotificationcenter
     tldr
     unrar
@@ -102,6 +103,8 @@
     wineWowPackages.waylandFull
     wl-clipboard
     xclip
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
     xdotool
     yarn
     zscroll
