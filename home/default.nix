@@ -57,6 +57,7 @@
     lite-xl
     lua52Packages.lgi
     lxappearance
+    mangohud
     mate.engrampa
     micro
     minecraft

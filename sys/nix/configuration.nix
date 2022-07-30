@@ -73,6 +73,8 @@
     package = pkgs.hyprland-nvidia;
   };
 
+  programs.gamemode.enable = true;
+
   environment.loginShellInit = ''
     dbus-update-activation-environment --systemd DISPLAY
     eval $(ssh-agent)
