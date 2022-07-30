@@ -28,7 +28,6 @@
     comma
     ddcutil
     deno
-    discord
     draconis
     eww
     file
@@ -119,10 +118,10 @@
         "catppuccin.js"
       ];
     })
-    (pkgs.discord-plugged.override {
-      plugins = with inputs; [theme-toggler powercord-tiktok-tts];
-      themes = with inputs; [catppuccin horizontal-server-list essence-theme];
-    })
+    # (pkgs.discord-plugged.override {
+    #   plugins = with inputs; [theme-toggler powercord-tiktok-tts];
+    #   themes = with inputs; [catppuccin horizontal-server-list essence-theme];
+    # })
     (fenix.complete.withComponents [
       "cargo"
       "clippy"

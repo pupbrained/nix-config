@@ -20,11 +20,6 @@
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
 
-  virtualisation = {
-    waydroid.enable = true;
-    lxd.enable = true;
-  };
-
   networking = {
     hostName = "nix";
     useDHCP = false;
