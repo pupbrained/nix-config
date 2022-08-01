@@ -28,13 +28,13 @@
   };
   catppuccin-spicetify = {
     pname = "catppuccin-spicetify";
-    version = "9b2170628eeab74b4582be4df646f4739f5e5b0a";
+    version = "f6c236f71cb431b076d377520c32910fa274bf1e";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "spicetify";
-      rev = "9b2170628eeab74b4582be4df646f4739f5e5b0a";
+      rev = "f6c236f71cb431b076d377520c32910fa274bf1e";
       fetchSubmodules = false;
-      sha256 = "sha256-9glV3NvpVmVkGLD6BZufg++Ucx6XA7zNk/+5Ytn9K1g=";
+      sha256 = "sha256-3sMtiKd5DeQof5w9Z8MfTSANnYimTeZUothGNadAZXo=";
     };
   };
   coc-tailwindcss3 = {
@@ -72,13 +72,13 @@
   };
   nwg-panel = {
     pname = "nwg-panel";
-    version = "v0.7.2";
+    version = "v0.7.3";
     src = fetchFromGitHub {
       owner = "nwg-piotr";
       repo = "nwg-panel";
-      rev = "v0.7.2";
+      rev = "v0.7.3";
       fetchSubmodules = false;
-      sha256 = "sha256-kQow8jBHxMTgtTaOvq8uT5YjWxml+GoYaoUH3hMQN8g=";
+      sha256 = "sha256-T1jMZEpUsI/UTZAhBkOQqkV2hmixY0l9Oh1mWjTjfzg=";
     };
   };
   picom = {
