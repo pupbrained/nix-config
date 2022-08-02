@@ -45,7 +45,7 @@ in {
         '';
       });
     })
-    inputs.powercord-overlay.overlay
+    inputs.replugged-overlay.overlay
     inputs.nur.overlay
     inputs.neovim-nightly-overlay.overlay
     inputs.fenix.overlay

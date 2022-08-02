@@ -10,7 +10,7 @@
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
-    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    replugged-overlay.url = "github:marsupialgutz/replugged-overlay";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
 
