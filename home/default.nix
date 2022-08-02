@@ -52,7 +52,6 @@
     libappindicator
     libnotify
     libffi
-    librewolf
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
     lua52Packages.lgi
@@ -60,6 +59,7 @@
     mangohud
     mate.engrampa
     micro
+    microsoft-edge-dev
     minecraft
     mullvad-vpn
     most
