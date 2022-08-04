@@ -90,7 +90,7 @@
     export __GLX_VENDOR_LIBRARY_NAME=nvidia
     export WLR_NO_HARDWARE_CURSORS=1
     export WLR_BACKEND=vulkan
-    export GTK_THEME=Catppuccin-purple
+    export GTK_THEME=Quixotic-pink
   '';
 
   security.pam.services.sddm.enableGnomeKeyring = true;

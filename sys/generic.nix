@@ -23,6 +23,8 @@
       gsettings set "$gnome_schema" icon-theme "$icon_theme"
       gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
       gsettings set "$gnome_schema" font-name "$font_name"
+      gnome_schema=org.gnome.desktop.wm.preferences
+      gsettings set "$gnome_schema" button-layout ':'
     '';
   };
 in {

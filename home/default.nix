@@ -23,7 +23,6 @@
     cachix
     cargo-edit
     cargo-udeps
-    cinnamon.nemo
     cmake
     comma
     ddcutil
@@ -34,6 +33,7 @@
     gcc
     glib
     gnome.eog
+    gnome.nautilus
     gnome.seahorse
     gnumake
     gotktrix
