@@ -123,7 +123,7 @@
       ];
     })
     (pkgs.discord-plugged.override {
-      plugins = with inputs; [theme-toggler powercord-tiktok-tts];
+      plugins = with inputs; [theme-toggler spotify-modal hastebin better-codeblocks pronoundb];
       themes = with inputs; [catppuccin horizontal-server-list essence-theme];
     })
     (fenix.complete.withComponents [

@@ -14,6 +14,11 @@
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
 
+    better-codeblocks = {
+      url = "github:replugged-org/better-codeblocks";
+      flake = false;
+    };
+
     catppuccin = {
       url = "github:catppuccin/discord";
       flake = false;
@@ -27,6 +32,11 @@
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hastebin = {
+      url = "github:replugged-org/hastebin";
+      flake = false;
     };
 
     home-manager = {
@@ -44,8 +54,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    powercord-tiktok-tts = {
-      url = "github:oatmealine/powercord-tiktok-tts";
+    pronoundb = {
+      url = "github:katlyn/pronoundb-powercord";
+      flake = false;
+    };
+
+    spotify-modal = {
+      url = "github:replugged-org/spotify-modal";
       flake = false;
     };
 
