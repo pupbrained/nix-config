@@ -10,7 +10,8 @@
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
-    replugged-overlay.url = "github:marsupialgutz/replugged-overlay";
+    replugged-overlay.url = "github:LunNova/replugged-nix-flake";
+    helix.url = "github:marsupialgutz/helix-insert";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
 
@@ -80,6 +81,7 @@
   outputs = {
     self,
     fenix,
+    helix,
     nixpkgs,
     home-manager,
     nixos-wsl,

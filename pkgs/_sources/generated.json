@@ -88,11 +88,11 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "6c5abda66350773ae2f8fade2e931b3beb51843f",
-            "sha256": "sha256-Rr6FYr4p2HfJocElRafMjwzhzpuFNKENfiktAqDbhGg=",
+            "rev": "554460008f18cbffecb9f1e5de58fec8410dc16f",
+            "sha256": "sha256-kkycy2AWyV8SaADBFAH4tXOu9GFdubRbMti1goCAkKU=",
             "type": "github"
         },
-        "version": "6c5abda66350773ae2f8fade2e931b3beb51843f"
+        "version": "554460008f18cbffecb9f1e5de58fec8410dc16f"
     },
     "nvim-cokeline": {
         "cargoLocks": null,
@@ -126,11 +126,11 @@
             "name": null,
             "owner": "nwg-piotr",
             "repo": "nwg-panel",
-            "rev": "v0.7.3",
-            "sha256": "sha256-T1jMZEpUsI/UTZAhBkOQqkV2hmixY0l9Oh1mWjTjfzg=",
+            "rev": "v0.7.4",
+            "sha256": "sha256-L5oVuoEU8DEhRttFeas5cCA0XPo5sCm1D+JUAWzZdYA=",
             "type": "github"
         },
-        "version": "v0.7.3"
+        "version": "v0.7.4"
     },
     "picom": {
         "cargoLocks": null,
@@ -183,11 +183,11 @@
             "name": null,
             "owner": "morpheusthewhite",
             "repo": "spicetify-themes",
-            "rev": "9a2fcb5a545da368e4bf1d8189f58d0f664f3115",
-            "sha256": "sha256-ikF7v7U+iFKOs7sffUymH/O58ItEDfz8UpTMw6GC9aE=",
+            "rev": "51d96a1c64573ebdefa646d67452efd587a6dc23",
+            "sha256": "sha256-qaBagVwd4Y4tCvg8P7jEr6LSxtvQ/Kx4amRYU5CtxmU=",
             "type": "github"
         },
-        "version": "9a2fcb5a545da368e4bf1d8189f58d0f664f3115"
+        "version": "51d96a1c64573ebdefa646d67452efd587a6dc23"
     },
     "zscroll": {
         "cargoLocks": null,

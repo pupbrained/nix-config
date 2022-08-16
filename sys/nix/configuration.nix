@@ -16,7 +16,30 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = let
+      linux_six_pkg = {
+        fetchurl,
+        buildLinux,
+        ...
+      } @ args:
+        buildLinux (args
+          // rec {
+            version = "6.0.0-rc1";
+            modDirVersion = version;
+            src = fetchurl {
+              url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-master.tar.gz";
+              sha256 = "b7273835119dced6d9b5f9378ea43da275968e1142c78c3e3e3484c57b0b7cdd";
+            };
+
+            kernelPatches = [];
+
+            extraMeta.branch = "master";
+          }
+          // (args.argsOverride or {}));
+      linux_six = pkgs.callPackage linux_six_pkg {};
+    in
+      pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_six);
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
 
@@ -40,7 +63,20 @@
       glib-networking.enable = true;
       gnome-keyring.enable = true;
     };
+    kmscon = {
+      enable = false;
+      fonts = [
+        {
+          name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerdfonts;
+        }
+      ];
+      extraConfig = ''
+        no-drm
+      '';
+    };
     flatpak.enable = true;
+    mullvad-vpn.enable = true;
     xserver = {
       enable = true;
 
@@ -79,8 +115,8 @@
     dbus-update-activation-environment --systemd DISPLAY
     eval $(ssh-agent)
     eval $(gnome-keyring-daemon --start)
-    export GPG_TTY=$TTY
     export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+    export GPG_TTY=$TTY
     export CLUTTER_BACKEND=wayland
     export XDG_SESSION_TYPE=wayland
     export QT_QPA_PLATFORM=wayland
@@ -102,7 +138,7 @@
 
   hardware = {
     nvidia = {
-      package = pkgs.linuxKernel.packages.linux_zen.nvidia_x11;
+      package = pkgs.linuxPackagesFor linux_six;
       open = true;
       modesetting.enable = true;
     };
