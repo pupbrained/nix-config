@@ -29,6 +29,7 @@
   };
 in {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
   nixpkgs.overlays = [
     (self: super: {
       inherit (inputs.vscodeInsiders.packages.${super.system}) vscodeInsiders;

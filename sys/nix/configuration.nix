@@ -138,7 +138,7 @@
 
   hardware = {
     nvidia = {
-      package = pkgs.linuxPackagesFor linux_six;
+      package = config.boot.kernelPackages.nvidia_x11;
       open = true;
       modesetting.enable = true;
     };
