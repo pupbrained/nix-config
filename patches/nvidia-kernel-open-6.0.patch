@@ -1,7 +1,7 @@
-diff --git a/kernel/nvidia-drm/nvidia-drm-helper.c b/kernel/nvidia-drm/nvidia-drm-helper.c
+diff --git a/kernel-open/nvidia-drm/nvidia-drm-helper.c b/kernel-open/nvidia-drm/nvidia-drm-helper.c
 index b04ff67..2df20a3 100644
---- a/kernel/nvidia-drm/nvidia-drm-helper.c
-+++ b/kernel/nvidia-drm/nvidia-drm-helper.c
+--- a/kernel-open/nvidia-drm/nvidia-drm-helper.c
++++ b/kernel-open/nvidia-drm/nvidia-drm-helper.c
 @@ -30,6 +30,7 @@ typedef int vm_fault_t;
   * present simplifies nvidia-drm.ko source.
   */
