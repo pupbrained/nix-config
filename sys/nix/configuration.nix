@@ -138,7 +138,12 @@
 
   hardware = {
     nvidia = {
-      package = config.boot.kernelPackages.nvidia_x11;
+      package = config.boot.kernelPackages.nvidia_x11.overrideAttrs (old: {
+        patches =
+          if old.patches == null
+          then null
+          else old.patches ++ [../../nvidia-kernel-6.0.patch];
+      });
       open = true;
       modesetting.enable = true;
     };
