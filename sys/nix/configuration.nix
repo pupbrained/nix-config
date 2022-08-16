@@ -138,13 +138,13 @@
 
   hardware = {
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs (old: {
-        patches =
-          if old.patches == null
-          then null
-          else old.patches ++ [../../patches/nvidia-kernel-6.0.patch ../../patches/nvidia-kernel-open-6.0.patch];
-      });
-      open = true;
+      package = {
+        open = config.boot.kernelPackages.nvidia_x11.open.overrideAttrs (old: {
+          useProfiles = true;
+        });
+        passthru.outPath = "lol";
+        type = "derivation";
+      };
       modesetting.enable = true;
     };
     opengl = {
