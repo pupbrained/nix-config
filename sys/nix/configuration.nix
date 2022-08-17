@@ -142,14 +142,16 @@
         let
           p = config.boot.kernelPackages.nvidia_x11;
         in
-        rec {
-          open = p.open.overrideAttrs (old: { });
-          bin = open;
-          out = open.out;
-          inherit (p) settings useProfiles;
-          type = "derivation";
+        p.overrideAttrs
+          (old: {
+            patches = (old.patches or [ ]) ++ [ ../../patches/nvidia-kernel-6.0.patch ];
+          }) // {
+          open = p.open.overrideAttrs (old: {
+            patches = (old.patches or [ ]) ++ [ ../../patches/nvidia-kernel-open-6.0.patch ];
+          });
         };
       modesetting.enable = true;
+      open = true;
     };
     opengl = {
       enable = true;
