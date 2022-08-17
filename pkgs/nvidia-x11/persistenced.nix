@@ -1,12 +1,10 @@
-nvidia_x11: sha256:
-
-{ stdenv
-, lib
-, fetchFromGitHub
-, m4
-, libtirpc
+nvidia_x11: sha256: {
+  stdenv,
+  lib,
+  fetchFromGitHub,
+  m4,
+  libtirpc,
 }:
-
 stdenv.mkDerivation rec {
   pname = "nvidia-persistenced";
   version = nvidia_x11.persistencedVersion;
@@ -18,12 +16,12 @@ stdenv.mkDerivation rec {
     inherit sha256;
   };
 
-  nativeBuildInputs = [ m4 ];
-  buildInputs = [ libtirpc ];
+  nativeBuildInputs = [m4];
+  buildInputs = [libtirpc];
 
   inherit (nvidia_x11) makeFlags;
 
-  installFlags = [ "PREFIX=$(out)" ];
+  installFlags = ["PREFIX=$(out)"];
 
   postFixup = ''
     # Save a copy of persistenced for mounting in containers
@@ -35,14 +33,14 @@ stdenv.mkDerivation rec {
       $out/bin/nvidia-persistenced
   '';
 
-  NIX_CFLAGS_COMPILE = [ "-I${libtirpc.dev}/include/tirpc" ];
-  NIX_LDFLAGS = [ "-ltirpc" ];
+  NIX_CFLAGS_COMPILE = ["-I${libtirpc.dev}/include/tirpc"];
+  NIX_LDFLAGS = ["-ltirpc"];
 
   meta = with lib; {
     homepage = "https://www.nvidia.com/object/unix.html";
     description = "Settings application for NVIDIA graphics cards";
     license = licenses.unfreeRedistributable;
-    platforms = nvidia_x11.meta.platforms;
-    maintainers = with maintainers; [ abbradar ];
+    inherit (nvidia_x11.meta) platforms;
+    maintainers = with maintainers; [abbradar];
   };
 }

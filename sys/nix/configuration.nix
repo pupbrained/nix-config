@@ -1,9 +1,10 @@
-{ inputs
-, config
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  ...
 }: {
-  disabledModules = [ "services/hardware/udev.nix" ];
+  disabledModules = ["services/hardware/udev.nix"];
   imports = [
     ./hardware-configuration.nix
     ../generic.nix
@@ -16,15 +17,14 @@
       efi.canTouchEfiVariables = true;
     };
     # kernelPackages = pkgs.linuxPackages_zen;
-    kernelPackages =
-      let
-        linux_six_pkg =
-          { fetchurl
-          , buildLinux
-          , ...
-          } @ args:
-          buildLinux (args
-            // rec {
+    kernelPackages = let
+      linux_six_pkg = {
+        fetchurl,
+        buildLinux,
+        ...
+      } @ args:
+        buildLinux (args
+          // rec {
             version = "6.0.0-rc1";
             modDirVersion = version;
             src = fetchurl {
@@ -32,15 +32,15 @@
               sha256 = "b7273835119dced6d9b5f9378ea43da275968e1142c78c3e3e3484c57b0b7cdd";
             };
 
-            kernelPatches = [ ];
+            kernelPatches = [];
 
             extraMeta.branch = "master";
           }
-            // (args.argsOverride or { }));
-        linux_six = pkgs.callPackage linux_six_pkg { };
-      in
+          // (args.argsOverride or {}));
+      linux_six = pkgs.callPackage linux_six_pkg {};
+    in
       pkgs.recurseIntoAttrs ((pkgs.linuxPackagesFor linux_six).extend (f: p: {
-        nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 { };
+        nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 {};
       }));
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
@@ -59,7 +59,7 @@
     ];
   };
 
-  environment.systemPackages = [ pkgs.mySddmTheme ];
+  environment.systemPackages = [pkgs.mySddmTheme];
   services = {
     gnome = {
       glib-networking.enable = true;
@@ -92,7 +92,7 @@
 
       windowManager.awesome.enable = true;
 
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = ["nvidia"];
     };
 
     pipewire = {
@@ -151,7 +151,7 @@
     i2c.enable = true;
   };
 
-  nix.settings.trusted-users = [ "root" "marshall" ];
+  nix.settings.trusted-users = ["root" "marshall"];
 
   xdg.portal.enable = true;
 
