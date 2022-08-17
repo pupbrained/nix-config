@@ -16,30 +16,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # kernelPackages = pkgs.linuxPackages_zen;
-    kernelPackages = let
-      linux_six_pkg = {
-        fetchurl,
-        buildLinux,
-        ...
-      } @ args:
-        buildLinux (args
-          // rec {
-            version = "6.0.0-rc1";
-            modDirVersion = version;
-            src = fetchurl {
-              url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-master.tar.gz";
-              sha256 = "b7273835119dced6d9b5f9378ea43da275968e1142c78c3e3e3484c57b0b7cdd";
-            };
-
-            kernelPatches = [];
-
-            extraMeta.branch = "master";
-          }
-          // (args.argsOverride or {}));
-      linux_six = pkgs.callPackage linux_six_pkg {};
-    in
-      pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_six);
+    kernelPackages = pkgs.linuxPackages_zen;
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
 
@@ -138,13 +115,8 @@
 
   hardware = {
     nvidia = {
-      package = {
-        open = config.boot.kernelPackages.nvidia_x11.open.overrideAttrs (old: {
-          useProfiles = true;
-        });
-        passthru.outPath = "lol";
-        type = "derivation";
-      };
+      package = pkgs.linuxKernel.packages.linux_zen.nvidia_x11;
+      open = true;
       modesetting.enable = true;
     };
     opengl = {
