@@ -4,26 +4,26 @@
   fetchurl,
   fetchFromGitHub,
 }: {
-  aerial-sddm-theme = {
-    pname = "aerial-sddm-theme";
-    version = "5b451282b73deb6840181cfc47ac137e25eff4f7";
+  astronaut-sddm-theme = {
+    pname = "astronaut-sddm-theme";
+    version = "ef7ff4199e0e78c37995938ad4ced402d34edf79";
     src = fetchFromGitHub {
-      owner = "replaycoding";
-      repo = "aerial-sddm-theme";
-      rev = "5b451282b73deb6840181cfc47ac137e25eff4f7";
+      owner = "Keyitdev";
+      repo = "sddm-astronaut-theme";
+      rev = "ef7ff4199e0e78c37995938ad4ced402d34edf79";
       fetchSubmodules = false;
-      sha256 = "sha256-ATIrLF81Bw5YkRDaPnjt57jLiqwrm3AoFR7FcMwkR6U=";
+      sha256 = "sha256-I39W9U4j/MbyYp4BlB4sWuQ5GVf/z4bm4ohrSfIWcXI=";
     };
   };
   awesome = {
     pname = "awesome";
-    version = "b7bac1dc761f7e231355e76351500a97b27b6803";
+    version = "05a405b38bbcb8fa3b344d45d94d4f56b83c74df";
     src = fetchFromGitHub {
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "b7bac1dc761f7e231355e76351500a97b27b6803";
+      rev = "05a405b38bbcb8fa3b344d45d94d4f56b83c74df";
       fetchSubmodules = false;
-      sha256 = "sha256-SxydaQScu0kvBn3VOnT29/Sji0Y+7my+tO46mpMggAQ=";
+      sha256 = "sha256-OBCUbkWEcWHokYNjfz4aRRkxr9rwGNkaKnovzoliFwU=";
     };
   };
   catppuccin-spicetify = {

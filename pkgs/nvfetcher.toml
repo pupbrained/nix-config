@@ -23,11 +23,7 @@ fetch.github = "morpheusthewhite/spicetify-themes"
 src.git = "https://github.com/catppuccin/spicetify"
 fetch.github = "catppuccin/spicetify"
 
-[aerial-sddm-theme]
-src.git = "https://github.com/replaycoding/aerial-sddm-theme"
-fetch.github = "replaycoding/aerial-sddm-theme"
-
-[aerial-sddm-theme]
+[astronaut-sddm-theme]
 src.git = "https://github.com/Keyitdev/sddm-astronaut-theme"
 fetch.github = "Keyitdev/sddm-astronaut-theme"
 

@@ -1,11 +1,10 @@
 {
   sources,
   qtgraphicaleffects,
-  qtmultimedia,
-  qtquickcontrols,
-  phonon,
-  phonon-backend-gstreamer,
-  gst_all_1,
+  qtquickcontrols2,
+  qtsvg,
+  sddm,
+  astronaut-sddm-theme,
   mkDerivation,
 }:
 mkDerivation {
