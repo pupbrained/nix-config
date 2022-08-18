@@ -27,6 +27,10 @@ fetch.github = "catppuccin/spicetify"
 src.git = "https://github.com/replaycoding/aerial-sddm-theme"
 fetch.github = "replaycoding/aerial-sddm-theme"
 
+[aerial-sddm-theme]
+src.git = "https://github.com/Keyitdev/sddm-astronaut-theme"
+fetch.github = "Keyitdev/sddm-astronaut-theme"
+
 [copilot-vim]
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"

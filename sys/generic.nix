@@ -140,4 +140,8 @@ in {
   environment.pathsToLink = [
     "/share/zsh"
   ];
+
+  fonts.fonts = [
+    pkgs.roboto-mono
+  ];
 }
