@@ -85,7 +85,7 @@
       displayManager = {
         sddm = {
           enable = true;
-          theme = "aerial-sddm-theme";
+          theme = "sddm-astronaut-theme";
         };
         defaultSession = "hyprland";
       };
