@@ -94,19 +94,23 @@
     forSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
     defaultPackage.x86_64-linux = fenix.packages.x86_64-linux.minimal.toolchain;
+
     nixosConfigurations = {
       nix = lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
+
         modules = [
           ./sys/nix/configuration.nix
           home-manager.nixosModule
           hyprland.nixosModules.default
         ];
       };
+
       wsl = lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
+
         modules = [
           ./sys/wsl.nix
           nixos-wsl.nixosModules.wsl
@@ -114,6 +118,7 @@
         ];
       };
     };
+
     devShells = forSystems (
       system: let
         pkgs = nixpkgs.legacyPackages."${system}";

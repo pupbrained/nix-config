@@ -94,6 +94,25 @@
         },
         "version": "554460008f18cbffecb9f1e5de58fec8410dc16f"
     },
+    "lapce": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "lapce",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lapce",
+            "repo": "lapce",
+            "rev": "f7db9266d6b1d15a9c001ae7278f09e30018443e",
+            "sha256": "sha256-QvtS+wzJjdyiksAZhfFuNZwnrI6Ps2qEwld25Owe7Ro=",
+            "type": "github"
+        },
+        "version": "f7db9266d6b1d15a9c001ae7278f09e30018443e"
+    },
     "nvim-cokeline": {
         "cargoLocks": null,
         "extract": null,
@@ -183,11 +202,30 @@
             "name": null,
             "owner": "morpheusthewhite",
             "repo": "spicetify-themes",
-            "rev": "51d96a1c64573ebdefa646d67452efd587a6dc23",
-            "sha256": "sha256-qaBagVwd4Y4tCvg8P7jEr6LSxtvQ/Kx4amRYU5CtxmU=",
+            "rev": "dcf9a4d805ec6cdc9b6ee70d908b04879aea8207",
+            "sha256": "sha256-ZdaC0N1/douZmJkzyIX/ONB1TUJt9FXkr8wXTAEyt7Q=",
             "type": "github"
         },
-        "version": "51d96a1c64573ebdefa646d67452efd587a6dc23"
+        "version": "dcf9a4d805ec6cdc9b6ee70d908b04879aea8207"
+    },
+    "vim-astro": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vim-astro",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "wuelnerdotexe",
+            "repo": "vim-astro",
+            "rev": "09de18d9208fe3894398be182e512a7ff93a85a0",
+            "sha256": "sha256-WbpuyuXJJ/13hpF++rpiQsaZPjXZZzIcQAV7rIH2KRY=",
+            "type": "github"
+        },
+        "version": "09de18d9208fe3894398be182e512a7ff93a85a0"
     },
     "zscroll": {
         "cargoLocks": null,

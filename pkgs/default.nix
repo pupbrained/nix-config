@@ -8,12 +8,17 @@ in {
         cp -r ./jsHelper ./Themes ./Extensions ./CustomApps ./globals.d.ts ./css-map.json $out/bin
       '';
     });
+
   spicetify-themes = sources.spicetify-themes.src;
   catppuccin-spicetify = sources.catppuccin-spicetify.src;
   spotify-spicetified = final.callPackage ./spotify-spicetified {};
 
   picom = prev.picom.overrideAttrs (o: {
     inherit (sources.picom) src pname version;
+  });
+
+  lapce = prev.lapce.overrideAttrs (o: {
+    inherit (sources.lapce) src pname version;
   });
 
   zscroll = prev.zscroll.overrideAttrs (o: {
@@ -30,6 +35,10 @@ in {
 
   myTailwindPlugin = prev.vimUtils.buildVimPlugin {
     inherit (sources.coc-tailwindcss3) src pname version;
+  };
+
+  myAstroPlugin = prev.vimUtils.buildVimPlugin {
+    inherit (sources.vim-astro) src pname version;
   };
 
   web-greeter = final.callPackage ./web-greeter.nix {
@@ -57,5 +66,6 @@ in {
       stdenv = prev.clangStdenv;
       gtk3Support = true;
     };
+
   mySddmTheme = prev.plasma5Packages.callPackage ./astronaut-sddm-theme {inherit sources;};
 }

@@ -28,46 +28,62 @@
     '';
   };
 in {
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-  nixpkgs.overlays = [
-    (self: super: {
-      inherit (inputs.vscodeInsiders.packages.${super.system}) vscodeInsiders;
-      inherit (inputs.flake-firefox-nightly.packages.${super.system}) firefox-nightly-bin;
-      draconis = inputs.draconis.defaultPackage.${super.system};
-      discord = super.discord.override {
-        withOpenASAR = true;
-      };
-      discord-canary = super.discord-canary.override {
-        nss = pkgs.nss_latest;
-      };
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-        patchPhase = ''
-          substituteInPlace src/modules/wlr/workspace_manager.cpp --replace "zext_workspace_handle_v1_activate(workspace_handle_);" "const std::string command = \"hyprctl dispatch workspace \" + name_; system(command.c_str());"
-        '';
-      });
-    })
-    inputs.replugged-overlay.overlay
-    inputs.nur.overlay
-    inputs.neovim-nightly-overlay.overlay
-    inputs.fenix.overlay
-    inputs.nixpkgs-wayland.overlay
-    inputs.polymc.overlay
-    (import ../pkgs inputs)
-  ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowBroken = true;
+    };
 
-  environment.systemPackages = with pkgs; [
-    configure-gtk
-  ];
+    overlays = [
+      (self: super: {
+        inherit (inputs.vscodeInsiders.packages.${super.system}) vscodeInsiders;
+        inherit (inputs.flake-firefox-nightly.packages.${super.system}) firefox-nightly-bin;
+
+        draconis = inputs.draconis.defaultPackage.${super.system};
+
+        discord = super.discord.override {
+          withOpenASAR = true;
+        };
+
+        discord-canary = super.discord-canary.override {
+          nss = pkgs.nss_latest;
+        };
+
+        waybar = super.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+          patchPhase = ''
+            substituteInPlace src/modules/wlr/workspace_manager.cpp --replace "zext_workspace_handle_v1_activate(workspace_handle_);" "const std::string command = \"hyprctl dispatch workspace \" + name_; system(command.c_str());"
+          '';
+        });
+      })
+      inputs.replugged-overlay.overlay
+      inputs.nur.overlay
+      inputs.neovim-nightly-overlay.overlay
+      inputs.fenix.overlay
+      inputs.nixpkgs-wayland.overlay
+      inputs.polymc.overlay
+      (import ../pkgs inputs)
+    ];
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      configure-gtk
+    ];
+    pathsToLink = [
+      "/share/zsh"
+    ];
+  };
 
   nix = {
     package = pkgs.nixFlakes;
+
     settings = {
       substituters = [
         "https://cache.nixos.org"
         "https://nixpkgs-wayland.cachix.org"
       ];
+
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
@@ -80,10 +96,9 @@ in {
   };
 
   home-manager = {
-    # Pass inputs to all home-manager modules
     extraSpecialArgs = {inherit inputs;};
-    # Use packages configured by NixOS configuration (overlays & allowUnfree)
     useGlobalPkgs = true;
+
     users.marshall = {
       imports = [../home];
       home.stateVersion = "22.05";
@@ -92,14 +107,17 @@ in {
 
   systemd = {
     user.services.pipewire-pulse.path = [pkgs.pulseaudio];
+
     services.ssh-agent = {
       enable = true;
       description = "SSH key agent";
+
       serviceConfig = {
         Type = "simple";
         Environment = "SSH_AUTH_SOCK=%t/ssh-agent.socket";
         ExecStart = "/run/current-system/sw/bin/ssh-agent -D -a $SSH_AUTH_SOCK";
       };
+
       wantedBy = ["multi-user.target"];
     };
   };
@@ -107,12 +125,14 @@ in {
   users.users.marshall = {
     isNormalUser = true;
     home = "/home/marshall";
+    shell = pkgs.zsh;
+
     extraGroups = [
       "wheel"
       "networkmanager"
       "i2c"
     ];
-    shell = pkgs.zsh;
+
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA12eoS+C+n1Pa1XaygSmx4+CGkO6oYV5bZeSeBU28Y mars@possums.xyz"
     ];
@@ -134,14 +154,9 @@ in {
 
   time.timeZone = "America/New_York";
   security.sudo.wheelNeedsPassword = false;
-  programs.dconf.enable = true;
-  programs.steam.enable = true;
-  programs.command-not-found.enable = false;
-  environment.pathsToLink = [
-    "/share/zsh"
-  ];
-
-  fonts.fonts = [
-    pkgs.roboto-mono
-  ];
+  programs = {
+    dconf.enable = true;
+    steam.enable = true;
+    command-not-found.enable = false;
+  };
 }

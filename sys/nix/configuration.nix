@@ -5,6 +5,7 @@
   ...
 }: {
   disabledModules = ["services/hardware/udev.nix"];
+
   imports = [
     ./hardware-configuration.nix
     ../generic.nix
@@ -16,76 +17,43 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # kernelPackages = pkgs.linuxPackages_zen;
-    kernelPackages = let
-      linux_six_pkg = {
-        fetchurl,
-        buildLinux,
-        ...
-      } @ args:
-        buildLinux (args
-          // rec {
-            version = "6.0.0-rc1";
-            modDirVersion = version;
-            src = fetchurl {
-              url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-master.tar.gz";
-              sha256 = "b7273835119dced6d9b5f9378ea43da275968e1142c78c3e3e3484c57b0b7cdd";
-            };
 
-            kernelPatches = [];
+    kernelPackages = pkgs.recurseIntoAttrs (pkgs.linuxPackages_testing.extend (f: p: {
+      nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 {};
+    }));
 
-            extraMeta.branch = "master";
-          }
-          // (args.argsOverride or {}));
-      linux_six = pkgs.callPackage linux_six_pkg {};
-    in
-      pkgs.recurseIntoAttrs ((pkgs.linuxPackagesFor linux_six).extend (f: p: {
-        nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 {};
-      }));
     extraModprobeConfig = "options hid_apple fnmode=1";
+    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
   };
 
   networking = {
     hostName = "nix";
     useDHCP = false;
+
     networkmanager = {
       enable = true;
       wifi.macAddress = "random";
     };
-    extraHosts = "192.168.1.237 umbrel.local";
-    nameservers = [
-      "192.168.1.80"
-      "1.1.1.1"
-    ];
   };
 
   environment.systemPackages = [pkgs.mySddmTheme];
+
   services = {
+    flatpak.enable = true;
+    mullvad-vpn.enable = true;
+
     gnome = {
       glib-networking.enable = true;
       gnome-keyring.enable = true;
     };
-    kmscon = {
-      enable = false;
-      fonts = [
-        {
-          name = "JetBrainsMono Nerd Font";
-          package = pkgs.nerdfonts;
-        }
-      ];
-      extraConfig = ''
-        no-drm
-      '';
-    };
-    flatpak.enable = true;
-    mullvad-vpn.enable = true;
+
     xserver = {
       enable = true;
 
       displayManager = {
         sddm = {
           enable = true;
-          theme = "sddm-astronaut-theme";
+          theme = "astronaut-sddm-theme";
         };
         defaultSession = "hyprland";
       };
@@ -106,12 +74,16 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland-nvidia;
-  };
+  programs = {
+    gamemode.enable = true;
+    zsh.enable = true;
+    ccache.enable = true;
 
-  programs.gamemode.enable = true;
+    hyprland = {
+      enable = true;
+      package = pkgs.hyprland-nvidia;
+    };
+  };
 
   environment.loginShellInit = ''
     dbus-update-activation-environment --systemd DISPLAY

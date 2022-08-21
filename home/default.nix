@@ -9,9 +9,8 @@
     inputs.nixvim.homeManagerModules.nixvim
     inputs.nix-doom-emacs.hmModule
   ];
-  home.packages = with pkgs; [
-    # web-greeter
 
+  home.packages = with pkgs; [
     acpi
     alejandra
     android-tools
@@ -53,12 +52,11 @@
     libappindicator
     libnotify
     libffi
-    librewolf
+    librewolf-wayland
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
     lua52Packages.lgi
     lxappearance
-    mangohud
     mate.engrampa
     micro
     minecraft
@@ -74,6 +72,7 @@
     nodePackages.generator-code
     notion-app-enhanced
     noto-fonts-cjk-sans
+    obs-studio
     odin
     openal
     openjdk16-bootstrap
@@ -112,21 +111,26 @@
     xdotool
     yarn
     zscroll
+
     (spotify-spicetified.override {
       theme = "catppuccin";
       colorScheme = "mauve";
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
+
       customExtensions = {
         "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
       };
+
       enabledExtensions = [
         "catppuccin.js"
       ];
     })
+
     (inputs.replugged-overlay.lib.makeDiscordPlugged {
       inherit pkgs;
+
       plugins = {
         inherit (inputs) theme-toggler;
         inherit (inputs) spotify-modal;
@@ -134,13 +138,14 @@
         inherit (inputs) better-codeblocks;
         inherit (inputs) pronoundb;
       };
+
       themes = {
         inherit (inputs) catppuccin;
         inherit (inputs) horizontal-server-list;
         inherit (inputs) essence-theme;
       };
-      # extraElectronArgs = "--ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy";
     })
+
     (fenix.complete.withComponents [
       "cargo"
       "clippy"
@@ -162,6 +167,7 @@
 
     mpv = {
       enable = true;
+
       scripts = with pkgs; [
         mpvScripts.mpris
       ];
@@ -176,15 +182,17 @@
       enable = true;
       userName = "marsupialgutz";
       userEmail = "mars@possums.xyz";
+      diff-so-fancy.enable = true;
+      lfs.enable = true;
+
       signing = {
         signByDefault = true;
         key = "DB41891AE0A1ED4D";
       };
+
       aliases = {
         "pushall" = "!git remote | xargs -L1 git push";
       };
-      diff-so-fancy.enable = true;
-      lfs.enable = true;
     };
 
     exa = {
@@ -194,6 +202,8 @@
 
     bat = {
       enable = true;
+      config.theme = "catppuccin";
+
       themes = {
         catppuccin = builtins.readFile (pkgs.fetchFromGitHub
           {
@@ -204,16 +214,17 @@
           }
           + "/Catppuccin.tmTheme");
       };
-      config.theme = "catppuccin";
     };
 
     zsh = {
       enable = true;
       dotDir = ".config/zsh";
+
       initExtraFirst = ''
         source ~/.cache/p10k-instant-prompt-marshall.zsh
         fpath+=~/.zfunc
       '';
+
       shellAliases = {
         se = "sudoedit";
         gc = "git commit";
@@ -221,6 +232,7 @@
         gcap = "ga; gc; git pushall";
         cat = "bat";
       };
+
       initExtra = ''
         my-backward-delete-word () {
             local WORDCHARS='~!#$%^&*(){}[]<>?+;'
@@ -247,8 +259,10 @@
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       '';
+
       zplug = {
         enable = true;
+
         plugins = [
           {name = "zsh-users/zsh-autosuggestions";}
           {name = "zsh-users/zsh-syntax-highlighting";}
@@ -274,10 +288,12 @@
 
     kitty = {
       enable = true;
+
       font = {
         name = "Comic Code Ligatures";
         size = 12;
       };
+
       settings = {
         editor = "nvim";
         placement_strategy = "center";
@@ -344,6 +360,7 @@
 
     nixvim = {
       enable = true;
+
       options = {
         number = true;
         relativenumber = true;
@@ -352,6 +369,7 @@
         smarttab = true;
         expandtab = true;
       };
+
       plugins = {
         lualine.enable = true;
         telescope.enable = true;
@@ -360,6 +378,7 @@
 
         dashboard = {
           enable = true;
+
           header = [
             "                                         _.oo."
             "                 _.u[[/;:,.         .odMMMMMM´"
@@ -377,21 +396,26 @@
             "YMMMUP^                                       "
             " ^^                                           "
           ];
+
           footer = [
             "ooh, spacey"
           ];
         };
+
         treesitter = {
           enable = true;
           ensureInstalled = "all";
           nixGrammars = true;
         };
+
         comment-nvim.enable = true;
       };
+
       extraPlugins = with pkgs.vimPlugins; [
         pkgs.myCopilotVim
         pkgs.myCokelinePlugin
         pkgs.myTailwindPlugin
+        pkgs.myAstroPlugin
 
         cmp_luasnip
         cmp-path
@@ -413,9 +437,12 @@
         vim-cool
         vim-smoothie
       ];
+
       colorscheme = "catppuccin";
+
       extraConfigLua = ''
           vim.g.mapleader = ' '
+          vim.g.astro_typescript = 'enable'
           vim.o.showmode = false
           vim.cmd('set mouse=a')
           vim.cmd('set guifont=Rec\\ Mono\\ Casual:h13')
@@ -698,6 +725,7 @@
   wayland.windowManager.sway = {
     enable = true;
     extraOptions = ["--unsupported-gpu"];
+
     wrapperFeatures = {
       base = true;
       gtk = true;
