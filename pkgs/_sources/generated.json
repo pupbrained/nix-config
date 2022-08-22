@@ -88,11 +88,11 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "554460008f18cbffecb9f1e5de58fec8410dc16f",
-            "sha256": "sha256-kkycy2AWyV8SaADBFAH4tXOu9GFdubRbMti1goCAkKU=",
+            "rev": "e219dd98b530db1d68adf8e98c3f0e3e67c77bec",
+            "sha256": "sha256-zX7it18StK1fVnaRPawQT05YgCFbAt6kqcxgcNCd7Kk=",
             "type": "github"
         },
-        "version": "554460008f18cbffecb9f1e5de58fec8410dc16f"
+        "version": "e219dd98b530db1d68adf8e98c3f0e3e67c77bec"
     },
     "lapce": {
         "cargoLocks": null,
@@ -107,11 +107,11 @@
             "name": null,
             "owner": "lapce",
             "repo": "lapce",
-            "rev": "f7db9266d6b1d15a9c001ae7278f09e30018443e",
-            "sha256": "sha256-QvtS+wzJjdyiksAZhfFuNZwnrI6Ps2qEwld25Owe7Ro=",
+            "rev": "b2d47dff9a6c2c688e0a320ae55095e4db22c8df",
+            "sha256": "sha256-Vj8stZ0OWXaLDzpfwyDGd/m7289yJzONS31Uf6Hp+ps=",
             "type": "github"
         },
-        "version": "f7db9266d6b1d15a9c001ae7278f09e30018443e"
+        "version": "b2d47dff9a6c2c688e0a320ae55095e4db22c8df"
     },
     "nvim-cokeline": {
         "cargoLocks": null,
@@ -145,11 +145,11 @@
             "name": null,
             "owner": "nwg-piotr",
             "repo": "nwg-panel",
-            "rev": "v0.7.4",
-            "sha256": "sha256-L5oVuoEU8DEhRttFeas5cCA0XPo5sCm1D+JUAWzZdYA=",
+            "rev": "v0.7.5",
+            "sha256": "sha256-1I0LS2d0zwGhWluArZxE97NTWSxKUFww0mZaBSr2UHM=",
             "type": "github"
         },
-        "version": "v0.7.4"
+        "version": "v0.7.5"
     },
     "picom": {
         "cargoLocks": null,
@@ -183,11 +183,11 @@
             "name": null,
             "owner": "khanhas",
             "repo": "spicetify-cli",
-            "rev": "v2.11.1",
-            "sha256": "sha256-NX3qbnnbV2mLxBQCjfl7xNicyir6usi2uYGw6Yij/ho=",
+            "rev": "v2.12.0",
+            "sha256": "sha256-QJfR6DtsblNCTssT2tvli6FNFzK9+lqyRLSTQXOH4Ok=",
             "type": "github"
         },
-        "version": "v2.11.1"
+        "version": "v2.12.0"
     },
     "spicetify-themes": {
         "cargoLocks": null,

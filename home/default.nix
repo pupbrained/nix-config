@@ -49,6 +49,7 @@
     jq
     keychain
     kotatogram-desktop
+    lapce
     libappindicator
     libnotify
     libffi
@@ -133,6 +134,7 @@
 
       plugins = {
         inherit (inputs) theme-toggler;
+        inherit (inputs) tiktok-tts;
         inherit (inputs) spotify-modal;
         inherit (inputs) hastebin;
         inherit (inputs) better-codeblocks;
@@ -142,7 +144,9 @@
       themes = {
         inherit (inputs) catppuccin;
         inherit (inputs) horizontal-server-list;
-        inherit (inputs) essence-theme;
+        inherit (inputs) lavender;
+        inherit (inputs) context-icons;
+        inherit (inputs) fluent-icons;
       };
     })
 

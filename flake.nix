@@ -25,14 +25,19 @@
       flake = false;
     };
 
-    essence-theme = {
-      url = "github:discord-extensions/essence";
+    context-icons = {
+      url = "github:CreArts-Community/Context-Icons";
       flake = false;
     };
 
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fluent-icons = {
+      url = "github:stickfab/pc-fluenticons";
+      flake = false;
     };
 
     hastebin = {
@@ -55,6 +60,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lavender = {
+      url = "github:Lavender-Discord/Lavender";
+      flake = false;
+    };
+
     pronoundb = {
       url = "github:katlyn/pronoundb-powercord";
       flake = false;
@@ -67,6 +77,11 @@
 
     theme-toggler = {
       url = "github:redstonekasi/theme-toggler";
+      flake = false;
+    };
+
+    tiktok-tts = {
+      url = "github:oatmealine/powercord-tiktok-tts";
       flake = false;
     };
 

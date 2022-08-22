@@ -1,12 +1,21 @@
 {
-    "position": "top", 
-    "height": 30,
-    "modules-center": ["wlr/workspaces", "tray", "custom/notification", "network", "custom/media", "pulseaudio", "custom/date", "clock"],
-	"wlr/workspaces": {
-		"disable-scroll": true,
-		"all-outputs": true,
+  "position": "top",
+  "height": 30,
+  "modules-center": [
+    "wlr/workspaces",
+    "tray",
+    "custom/notification",
+    "network",
+    "custom/media",
+    "pulseaudio",
+    "custom/date",
+    "clock"
+  ],
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
     "on-click": "activate",
-		"format": "{icon}",
+    "format": "{icon}",
     "format-icons": {
       "1": "一",
       "2": "二",
@@ -19,28 +28,31 @@
       "9": "九",
       "10": "〇",
       "default": "一",
-      "active": "●",
-      }
-     },
+      "active": "●"
+    }
+  },
+  "hyprland/window": {
+    "max-length": 30
+  },
   "tray": {
     "icon-size": 13,
     "spacing": 10
   },
   "custom/media": {
-        "format": "{icon} {}",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "$HOME/nix-config/dotfiles/waybar/scroll_spotify_status.sh"
+    "format": "{icon} {}",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": " ",
+      "default": " "
     },
-	"custom/date": {
+    "escape": true,
+    "exec": "$HOME/nix-config/dotfiles/waybar/scroll_spotify_status.sh"
+  },
+  "custom/date": {
     "format": "  {}",
-		"interval": 3600,
-		"exec": "$HOME/nix-config/dotfiles/waybar/waybar-date.sh"
-	},
+    "interval": 3600,
+    "exec": "$HOME/nix-config/dotfiles/waybar/waybar-date.sh"
+  },
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",
@@ -57,28 +69,28 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-	"clock": {
-		"format": "  {:%I:%M %p} ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	},
-	"network": {
-        	"format-wifi": "  {essid}",
-        	"format-ethernet": "󰤮 Disconnected",
-        	"format-linked": "{ifname} (No IP) ",
-        	"format-disconnected": "󰤮 Disconnected",
-		"tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
-	},
-	"pulseaudio": {
-		"format": "{icon}  {volume}%",
-        	"format-muted": "ﱝ Muted",
-        	"format-icons": {
-            	"headphone": "",
-            	"hands-free": "",
-            	"headset": "",
-            	"phone": "",
-            	"portable": "",
-            	"car": "",
-            	"default": ["", "", ""]
-        },
+  "clock": {
+    "format": "  {:%I:%M %p} ",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰤮 Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮 Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "ﱝ Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     }
+  }
 }
