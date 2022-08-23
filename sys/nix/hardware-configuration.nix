@@ -20,19 +20,19 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/d6891251-6f5b-4e6e-a0ea-5966aa99bf74";
     fsType = "btrfs";
-    options = ["subvol=root"];
+    options = ["subvol=root compress=zstd"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/d6891251-6f5b-4e6e-a0ea-5966aa99bf74";
     fsType = "btrfs";
-    options = ["subvol=nix"];
+    options = ["subvol=nix noatime compress=zstd"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/d6891251-6f5b-4e6e-a0ea-5966aa99bf74";
     fsType = "btrfs";
-    options = ["subvol=home"];
+    options = ["subvol=home compress=zstd"];
   };
 
   fileSystems."/boot" = {
@@ -42,6 +42,6 @@
 
   swapDevices = [];
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

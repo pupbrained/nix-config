@@ -92,6 +92,7 @@ in {
 
     extraOptions = ''
       experimental-features = nix-command flakes
+      extra-sandbox-paths = /nix/var/cache/ccache
     '';
   };
 

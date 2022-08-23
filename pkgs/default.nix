@@ -17,10 +17,10 @@ in {
     inherit (sources.picom) src pname version;
   });
 
-  lapce = prev.lapce.overrideAttrs (o: {
-    inherit (sources.lapce) src pname version;
-    cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-  });
+  lapce = prev.callPackage ./lapce.nix {
+    inherit (prev.darwin) libobjc;
+    inherit (prev.darwin.apple_sdk.frameworks) Security CoreServices ApplicationServices Carbon AppKit;
+  };
 
   zscroll = prev.zscroll.overrideAttrs (o: {
     inherit (sources.zscroll) src pname version;
