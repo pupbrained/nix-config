@@ -127,13 +127,13 @@
   };
   vim-astro = {
     pname = "vim-astro";
-    version = "09de18d9208fe3894398be182e512a7ff93a85a0";
+    version = "ef5126c84a657fb910f080d6ad08f1b268064bb3";
     src = fetchFromGitHub {
       owner = "wuelnerdotexe";
       repo = "vim-astro";
-      rev = "09de18d9208fe3894398be182e512a7ff93a85a0";
+      rev = "ef5126c84a657fb910f080d6ad08f1b268064bb3";
       fetchSubmodules = false;
-      sha256 = "sha256-WbpuyuXJJ/13hpF++rpiQsaZPjXZZzIcQAV7rIH2KRY=";
+      sha256 = "sha256-JhnrnFoNsZyMe6/7QVCddVBt+0YaPeE2hgd0shxwq/I=";
     };
   };
   zscroll = {
