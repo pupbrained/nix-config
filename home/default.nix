@@ -71,8 +71,9 @@
     ngrok
     nix-prefetch-scripts
     nodejs
-    nodePackages.yo
     nodePackages.generator-code
+    nodePackages.pnpm
+    nodePackages.yo
     notion-app-enhanced
     noto-fonts-cjk-sans
     obs-studio
@@ -357,7 +358,7 @@
     };
 
     doom-emacs = {
-      enable = true;
+      enable = false;
       doomPrivateDir = ../dotfiles/doom.d;
     };
 
@@ -406,7 +407,7 @@
         };
 
         treesitter = {
-          enable = true;
+          enable = false;
           ensureInstalled = "all";
           nixGrammars = true;
         };
@@ -723,7 +724,7 @@
   };
 
   wayland.windowManager.sway = {
-    enable = true;
+    enable = false;
     extraOptions = ["--unsupported-gpu"];
 
     wrapperFeatures = {

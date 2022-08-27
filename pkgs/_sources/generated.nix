@@ -61,13 +61,13 @@
   };
   lapce = {
     pname = "lapce";
-    version = "5abf77879df26191fd24f7ed4de23ae4f9cdb1d2";
+    version = "4a98f76904cb84684e22f3a2c032a7d322a5db1a";
     src = fetchFromGitHub {
       owner = "lapce";
       repo = "lapce";
-      rev = "5abf77879df26191fd24f7ed4de23ae4f9cdb1d2";
+      rev = "4a98f76904cb84684e22f3a2c032a7d322a5db1a";
       fetchSubmodules = false;
-      sha256 = "sha256-es4gxICdBO/iZ1WH4vTfFPkDqjHlL85xT+vDD08w+cU=";
+      sha256 = "sha256-uzHH5sxNBYfQm5sbZNpkepRyohEam50cwgfcGwbg4S8=";
     };
   };
   nvim-cokeline = {
