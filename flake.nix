@@ -2,6 +2,7 @@
   description = "Marshall's NixOS Config";
 
   inputs = {
+    agenix.url = "github:ryantm/agenix";
     draconis.url = "github:marsupialgutz/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -116,6 +117,7 @@
 
   outputs = {
     self,
+    agenix,
     fenix,
     helix,
     nixpkgs,
@@ -138,6 +140,7 @@
 
         modules = [
           ./sys/nix/configuration.nix
+          agenix.nixosModule
           home-manager.nixosModule
           hyprland.nixosModules.default
         ];
@@ -149,6 +152,7 @@
 
         modules = [
           ./sys/wsl.nix
+          agenix.nixosModule
           nixos-wsl.nixosModules.wsl
           home-manager.nixosModule
         ];
@@ -160,7 +164,7 @@
         pkgs = nixpkgs.legacyPackages."${system}";
       in {
         default = pkgs.mkShellNoCC {
-          packages = with pkgs; [nvfetcher];
+          packages = with pkgs; [nvfetcher agenix.defaultPackage.${system}];
         };
       }
     );

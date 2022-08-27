@@ -109,17 +109,20 @@ in {
   systemd = {
     user.services.pipewire-pulse.path = [pkgs.pulseaudio];
 
-    services.ssh-agent = {
-      enable = true;
-      description = "SSH key agent";
+    services = {
+      openssh.enable = true;
+      ssh-agent = {
+        enable = true;
+        description = "SSH key agent";
 
-      serviceConfig = {
-        Type = "simple";
-        Environment = "SSH_AUTH_SOCK=%t/ssh-agent.socket";
-        ExecStart = "/run/current-system/sw/bin/ssh-agent -D -a $SSH_AUTH_SOCK";
+        serviceConfig = {
+          Type = "simple";
+          Environment = "SSH_AUTH_SOCK=%t/ssh-agent.socket";
+          ExecStart = "/run/current-system/sw/bin/ssh-agent -D -a $SSH_AUTH_SOCK";
+        };
+
+        wantedBy = ["multi-user.target"];
       };
-
-      wantedBy = ["multi-user.target"];
     };
   };
 
@@ -155,6 +158,7 @@ in {
 
   time.timeZone = "America/New_York";
   security.sudo.wheelNeedsPassword = false;
+  # age.secrets.secrets.file = ../secrets/secrets.age;
   programs = {
     dconf.enable = true;
     steam.enable = true;
