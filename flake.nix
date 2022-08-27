@@ -3,14 +3,15 @@
 
   inputs = {
     draconis.url = "github:marsupialgutz/draconis";
+    flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
-    replugged-overlay.url = "github:LunNova/replugged-nix-flake";
+    replugged-overlay.url = "github:marsupialgutz/replugged-nix-flake-fixed";
     helix.url = "github:marsupialgutz/helix-insert";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
@@ -22,6 +23,11 @@
 
     catppuccin = {
       url = "github:catppuccin/discord";
+      flake = false;
+    };
+
+    chat-components = {
+      url = "github:12944qwerty/chat-components";
       flake = false;
     };
 
@@ -42,6 +48,11 @@
 
     hastebin = {
       url = "github:replugged-org/hastebin";
+      flake = false;
+    };
+
+    holy-notes = {
+      url = "github:SammCheese/holy-notes";
       flake = false;
     };
 
@@ -70,6 +81,11 @@
       flake = false;
     };
 
+    simple-discord-crypt = {
+      url = "github:SammCheese/SimpleDiscordCryptLoader";
+      flake = false;
+    };
+
     spotify-modal = {
       url = "github:replugged-org/spotify-modal";
       flake = false;
@@ -82,6 +98,11 @@
 
     tiktok-tts = {
       url = "github:oatmealine/powercord-tiktok-tts";
+      flake = false;
+    };
+
+    vpc-spotimbed = {
+      url = "github:Vap0r1ze/vpc-spotimbed";
       flake = false;
     };
 

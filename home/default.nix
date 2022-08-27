@@ -23,6 +23,7 @@
     cachix
     cargo-edit
     cargo-udeps
+    cht-sh
     cmake
     comma
     ddcutil
@@ -30,6 +31,7 @@
     draconis
     eww
     file
+    firefox-nightly-bin
     gcc
     glib
     gnome.eog
@@ -42,6 +44,7 @@
     grim
     gsettings-desktop-schemas
     headsetcontrol
+    hyper
     inotifyTools
     jamesdsp
     jellyfin-ffmpeg
@@ -53,7 +56,6 @@
     libappindicator
     libnotify
     libffi
-    librewolf-wayland
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
     lua52Packages.lgi
@@ -106,6 +108,7 @@
     wf-recorder
     wineWowPackages.waylandFull
     wl-clipboard
+    wl-color-picker
     xclip
     xdg-desktop-portal
     xdg-desktop-portal-wlr
@@ -133,20 +136,11 @@
       inherit pkgs;
 
       plugins = {
-        inherit (inputs) theme-toggler;
-        inherit (inputs) tiktok-tts;
-        inherit (inputs) spotify-modal;
-        inherit (inputs) hastebin;
-        inherit (inputs) better-codeblocks;
-        inherit (inputs) pronoundb;
+        inherit (inputs) theme-toggler tiktok-tts spotify-modal hastebin better-codeblocks pronoundb chat-components vpc-spotimbed simple-discord-crypt holy-notes;
       };
 
       themes = {
-        inherit (inputs) catppuccin;
-        inherit (inputs) horizontal-server-list;
-        inherit (inputs) lavender;
-        inherit (inputs) context-icons;
-        inherit (inputs) fluent-icons;
+        inherit (inputs) catppuccin horizontal-server-list lavender context-icons fluent-icons;
       };
     })
 
@@ -175,6 +169,11 @@
       scripts = with pkgs; [
         mpvScripts.mpris
       ];
+    };
+
+    mcfly = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     vscode = with pkgs; {
@@ -418,8 +417,6 @@
       extraPlugins = with pkgs.vimPlugins; [
         pkgs.myCopilotVim
         pkgs.myCokelinePlugin
-        pkgs.myTailwindPlugin
-        pkgs.myAstroPlugin
 
         cmp_luasnip
         cmp-path
@@ -431,7 +428,6 @@
         lspkind-nvim
         lualine-nvim
         luasnip
-        neogit
         null-ls-nvim
         nvim-cmp
         nvim-lspconfig
