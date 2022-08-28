@@ -33,37 +33,7 @@ in {
       allowUnfree = true;
       allowBroken = true;
     };
-
-    overlays = [
-      (self: super: {
-        inherit (inputs.vscodeInsiders.packages.${super.system}) vscodeInsiders;
-        inherit (inputs.flake-firefox-nightly.packages.${super.system}) firefox-nightly-bin;
-
-        draconis = inputs.draconis.defaultPackage.${super.system};
-
-        discord = super.discord.override {
-          withOpenASAR = true;
-        };
-
-        discord-canary = super.discord-canary.override {
-          nss = pkgs.nss_latest;
-        };
-
-        waybar = super.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-          patchPhase = ''
-            substituteInPlace src/modules/wlr/workspace_manager.cpp --replace "zext_workspace_handle_v1_activate(workspace_handle_);" "const std::string command = \"hyprctl dispatch workspace \" + name_; system(command.c_str());"
-          '';
-        });
-      })
-      inputs.replugged-overlay.overlay
-      inputs.nur.overlay
-      inputs.neovim-nightly-overlay.overlay
-      inputs.fenix.overlay
-      inputs.nixpkgs-wayland.overlay
-      inputs.polymc.overlay
-      (import ../pkgs inputs)
-    ];
+    overlays = [(import ../pkgs inputs)];
   };
 
   environment = {
@@ -94,16 +64,6 @@ in {
       experimental-features = nix-command flakes
       extra-sandbox-paths = /nix/var/cache/ccache
     '';
-  };
-
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    useGlobalPkgs = true;
-
-    users.marshall = {
-      imports = [../home];
-      home.stateVersion = "22.05";
-    };
   };
 
   systemd = {
