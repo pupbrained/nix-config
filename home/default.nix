@@ -18,6 +18,7 @@
     audacity
     authy
     bacon
+    bandwhich
     binutils
     brightnessctl
     cachix
@@ -41,6 +42,7 @@
     gotktrix
     gparted
     gpick
+    grex
     grim
     gsettings-desktop-schemas
     headsetcontrol
@@ -100,7 +102,7 @@
     sumneko-lua-language-server
     swaybg
     swaynotificationcenter
-    tldr
+    tealdeer
     unrar
     unzip
     usbimager
@@ -185,7 +187,7 @@
       enable = true;
       userName = "marsupialgutz";
       userEmail = "mars@possums.xyz";
-      diff-so-fancy.enable = true;
+      delta.enable = true;
       lfs.enable = true;
 
       signing = {

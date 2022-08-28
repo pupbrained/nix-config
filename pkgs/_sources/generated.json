@@ -94,25 +94,6 @@
         },
         "version": "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d"
     },
-    "lapce": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "lapce",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "lapce",
-            "repo": "lapce",
-            "rev": "4a98f76904cb84684e22f3a2c032a7d322a5db1a",
-            "sha256": "sha256-uzHH5sxNBYfQm5sbZNpkepRyohEam50cwgfcGwbg4S8=",
-            "type": "github"
-        },
-        "version": "4a98f76904cb84684e22f3a2c032a7d322a5db1a"
-    },
     "nvim-cokeline": {
         "cargoLocks": null,
         "extract": null,
