@@ -132,6 +132,26 @@
     forSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
     defaultPackage.x86_64-linux = fenix.packages.x86_64-linux.minimal.toolchain;
+    homeConfigurations.marshall = home-manager.lib.homeManagerConfiguration {
+      extraSpecialArgs = {inherit inputs;};
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+          allowBroken = true;
+        };
+        overlays = [(import ./pkgs inputs)];
+      };
+      modules = [
+        ./home
+        {
+          home.stateVersion = "22.05";
+          home.username = "marshall";
+          # NOTE: change me if you change the dir in nixos config
+          home.homeDirectory = "/home/marshall";
+        }
+      ];
+    };
 
     nixosConfigurations = {
       nix = lib.nixosSystem {
@@ -141,7 +161,6 @@
         modules = [
           ./sys/nix/configuration.nix
           agenix.nixosModule
-          home-manager.nixosModule
           hyprland.nixosModules.default
         ];
       };
@@ -154,9 +173,21 @@
           ./sys/wsl.nix
           agenix.nixosModule
           nixos-wsl.nixosModules.wsl
-          home-manager.nixosModule
         ];
       };
+    };
+
+    apps.x86_64-linux.update-home = {
+      type = "app";
+      program =
+        (inputs.nixpkgs.legacyPackages.x86_64-linux.writeScript "update-home" ''
+          set -euo pipefail
+          old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
+          echo $old_profile
+          nix profile remove $old_profile
+          ${self.homeConfigurations.marshall.activationPackage}/activate || (echo "restoring old profile"; ${self.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
+        '')
+        .outPath;
     };
 
     devShells = forSystems (
