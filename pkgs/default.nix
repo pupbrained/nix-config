@@ -38,11 +38,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.picom) src pname version;
     });
 
-    lapce = prev.lapce.overrideAttrs (o: {
-      inherit (sources.lapce) src pname version;
-      cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-    });
-
     zscroll = prev.zscroll.overrideAttrs (o: {
       inherit (sources.zscroll) src pname version;
     });

@@ -7,10 +7,6 @@ src.git = "https://github.com/yaocccc/picom"
 src.branch = "feat-animation-extra"
 fetch.github = "yaocccc/picom"
 
-[lapce]
-src.git = "https://github.com/lapce/lapce"
-fetch.github = "lapce/lapce"
-
 [zscroll]
 src.git = "https://github.com/noctuid/zscroll"
 fetch.github = "noctuid/zscroll"

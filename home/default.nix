@@ -52,7 +52,6 @@
     jq
     keychain
     kotatogram-desktop
-    lapce
     libappindicator
     libnotify
     libffi
