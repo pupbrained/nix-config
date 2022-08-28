@@ -50,24 +50,24 @@
   };
   copilot-vim = {
     pname = "copilot-vim";
-    version = "e219dd98b530db1d68adf8e98c3f0e3e67c77bec";
+    version = "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d";
     src = fetchFromGitHub {
       owner = "github";
       repo = "copilot.vim";
-      rev = "e219dd98b530db1d68adf8e98c3f0e3e67c77bec";
+      rev = "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d";
       fetchSubmodules = false;
-      sha256 = "sha256-zX7it18StK1fVnaRPawQT05YgCFbAt6kqcxgcNCd7Kk=";
+      sha256 = "sha256-hm/8q08aIVWc5thh31OVpVoksVrqKD+rSHbUTxzzHaU=";
     };
   };
   lapce = {
     pname = "lapce";
-    version = "b2d47dff9a6c2c688e0a320ae55095e4db22c8df";
+    version = "4a98f76904cb84684e22f3a2c032a7d322a5db1a";
     src = fetchFromGitHub {
       owner = "lapce";
       repo = "lapce";
-      rev = "b2d47dff9a6c2c688e0a320ae55095e4db22c8df";
+      rev = "4a98f76904cb84684e22f3a2c032a7d322a5db1a";
       fetchSubmodules = false;
-      sha256 = "sha256-Vj8stZ0OWXaLDzpfwyDGd/m7289yJzONS31Uf6Hp+ps=";
+      sha256 = "sha256-uzHH5sxNBYfQm5sbZNpkepRyohEam50cwgfcGwbg4S8=";
     };
   };
   nvim-cokeline = {
@@ -116,24 +116,24 @@
   };
   spicetify-themes = {
     pname = "spicetify-themes";
-    version = "dcf9a4d805ec6cdc9b6ee70d908b04879aea8207";
+    version = "0f7a687e76c525e4013a7f82ccb15e11cc30475a";
     src = fetchFromGitHub {
       owner = "morpheusthewhite";
       repo = "spicetify-themes";
-      rev = "dcf9a4d805ec6cdc9b6ee70d908b04879aea8207";
+      rev = "0f7a687e76c525e4013a7f82ccb15e11cc30475a";
       fetchSubmodules = false;
-      sha256 = "sha256-ZdaC0N1/douZmJkzyIX/ONB1TUJt9FXkr8wXTAEyt7Q=";
+      sha256 = "sha256-OI0CiZE9GKaXVa5I8kCXlrfjX8izynKi5sJxPQK0Zd8=";
     };
   };
   vim-astro = {
     pname = "vim-astro";
-    version = "09de18d9208fe3894398be182e512a7ff93a85a0";
+    version = "34732be5e9a5c28c2409f4490edf92d46d8b55a9";
     src = fetchFromGitHub {
       owner = "wuelnerdotexe";
       repo = "vim-astro";
-      rev = "09de18d9208fe3894398be182e512a7ff93a85a0";
+      rev = "34732be5e9a5c28c2409f4490edf92d46d8b55a9";
       fetchSubmodules = false;
-      sha256 = "sha256-WbpuyuXJJ/13hpF++rpiQsaZPjXZZzIcQAV7rIH2KRY=";
+      sha256 = "sha256-HyQ4i/T1uQmGurBqCpo8+ESVSVPsTrLQBxLe2OEYjcY=";
     };
   };
   zscroll = {

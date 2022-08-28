@@ -47,18 +47,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.zscroll) src pname version;
     });
 
-    myCopilotVim = prev.vimPlugins.copilot-vim.overrideAttrs (o: {
-      inherit (sources.copilot-vim) src pname version;
-    });
-
-    myCokelinePlugin = prev.vimUtils.buildVimPlugin {
-      inherit (sources.nvim-cokeline) src pname version;
-    };
-
-    myTailwindPlugin = prev.vimUtils.buildVimPlugin {
-      inherit (sources.coc-tailwindcss3) src pname version;
-    };
-
     myAstroPlugin = prev.vimUtils.buildVimPlugin {
       inherit (sources.vim-astro) src pname version;
     };

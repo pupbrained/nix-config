@@ -2,6 +2,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }: {
   disabledModules = ["services/hardware/udev.nix"];
@@ -121,6 +122,7 @@
       driSupport32Bit = true;
     };
     i2c.enable = true;
+    pulseaudio.enable = false;
   };
 
   nix.settings.trusted-users = ["root" "marshall"];

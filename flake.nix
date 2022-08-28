@@ -2,7 +2,9 @@
   description = "Marshall's NixOS Config";
 
   inputs = {
+    agenix.url = "github:ryantm/agenix";
     draconis.url = "github:marsupialgutz/draconis";
+    flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -10,7 +12,7 @@
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nur.url = "github:nix-community/NUR";
-    replugged-overlay.url = "github:LunNova/replugged-nix-flake";
+    replugged-overlay.url = "github:marsupialgutz/replugged-nix-flake-fixed";
     helix.url = "github:marsupialgutz/helix-insert";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
@@ -22,6 +24,11 @@
 
     catppuccin = {
       url = "github:catppuccin/discord";
+      flake = false;
+    };
+
+    chat-components = {
+      url = "github:12944qwerty/chat-components";
       flake = false;
     };
 
@@ -42,6 +49,11 @@
 
     hastebin = {
       url = "github:replugged-org/hastebin";
+      flake = false;
+    };
+
+    holy-notes = {
+      url = "github:SammCheese/holy-notes";
       flake = false;
     };
 
@@ -70,6 +82,11 @@
       flake = false;
     };
 
+    simple-discord-crypt = {
+      url = "github:SammCheese/SimpleDiscordCryptLoader";
+      flake = false;
+    };
+
     spotify-modal = {
       url = "github:replugged-org/spotify-modal";
       flake = false;
@@ -85,6 +102,11 @@
       flake = false;
     };
 
+    vpc-spotimbed = {
+      url = "github:Vap0r1ze/vpc-spotimbed";
+      flake = false;
+    };
+
     web-greeter = {
       type = "git";
       url = "https://github.com/JezerM/web-greeter";
@@ -95,6 +117,7 @@
 
   outputs = {
     self,
+    agenix,
     fenix,
     helix,
     nixpkgs,
@@ -137,6 +160,7 @@
 
         modules = [
           ./sys/nix/configuration.nix
+          agenix.nixosModule
           hyprland.nixosModules.default
         ];
       };
@@ -147,6 +171,7 @@
 
         modules = [
           ./sys/wsl.nix
+          agenix.nixosModule
           nixos-wsl.nixosModules.wsl
         ];
       };
@@ -170,7 +195,7 @@
         pkgs = nixpkgs.legacyPackages."${system}";
       in {
         default = pkgs.mkShellNoCC {
-          packages = with pkgs; [nvfetcher];
+          packages = with pkgs; [nvfetcher agenix.defaultPackage.${system}];
         };
       }
     );
