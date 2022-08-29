@@ -72,13 +72,13 @@
   };
   nwg-panel = {
     pname = "nwg-panel";
-    version = "v0.7.5";
+    version = "v0.7.6";
     src = fetchFromGitHub {
       owner = "nwg-piotr";
       repo = "nwg-panel";
-      rev = "v0.7.5";
+      rev = "v0.7.6";
       fetchSubmodules = false;
-      sha256 = "sha256-1I0LS2d0zwGhWluArZxE97NTWSxKUFww0mZaBSr2UHM=";
+      sha256 = "sha256-OtwpYqSdh9zPVnz6By/TMi93vDky6OO74syulUp97FQ=";
     };
   };
   picom = {

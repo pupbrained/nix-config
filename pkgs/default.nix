@@ -88,7 +88,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
   })
   inputs.replugged-overlay.overlay
   inputs.nur.overlay
-  inputs.neovim-nightly-overlay.overlay
   inputs.fenix.overlay
   inputs.nixpkgs-wayland.overlay
   inputs.polymc.overlay

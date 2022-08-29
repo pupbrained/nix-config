@@ -67,7 +67,6 @@
     most
     mpvScripts.mpris
     mullvad-vpn
-    neovim-nightly
     nerdfonts
     ngrok
     nix-prefetch-scripts
@@ -408,7 +407,7 @@
         };
 
         treesitter = {
-          enable = false;
+          enable = true;
           ensureInstalled = "all";
           nixGrammars = true;
         };

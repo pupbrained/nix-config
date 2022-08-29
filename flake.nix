@@ -5,7 +5,6 @@
     agenix.url = "github:ryantm/agenix";
     draconis.url = "github:marsupialgutz/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
