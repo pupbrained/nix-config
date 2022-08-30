@@ -11,6 +11,7 @@
   ];
 
   home.packages = with pkgs; [
+    # NIX-ADD BEGIN
     acpi
     alejandra
     android-tools
@@ -28,11 +29,13 @@
     cmake
     comma
     ddcutil
+    dejsonlz4
     deno
     draconis
     eww
     file
     firefox-nightly-bin
+    fzf
     gcc
     glib
     gnome.eog
@@ -52,11 +55,12 @@
     jellyfin-ffmpeg
     jetbrains.idea-ultimate
     jq
+    keybase
     keychain
     kotatogram-desktop
     libappindicator
-    libnotify
     libffi
+    libnotify
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
     lua52Packages.lgi
@@ -64,16 +68,15 @@
     mate.engrampa
     micro
     minecraft
-    most
     mpvScripts.mpris
     mullvad-vpn
     nerdfonts
     ngrok
     nix-prefetch-scripts
-    nodejs
     nodePackages.generator-code
     nodePackages.pnpm
     nodePackages.yo
+    nodejs
     notion-app-enhanced
     noto-fonts-cjk-sans
     obs-studio
@@ -91,8 +94,8 @@
     python
     python310
     ranger
-    rofi
     rnix-lsp
+    rofi
     rust-analyzer
     scons
     scrot
@@ -116,6 +119,7 @@
     xdotool
     yarn
     zscroll
+    # NIX-ADD END
 
     (spotify-spicetified.override {
       theme = "catppuccin";
@@ -258,7 +262,6 @@
         export EDITOR=nvim
         export VISUAL=nvim
         export NIXPKGS_ALLOW_UNFREE=1
-        export PAGER=most
 
         draconis
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -691,7 +694,7 @@
                     group = augroup,
                     buffer = bufnr,
                     callback = function()
-                      vim.lsp.buf.format({bufnr = bufnr})
+                      -- vim.lsp.buf.format({bufnr = bufnr})
                     end,
                   })
                 end
