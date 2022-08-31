@@ -46,3 +46,8 @@ fetch.github = "wuelnerdotexe/vim-astro"
 [nwg-panel]
 src.github = "nwg-piotr/nwg-panel"
 fetch.github = "nwg-piotr/nwg-panel"
+
+[helix-latest]
+src.git = "https://github.com/helix-editor/helix"
+fetch.github = "helix-editor/helix"
+cargo_locks = [ "Cargo.lock" ]

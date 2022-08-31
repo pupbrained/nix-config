@@ -29,16 +29,14 @@
     cmake
     comma
     ddcutil
-    dejsonlz4
     deno
     draconis
-    eww
     file
     firefox-nightly-bin
-    fzf
     gcc
     glib
     gnome.eog
+    gnome.geary
     gnome.nautilus
     gnome.seahorse
     gnumake
@@ -163,12 +161,38 @@
 
   programs = {
     direnv.enable = true;
+    gitui.enable = true;
     gpg.enable = true;
-    nix-index.enable = true;
 
-    go = {
+    bat = {
       enable = true;
-      package = pkgs.go_1_18;
+      config.theme = "catppuccin";
+
+      themes = {
+        catppuccin = builtins.readFile (pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "sublime-text";
+            rev = "0b7ac201ce4ec7bac5e0063b9a7483ca99907bbf";
+            sha256 = "1kn5v8g87r6pjzzij9p8j7z9afc6fj0n8drd24qyin8p1nrlifi1";
+          }
+          + "/Catppuccin.tmTheme");
+      };
+    };
+
+    doom-emacs = {
+      enable = false;
+      doomPrivateDir = ../dotfiles/doom.d;
+    };
+
+    exa = {
+      enable = true;
+      enableAliases = true;
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     mpv = {
@@ -177,11 +201,6 @@
       scripts = with pkgs; [
         mpvScripts.mpris
       ];
-    };
-
-    mcfly = {
-      enable = true;
-      enableZshIntegration = true;
     };
 
     vscode = with pkgs; {
@@ -206,94 +225,9 @@
       };
     };
 
-    exa = {
+    go = {
       enable = true;
-      enableAliases = true;
-    };
-
-    bat = {
-      enable = true;
-      config.theme = "catppuccin";
-
-      themes = {
-        catppuccin = builtins.readFile (pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "sublime-text";
-            rev = "0b7ac201ce4ec7bac5e0063b9a7483ca99907bbf";
-            sha256 = "1kn5v8g87r6pjzzij9p8j7z9afc6fj0n8drd24qyin8p1nrlifi1";
-          }
-          + "/Catppuccin.tmTheme");
-      };
-    };
-
-    zsh = {
-      enable = true;
-      dotDir = ".config/zsh";
-
-      initExtraFirst = ''
-        source ~/.cache/p10k-instant-prompt-marshall.zsh
-        fpath+=~/.zfunc
-      '';
-
-      shellAliases = {
-        se = "sudoedit";
-        gc = "git commit";
-        ga = "git add .";
-        gcap = "ga; gc; git pushall";
-        cat = "bat";
-      };
-
-      initExtra = ''
-        my-backward-delete-word () {
-            local WORDCHARS='~!#$%^&*(){}[]<>?+;'
-            zle backward-delete-word
-        }
-        zle -N my-backward-delete-word
-
-        bindkey -e
-        bindkey "^[^?" my-backward-delete-word
-        bindkey "^[[H" beginning-of-line
-        bindkey "^[[F" end-of-line
-        bindkey '^[[1;5C' emacs-forward-word
-        bindkey '^[[1;5D' emacs-backward-word
-        bindkey '^[[A' up-line-or-search
-        bindkey '^[[B' down-line-or-search
-
-        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/home/marshall/.npm-packages/bin"
-        export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
-        export EDITOR=nvim
-        export VISUAL=nvim
-        export NIXPKGS_ALLOW_UNFREE=1
-
-        draconis
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      '';
-
-      zplug = {
-        enable = true;
-
-        plugins = [
-          {name = "zsh-users/zsh-autosuggestions";}
-          {name = "zsh-users/zsh-syntax-highlighting";}
-          {name = "zsh-users/zsh-history-substring-search";}
-          {name = "chisui/zsh-nix-shell";}
-          {
-            name = "romkatv/powerlevel10k";
-            tags = ["as:theme" "depth:1"];
-          }
-          {
-            name = "plugins/git";
-            tags = ["from:oh-my-zsh"];
-          }
-        ];
-      };
-    };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-      options = ["--cmd" "cd"];
+      package = pkgs.go_1_18;
     };
 
     kitty = {
@@ -363,9 +297,14 @@
       };
     };
 
-    doom-emacs = {
-      enable = false;
-      doomPrivateDir = ../dotfiles/doom.d;
+    navi = {
+    enable = true;
+    enableZshIntegration = true;
+    };
+
+    nix-index = {
+    enable = true;
+    enableZshIntegration = true;
     };
 
     nixvim = {
@@ -504,11 +443,11 @@
           }, { prefix = "<Leader>" })
 
           wk.register({
-            ["<c-t>"] = { "<cmd>lua require(\"FTerm\").toggle()<CR>", "Toggle Terminal" },
+            ["<A-t>"] = { "<cmd>lua require(\"FTerm\").toggle()<CR>", "Toggle Terminal" },
           }, { mode = "n" })
 
           wk.register({
-            ["<c-t>"] = { "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>", "Toggle Terminal" },
+            ["<A-t>"] = { "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>", "Toggle Terminal" },
           }, { mode = "t" })
 
           local colors = {
@@ -711,6 +650,75 @@
             },
           })
       '';
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd" "cd"];
+    };
+
+    zsh = {
+      enable = true;
+      dotDir = ".config/zsh";
+
+      initExtraFirst = ''
+        source ~/.cache/p10k-instant-prompt-marshall.zsh
+        fpath+=~/.zfunc
+      '';
+
+      shellAliases = {
+        se = "sudoedit";
+        gc = "git commit";
+        ga = "git add .";
+        gcap = "ga; gc; git pushall";
+        cat = "bat";
+      };
+
+      initExtra = ''
+        my-backward-delete-word () {
+            local WORDCHARS='~!#$%^&*(){}[]<>?+;'
+            zle backward-delete-word
+        }
+        zle -N my-backward-delete-word
+
+        bindkey -e
+        bindkey "^[^?" my-backward-delete-word
+        bindkey "^[[H" beginning-of-line
+        bindkey "^[[F" end-of-line
+        bindkey '^[[1;5C' emacs-forward-word
+        bindkey '^[[1;5D' emacs-backward-word
+        bindkey '^[[A' up-line-or-search
+        bindkey '^[[B' down-line-or-search
+
+        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/home/marshall/.npm-packages/bin"
+        export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
+        export EDITOR=nvim
+        export VISUAL=nvim
+        export NIXPKGS_ALLOW_UNFREE=1
+
+        draconis
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      '';
+
+      zplug = {
+        enable = true;
+
+        plugins = [
+          {name = "zsh-users/zsh-autosuggestions";}
+          {name = "zsh-users/zsh-syntax-highlighting";}
+          {name = "zsh-users/zsh-history-substring-search";}
+          {name = "chisui/zsh-nix-shell";}
+          {
+            name = "romkatv/powerlevel10k";
+            tags = ["as:theme" "depth:1"];
+          }
+          {
+            name = "plugins/git";
+            tags = ["from:oh-my-zsh"];
+          }
+        ];
+      };
     };
   };
 

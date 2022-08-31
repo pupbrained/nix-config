@@ -10,7 +10,6 @@ _: {
       recursive = true;
     };
 
-    "micro".source = ../dotfiles/micro;
     "polybar".source = ../dotfiles/polybar;
     "rofi".source = ../dotfiles/rofi;
     "sway".source = ../dotfiles/sway;

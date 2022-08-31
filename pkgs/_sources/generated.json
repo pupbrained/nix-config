@@ -94,6 +94,30 @@
         },
         "version": "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d"
     },
+    "helix-latest": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./helix-latest-12ddd03d3b9f6be61008c6a57f3dda1ef1eee131/Cargo.lock",
+                {}
+            ]
+        },
+        "extract": null,
+        "name": "helix-latest",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "helix-editor",
+            "repo": "helix",
+            "rev": "12ddd03d3b9f6be61008c6a57f3dda1ef1eee131",
+            "sha256": "sha256-EPbPGtzodUjub6BVbTM8nafDyL5JLtYVdTsXv07X5os=",
+            "type": "github"
+        },
+        "version": "12ddd03d3b9f6be61008c6a57f3dda1ef1eee131"
+    },
     "nvim-cokeline": {
         "cargoLocks": null,
         "extract": null,
