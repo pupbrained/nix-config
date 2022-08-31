@@ -7,6 +7,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
+    nospm = inputs.nospm.defaultPackage.${prev.system};
 
     discord = prev.discord.override {
       withOpenASAR = true;

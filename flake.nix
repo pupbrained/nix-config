@@ -10,6 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nospm.url = "github:marsupialgutz/nospm";
     nur.url = "github:nix-community/NUR";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
     helix.url = "github:marsupialgutz/helix-insert";

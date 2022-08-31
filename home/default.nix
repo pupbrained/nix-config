@@ -77,6 +77,7 @@
     nodePackages.pnpm
     nodePackages.yo
     nodejs
+    nospm
     notion-app-enhanced
     noto-fonts-cjk-sans
     obs-studio
