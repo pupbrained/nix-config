@@ -47,6 +47,7 @@
     grim
     gsettings-desktop-schemas
     headsetcontrol
+    helix
     hyper
     inotifyTools
     jamesdsp
@@ -298,13 +299,13 @@
     };
 
     navi = {
-    enable = true;
-    enableZshIntegration = true;
+      enable = true;
+      enableZshIntegration = true;
     };
 
     nix-index = {
-    enable = true;
-    enableZshIntegration = true;
+      enable = true;
+      enableZshIntegration = true;
     };
 
     nixvim = {

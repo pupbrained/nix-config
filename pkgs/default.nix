@@ -23,6 +23,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
         substituteInPlace src/modules/wlr/workspace_manager.cpp --replace "zext_workspace_handle_v1_activate(workspace_handle_);" "const std::string command = \"hyprctl dispatch workspace \" + name_; system(command.c_str());"
       '';
     });
+
     spicetify-cli = with prev;
       spicetify-cli.overrideAttrs (_: {
         inherit (sources.spicetify-cli) pname version src;
@@ -70,6 +71,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
     });
 
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {inherit (final) wlroots;};
+
+    helix = final.callPackage ./helix.nix {};
 
     awesome =
       (prev.awesome.overrideAttrs (old: {

@@ -13,7 +13,6 @@
     nospm.url = "github:marsupialgutz/nospm";
     nur.url = "github:nix-community/NUR";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
-    helix.url = "github:marsupialgutz/helix-insert";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
 
@@ -119,7 +118,6 @@
     self,
     agenix,
     fenix,
-    helix,
     nixpkgs,
     home-manager,
     nixos-wsl,

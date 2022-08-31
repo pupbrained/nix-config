@@ -31,11 +31,11 @@
             "name": null,
             "owner": "awesomeWM",
             "repo": "awesome",
-            "rev": "f3cf88593c15a233092972c997528297e546f325",
-            "sha256": "sha256-U/+aLp4fHUTULk+EqP2vtzeVD5FDcUPH53owQ835G7k=",
+            "rev": "9b1246af3da71910e84cd446e1b973b384ce0fac",
+            "sha256": "sha256-0/E8jjCwyOeEPkhGrgMD8x+NTpDE8Eey5wnLB2ktdaY=",
             "type": "github"
         },
-        "version": "f3cf88593c15a233092972c997528297e546f325"
+        "version": "9b1246af3da71910e84cd446e1b973b384ce0fac"
     },
     "catppuccin-spicetify": {
         "cargoLocks": null,
@@ -93,30 +93,6 @@
             "type": "github"
         },
         "version": "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d"
-    },
-    "helix-latest": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./helix-latest-12ddd03d3b9f6be61008c6a57f3dda1ef1eee131/Cargo.lock",
-                {}
-            ]
-        },
-        "extract": null,
-        "name": "helix-latest",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "helix-editor",
-            "repo": "helix",
-            "rev": "12ddd03d3b9f6be61008c6a57f3dda1ef1eee131",
-            "sha256": "sha256-EPbPGtzodUjub6BVbTM8nafDyL5JLtYVdTsXv07X5os=",
-            "type": "github"
-        },
-        "version": "12ddd03d3b9f6be61008c6a57f3dda1ef1eee131"
     },
     "nvim-cokeline": {
         "cargoLocks": null,
