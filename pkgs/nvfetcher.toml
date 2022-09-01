@@ -46,3 +46,8 @@ fetch.github = "wuelnerdotexe/vim-astro"
 [nwg-panel]
 src.github = "nwg-piotr/nwg-panel"
 fetch.github = "nwg-piotr/nwg-panel"
+
+[fleet]
+src.git = "https://github.com/dimensionhq/fleet"
+fetch.github = "dimensionhq/fleet"
+cargo_locks = [ "Cargo.lock" ]

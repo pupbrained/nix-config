@@ -94,6 +94,30 @@
         },
         "version": "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d"
     },
+    "fleet": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./fleet-8dce51cab7a13caf1431a07368978bfc191b301c/Cargo.lock",
+                {}
+            ]
+        },
+        "extract": null,
+        "name": "fleet",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "dimensionhq",
+            "repo": "fleet",
+            "rev": "8dce51cab7a13caf1431a07368978bfc191b301c",
+            "sha256": "sha256-EZWY0KjJ68XvumyterziprbIe1wTU4NJbMuWW+gAt4c=",
+            "type": "github"
+        },
+        "version": "8dce51cab7a13caf1431a07368978bfc191b301c"
+    },
     "nvim-cokeline": {
         "cargoLocks": null,
         "extract": null,
@@ -126,11 +150,11 @@
             "name": null,
             "owner": "nwg-piotr",
             "repo": "nwg-panel",
-            "rev": "v0.7.6",
-            "sha256": "sha256-OtwpYqSdh9zPVnz6By/TMi93vDky6OO74syulUp97FQ=",
+            "rev": "v0.7.7",
+            "sha256": "sha256-uLlcg9fc+UUjox0A8+KZXDBG2NvMXXVxRiDHKQq2zVk=",
             "type": "github"
         },
-        "version": "v0.7.6"
+        "version": "v0.7.7"
     },
     "picom": {
         "cargoLocks": null,

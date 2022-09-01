@@ -8,6 +8,13 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
     nospm = inputs.nospm.defaultPackage.${prev.system};
+    fleet = prev.rustPlatform.buildRustPackage rec {
+      inherit (sources.fleet) pname version src;
+      cargoLock = sources.fleet.cargoLock."Cargo.lock";
+
+      buildInputs = [prev.pkgs.openssl];
+      nativeBuildInputs = [prev.pkgs.pkg-config];
+    };
 
     discord = prev.discord.override {
       withOpenASAR = true;
@@ -94,5 +101,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
   inputs.nur.overlay
   inputs.fenix.overlay
   inputs.nixpkgs-wayland.overlay
+  #inputs.neovim-nightly-overlay.overlay
   inputs.polymc.overlay
 ]

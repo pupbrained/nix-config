@@ -5,6 +5,7 @@
     agenix.url = "github:ryantm/agenix";
     draconis.url = "github:marsupialgutz/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
@@ -58,7 +59,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     horizontal-server-list = {
@@ -74,6 +74,11 @@
     lavender = {
       url = "github:Lavender-Discord/Lavender";
       flake = false;
+    };
+
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     pronoundb = {
@@ -121,6 +126,7 @@
     nixpkgs,
     home-manager,
     nixos-wsl,
+    nix-ld,
     nixvim,
     nix-doom-emacs,
     hyprland,
@@ -129,7 +135,7 @@
     inherit (nixpkgs) lib;
     forSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
-    defaultPackage.x86_64-linux = fenix.packages.x86_64-linux.minimal.toolchain;
+    defaultPackage.x86_64-linux = fenix.packages.x86_64-linux.latest.toolchain;
     homeConfigurations.marshall = home-manager.lib.homeManagerConfiguration {
       extraSpecialArgs = {inherit inputs;};
       pkgs = import nixpkgs {
@@ -160,6 +166,7 @@
           ./sys/nix/configuration.nix
           agenix.nixosModule
           hyprland.nixosModules.default
+          nix-ld.nixosModules.nix-ld
         ];
       };
 
@@ -171,6 +178,7 @@
           ./sys/wsl.nix
           agenix.nixosModule
           nixos-wsl.nixosModules.wsl
+          nix-ld.nixosModules.nix-ld
         ];
       };
     };

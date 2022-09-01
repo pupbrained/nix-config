@@ -90,7 +90,7 @@
     dbus-update-activation-environment --systemd DISPLAY
     eval $(ssh-agent)
     eval $(gnome-keyring-daemon --start)
-    export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+    export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
     export GPG_TTY=$TTY
     export CLUTTER_BACKEND=wayland
     export XDG_SESSION_TYPE=wayland
