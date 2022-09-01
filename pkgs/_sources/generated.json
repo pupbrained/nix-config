@@ -188,11 +188,11 @@
             "name": null,
             "owner": "khanhas",
             "repo": "spicetify-cli",
-            "rev": "v2.12.0",
-            "sha256": "sha256-QJfR6DtsblNCTssT2tvli6FNFzK9+lqyRLSTQXOH4Ok=",
+            "rev": "v2.13.0",
+            "sha256": "sha256-XsYZoJDSaAp+oMTy5YWM9aM+TCNkqF5WXBhU/axcEVk=",
             "type": "github"
         },
-        "version": "v2.12.0"
+        "version": "v2.13.0"
     },
     "spicetify-themes": {
         "cargoLocks": null,

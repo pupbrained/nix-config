@@ -71,8 +71,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
       web-greeter-src = inputs.web-greeter;
     };
 
-    wlroots = prev.wlroots.overrideAttrs (oldAttrs: {
-      patchPhase = ''
+    wlroots = inputs.hyprland.packages.${prev.system}.wlroots-hyprland.overrideAttrs (oldAttrs: {
+      postPatch = ''
         substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
       '';
     });
