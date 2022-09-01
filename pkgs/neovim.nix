@@ -30,7 +30,6 @@
       nvim-cmp
       nvim-lspconfig
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
-      nvim-ts-rainbow
       nvim-tree-lua
       presence-nvim
       telescope-nvim
@@ -175,9 +174,6 @@
           indent = {
             enable = true,
           },
-          rainbow = {
-            enable = true,
-          }
         }
 
         require('telescope').load_extension('fzf')

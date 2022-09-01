@@ -69,11 +69,11 @@
             "name": null,
             "owner": "yaegassy",
             "repo": "coc-tailwindcss3",
-            "rev": "263eeeaa14e7efe7056fdca92e0c60801425b912",
-            "sha256": "sha256-71x7h91ruLgckVIJFWCGp7LellIS25nHfGd7uzDYEyk=",
+            "rev": "33f981b70bed862033863773f921d7c27f6f1bc9",
+            "sha256": "sha256-cFyA/WDlLEUKbpuZVL04UvAAJ18wqjScaRN9BubzvwM=",
             "type": "github"
         },
-        "version": "263eeeaa14e7efe7056fdca92e0c60801425b912"
+        "version": "33f981b70bed862033863773f921d7c27f6f1bc9"
     },
     "copilot-vim": {
         "cargoLocks": null,

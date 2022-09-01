@@ -35,9 +35,9 @@
     fenix.complete.cargo
     fenix.complete.clippy
     fenix.complete.miri
+    fenix.complete.rust-src
     fenix.complete.rustc
     fenix.complete.rustfmt
-    fenix.complete.rust-src
     file
     firefox-nightly-bin
     fleet
@@ -78,6 +78,7 @@
     mpvScripts.mpris
     mullvad-vpn
     nerdfonts
+    nextcloud-client
     ngrok
     nix-prefetch-scripts
     nodePackages.generator-code
@@ -125,6 +126,7 @@
     xdg-desktop-portal
     xdg-desktop-portal-wlr
     xdotool
+    xonsh
     yarn
     zscroll
     # NIX-ADD END

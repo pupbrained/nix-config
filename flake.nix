@@ -67,7 +67,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:marsupialgutz/Hyprland-rollback";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
