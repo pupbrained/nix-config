@@ -135,6 +135,10 @@
   };
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      package = pkgs.bluezFull;
+    };
     nvidia = {
       package = config.boot.kernelPackages.nvidia_is_evil.unfucked;
       modesetting.enable = true;
@@ -146,7 +150,6 @@
     };
     i2c.enable = true;
     pulseaudio.enable = false;
-    bluetooth.enable = true;
   };
 
   nix.settings.trusted-users = ["root" "marshall"];

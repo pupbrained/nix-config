@@ -307,7 +307,7 @@
                   group = augroup,
                   buffer = bufnr,
                   callback = function()
-                    vim.lsp.buf.formatting_sync(nil, nil)
+                    vim.lsp.buf.formatting({bufnr = bufnr})
                   end,
                 })
               end

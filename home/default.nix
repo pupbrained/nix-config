@@ -110,6 +110,7 @@
     scons
     scrot
     slurp
+    sony-headphones-client
     statix
     sumneko-lua-language-server
     swaybg
