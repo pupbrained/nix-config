@@ -7,7 +7,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
-    nospm = inputs.nospm.defaultPackage.${prev.system};
+    nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
     fleet = prev.rustPlatform.buildRustPackage rec {
       inherit (sources.fleet) pname version src;
       cargoLock = sources.fleet.cargoLock."Cargo.lock";

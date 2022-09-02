@@ -10,7 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nospm.url = "github:marsupialgutz/nospm";
+    nix-snow.url = "github:marsupialgutz/nix-snow";
     nur.url = "github:nix-community/NUR";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";

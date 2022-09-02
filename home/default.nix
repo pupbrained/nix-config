@@ -12,7 +12,7 @@
   ];
 
   home.packages = with pkgs; [
-    # NIX-ADD BEGIN
+    # SNOW BEGIN
     acpi
     alejandra
     android-tools
@@ -82,11 +82,11 @@
     nextcloud-client
     ngrok
     nix-prefetch-scripts
+    nix-snow
     nodePackages.generator-code
     nodePackages.pnpm
     nodePackages.yo
     nodejs
-    nospm
     notion-app-enhanced
     noto-fonts-cjk-sans
     obs-studio
@@ -130,7 +130,7 @@
     xonsh
     yarn
     zscroll
-    # NIX-ADD END
+    # SNOW END
 
     (spotify-spicetified.override {
       theme = "catppuccin";
