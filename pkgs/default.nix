@@ -71,13 +71,9 @@ inputs.nixpkgs.lib.composeManyExtensions [
       web-greeter-src = inputs.web-greeter;
     };
 
-    wlroots = inputs.hyprland.packages.${prev.system}.wlroots-hyprland.overrideAttrs (oldAttrs: {
-      postPatch = ''
-        substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-      '';
-    });
-
-    hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {inherit (final) wlroots;};
+    hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
+      nvidiaPatches = true;
+    };
 
     helix = final.callPackage ./helix.nix {};
 
@@ -100,7 +96,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
   inputs.replugged-overlay.overlay
   inputs.nur.overlay
   inputs.fenix.overlay
-  inputs.nixpkgs-wayland.overlay
   #inputs.neovim-nightly-overlay.overlay
   inputs.polymc.overlay
 ]

@@ -41,6 +41,7 @@
     file
     firefox-nightly-bin
     fleet
+    fractal-next
     gcc
     glib
     gnome.eog
@@ -381,6 +382,8 @@
   };
 
   services = {
+    mpris-proxy.enable = true;
+
     gpg-agent = {
       enable = true;
       enableZshIntegration = true;

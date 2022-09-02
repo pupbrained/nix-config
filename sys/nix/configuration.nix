@@ -19,9 +19,31 @@
       efi.canTouchEfiVariables = true;
     };
 
-    kernelPackages = pkgs.recurseIntoAttrs (pkgs.linuxPackages_testing.extend (f: p: {
-      nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 {};
-    }));
+    kernelPackages = let
+      linux_six_pkg = {
+        fetchurl,
+        buildLinux,
+        ...
+      } @ args:
+        buildLinux (args
+          // rec {
+            version = "6.0.0-rc3";
+            modDirVersion = version;
+            src = fetchurl {
+              url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-master.tar.gz";
+              sha256 = "sha256-79YhyFOgfDF4jHAXLWtMBuHILSI5PJXv4Y3jawiJu00=";
+            };
+
+            kernelPatches = [];
+
+            extraMeta.branch = "master";
+          }
+          // (args.argsOverride or {}));
+      linux_six = pkgs.callPackage linux_six_pkg {};
+    in
+      pkgs.recurseIntoAttrs ((pkgs.linuxPackagesFor linux_six).extend (f: p: {
+        nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 {};
+      }));
 
     extraModprobeConfig = "options hid_apple fnmode=1";
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
@@ -40,6 +62,7 @@
   environment.systemPackages = [pkgs.mySddmTheme];
 
   services = {
+    blueman.enable = true;
     flatpak.enable = true;
     mullvad-vpn.enable = true;
 
@@ -90,7 +113,7 @@
     dbus-update-activation-environment --systemd DISPLAY
     eval $(ssh-agent)
     eval $(gnome-keyring-daemon --start)
-    export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+    export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
     export GPG_TTY=$TTY
     export CLUTTER_BACKEND=wayland
     export XDG_SESSION_TYPE=wayland
@@ -123,6 +146,7 @@
     };
     i2c.enable = true;
     pulseaudio.enable = false;
+    bluetooth.enable = true;
   };
 
   nix.settings.trusted-users = ["root" "marshall"];

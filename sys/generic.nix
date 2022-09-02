@@ -51,7 +51,6 @@ in {
     settings = {
       substituters = [
         "https://cache.nixos.org"
-        "https://nixpkgs-wayland.cachix.org"
         "https://cache.nixos.org/"
         "https://statix.cachix.org"
         "https://nix-community.cachix.org"
@@ -60,7 +59,6 @@ in {
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "statix.cachix.org-1:Z9E/g1YjCjU117QOOt07OjhljCoRZddiAm4VVESvais="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
