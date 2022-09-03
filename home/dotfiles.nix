@@ -5,11 +5,6 @@ _: {
       recursive = true;
     };
 
-    "lvim" = {
-      source = ../dotfiles/lvim;
-      recursive = true;
-    };
-
     "polybar".source = ../dotfiles/polybar;
     "rofi".source = ../dotfiles/rofi;
     "sway".source = ../dotfiles/sway;

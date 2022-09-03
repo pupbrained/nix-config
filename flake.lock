@@ -339,11 +339,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1662123602,
-        "narHash": "sha256-f/UBtVY4GF/4vUOhUMolyD0YP1HFgYTCmTIHi3JCTCM=",
+        "lastModified": 1662171523,
+        "narHash": "sha256-sSWeWyjncocIXL/uWP57/TfmjqSylOfjdw4IFLwwZ1M=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "cba9f1f47a7720c75b7489c97ea5ec0e03c31c54",
+        "rev": "5d294302130dd65114fbe059a71fa270f4e3ebbf",
         "type": "github"
       },
       "original": {
@@ -505,11 +505,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1662112392,
-        "narHash": "sha256-2rnANTjXakvnXDgA3IQT5F8ueJKfxb2zgW9SnEjMqag=",
+        "lastModified": 1662160820,
+        "narHash": "sha256-ShMRiaV3m7j1H+Q8i9r5LE/sMQljtI5yHR/WUCztySI=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "f5697095bc11a10ac260849d7685240538880153",
+        "rev": "eee0cad4d0e58f145432bdcd6dde0b070cd73f14",
         "type": "github"
       },
       "original": {
@@ -978,11 +978,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1662143203,
-        "narHash": "sha256-Jh8IOPFh1lXf2lw7mNOx2TFvLYYzviW4pN+hAhdadOo=",
+        "lastModified": 1662170849,
+        "narHash": "sha256-bIY4zURNsvaUK2eVoMz02lBDZPLwXP2KzinNvEWtlsw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b6f234155b9ae9134e804aad547ef70a191bad06",
+        "rev": "258028926ec1a0976a6f9ec1c106e7cc1345f0c0",
         "type": "github"
       },
       "original": {
@@ -1110,11 +1110,11 @@
     "replugged": {
       "flake": false,
       "locked": {
-        "lastModified": 1662077607,
-        "narHash": "sha256-hKNWGrgTEHcKyrCI+Yn4Ul0+WehYxGjZ5o+AAVeJ/wc=",
+        "lastModified": 1662153196,
+        "narHash": "sha256-gGVWUcdCS1KIvX9HzkAJJKqvq31qDHTzXZwkr0SRqVA=",
         "owner": "replugged-org",
         "repo": "replugged",
-        "rev": "ac3e57321c44538bc9dae6689e8efe4696fb3551",
+        "rev": "b687cf8ad777ede4879294d7d25d41493d13154f",
         "type": "github"
       },
       "original": {
@@ -1129,11 +1129,11 @@
         "replugged": "replugged"
       },
       "locked": {
-        "lastModified": 1662078184,
-        "narHash": "sha256-ArQH/6M2xq4VYnZu46+7QPpiIuMBCPM2oW07plzwdOU=",
+        "lastModified": 1662164563,
+        "narHash": "sha256-p1KQ/mW/VQMSy2sBN3p4yB89a5SlVABSTUczmHhPvG0=",
         "owner": "LunNova",
         "repo": "replugged-nix-flake",
-        "rev": "eca8842c0b1c66072aa944e3950fbc2b195e3c9b",
+        "rev": "c924673f2508c5e89bf73628f58f81c164f0ad93",
         "type": "github"
       },
       "original": {

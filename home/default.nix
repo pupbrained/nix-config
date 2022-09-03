@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./dotfiles.nix
-    ../pkgs/neovim.nix
+    ../pkgs/neovim/default.nix
     inputs.nixvim.homeManagerModules.nixvim
     inputs.nix-doom-emacs.hmModule
   ];
@@ -21,12 +21,12 @@
     authy
     bacon
     bandwhich
-    binutils
     brightnessctl
     cachix
     cargo-edit
     cargo-udeps
     cht-sh
+    clang
     cmake
     comma
     ddcutil
@@ -42,7 +42,6 @@
     firefox-nightly-bin
     fleet
     fractal-next
-    gcc
     glib
     gnome.eog
     gnome.geary
@@ -76,6 +75,7 @@
     mate.engrampa
     micro
     minecraft
+    mold
     mpvScripts.mpris
     mullvad-vpn
     nerdfonts
