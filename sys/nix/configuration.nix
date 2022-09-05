@@ -15,8 +15,17 @@
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+        version = 2;
+      };
     };
 
     kernelPackages = let
@@ -127,7 +136,10 @@
     export GTK_THEME=Quixotic-pink
   '';
 
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security = {
+    pam.services.sddm.enableGnomeKeyring = true;
+    polkit.enable = true;
+  };
   powerManagement.cpuFreqGovernor = "performance";
 
   i18n.extraLocaleSettings = {
