@@ -95,6 +95,11 @@
       flake = false;
     };
 
+    termful = {
+      url = "github:FromSyntax/termful";
+      flake = false;
+    };
+
     theme-toggler = {
       url = "github:redstonekasi/theme-toggler";
       flake = false;

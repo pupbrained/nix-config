@@ -160,7 +160,7 @@
       };
 
       themes = {
-        inherit (inputs) catppuccin horizontal-server-list lavender context-icons fluent-icons;
+        inherit (inputs) catppuccin horizontal-server-list lavender context-icons fluent-icons termful;
       };
     })
   ];
