@@ -77,13 +77,13 @@
   };
   nvim-cokeline = {
     pname = "nvim-cokeline";
-    version = "8d5022789014a605d5a2ec02ed5133eb85874aff";
+    version = "d5aa0987a74db85114ba45e84f309ab8c0129b87";
     src = fetchFromGitHub {
       owner = "noib3";
       repo = "nvim-cokeline";
-      rev = "8d5022789014a605d5a2ec02ed5133eb85874aff";
+      rev = "d5aa0987a74db85114ba45e84f309ab8c0129b87";
       fetchSubmodules = false;
-      sha256 = "sha256-mG0cJelaZLNth5mc9QNBuhlWzo+1pfeOAz+REtgUY8o=";
+      sha256 = "sha256-UMPJep0clsoYoYZiIgIf52AaMeDntVsLRxT0u75S0r8=";
     };
   };
   nwg-panel = {
