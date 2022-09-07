@@ -17,13 +17,13 @@
   };
   awesome = {
     pname = "awesome";
-    version = "c8d4f878a012bc6d6d0e8e520d17a1dd9237336d";
+    version = "0f99647c381c323509114db69f50905d8a930778";
     src = fetchFromGitHub {
       owner = "awesomeWM";
       repo = "awesome";
-      rev = "c8d4f878a012bc6d6d0e8e520d17a1dd9237336d";
+      rev = "0f99647c381c323509114db69f50905d8a930778";
       fetchSubmodules = false;
-      sha256 = "sha256-1jJtEIzSMwJUt8Cnu7ASPTYdyJ8865+J7UQR2JDlZX8=";
+      sha256 = "sha256-e9oqJn6lH5NlF10Mj6nl8/FiBXHuxR97zHn9sw/lVaM=";
     };
   };
   catppuccin-spicetify = {

@@ -156,7 +156,7 @@
       discord = pkgs.discord-canary.override {withOpenASAR = true;};
 
       plugins = {
-        inherit (inputs) theme-toggler tiktok-tts spotify-modal hastebin better-codeblocks pronoundb chat-components vpc-spotimbed simple-discord-crypt holy-notes;
+        inherit (inputs) theme-toggler tiktok-tts spotify-modal hastebin better-codeblocks pronoundb chat-components vpc-spotimbed simple-discord-crypt holy-notes usrbg;
       };
 
       themes = {

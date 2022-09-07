@@ -75,8 +75,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       nvidiaPatches = true;
     };
 
-    helix = final.callPackage ./helix.nix {};
-
     awesome =
       (prev.awesome.overrideAttrs (old: {
         inherit (sources.awesome) src pname version;
@@ -96,6 +94,5 @@ inputs.nixpkgs.lib.composeManyExtensions [
   inputs.replugged-overlay.overlay
   inputs.nur.overlay
   inputs.fenix.overlay
-  #inputs.neovim-nightly-overlay.overlay
   inputs.polymc.overlay
 ]
