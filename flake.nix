@@ -10,6 +10,8 @@
     nixvim.url = "github:pta2002/nixvim";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:marsupialgutz/nix-snow";
+    nix-software-center.url = "github:vlinkz/nix-software-center";
+    nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
     nur.url = "github:nix-community/NUR";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
@@ -22,6 +24,11 @@
 
     catppuccin = {
       url = "github:catppuccin/discord";
+      flake = false;
+    };
+
+    cc-plugins = {
+      url = "github:CumcordLoaders/Powercord";
       flake = false;
     };
 
@@ -106,11 +113,6 @@
 
     tiktok-tts = {
       url = "github:oatmealine/powercord-tiktok-tts";
-      flake = false;
-    };
-
-    usrbg = {
-      url = "github:Discord-Custom-Covers/usrbg";
       flake = false;
     };
 

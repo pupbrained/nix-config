@@ -83,6 +83,8 @@
     ngrok
     nix-prefetch-scripts
     nix-snow
+    nix-software-center
+    nixos-conf-editor
     nodePackages.generator-code
     nodePackages.pnpm
     nodePackages.yo
@@ -100,6 +102,7 @@
     picom
     playerctl
     polymc
+    premid
     pulseaudio
     python
     python310
@@ -153,14 +156,21 @@
     (inputs.replugged-overlay.lib.makeDiscordPlugged {
       inherit pkgs;
 
-      discord = pkgs.discord-canary.override {withOpenASAR = true;};
+      discord = pkgs.discord-canary.override {
+        version = "0.0.139";
+        src = fetchurl {
+          url = "https://dl-canary.discordapp.net/apps/linux/0.0.139/discord-canary-0.0.139.tar.gz";
+          sha256 = "sha256-/PfO0TWRxMrK+V1XkYmdaXQ6SfyJNBFETaR9oV90itI=";
+        };
+        withOpenASAR = true;
+      };
 
       plugins = {
-        inherit (inputs) theme-toggler tiktok-tts spotify-modal hastebin better-codeblocks pronoundb chat-components vpc-spotimbed simple-discord-crypt holy-notes;
+        inherit (inputs) theme-toggler tiktok-tts spotify-modal hastebin better-codeblocks pronoundb chat-components vpc-spotimbed simple-discord-crypt holy-notes cc-plugins;
       };
 
       themes = {
-        inherit (inputs) catppuccin horizontal-server-list lavender context-icons fluent-icons termful usrbg;
+        inherit (inputs) catppuccin horizontal-server-list lavender context-icons fluent-icons termful;
       };
     })
   ];
@@ -240,7 +250,7 @@
       enable = true;
 
       font = {
-        name = "Comic Code Ligatures";
+        name = "Monocraft";
         size = 12;
       };
 

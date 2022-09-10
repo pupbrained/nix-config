@@ -36,16 +36,18 @@
       } @ args:
         buildLinux (args
           // rec {
-            version = "6.0.0-rc3";
-            modDirVersion = version;
+            version = "6.0-rc4";
+
+            modDirVersion = builtins.replaceStrings ["-"] [".0-"] version;
+
             src = fetchurl {
-              url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-master.tar.gz";
-              sha256 = "sha256-79YhyFOgfDF4jHAXLWtMBuHILSI5PJXv4Y3jawiJu00=";
+              url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
+              sha256 = "sha256-S00ULXxDB8xuwXqYRlK04Ex03EvM3YrctsBXK84Rykg=";
             };
 
             kernelPatches = [];
 
-            extraMeta.branch = "master";
+            extraMeta.branch = lib.versions.majorMinor version;
           }
           // (args.argsOverride or {}));
       linux_six = pkgs.callPackage linux_six_pkg {};

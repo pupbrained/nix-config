@@ -8,6 +8,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
+    nix-software-center = inputs.nix-software-center.defaultPackage.${prev.system};
+    nixos-conf-editor = inputs.nixos-conf-editor.defaultPackage.${prev.system};
     fleet = prev.rustPlatform.buildRustPackage rec {
       inherit (sources.fleet) pname version src;
       cargoLock = sources.fleet.cargoLock."Cargo.lock";
@@ -70,6 +72,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
     web-greeter = final.callPackage ./web-greeter.nix {
       web-greeter-src = inputs.web-greeter;
     };
+
+    revolt = final.callPackage ./revolt/revolt.nix {};
 
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
       nvidiaPatches = true;
