@@ -73,7 +73,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
       web-greeter-src = inputs.web-greeter;
     };
 
-    revolt = final.callPackage ./revolt/revolt.nix {};
+    revolt = final.callPackage ./revolt.nix {};
 
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
       nvidiaPatches = true;

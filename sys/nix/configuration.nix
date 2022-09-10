@@ -82,6 +82,18 @@
       gnome-keyring.enable = true;
     };
 
+    kmscon = {
+      enable = false;
+      fonts = [
+        {
+          name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerdfonts;
+        }
+      ];
+      extraConfig = ''
+      '';
+    };
+
     xserver = {
       enable = true;
 

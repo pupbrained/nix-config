@@ -107,6 +107,7 @@
     python
     python310
     ranger
+    #revolt
     rnix-lsp
     rofi
     rust-analyzer-nightly
