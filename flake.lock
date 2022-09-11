@@ -765,11 +765,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1662927814,
-        "narHash": "sha256-7TlrgizcVF+os/5fKysI6HwyirOjw/FlFHUYxYez3ME=",
+        "lastModified": 1662938120,
+        "narHash": "sha256-+2oZNT/jTupeCwCqMq155YyyjdIAwxXZbpVsPUm+nRs=",
         "owner": "marsupialgutz",
         "repo": "nix-snow",
-        "rev": "d101f3fb8226d77bd4ecbe10165835421c3b8ea3",
+        "rev": "65a39c4474f163ec4c326a8bdaea3fe6a47d5c5a",
         "type": "github"
       },
       "original": {

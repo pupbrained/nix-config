@@ -22,6 +22,7 @@
     bacon
     bandwhich
     brightnessctl
+    btop
     cachix
     cargo-edit
     cargo-udeps
@@ -223,6 +224,15 @@
             repo = "tide";
             rev = "73c7b469aa603e580e14eca21ab31abed49c6214";
             sha256 = "14h6x3q3lswivfwkm8b87lm1hcwim9jyygvrlm22la7ca1al5frm";
+          };
+        }
+        {
+          name = "catppuccin";
+          src = pkgs.fetchFromGitHub {
+            owner = "catppuccin";
+            repo = "fish";
+            rev = "cb79527f5bd53f103719649d34eff3fbae634155";
+            sha256 = "062biq1pjqwp3qc506q2cczy5w7ysy4109p3c5x45m24nqk0s9bj";
           };
         }
       ];
