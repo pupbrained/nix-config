@@ -105,8 +105,6 @@
         defaultSession = "hyprland";
       };
 
-      windowManager.awesome.enable = true;
-
       videoDrivers = ["nvidia"];
     };
 
@@ -122,9 +120,9 @@
   };
 
   programs = {
-    gamemode.enable = true;
-    zsh.enable = true;
+    fish.enable = true;
     ccache.enable = true;
+    gamemode.enable = true;
 
     hyprland = {
       enable = true;
@@ -177,6 +175,8 @@
     i2c.enable = true;
     pulseaudio.enable = false;
   };
+
+  documentation.man.man-db.enable = false;
 
   nix.settings.trusted-users = ["root" "marshall"];
 

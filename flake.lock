@@ -943,11 +943,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1662019588,
-        "narHash": "sha256-oPEjHKGGVbBXqwwL+UjsveJzghWiWV0n9ogo1X6l4cw=",
+        "lastModified": 1662732537,
+        "narHash": "sha256-iqxa+38SRU+SwNsKDyP8rZt79yPFGSgTe+K4Ujbb/uw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2da64a81275b68fdad38af669afeda43d401e94b",
+        "rev": "74a1793c659d09d7cf738005308b1f86c90cb59b",
         "type": "github"
       },
       "original": {
@@ -1280,11 +1280,11 @@
     "replugged": {
       "flake": false,
       "locked": {
-        "lastModified": 1662768091,
-        "narHash": "sha256-IXfvaqaO4y61UP9Fg3KTU549AEG7jnGmJ4W//JkeOJY=",
+        "lastModified": 1662844398,
+        "narHash": "sha256-00Yk+6tC2695dwb8wfGqpVqxEbRgwz3zgovGwO1dKeo=",
         "owner": "replugged-org",
         "repo": "replugged",
-        "rev": "ecfc8c4560ac248492fc1e1fb54e225dc8d81a29",
+        "rev": "901e768682af0135e93cd0f09fbe0271bec12885",
         "type": "github"
       },
       "original": {
@@ -1299,11 +1299,11 @@
         "replugged": "replugged"
       },
       "locked": {
-        "lastModified": 1662769615,
-        "narHash": "sha256-OKId54nfb7Nos3w/zof13+Eyn/ndLMpXQTvWh58qVaw=",
+        "lastModified": 1662855834,
+        "narHash": "sha256-bRvithKqpRw9crJx9uaFrHWNAQkSL1jXcI1/1SYmLXQ=",
         "owner": "LunNova",
         "repo": "replugged-nix-flake",
-        "rev": "12c77819864f50f2a132ef80f7dfb4ec98d956aa",
+        "rev": "b76608be2d51f3d1fc911dc21075f9b306b2b3d1",
         "type": "github"
       },
       "original": {

@@ -107,7 +107,7 @@
     python
     python310
     ranger
-    #revolt
+    revolt
     rnix-lsp
     rofi
     rust-analyzer-nightly
@@ -207,9 +207,41 @@
       enableAliases = true;
     };
 
+    fish = {
+      enable = true;
+
+      plugins = [
+        {
+          name = "tide";
+          src = pkgs.fetchFromGitHub {
+            owner = "IlanCosman";
+            repo = "tide";
+            rev = "73c7b469aa603e580e14eca21ab31abed49c6214";
+            sha256 = "14h6x3q3lswivfwkm8b87lm1hcwim9jyygvrlm22la7ca1al5frm";
+          };
+        }
+      ];
+
+      shellAliases = {
+        se = "sudoedit";
+        gc = "git commit";
+        ga = "git add .";
+        gcap = "ga; gc; git pushall";
+        cat = "bat";
+      };
+
+      shellInit = ''
+        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/home/marshall/.npm-packages/bin"
+        export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
+        export EDITOR=nvim
+        export VISUAL=nvim
+        export NIXPKGS_ALLOW_UNFREE=1
+      '';
+    };
+
     fzf = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     mpv = {
@@ -218,11 +250,6 @@
       scripts = with pkgs; [
         mpvScripts.mpris
       ];
-    };
-
-    vscode = with pkgs; {
-      enable = true;
-      package = vscode-fhs;
     };
 
     git = {
@@ -257,6 +284,7 @@
 
       settings = {
         editor = "nvim";
+        shell_integration = true;
         placement_strategy = "center";
         hide_window_decorations = "titlebar-only";
         background_opacity = "0.8";
@@ -316,81 +344,23 @@
 
     navi = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     nix-index = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+
+    vscode = with pkgs; {
+      enable = true;
+      package = vscode-fhs;
     };
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       options = ["--cmd" "cd"];
-    };
-
-    zsh = {
-      enable = true;
-      dotDir = ".config/zsh";
-
-      initExtraFirst = ''
-        source ~/.cache/p10k-instant-prompt-marshall.zsh
-        fpath+=~/.zfunc
-      '';
-
-      shellAliases = {
-        se = "sudoedit";
-        gc = "git commit";
-        ga = "git add .";
-        gcap = "ga; gc; git pushall";
-        cat = "bat";
-      };
-
-      initExtra = ''
-        my-backward-delete-word () {
-            local WORDCHARS='~!#$%^&*(){}[]<>?+;'
-            zle backward-delete-word
-        }
-        zle -N my-backward-delete-word
-
-        bindkey -e
-        bindkey "^[^?" my-backward-delete-word
-        bindkey "^[[H" beginning-of-line
-        bindkey "^[[F" end-of-line
-        bindkey '^[[1;5C' emacs-forward-word
-        bindkey '^[[1;5D' emacs-backward-word
-        bindkey '^[[A' up-line-or-search
-        bindkey '^[[B' down-line-or-search
-
-        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/home/marshall/.npm-packages/bin"
-        export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
-        export EDITOR=nvim
-        export VISUAL=nvim
-        export NIXPKGS_ALLOW_UNFREE=1
-
-        draconis
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      '';
-
-      zplug = {
-        enable = true;
-
-        plugins = [
-          {name = "zsh-users/zsh-autosuggestions";}
-          {name = "zsh-users/zsh-syntax-highlighting";}
-          {name = "zsh-users/zsh-history-substring-search";}
-          {name = "chisui/zsh-nix-shell";}
-          {
-            name = "romkatv/powerlevel10k";
-            tags = ["as:theme" "depth:1"];
-          }
-          {
-            name = "plugins/git";
-            tags = ["from:oh-my-zsh"];
-          }
-        ];
-      };
     };
   };
 
@@ -399,7 +369,7 @@
 
     gpg-agent = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       pinentryFlavor = "gnome3";
     };
   };
@@ -409,16 +379,6 @@
     exec = "steam-run idea-ultimate";
     icon = "idea-ultimate";
     settings.StartupWMClass = "jetbrains-idea";
-  };
-
-  wayland.windowManager.sway = {
-    enable = false;
-    extraOptions = ["--unsupported-gpu"];
-
-    wrapperFeatures = {
-      base = true;
-      gtk = true;
-    };
   };
 
   systemd.user.services.polkit = {

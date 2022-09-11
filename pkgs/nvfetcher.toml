@@ -1,15 +1,27 @@
-[awesome]
-src.git = "https://github.com/awesomeWM/awesome"
-fetch.github = "awesomeWM/awesome"
+[astronaut-sddm-theme]
+src.git = "https://github.com/Keyitdev/sddm-astronaut-theme"
+fetch.github = "Keyitdev/sddm-astronaut-theme"
 
-[picom]
-src.git = "https://github.com/yaocccc/picom"
-src.branch = "feat-animation-extra"
-fetch.github = "yaocccc/picom"
+[catppuccin-spicetify]
+src.git = "https://github.com/catppuccin/spicetify"
+fetch.github = "catppuccin/spicetify"
 
-[zscroll]
-src.git = "https://github.com/noctuid/zscroll"
-fetch.github = "noctuid/zscroll"
+[coc-tailwindcss3]
+src.git = "https://github.com/yaegassy/coc-tailwindcss3"
+fetch.github = "yaegassy/coc-tailwindcss3"
+
+[copilot-vim]
+src.git = "https://github.com/github/copilot.vim"
+fetch.github = "github/copilot.vim"
+
+[fleet]
+src.git = "https://github.com/dimensionhq/fleet"
+fetch.github = "dimensionhq/fleet"
+cargo_locks = [ "Cargo.lock" ]
+
+[nvim-cokeline]
+src.git = "https://github.com/noib3/nvim-cokeline"
+fetch.github = "noib3/nvim-cokeline"
 
 [spicetify-cli]
 src.github = "khanhas/spicetify-cli"
@@ -19,35 +31,7 @@ fetch.github = "khanhas/spicetify-cli"
 src.git = "https://github.com/morpheusthewhite/spicetify-themes"
 fetch.github = "morpheusthewhite/spicetify-themes"
 
-[catppuccin-spicetify]
-src.git = "https://github.com/catppuccin/spicetify"
-fetch.github = "catppuccin/spicetify"
+[zscroll]
+src.git = "https://github.com/noctuid/zscroll"
+fetch.github = "noctuid/zscroll"
 
-[astronaut-sddm-theme]
-src.git = "https://github.com/Keyitdev/sddm-astronaut-theme"
-fetch.github = "Keyitdev/sddm-astronaut-theme"
-
-[copilot-vim]
-src.git = "https://github.com/github/copilot.vim"
-fetch.github = "github/copilot.vim"
-
-[nvim-cokeline]
-src.git = "https://github.com/noib3/nvim-cokeline"
-fetch.github = "noib3/nvim-cokeline"
-
-[coc-tailwindcss3]
-src.git = "https://github.com/yaegassy/coc-tailwindcss3"
-fetch.github = "yaegassy/coc-tailwindcss3"
-
-[vim-astro]
-src.git = "https://github.com/wuelnerdotexe/vim-astro"
-fetch.github = "wuelnerdotexe/vim-astro"
-
-[nwg-panel]
-src.github = "nwg-piotr/nwg-panel"
-fetch.github = "nwg-piotr/nwg-panel"
-
-[fleet]
-src.git = "https://github.com/dimensionhq/fleet"
-fetch.github = "dimensionhq/fleet"
-cargo_locks = [ "Cargo.lock" ]

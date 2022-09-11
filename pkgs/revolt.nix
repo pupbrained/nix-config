@@ -1,47 +1,74 @@
 {
-  pkgs,
   stdenv,
   electron,
-  mkYarnPackage,
-}: let
-  rev = "19df085e793643b44b55bee76cdd8f00b891a106";
-  sha256 = "07g3cmb1dn6gvnc5w6shc81bdalsh74jr8rr15w67qk4w593lf5y";
-  src = pkgs.fetchFromGitHub {
-    owner = "revoltchat";
-    repo = "Desktop";
-    inherit rev sha256;
+  makeWrapper,
+  copyDesktopItems,
+  makeDesktopItem,
+  autoPatchelfHook,
+  fetchurl,
+  libX11,
+  libXrandr,
+  libXcomposite,
+  libXdamage,
+  glib,
+  libGL,
+  libxkbcommon,
+  libdrm,
+  nss,
+  atk,
+  at-spi2-atk,
+  gtk3,
+  mesa,
+  alsa-lib,
+}:
+stdenv.mkDerivation rec {
+  pname = "Revolt";
+  version = "1.0.6";
+  src = fetchurl {
+    url = "https://github.com/revoltchat/desktop/releases/download/v${version}/Revolt-linux.tar.gz";
+    sha256 = "sha256-AG3RrpYkMgrUd3hOrlLhpdORGCX9Dl/1rh6zYg7VSN0=";
   };
-in
-  mkYarnPackage rec {
-    name = "revolt-${rev}";
-    inherit src;
-    packageJSON = "${src}/package.json";
-    yarnLock = "${src}/yarn.lock";
 
-    buildInputs = [electron];
+  dontBuild = true;
+  dontStrip = true;
 
-    pname = "Revolt";
-    installPhase = ''
-      ls -al
-      runHook preInstall
-      mkdir -p $out/{bin,libexec/${pname}}
-      mv node_modules $out/libexec/${pname}/node_modules
-      mv deps $out/libexec/${pname}/deps
-      runHook postInstall
-    '';
+  desktopItems = [
+  ];
 
-    distPhase = ''
-      cd $out
-      unlink "$out/libexec/${pname}/deps/${pname}/node_modules"
-      ln -s "$out/libexec/${pname}/node_modules" "$out/libexec/${pname}/deps/${pname}/desktop/node_modules"
-      ls -al
-      ls -al libexec
-      mkdir -p bin
-      cd bin
-      echo '#!/bin/sh' > revolt
-      echo "cd $out/libexec/${pname}/deps/${pname}" >> revolt
-      echo "${electron}/bin/electron $out/libexec/${pname}/deps/${pname}/desktop" >> revolt
-      chmod 0755 $out/bin/revolt
-      true
-    '';
-  }
+  nativeBuildInputs = [
+    autoPatchelfHook
+    makeWrapper
+    copyDesktopItems
+  ];
+  buildInputs = [
+    electron
+
+    libX11
+    libXcomposite
+    libXrandr
+    libXdamage
+    glib
+    libxkbcommon
+    libdrm
+    nss
+    atk
+    at-spi2-atk
+    gtk3
+    libGL
+    mesa
+    alsa-lib
+  ];
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p $out/opt/revolt $out/share/revolt $out/share/pixmaps
+    cp -r ./ $out/opt/revolt
+    mv $out/opt/revolt/{locales,resources} $out/share/revolt
+
+    makeWrapper ${electron}/bin/electron $out/bin/revolt-desktop \
+      --add-flags $out/share/revolt/resources/app.asar
+
+    runHook postInstall
+  '';
+}

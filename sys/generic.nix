@@ -40,9 +40,6 @@ in {
     systemPackages = with pkgs; [
       configure-gtk
     ];
-    pathsToLink = [
-      "/share/zsh"
-    ];
   };
 
   nix = {
@@ -96,7 +93,7 @@ in {
   users.users.marshall = {
     isNormalUser = true;
     home = "/home/marshall";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
 
     extraGroups = [
       "wheel"
@@ -125,7 +122,6 @@ in {
 
   time.timeZone = "America/New_York";
   security.sudo.wheelNeedsPassword = false;
-  # age.secrets.secrets.file = ../secrets/secrets.age;
   programs = {
     dconf.enable = true;
     steam.enable = true;
