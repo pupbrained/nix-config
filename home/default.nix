@@ -120,6 +120,7 @@
     swaybg
     swaynotificationcenter
     tealdeer
+    thefuck
     unrar
     unzip
     usbimager
@@ -209,6 +210,10 @@
 
     fish = {
       enable = true;
+
+      interactiveShellInit = ''
+        ${pkgs.thefuck}/bin/thefuck --alias tf | source
+      '';
 
       plugins = [
         {
@@ -354,7 +359,7 @@
 
     vscode = with pkgs; {
       enable = true;
-      package = vscode-fhs;
+      package = vscodeInsiders;
     };
 
     zoxide = {

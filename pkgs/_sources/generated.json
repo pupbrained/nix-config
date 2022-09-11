@@ -18,25 +18,6 @@
         },
         "version": "ef7ff4199e0e78c37995938ad4ced402d34edf79"
     },
-    "awesome": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "awesome",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "awesomeWM",
-            "repo": "awesome",
-            "rev": "6ca2fbb31c5cdf50b946b50f3f814f39a8f1cfbe",
-            "sha256": "sha256-7CD0RszmPdIHD1GGpVtJ4uAFIsQCFFY2z3NPZmA1Kuk=",
-            "type": "github"
-        },
-        "version": "6ca2fbb31c5cdf50b946b50f3f814f39a8f1cfbe"
-    },
     "catppuccin-spicetify": {
         "cargoLocks": null,
         "extract": null,
@@ -131,49 +112,11 @@
             "name": null,
             "owner": "noib3",
             "repo": "nvim-cokeline",
-            "rev": "d5aa0987a74db85114ba45e84f309ab8c0129b87",
-            "sha256": "sha256-UMPJep0clsoYoYZiIgIf52AaMeDntVsLRxT0u75S0r8=",
+            "rev": "501f93ec84af0d505d95d3827cad470b9c5e86dc",
+            "sha256": "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=",
             "type": "github"
         },
-        "version": "d5aa0987a74db85114ba45e84f309ab8c0129b87"
-    },
-    "nwg-panel": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "nwg-panel",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "nwg-piotr",
-            "repo": "nwg-panel",
-            "rev": "v0.7.7",
-            "sha256": "sha256-uLlcg9fc+UUjox0A8+KZXDBG2NvMXXVxRiDHKQq2zVk=",
-            "type": "github"
-        },
-        "version": "v0.7.7"
-    },
-    "picom": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "picom",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "yaocccc",
-            "repo": "picom",
-            "rev": "db16da3907b2ba540be5a53d0f0e28e2d3b5b705",
-            "sha256": "sha256-q0VI5/5jPQR+Rd7cxdLF+bMNeO+JoxTmBwAS0WqW7gQ=",
-            "type": "github"
-        },
-        "version": "db16da3907b2ba540be5a53d0f0e28e2d3b5b705"
+        "version": "501f93ec84af0d505d95d3827cad470b9c5e86dc"
     },
     "spicetify-cli": {
         "cargoLocks": null,
@@ -212,25 +155,6 @@
             "type": "github"
         },
         "version": "0f7a687e76c525e4013a7f82ccb15e11cc30475a"
-    },
-    "vim-astro": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "vim-astro",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "wuelnerdotexe",
-            "repo": "vim-astro",
-            "rev": "34732be5e9a5c28c2409f4490edf92d46d8b55a9",
-            "sha256": "sha256-HyQ4i/T1uQmGurBqCpo8+ESVSVPsTrLQBxLe2OEYjcY=",
-            "type": "github"
-        },
-        "version": "34732be5e9a5c28c2409f4490edf92d46d8b55a9"
     },
     "zscroll": {
         "cargoLocks": null,

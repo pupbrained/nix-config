@@ -7,7 +7,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
-    nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
+    nix-snow = inputs.nix-snow.packages.${prev.system}.default;
     nix-software-center = inputs.nix-software-center.defaultPackage.${prev.system};
     nixos-conf-editor = inputs.nixos-conf-editor.defaultPackage.${prev.system};
     fleet = prev.rustPlatform.buildRustPackage rec {
@@ -44,10 +44,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
     spicetify-themes = sources.spicetify-themes.src;
     catppuccin-spicetify = sources.catppuccin-spicetify.src;
     spotify-spicetified = final.callPackage ./spotify-spicetified {};
-
-    picom = prev.picom.overrideAttrs (o: {
-      inherit (sources.picom) src pname version;
-    });
 
     zscroll = prev.zscroll.overrideAttrs (o: {
       inherit (sources.zscroll) src pname version;
