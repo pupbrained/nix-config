@@ -9,6 +9,7 @@
     ../pkgs/neovim/default.nix
     inputs.nixvim.homeManagerModules.nixvim
     inputs.nix-doom-emacs.hmModule
+    inputs.spicetify-nix.homeManagerModule
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +17,6 @@
     acpi
     alejandra
     android-tools
-    appflowy
     audacity
     authy
     bacon
@@ -139,22 +139,6 @@
     yarn
     zscroll
     # SNOW END
-
-    (spotify-spicetified.override {
-      theme = "catppuccin";
-      colorScheme = "mauve";
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = true;
-
-      customExtensions = {
-        "catppuccin.js" = "${catppuccin-spicetify}/catppuccin.js";
-      };
-
-      enabledExtensions = [
-        "catppuccin.js"
-      ];
-    })
 
     (inputs.replugged-overlay.lib.makeDiscordPlugged {
       inherit pkgs;
@@ -365,6 +349,19 @@
     nix-index = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    spicetify = {
+      enable = true;
+
+      theme = "catppuccin-mocha";
+      colorScheme = "mauve";
+
+      enabledExtensions = [
+        "fullAppDisplay.js"
+        "shuffle+.js"
+        "hidePodcasts.js"
+      ];
     };
 
     vscode = with pkgs; {

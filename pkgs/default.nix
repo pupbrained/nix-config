@@ -33,18 +33,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       '';
     });
 
-    spicetify-cli = with prev;
-      spicetify-cli.overrideAttrs (_: {
-        inherit (sources.spicetify-cli) pname version src;
-        postInstall = ''
-          cp -r ./jsHelper ./Themes ./Extensions ./CustomApps ./globals.d.ts ./css-map.json $out/bin
-        '';
-      });
-
-    spicetify-themes = sources.spicetify-themes.src;
-    catppuccin-spicetify = sources.catppuccin-spicetify.src;
-    spotify-spicetified = final.callPackage ./spotify-spicetified {};
-
     zscroll = prev.zscroll.overrideAttrs (o: {
       inherit (sources.zscroll) src pname version;
     });

@@ -2,10 +2,6 @@
 src.git = "https://github.com/Keyitdev/sddm-astronaut-theme"
 fetch.github = "Keyitdev/sddm-astronaut-theme"
 
-[catppuccin-spicetify]
-src.git = "https://github.com/catppuccin/spicetify"
-fetch.github = "catppuccin/spicetify"
-
 [coc-tailwindcss3]
 src.git = "https://github.com/yaegassy/coc-tailwindcss3"
 fetch.github = "yaegassy/coc-tailwindcss3"
@@ -23,15 +19,6 @@ cargo_locks = [ "Cargo.lock" ]
 src.git = "https://github.com/noib3/nvim-cokeline"
 fetch.github = "noib3/nvim-cokeline"
 
-[spicetify-cli]
-src.github = "khanhas/spicetify-cli"
-fetch.github = "khanhas/spicetify-cli"
-
-[spicetify-themes]
-src.git = "https://github.com/morpheusthewhite/spicetify-themes"
-fetch.github = "morpheusthewhite/spicetify-themes"
-
 [zscroll]
 src.git = "https://github.com/noctuid/zscroll"
 fetch.github = "noctuid/zscroll"
-

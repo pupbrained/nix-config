@@ -18,25 +18,6 @@
         },
         "version": "ef7ff4199e0e78c37995938ad4ced402d34edf79"
     },
-    "catppuccin-spicetify": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "catppuccin-spicetify",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "catppuccin",
-            "repo": "spicetify",
-            "rev": "8aaacc4b762fb507b3cf7d4d1b757eb849fcbb52",
-            "sha256": "sha256-yfRbYM065wRJqaZB+SsOZi4+e2+ZOD0iKyhNVBJcrqA=",
-            "type": "github"
-        },
-        "version": "8aaacc4b762fb507b3cf7d4d1b757eb849fcbb52"
-    },
     "coc-tailwindcss3": {
         "cargoLocks": null,
         "extract": null,
@@ -50,11 +31,11 @@
             "name": null,
             "owner": "yaegassy",
             "repo": "coc-tailwindcss3",
-            "rev": "33f981b70bed862033863773f921d7c27f6f1bc9",
-            "sha256": "sha256-cFyA/WDlLEUKbpuZVL04UvAAJ18wqjScaRN9BubzvwM=",
+            "rev": "3c129269853108b6062aa7adbc77a859a45be2ab",
+            "sha256": "sha256-1ZciXgK8mta4BFPwyRw+Mk16yiEXuoEwNg1xMWDAY10=",
             "type": "github"
         },
-        "version": "33f981b70bed862033863773f921d7c27f6f1bc9"
+        "version": "3c129269853108b6062aa7adbc77a859a45be2ab"
     },
     "copilot-vim": {
         "cargoLocks": null,
@@ -117,44 +98,6 @@
             "type": "github"
         },
         "version": "501f93ec84af0d505d95d3827cad470b9c5e86dc"
-    },
-    "spicetify-cli": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "spicetify-cli",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "khanhas",
-            "repo": "spicetify-cli",
-            "rev": "v2.13.0",
-            "sha256": "sha256-XsYZoJDSaAp+oMTy5YWM9aM+TCNkqF5WXBhU/axcEVk=",
-            "type": "github"
-        },
-        "version": "v2.13.0"
-    },
-    "spicetify-themes": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "spicetify-themes",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "morpheusthewhite",
-            "repo": "spicetify-themes",
-            "rev": "0f7a687e76c525e4013a7f82ccb15e11cc30475a",
-            "sha256": "sha256-OI0CiZE9GKaXVa5I8kCXlrfjX8izynKi5sJxPQK0Zd8=",
-            "type": "github"
-        },
-        "version": "0f7a687e76c525e4013a7f82ccb15e11cc30475a"
     },
     "zscroll": {
         "cargoLocks": null,

@@ -14,6 +14,8 @@
     nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
     nur.url = "github:nix-community/NUR";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
+    riff.url = "github:DeterminateSystems/riff";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
 
@@ -140,6 +142,7 @@
     nixvim,
     nix-doom-emacs,
     hyprland,
+    spicetify-nix,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;

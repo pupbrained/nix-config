@@ -4,7 +4,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+with lib; {
   disabledModules = ["services/hardware/udev.nix"];
 
   imports = [
@@ -57,7 +58,6 @@
       }));
 
     extraModprobeConfig = "options hid_apple fnmode=1";
-    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
   };
 
   networking = {
@@ -70,7 +70,9 @@
     };
   };
 
-  environment.systemPackages = [pkgs.mySddmTheme];
+  environment.systemPackages = with pkgs; [
+    mySddmTheme
+  ];
 
   services = {
     blueman.enable = true;
@@ -134,24 +136,13 @@
     dbus-update-activation-environment --systemd DISPLAY
     eval $(ssh-agent)
     eval $(gnome-keyring-daemon --start)
-    export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
-    export GPG_TTY=$TTY
-    export CLUTTER_BACKEND=wayland
-    export XDG_SESSION_TYPE=wayland
-    export QT_QPA_PLATFORM=wayland
-    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-    export MOZ_ENABLE_WAYLAND=1
-    export GBM_BACKEND=nvidia-drm
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export WLR_NO_HARDWARE_CURSORS=1
-    export WLR_BACKEND=vulkan
-    export GTK_THEME=Quixotic-pink
   '';
 
   security = {
     pam.services.sddm.enableGnomeKeyring = true;
     polkit.enable = true;
   };
+
   powerManagement.cpuFreqGovernor = "performance";
 
   i18n.extraLocaleSettings = {
@@ -163,18 +154,43 @@
       enable = true;
       package = pkgs.bluezFull;
     };
+
     nvidia = {
       package = config.boot.kernelPackages.nvidia_is_evil.unfucked;
       modesetting.enable = true;
       open = true;
     };
+
     opengl = {
       enable = true;
+      driSupport = true;
       driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+      ];
     };
+
     i2c.enable = true;
     pulseaudio.enable = false;
   };
+
+  environment.extraInit = ''
+    export LIBVA_DRIVER_NAME="nvidia"
+    export GBM_BACKEND="nvidia-drm"
+    export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+    export WLR_NO_HARDWARE_CURSORS=1
+    export WLR_RENDERER="vulkan"
+    export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
+    export GPG_TTY="$TTY"
+    CLUTTER_BACKEND="wayland"
+    XDG_SESSION_TYPE="wayland"
+    QT_QPA_PLATFORM="wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    WLR_BACKEND="vulkan"
+    GTK_THEME="Quixotic-pink"
+  '';
 
   documentation.man.man-db.enable = false;
 
