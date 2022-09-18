@@ -37,13 +37,13 @@ with lib; {
       } @ args:
         buildLinux (args
           // rec {
-            version = "6.0-rc4";
+            version = "6.0-rc5";
 
             modDirVersion = builtins.replaceStrings ["-"] [".0-"] version;
 
             src = fetchurl {
               url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
-              sha256 = "sha256-S00ULXxDB8xuwXqYRlK04Ex03EvM3YrctsBXK84Rykg=";
+              sha256 = "GELU1ZEOM5gGUJxG54JoiI9qLQXJ2Cd/kyOLcp0AWgc=";
             };
 
             kernelPatches = [];
@@ -82,18 +82,6 @@ with lib; {
     gnome = {
       glib-networking.enable = true;
       gnome-keyring.enable = true;
-    };
-
-    kmscon = {
-      enable = false;
-      fonts = [
-        {
-          name = "JetBrainsMono Nerd Font";
-          package = pkgs.nerdfonts;
-        }
-      ];
-      extraConfig = ''
-      '';
     };
 
     xserver = {
