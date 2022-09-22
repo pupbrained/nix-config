@@ -1,15 +1,19 @@
 {
   "position": "top",
   "height": 30,
+  "modules-left": [
+    "wlr/workspaces"
+  ],
   "modules-center": [
-    "wlr/workspaces",
-    "tray",
     "custom/notification",
+    "tray",
     "network",
-    "custom/media",
     "pulseaudio",
     "custom/date",
     "clock"
+  ],
+  "modules-right": [
+    "custom/media"
   ],
   "wlr/workspaces": {
     "disable-scroll": true,
@@ -49,7 +53,7 @@
     "exec": "$HOME/nix-config/dotfiles/waybar/scroll_spotify_status.sh"
   },
   "custom/date": {
-    "format": "  {}",
+    "format": "   {}",
     "interval": 3600,
     "exec": "$HOME/nix-config/dotfiles/waybar/waybar-date.sh"
   },
@@ -74,14 +78,14 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "network": {
-    "format-wifi": "  {essid}",
+    "format-wifi": "   {essid}",
     "format-ethernet": "󰤮 Disconnected",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰤮 Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}"
   },
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon}   {volume}%",
     "format-muted": "ﱝ Muted",
     "format-icons": {
       "headphone": "",

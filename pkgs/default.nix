@@ -7,6 +7,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
+    riff = inputs.riff.defaultPackage.${prev.system};
+    tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.packages.${prev.system}.default;
     nix-software-center = inputs.nix-software-center.defaultPackage.${prev.system};
     nixos-conf-editor = inputs.nixos-conf-editor.defaultPackage.${prev.system};
@@ -66,7 +68,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
     mySddmTheme = prev.plasma5Packages.callPackage ./astronaut-sddm-theme {inherit sources;};
   })
   inputs.replugged-overlay.overlay
-  inputs.nur.overlay
   inputs.fenix.overlay
   inputs.polymc.overlay
 ]

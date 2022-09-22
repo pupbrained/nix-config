@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: mononoki Nerd Font;
+  font-family: Recursive Sans Casual Static, mononoki Nerd Font;
   font-size: 14px;
   min-height: 0;
 }
@@ -62,20 +62,23 @@ tooltip {
 }
 
 #custom-media {
-  color: #f9e2af;
+  background-color: #1e1e2e;
+  color: #f5c2e7;
+  padding: 0 15px;
+  border-radius: 15px;
+  margin-right: 10px;
 }
 
 #custom-notification {
   color: #f38ba8;
-}
-
-#tray {
   padding-left: 15px;
+  border-radius: 15px 0 0 15px;
 }
 
 #workspaces {
   background-color: #1e1e2e;
-  border-radius: 15px 0px 0px 15px;
+  border-radius: 15px;
+  margin-left: 10px;
 }
 
 #custom-date {
@@ -85,7 +88,6 @@ tooltip {
 #clock {
   color: #cba6f7;
   border-radius: 0px 15px 15px 0px;
-  margin-right: 10px;
 }
 
 #network {

@@ -31,11 +31,11 @@
             "name": null,
             "owner": "yaegassy",
             "repo": "coc-tailwindcss3",
-            "rev": "3c129269853108b6062aa7adbc77a859a45be2ab",
-            "sha256": "sha256-1ZciXgK8mta4BFPwyRw+Mk16yiEXuoEwNg1xMWDAY10=",
+            "rev": "73e7eab79931f90e3141b961e9c403ae75f51d96",
+            "sha256": "sha256-W8k9+ncJCAJUf4CMxSGQGT+JR9Bt2OVw6xYmvIfFyy8=",
             "type": "github"
         },
-        "version": "3c129269853108b6062aa7adbc77a859a45be2ab"
+        "version": "73e7eab79931f90e3141b961e9c403ae75f51d96"
     },
     "copilot-vim": {
         "cargoLocks": null,
@@ -50,11 +50,11 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d",
-            "sha256": "sha256-hm/8q08aIVWc5thh31OVpVoksVrqKD+rSHbUTxzzHaU=",
+            "rev": "af9da6457790b651871b687b8f47d130cde083fc",
+            "sha256": "sha256-K3Qs9L9kM2AJtwY7FqoBRIthTpqdg0YRD28WfJjodrY=",
             "type": "github"
         },
-        "version": "1bfbaf5b027ee4d3d3dbc828c8bfaef2c45d132d"
+        "version": "af9da6457790b651871b687b8f47d130cde083fc"
     },
     "fleet": {
         "cargoLocks": {

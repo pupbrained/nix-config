@@ -37,13 +37,13 @@ with lib; {
       } @ args:
         buildLinux (args
           // rec {
-            version = "6.0-rc5";
+            version = "6.0-rc6";
 
             modDirVersion = builtins.replaceStrings ["-"] [".0-"] version;
 
             src = fetchurl {
               url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
-              sha256 = "GELU1ZEOM5gGUJxG54JoiI9qLQXJ2Cd/kyOLcp0AWgc=";
+              sha256 = "GvZbTLbhKjUVd0GgZWzCO5QcYvWzx77S/PuLOrEkAlQ=";
             };
 
             kernelPatches = [];

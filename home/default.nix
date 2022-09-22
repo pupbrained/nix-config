@@ -7,7 +7,6 @@
   imports = [
     ./dotfiles.nix
     ../pkgs/neovim/default.nix
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.nix-doom-emacs.hmModule
     inputs.spicetify-nix.homeManagerModule
   ];
@@ -21,13 +20,13 @@
     authy
     bacon
     bandwhich
+    binutils
     brightnessctl
     btop
     cachix
     cargo-edit
     cargo-udeps
     cht-sh
-    clang
     cmake
     comma
     ddcutil
@@ -62,6 +61,7 @@
     jamesdsp
     jellyfin-ffmpeg
     jetbrains.idea-ultimate
+    jetbrains.webstorm
     jq
     keybase
     keychain
@@ -71,6 +71,7 @@
     libnotify
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
+    llvmPackages_rocm.llvm.out
     lua52Packages.lgi
     lxappearance
     mate.engrampa
@@ -109,6 +110,7 @@
     python310
     ranger
     revolt
+    riff
     rnix-lsp
     rofi
     rust-analyzer-nightly
@@ -122,6 +124,7 @@
     swaynotificationcenter
     tealdeer
     thefuck
+    tre
     unrar
     unzip
     usbimager
@@ -137,6 +140,7 @@
     xdotool
     xonsh
     yarn
+    zee
     zscroll
     # SNOW END
 

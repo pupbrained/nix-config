@@ -6,16 +6,15 @@
     draconis.url = "github:marsupialgutz/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixvim.url = "github:pta2002/nixvim";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:marsupialgutz/nix-snow";
     nix-software-center.url = "github:vlinkz/nix-software-center";
     nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
-    nur.url = "github:nix-community/NUR";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    tre.url = "github:dduan/tre";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
     polymc.url = "github:PolyMC/PolyMC";
 
@@ -74,7 +73,7 @@
     };
 
     hyprland = {
-      url = "github:marsupialgutz/Hyprland-rollback/patch-1";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -139,7 +138,6 @@
     home-manager,
     nixos-wsl,
     nix-ld,
-    nixvim,
     nix-doom-emacs,
     hyprland,
     spicetify-nix,
