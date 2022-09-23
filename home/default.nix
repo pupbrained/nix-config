@@ -48,6 +48,7 @@
     gnome.geary
     gnome.nautilus
     gnome.seahorse
+    gnome.zenity
     gnumake
     gotktrix
     gparted
@@ -57,7 +58,7 @@
     gsettings-desktop-schemas
     headsetcontrol
     helix
-    hyper
+    hyprpicker
     inotifyTools
     jamesdsp
     jellyfin-ffmpeg

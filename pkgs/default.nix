@@ -7,6 +7,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
+    inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
     riff = inputs.riff.defaultPackage.${prev.system};
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.packages.${prev.system}.default;

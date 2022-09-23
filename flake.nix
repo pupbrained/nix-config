@@ -5,8 +5,9 @@
     agenix.url = "github:ryantm/agenix";
     draconis.url = "github:marsupialgutz/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:marsupialgutz/nix-snow";
     nix-software-center.url = "github:vlinkz/nix-software-center";
