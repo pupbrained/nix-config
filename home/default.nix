@@ -42,6 +42,7 @@
     firefox-nightly-bin
     fleet
     fractal-next
+    gcc
     glib
     gnome.eog
     gnome.geary
@@ -136,6 +137,7 @@
     wl-color-picker
     xclip
     xdg-desktop-portal
+    xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
     xdotool
     xonsh
