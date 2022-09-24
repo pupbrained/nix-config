@@ -22,7 +22,7 @@ case $chosen in
   	sleep 0.4; grim -t png - | wl-copy -t image/png
         ;;
     $area)
-		grim -g "$(slurp)" -t png - | wl-copy -t image/png
+		grim -g "$(slurp -w 0)" -t png - | wl-copy -t image/png
         ;;
     $window)
 		sleep 0.4; grim -g "$(hyprctl activewindow | grep at: | cut -d' ' -f2) $(hyprctl activewindow | grep size: | cut -d' ' -f2 | sed 's/,/x/g')" - | wl-copy

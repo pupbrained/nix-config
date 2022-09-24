@@ -29,33 +29,7 @@ with lib; {
       };
     };
 
-    kernelPackages = let
-      linux_six_pkg = {
-        fetchurl,
-        buildLinux,
-        ...
-      } @ args:
-        buildLinux (args
-          // rec {
-            version = "6.0-rc6";
-
-            modDirVersion = builtins.replaceStrings ["-"] [".0-"] version;
-
-            src = fetchurl {
-              url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
-              sha256 = "GvZbTLbhKjUVd0GgZWzCO5QcYvWzx77S/PuLOrEkAlQ=";
-            };
-
-            kernelPatches = [];
-
-            extraMeta.branch = lib.versions.majorMinor version;
-          }
-          // (args.argsOverride or {}));
-      linux_six = pkgs.callPackage linux_six_pkg {};
-    in
-      pkgs.recurseIntoAttrs ((pkgs.linuxPackagesFor linux_six).extend (f: p: {
-        nvidia_is_evil = f.callPackage ../../pkgs/nvidia-x11 {};
-      }));
+    kernelPackages = pkgs.linuxKernel.packages.linux_testing;
 
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
@@ -144,7 +118,6 @@ with lib; {
     };
 
     nvidia = {
-      package = config.boot.kernelPackages.nvidia_is_evil.unfucked;
       modesetting.enable = true;
       open = true;
     };
@@ -168,8 +141,8 @@ with lib; {
     export LIBVA_DRIVER_NAME="nvidia"
     export GBM_BACKEND="nvidia-drm"
     export __GLX_VENDOR_LIBRARY_NAME="nvidia"
-    export WLR_NO_HARDWARE_CURSORS=1
     export WLR_RENDERER="vulkan"
+    export WLR_NO_HARDWARE_CURSORS=1
     export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
     export GPG_TTY="$TTY"
     CLUTTER_BACKEND="wayland"

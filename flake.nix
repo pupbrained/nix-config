@@ -7,7 +7,7 @@
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:marsupialgutz/nix-snow";
     nix-software-center.url = "github:vlinkz/nix-software-center";
