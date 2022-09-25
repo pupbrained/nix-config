@@ -7,12 +7,10 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
-    inherit (inputs.hyprpicker.packages.${prev.system}) hyprpicker;
     riff = inputs.riff.defaultPackage.${prev.system};
+    inherit (inputs.nil.packages.${prev.system}) nil;
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.packages.${prev.system}.default;
-    nix-software-center = inputs.nix-software-center.defaultPackage.${prev.system};
-    nixos-conf-editor = inputs.nixos-conf-editor.defaultPackage.${prev.system};
     fleet = prev.rustPlatform.buildRustPackage rec {
       inherit (sources.fleet) pname version src;
       cargoLock = sources.fleet.cargoLock."Cargo.lock";

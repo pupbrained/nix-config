@@ -3,15 +3,13 @@
 
   inputs = {
     agenix.url = "github:ryantm/agenix";
-    draconis.url = "github:marsupialgutz/draconis";
+    draconis.url = "github:pupbrained/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
+    nil.url = "github:oxalica/nil";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-snow.url = "github:marsupialgutz/nix-snow";
-    nix-software-center.url = "github:vlinkz/nix-software-center";
-    nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
+    nix-snow.url = "github:pupbrained/nix-snow";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";

@@ -58,7 +58,6 @@
     gsettings-desktop-schemas
     headsetcontrol
     helix
-    hyprpicker
     inotifyTools
     jamesdsp
     jellyfin-ffmpeg
@@ -85,10 +84,9 @@
     nerdfonts
     nextcloud-client
     ngrok
+    nil
     nix-prefetch-scripts
     nix-snow
-    nix-software-center
-    nixos-conf-editor
     nodePackages.generator-code
     nodePackages.pnpm
     nodePackages.yo

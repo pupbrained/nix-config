@@ -29,7 +29,16 @@ with lib; {
       };
     };
 
-    kernelPackages = pkgs.linuxKernel.packages.linux_testing;
+    kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
+      argsOverride = rec {
+        version = "6.0-rc6";
+        modDirVersion = "6.0.0-rc6";
+        src = pkgs.fetchurl {
+          url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
+          hash = "sha256-GvZbTLbhKjUVd0GgZWzCO5QcYvWzx77S/PuLOrEkAlQ=";
+        };
+      };
+    });
 
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
@@ -44,10 +53,6 @@ with lib; {
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    mySddmTheme
-  ];
-
   services = {
     blueman.enable = true;
     flatpak.enable = true;
@@ -58,20 +63,6 @@ with lib; {
       gnome-keyring.enable = true;
     };
 
-    xserver = {
-      enable = true;
-
-      displayManager = {
-        sddm = {
-          enable = true;
-          theme = "astronaut-sddm-theme";
-        };
-        defaultSession = "hyprland";
-      };
-
-      videoDrivers = ["nvidia"];
-    };
-
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -80,6 +71,12 @@ with lib; {
     tor = {
       enable = true;
       torsocks.enable = true;
+    };
+
+    xserver = {
+      enable = true;
+      displayManager.startx.enable = true;
+      videoDrivers = ["nvidia"];
     };
   };
 
@@ -141,8 +138,8 @@ with lib; {
     export LIBVA_DRIVER_NAME="nvidia"
     export GBM_BACKEND="nvidia-drm"
     export __GLX_VENDOR_LIBRARY_NAME="nvidia"
-    export WLR_RENDERER="vulkan"
     export WLR_NO_HARDWARE_CURSORS=1
+    export WLR_RENDERER="vulkan"
     export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
     export GPG_TTY="$TTY"
     CLUTTER_BACKEND="wayland"
