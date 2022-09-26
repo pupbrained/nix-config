@@ -10,7 +10,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     riff = inputs.riff.defaultPackage.${prev.system};
     inherit (inputs.nil.packages.${prev.system}) nil;
     tre = inputs.tre.defaultPackage.${prev.system};
-    nix-snow = inputs.nix-snow.packages.${prev.system}.default;
+    nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
     fleet = prev.rustPlatform.buildRustPackage rec {
       inherit (sources.fleet) pname version src;
       cargoLock = sources.fleet.cargoLock."Cargo.lock";

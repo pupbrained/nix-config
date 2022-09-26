@@ -22,11 +22,6 @@
       flake = false;
     };
 
-    catppuccin = {
-      url = "github:catppuccin/discord";
-      flake = false;
-    };
-
     cc-plugins = {
       url = "github:CumcordLoaders/Powercord";
       flake = false;

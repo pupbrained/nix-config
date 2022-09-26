@@ -152,6 +152,8 @@ with lib; {
 
   documentation.man.man-db.enable = false;
 
+  virtualisation.docker.enable = true;
+
   nix.settings.trusted-users = ["root" "marshall"];
 
   xdg.portal.enable = true;
