@@ -7,7 +7,7 @@
   fmt,
   boost,
   fetchFromGitHub,
-  wrapQtAppsHook
+  wrapQtAppsHook,
 }:
 mkDerivation rec {
   pname = "nvuiFIXME";
@@ -20,7 +20,7 @@ mkDerivation rec {
     hash = "sha256-B7q+dNQkfaEdFhC9buvvnoao4cx4n8AoRl5Qx20svhI=";
   };
 
-  qtWrapperArgs = "--add-flags \"--detached --\"";
+  qtWrapperArgs = "--add-flags \"--detached\"";
 
   buildInputs = [
     msgpack
