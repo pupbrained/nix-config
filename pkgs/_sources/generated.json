@@ -99,6 +99,25 @@
         },
         "version": "501f93ec84af0d505d95d3827cad470b9c5e86dc"
     },
+    "openasar": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "openasar",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "GooseMod",
+            "repo": "OpenAsar",
+            "rev": "78204759a3d111d7da6c57f1533d56a25c79f161",
+            "sha256": "sha256-/1Mlww5/ulOi9ZZ/UVec2KHCvDCh0iuFViPinkNSoEY=",
+            "type": "github"
+        },
+        "version": "78204759a3d111d7da6c57f1533d56a25c79f161"
+    },
     "zscroll": {
         "cargoLocks": null,
         "extract": null,

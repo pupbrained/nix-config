@@ -22,3 +22,7 @@ fetch.github = "noib3/nvim-cokeline"
 [zscroll]
 src.git = "https://github.com/noctuid/zscroll"
 fetch.github = "noctuid/zscroll"
+
+[openasar]
+src.git = "https://github.com/GooseMod/OpenAsar"
+fetch.github = "GooseMod/OpenAsar"

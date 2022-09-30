@@ -29,16 +29,7 @@ with lib; {
       };
     };
 
-    kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
-      argsOverride = rec {
-        version = "6.0-rc6";
-        modDirVersion = "6.0.0-rc6";
-        src = pkgs.fetchurl {
-          url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
-          hash = "sha256-GvZbTLbhKjUVd0GgZWzCO5QcYvWzx77S/PuLOrEkAlQ=";
-        };
-      };
-    });
+    kernelPackages = pkgs.linuxPackages_testing;
 
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
@@ -75,6 +66,7 @@ with lib; {
 
     xserver = {
       enable = true;
+
       displayManager.startx.enable = true;
       videoDrivers = ["nvidia"];
     };
@@ -111,7 +103,7 @@ with lib; {
   hardware = {
     bluetooth = {
       enable = true;
-      package = pkgs.bluezFull;
+      package = pkgs.bluez;
     };
 
     nvidia = {
@@ -139,7 +131,6 @@ with lib; {
     export GBM_BACKEND="nvidia-drm"
     export __GLX_VENDOR_LIBRARY_NAME="nvidia"
     export WLR_NO_HARDWARE_CURSORS=1
-    export WLR_RENDERER="vulkan"
     export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
     export GPG_TTY="$TTY"
     CLUTTER_BACKEND="wayland"

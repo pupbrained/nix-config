@@ -22,6 +22,11 @@
       flake = false;
     };
 
+    canary-links = {
+      url = "github:asportnoy/canary-links";
+      flake = false;
+    };
+
     cc-plugins = {
       url = "github:CumcordLoaders/Powercord";
       flake = false;
@@ -67,7 +72,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/7a775c0584db95af25bae1c07952c99c6c1bfe6e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

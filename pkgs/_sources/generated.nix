@@ -64,6 +64,17 @@
       sha256 = "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=";
     };
   };
+  openasar = {
+    pname = "openasar";
+    version = "78204759a3d111d7da6c57f1533d56a25c79f161";
+    src = fetchFromGitHub {
+      owner = "GooseMod";
+      repo = "OpenAsar";
+      rev = "78204759a3d111d7da6c57f1533d56a25c79f161";
+      fetchSubmodules = false;
+      sha256 = "sha256-/1Mlww5/ulOi9ZZ/UVec2KHCvDCh0iuFViPinkNSoEY=";
+    };
+  };
   zscroll = {
     pname = "zscroll";
     version = "788be9650b647f61f8f899054ad1213eee42e8a4";

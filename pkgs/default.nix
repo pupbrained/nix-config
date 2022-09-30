@@ -19,13 +19,17 @@ inputs.nixpkgs.lib.composeManyExtensions [
       nativeBuildInputs = [prev.pkgs.pkg-config];
     };
 
-    discord = prev.discord.override {
-      withOpenASAR = true;
+    openasar = prev.stdenv.mkDerivation rec {
+      inherit (sources.openasar) pname version src;
     };
 
     discord-canary = prev.discord-canary.override {
       nss = final.nss_latest;
+      openasar = prev.pkgs.callPackage ./openasar.nix {};
+      withOpenASAR = true;
     };
+
+    nvui = prev.pkgs.callPackage ./nvui.nix {};
 
     waybar = prev.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];

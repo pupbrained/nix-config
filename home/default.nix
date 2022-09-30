@@ -31,6 +31,7 @@
     comma
     ddcutil
     deno
+    discord-canary
     draconis
     fenix.complete.cargo
     fenix.complete.clippy
@@ -58,7 +59,7 @@
     gsettings-desktop-schemas
     headsetcontrol
     helix
-    inotifyTools
+    inotify-tools
     jamesdsp
     jellyfin-ffmpeg
     jetbrains.idea-ultimate
@@ -93,6 +94,7 @@
     nodejs
     notion-app-enhanced
     noto-fonts-cjk-sans
+    nvui
     obs-studio
     odin
     openal
@@ -144,27 +146,6 @@
     zee
     zscroll
     # SNOW END
-
-    (inputs.replugged-overlay.lib.makeDiscordPlugged {
-      inherit pkgs;
-
-      discord = pkgs.discord-canary.override {
-        version = "0.0.139";
-        src = fetchurl {
-          url = "https://dl-canary.discordapp.net/apps/linux/0.0.139/discord-canary-0.0.139.tar.gz";
-          sha256 = "sha256-/PfO0TWRxMrK+V1XkYmdaXQ6SfyJNBFETaR9oV90itI=";
-        };
-        withOpenASAR = true;
-      };
-
-      plugins = {
-        inherit (inputs) theme-toggler tiktok-tts spotify-modal hastebin better-codeblocks pronoundb chat-components vpc-spotimbed simple-discord-crypt holy-notes cc-plugins;
-      };
-
-      themes = {
-        inherit (inputs) horizontal-server-list lavender context-icons fluent-icons termful;
-      };
-    })
   ];
 
   programs = {
