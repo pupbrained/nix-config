@@ -29,7 +29,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
       withOpenASAR = true;
     };
 
-    nvui = prev.pkgs.callPackage ./nvui.nix {};
+    nvui = prev.libsForQt5.callPackage ./nvui.nix {};
 
     waybar = prev.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
