@@ -1,17 +1,16 @@
 {
   stdenv,
+  mkDerivation,
   cmake,
-  ninja,
   pkg-config,
   msgpack,
-  qt5Full,
   fmt,
   boost,
   fetchFromGitHub,
-  ...
+  wrapQtAppsHook
 }:
-stdenv.mkDerivation rec {
-  pname = "nvui";
+mkDerivation rec {
+  pname = "nvuiFIXME";
   version = "0.3.1";
 
   src = fetchFromGitHub {
@@ -21,26 +20,30 @@ stdenv.mkDerivation rec {
     hash = "sha256-B7q+dNQkfaEdFhC9buvvnoao4cx4n8AoRl5Qx20svhI=";
   };
 
+  qtWrapperArgs = "--add-flags \"--detached --\"";
+
   buildInputs = [
     msgpack
-    qt5Full
     fmt
     boost
   ];
 
   nativeBuildInputs = [
     cmake
-    ninja
     pkg-config
+    wrapQtAppsHook
   ];
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/share/nvui/bin
     mkdir -p $out/bin
-    cp ./nvui $out/share/nvui/bin
+    cp ./nvui $out/bin/
     cp -r $src/vim $out/share/nvui/vim
     cp -r $src/assets $out/share/nvui/assets
-    echo -e '#!/bin/bash\n\n${placeholder out}/share/nvui/bin/nvui --detached -- "$@"' > $out/bin/nvui
     chmod +x $out/bin/nvui
+
+    runHook postInstall
   '';
 }
