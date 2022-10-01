@@ -26,3 +26,8 @@ fetch.github = "noctuid/zscroll"
 [openasar]
 src.git = "https://github.com/GooseMod/OpenAsar"
 fetch.github = "GooseMod/OpenAsar"
+
+[spyglass]
+src.git = "https://github.com/a5huynh/spyglass"
+fetch.github = "a5huynh/spyglass"
+cargo_locks = [ "Cargo.lock" ]

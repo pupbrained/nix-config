@@ -118,6 +118,30 @@
         },
         "version": "78204759a3d111d7da6c57f1533d56a25c79f161"
     },
+    "spyglass": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./spyglass-d3274d9119a39bc7b1231a1d6d0cb70b4c500758/Cargo.lock",
+                {}
+            ]
+        },
+        "extract": null,
+        "name": "spyglass",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "a5huynh",
+            "repo": "spyglass",
+            "rev": "d3274d9119a39bc7b1231a1d6d0cb70b4c500758",
+            "sha256": "sha256-vM6jpF04WczHqAb90Cbr+OaefVFz7OC/+TZdzZnuARE=",
+            "type": "github"
+        },
+        "version": "d3274d9119a39bc7b1231a1d6d0cb70b4c500758"
+    },
     "zscroll": {
         "cargoLocks": null,
         "extract": null,

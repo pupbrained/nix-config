@@ -92,7 +92,7 @@
     nodePackages.pnpm
     nodePackages.typescript-language-server
     nodePackages.yo
-    nodejs
+    nodejs-16_x
     notion-app-enhanced
     noto-fonts-cjk-sans
     nvui
@@ -240,7 +240,7 @@
 
     git = {
       enable = true;
-      userName = "marsupialgutz";﻿
+      userName = "marsupialgutz";
       userEmail = "mars@possums.xyz";
       delta.enable = true;
       lfs.enable = true;

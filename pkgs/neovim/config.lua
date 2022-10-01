@@ -7,8 +7,10 @@ vim.o.expandtab = true
 vim.g.mapleader = ' '
 vim.g.astro_typescript = 'enable'
 vim.o.showmode = false
+
 vim.cmd('set mouse=a')
-vim.cmd('set guifont=Rec\\ Mono\\ Linear:h14')
+vim.cmd('set guifont=Iosevka\\ Custom\\ Medium:h14')
+
 vim.g.catppuccin_flavour = "mocha"
 require("catppuccin").setup({
   color_overrides = {
@@ -18,6 +20,47 @@ require("catppuccin").setup({
   }
 })
 vim.cmd('colorscheme catppuccin')
+
+local home = os.getenv('HOME')
+local db = require('dashboard')
+db.custom_center = {
+  {
+    icon = '  ',
+    desc = 'Recently latest session                 ',
+    shortcut = 'SPC s l',
+    action ='SessionLoad'
+  },
+  {
+    icon = '  ',
+    desc = 'Recently opened files                   ',
+    action =  'DashboardFindHistory',
+    shortcut = 'SPC f h'
+  },
+  {
+    icon = '  ',
+    desc = 'Find  File                              ',
+    action = 'Telescope find_files find_command=rg,--hidden,--files',
+    shortcut = 'SPC f f'
+  },
+  {
+    icon = '  ',
+    desc ='File Browser                            ',
+    action =  'Telescope file_browser',
+    shortcut = 'SPC f b'
+  },
+  {
+    icon = '  ',
+    desc = 'Find  word                              ',
+    action = 'Telescope live_grep',
+    shortcut = 'SPC f w'
+  },
+  {
+    icon = '  ',
+    desc = 'Open Personal dotfiles                  ',
+    action = 'Telescope dotfiles path=' .. home ..'/.dotfiles',
+    shortcut = 'SPC f d'
+  },
+}
 
 function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
@@ -258,6 +301,7 @@ cmp.setup({
 vim.opt.completeopt = "menu,menuone,noselect"
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for _, server in ipairs({ "rnix", "rust_analyzer", "astro", "tsserver" }) do
   require('lspconfig')[server].setup {
     capabilities = capabilities,
@@ -268,6 +312,11 @@ for _, server in ipairs({ "rnix", "rust_analyzer", "astro", "tsserver" }) do
           group = augroup,
           buffer = bufnr,
           callback = function()
+            if client.name == "null-ls" then
+              local util = require 'vim.lsp.util'
+              local params = util.make_formatting_params({})
+              client.request('textDocument/formatting', params, nil, bufnr) 
+            end
             vim.lsp.buf.formatting_sync(nil, 2000)
           end,
         })

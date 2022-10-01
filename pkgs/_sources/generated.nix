@@ -75,6 +75,22 @@
       sha256 = "sha256-/1Mlww5/ulOi9ZZ/UVec2KHCvDCh0iuFViPinkNSoEY=";
     };
   };
+  spyglass = {
+    pname = "spyglass";
+    version = "d3274d9119a39bc7b1231a1d6d0cb70b4c500758";
+    src = fetchFromGitHub {
+      owner = "a5huynh";
+      repo = "spyglass";
+      rev = "d3274d9119a39bc7b1231a1d6d0cb70b4c500758";
+      fetchSubmodules = false;
+      sha256 = "sha256-vM6jpF04WczHqAb90Cbr+OaefVFz7OC/+TZdzZnuARE=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./spyglass-d3274d9119a39bc7b1231a1d6d0cb70b4c500758/Cargo.lock;
+      outputHashes = {
+      };
+    };
+  };
   zscroll = {
     pname = "zscroll";
     version = "788be9650b647f61f8f899054ad1213eee42e8a4";

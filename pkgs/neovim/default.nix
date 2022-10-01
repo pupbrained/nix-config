@@ -20,7 +20,9 @@
       cmp-nvim-lsp
       catppuccin-nvim
       comment-nvim
+      dashboard-nvim
       FTerm-nvim
+      indent-blankline-nvim
       lightspeed-nvim
       lspkind-nvim
       lualine-nvim

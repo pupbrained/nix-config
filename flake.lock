@@ -1218,11 +1218,11 @@
     "replugged": {
       "flake": false,
       "locked": {
-        "lastModified": 1664464403,
-        "narHash": "sha256-XTv2cWBYFNY56NfXE+uH3QxITrwCoZ/p1j14NYJ255k=",
+        "lastModified": 1664511204,
+        "narHash": "sha256-wgVInLJd97vsndfSVLRvJzOl4e1yZCXYsFpp0ITZvzQ=",
         "owner": "replugged-org",
         "repo": "replugged",
-        "rev": "c8167d6861f88945435159f584dc9fa1ad3c1d0b",
+        "rev": "e984d8fdae3a3585e6ca7dc7fa8aed3725062b31",
         "type": "github"
       },
       "original": {
@@ -1237,11 +1237,11 @@
         "replugged": "replugged"
       },
       "locked": {
-        "lastModified": 1664498257,
-        "narHash": "sha256-ft+c7VM0MCGznVAs2wlEadAh5eKycCNHAVpUW2EwXmI=",
+        "lastModified": 1664584491,
+        "narHash": "sha256-oj8UT48xT+Ber1yhmv3msL+iAlA682MmTT1l+SLm1LU=",
         "owner": "LunNova",
         "repo": "replugged-nix-flake",
-        "rev": "18ed8f279b9ef270554d71fa5e27cd4f46b79ddd",
+        "rev": "0044ce1906de3b2359f5966886c574abe97e66c5",
         "type": "github"
       },
       "original": {

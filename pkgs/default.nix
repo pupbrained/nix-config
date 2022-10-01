@@ -11,11 +11,20 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.nil.packages.${prev.system}) nil;
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
+
     fleet = prev.rustPlatform.buildRustPackage rec {
       inherit (sources.fleet) pname version src;
       cargoLock = sources.fleet.cargoLock."Cargo.lock";
 
       buildInputs = [prev.pkgs.openssl];
+      nativeBuildInputs = [prev.pkgs.pkg-config];
+    };
+
+    spyglass = prev.rustPlatform.buildRustPackage rec {
+      inherit (sources.spyglass) pname version src;
+      cargoLock = sources.spyglass.cargoLock."Cargo.lock";
+
+      buildInputs = [prev.pkgs.openssl prev.pkgs.dbus];
       nativeBuildInputs = [prev.pkgs.pkg-config];
     };
 
