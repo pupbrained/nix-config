@@ -116,6 +116,7 @@
     rnix-lsp
     rofi
     rust-analyzer-nightly
+    nodePackages.typescript-language-server
     scons
     scrot
     slurp
