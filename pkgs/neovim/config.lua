@@ -113,6 +113,12 @@ wk.register({
 
 vim.keymap.set('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('n', '<C-h>', '<Plug>(cokeline-focus-prev)')
+vim.keymap.set('n', '<C-l>', '<Plug>(cokeline-focus-next)')
+vim.keymap.set('n', '<M-h>', '<C-W>h')
+vim.keymap.set('n', '<M-l>', '<C-W>l')
+vim.keymap.set('n', '<M-j>', '<C-W>j')
+vim.keymap.set('n', '<M-k>', '<C-W>k')
 
 local colors = {
   blue   = '#89b4fa',
@@ -171,6 +177,17 @@ require('lualine').setup {
   tabline = {},
   extensions = {},
 }
+
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    show_current_context = true,
+    show_current_context_start = true,
+    show_end_of_line = true,
+}
+
+require('gitsigns').setup()
 
 require('nvim-treesitter.configs').setup {
   highlight = {

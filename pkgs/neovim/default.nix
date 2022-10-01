@@ -22,6 +22,7 @@
       comment-nvim
       dashboard-nvim
       FTerm-nvim
+      gitsigns-nvim
       indent-blankline-nvim
       lightspeed-nvim
       lspkind-nvim
