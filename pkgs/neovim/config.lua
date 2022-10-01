@@ -8,10 +8,16 @@ vim.g.mapleader = ' '
 vim.g.astro_typescript = 'enable'
 vim.o.showmode = false
 vim.cmd('set mouse=a')
-vim.cmd('set guifont=Rec\\ Mono\\ Casual:h13')
+vim.cmd('set guifont=Rec\\ Mono\\ Linear:h14')
 vim.g.catppuccin_flavour = "mocha"
-require("catppuccin").setup()
-vim.cmd [[colorscheme catppuccin]]
+require("catppuccin").setup({
+  color_overrides = {
+    mocha = {
+      base = "#1e1e2f";
+    }
+  }
+})
+vim.cmd('colorscheme catppuccin')
 
 function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }

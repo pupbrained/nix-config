@@ -6,11 +6,11 @@
   msgpack,
   fmt,
   boost,
+  qt5,
   fetchFromGitHub,
-  wrapQtAppsHook,
 }:
 mkDerivation rec {
-  pname = "nvuiFIXME";
+  pname = "nvui";
   version = "0.3.1";
 
   src = fetchFromGitHub {
@@ -19,8 +19,6 @@ mkDerivation rec {
     rev = "568e9cb17970c56cee8909ac4f39ea7ab52bc46a";
     hash = "sha256-B7q+dNQkfaEdFhC9buvvnoao4cx4n8AoRl5Qx20svhI=";
   };
-
-  qtWrapperArgs = "--add-flags \"--detached\"";
 
   buildInputs = [
     msgpack
@@ -31,7 +29,10 @@ mkDerivation rec {
   nativeBuildInputs = [
     cmake
     pkg-config
-    wrapQtAppsHook
+  ];
+
+  propagatedBuildInputs = [
+    qt5.qtwayland
   ];
 
   installPhase = ''

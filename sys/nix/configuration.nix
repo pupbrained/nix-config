@@ -92,6 +92,7 @@ with lib; {
   security = {
     pam.services.sddm.enableGnomeKeyring = true;
     polkit.enable = true;
+    rtkit.enable = true;
   };
 
   powerManagement.cpuFreqGovernor = "performance";
