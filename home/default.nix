@@ -90,6 +90,7 @@
     nix-snow
     nodePackages.generator-code
     nodePackages.pnpm
+    nodePackages.typescript-language-server
     nodePackages.yo
     nodejs
     notion-app-enhanced
@@ -239,7 +240,7 @@
 
     git = {
       enable = true;
-      userName = "marsupialgutz";
+      userName = "marsupialgutz";﻿
       userEmail = "mars@possums.xyz";
       delta.enable = true;
       lfs.enable = true;
