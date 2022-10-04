@@ -5,9 +5,11 @@
     agenix.url = "github:ryantm/agenix";
     draconis.url = "github:pupbrained/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
+    glrnvim.url = "github:pupbrained/glrnvim-nix";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
     nil.url = "github:oxalica/nil";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:pupbrained/nix-snow";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
@@ -72,7 +74,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/7a775c0584db95af25bae1c07952c99c6c1bfe6e";
+      url = "github:hyprwm/Hyprland/63dfe305dd5ff00d4de74f0cb9fea9b9901e6b40";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

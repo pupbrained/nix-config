@@ -66,13 +66,13 @@
   };
   openasar = {
     pname = "openasar";
-    version = "78204759a3d111d7da6c57f1533d56a25c79f161";
+    version = "c72f1a3fc064f61cc5c5a578d7350240e26a27af";
     src = fetchFromGitHub {
       owner = "GooseMod";
       repo = "OpenAsar";
-      rev = "78204759a3d111d7da6c57f1533d56a25c79f161";
+      rev = "c72f1a3fc064f61cc5c5a578d7350240e26a27af";
       fetchSubmodules = false;
-      sha256 = "sha256-/1Mlww5/ulOi9ZZ/UVec2KHCvDCh0iuFViPinkNSoEY=";
+      sha256 = "sha256-6V9vLmj5ptMALFV57pMU2IGxNbFNyVcdvnrPgCEaUJ0=";
     };
   };
   spyglass = {

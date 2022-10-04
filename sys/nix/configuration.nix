@@ -29,8 +29,12 @@ with lib; {
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_testing;
-
+    kernelPackages = pkgs.linuxPackagesFor (pkgs.linuxKernel.kernels.linux_zen.override {
+      argsOverride = rec {
+        version = "6.0";
+        modDirVersion = "6.0.0";
+      };
+    });
     extraModprobeConfig = "options hid_apple fnmode=1";
   };
 

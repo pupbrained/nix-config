@@ -8,6 +8,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
     riff = inputs.riff.defaultPackage.${prev.system};
+    glrnvim = inputs.glrnvim.defaultPackage.${prev.system};
+    hyprpicker = inputs.hyprpicker.packages.${prev.system}.default;
     inherit (inputs.nil.packages.${prev.system}) nil;
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};

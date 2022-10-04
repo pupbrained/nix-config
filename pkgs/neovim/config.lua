@@ -15,7 +15,7 @@ vim.g.catppuccin_flavour = "mocha"
 require("catppuccin").setup({
   color_overrides = {
     mocha = {
-      base = "#1e1e2f";
+      base = "#141421",
     }
   }
 })
@@ -26,7 +26,7 @@ local db = require('dashboard')
 db.custom_center = {
   {
     icon = '  ',
-    desc = 'Recently latest session                 ',
+    desc = 'Last session                            ',
     shortcut = 'SPC s l',
     action ='SessionLoad'
   },
@@ -38,7 +38,7 @@ db.custom_center = {
   },
   {
     icon = '  ',
-    desc = 'Find  File                              ',
+    desc = 'Find File                               ',
     action = 'Telescope find_files find_command=rg,--hidden,--files',
     shortcut = 'SPC f f'
   },
@@ -179,12 +179,10 @@ require('lualine').setup {
 }
 
 vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
 
 require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
-    show_end_of_line = true,
+  show_current_context = true,
+  show_current_context_start = true,
 }
 
 require('gitsigns').setup()
@@ -274,7 +272,7 @@ require('cokeline').setup({
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 require 'FTerm'.setup({
-  border     = 'double',
+  border     = 'rounded',
   dimensions = {
     height = 0.9,
     width = 0.9,
@@ -334,7 +332,7 @@ for _, server in ipairs({ "rnix", "rust_analyzer", "astro", "tsserver" }) do
               local params = util.make_formatting_params({})
               client.request('textDocument/formatting', params, nil, bufnr) 
             end
-            vim.lsp.buf.formatting_sync(nil, 2000)
+            vim.lsp.buf.format({bufnr = bufnr})
           end,
         })
       end

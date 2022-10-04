@@ -45,6 +45,7 @@
     fractal-next
     gcc
     glib
+    glrnvim
     gnome.eog
     gnome.geary
     gnome.nautilus
@@ -59,6 +60,7 @@
     gsettings-desktop-schemas
     headsetcontrol
     helix
+    hyprpicker
     inotify-tools
     jamesdsp
     jellyfin-ffmpeg
@@ -122,6 +124,7 @@
     slurp
     sony-headphones-client
     statix
+    stylua
     sumneko-lua-language-server
     swaybg
     swaynotificationcenter
@@ -264,7 +267,7 @@
       enable = true;
 
       font = {
-        name = "Monocraft";
+        name = "Iosevka Custom Medium";
         size = 12;
       };
 
@@ -274,6 +277,7 @@
         placement_strategy = "center";
         hide_window_decorations = "titlebar-only";
         background_opacity = "0.8";
+        dynamic_background_opacity = true;
         inactive_text_alpha = 1;
         scrollback_lines = 5000;
         wheel_scroll_multiplier = 5;
@@ -286,7 +290,6 @@
         cursor_shape = "beam";
         active_tab_font_style = "bold";
         inactive_tab_font_style = "normal";
-        adjust_line_height = 3;
         adjust_column_width = 0;
         foreground = "#CDD6F4";
         background = "#1E1E2E";
