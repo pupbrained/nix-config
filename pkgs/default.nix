@@ -40,6 +40,18 @@ inputs.nixpkgs.lib.composeManyExtensions [
       withOpenASAR = true;
     };
 
+    kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
+      inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
+      version = "0.26.3";
+      format = "other";
+      src = prev.pkgs.fetchFromGitHub {
+        owner = "kovidgoyal";
+        repo = "kitty";
+        rev = "v${version}";
+        sha256 = "sha256-pFucI80sz8AOfA/zDlGy/HLvj5Z4z8t10nunkKhwOWw=";
+      };
+    };
+
     nvui = prev.libsForQt5.callPackage ./nvui.nix {};
 
     waybar = prev.waybar.overrideAttrs (oldAttrs: {

@@ -121,7 +121,7 @@
     "spyglass": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./spyglass-d3274d9119a39bc7b1231a1d6d0cb70b4c500758/Cargo.lock",
+                "./spyglass-d41769ef45fa4e61776712a111c23e8893018d7d/Cargo.lock",
                 {}
             ]
         },
@@ -136,11 +136,11 @@
             "name": null,
             "owner": "a5huynh",
             "repo": "spyglass",
-            "rev": "d3274d9119a39bc7b1231a1d6d0cb70b4c500758",
-            "sha256": "sha256-vM6jpF04WczHqAb90Cbr+OaefVFz7OC/+TZdzZnuARE=",
+            "rev": "d41769ef45fa4e61776712a111c23e8893018d7d",
+            "sha256": "sha256-9fMY+Y916XABPm2dzH18tkYFnWjVOrCWyAKpBJj8Jzc=",
             "type": "github"
         },
-        "version": "d3274d9119a39bc7b1231a1d6d0cb70b4c500758"
+        "version": "d41769ef45fa4e61776712a111c23e8893018d7d"
     },
     "zscroll": {
         "cargoLocks": null,

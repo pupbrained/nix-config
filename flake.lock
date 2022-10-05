@@ -287,11 +287,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1664914384,
-        "narHash": "sha256-2eQdttM5fdH0Q2nPic8700CEa1asXlH5wGt7lqgQPL0=",
+        "lastModified": 1664952317,
+        "narHash": "sha256-aGfZTPxeIQV4NT4UNs9dYKiogGmdmFdnKrF2DMBPp/Y=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "2d17ba5eb3ff518e7a3dfad5d04f342d4cd6dc27",
+        "rev": "83a96c8a653a9e3c10c2974c6b4459050c13f341",
         "type": "github"
       },
       "original": {
@@ -377,11 +377,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1664897546,
-        "narHash": "sha256-Xyvunun/dQwnEnGilUgbAZIgjW5Kvo3zrrwwyCFz5ks=",
+        "lastModified": 1664979649,
+        "narHash": "sha256-MPIc4rYrJXnshfZnMkIBCrVgD1X9cWvdt9tcSbor0kY=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "6882a9fc5dbc8b64f8bb8f60a72ee120b99a6b5c",
+        "rev": "fd522dd1918b75ed41009291863ce426264dfcff",
         "type": "github"
       },
       "original": {
@@ -556,11 +556,11 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1664783440,
-        "narHash": "sha256-KlMwR7mUf5h8MPnzV7nGFUAt6ih/euW5xgvZ5x+hwvI=",
+        "lastModified": 1664983332,
+        "narHash": "sha256-KyQvgFRwk3qW3Qr+lO5UDqfpST/HaCJY1yB7wPgPUqo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e4e639dd4dc3e431aa5b5f95325f9a66ac7e0dd9",
+        "rev": "1a8e35d2e53ed2ccd9818fad9c9478d56c655661",
         "type": "github"
       },
       "original": {
@@ -968,11 +968,11 @@
     },
     "nixpkgs_14": {
       "locked": {
-        "lastModified": 1664859869,
-        "narHash": "sha256-OPM2eN7Ja8iZVJMhHH+dTB4v2fn7FLX38rSLLHvyWj0=",
+        "lastModified": 1664903817,
+        "narHash": "sha256-/Pr7zm2qpaTeDsY/xs1677JisortNO1TK6BEKM+tpKQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "490a05c4a82236a86e1e1a4822f714c972e8c4f0",
+        "rev": "c9f0cb9bb844dc2802e04cfb8e6c24a698bc633a",
         "type": "github"
       },
       "original": {
@@ -1000,11 +1000,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1664687381,
-        "narHash": "sha256-9czSuDzS+OGGwq2kC4KXBLXWfYaup+oLB+AA1Md25U4=",
+        "lastModified": 1664780719,
+        "narHash": "sha256-Oxe6la5dSqRfJogjtY4sRzJjDDqvroJIVkcGEOT87MA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "59d2991d4256cdca1c0cda45d876c80a0fe45c31",
+        "rev": "fd54651f5ffb4a36e8463e0c327a78442b26cbe7",
         "type": "github"
       },
       "original": {
@@ -1340,11 +1340,11 @@
         "replugged": "replugged"
       },
       "locked": {
-        "lastModified": 1664756900,
-        "narHash": "sha256-Iojtz4MT5VLc9Hgm16uiLJKswH7RljogQnKL7+NM3tE=",
+        "lastModified": 1664929911,
+        "narHash": "sha256-CHazXyFxLNTelmbbMD2Y3z7cvvXUXEgpY4OUhXdOdUQ=",
         "owner": "LunNova",
         "repo": "replugged-nix-flake",
-        "rev": "85f681ed7c669a550ea254ba168b2e92b51bb7e6",
+        "rev": "2c950743da092976fe61ae538cc39312271b8bce",
         "type": "github"
       },
       "original": {
@@ -1450,11 +1450,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1664652573,
-        "narHash": "sha256-mVf9fjQbtYbrVvQSaJOCwArWIvXHrXqVVUhP0x9ZcVY=",
+        "lastModified": 1664908003,
+        "narHash": "sha256-IStLL1GT7qcWHMpVgqjXb2LmZNUQJdqojirJN/ZndNI=",
         "owner": "rust-lang",
         "repo": "rust-analyzer",
-        "rev": "5c28ad193238635189f849c94ffc178f00008b12",
+        "rev": "476d0438749e3a5b2669811f9429da79a6628e8a",
         "type": "github"
       },
       "original": {
@@ -1784,11 +1784,11 @@
         "unstable": "unstable"
       },
       "locked": {
-        "lastModified": 1664870886,
-        "narHash": "sha256-iiyt+uYGhF4ssGicz8J+ndy6vA1kXCqtmZa1+/N5rts=",
+        "lastModified": 1664957254,
+        "narHash": "sha256-az9Aj6//z5egqgVm+DFZcPkCIa5ergDPAaEyWmy1maY=",
         "owner": "cideM",
         "repo": "visual-studio-code-insiders-nix",
-        "rev": "a47803b342f6b5b5d29d8064ac8e46b0fb2d6672",
+        "rev": "c3c99e4d476a8cf1c12db9cfb2bacff01b920013",
         "type": "github"
       },
       "original": {
