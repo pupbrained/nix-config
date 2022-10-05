@@ -109,6 +109,14 @@ wk.register({
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
   },
+  g = {
+    name = "Git",
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout Branch" },
+    c = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" },
+    g = { "<cmd>LazyGit<cr>", "LazyGit" },
+    r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
+    s = { "<cmd>Telescope git_status<cr>", "Git Status" },
+  },
 }, { prefix = "<Leader>" })
 
 vim.keymap.set('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>')

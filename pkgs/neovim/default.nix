@@ -24,6 +24,7 @@
       FTerm-nvim
       gitsigns-nvim
       indent-blankline-nvim
+      lazygit-nvim
       lightspeed-nvim
       lspkind-nvim
       lualine-nvim

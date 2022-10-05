@@ -70,6 +70,7 @@
     keybase
     keychain
     kotatogram-desktop
+    lazygit
     libappindicator
     libffi
     libnotify
