@@ -17,13 +17,13 @@
   };
   coc-tailwindcss3 = {
     pname = "coc-tailwindcss3";
-    version = "73e7eab79931f90e3141b961e9c403ae75f51d96";
+    version = "fb91c3c3a22e537acfac73a82814689f95d6e82b";
     src = fetchFromGitHub {
       owner = "yaegassy";
       repo = "coc-tailwindcss3";
-      rev = "73e7eab79931f90e3141b961e9c403ae75f51d96";
+      rev = "fb91c3c3a22e537acfac73a82814689f95d6e82b";
       fetchSubmodules = false;
-      sha256 = "sha256-W8k9+ncJCAJUf4CMxSGQGT+JR9Bt2OVw6xYmvIfFyy8=";
+      sha256 = "sha256-dcALAfFDXBGVvK6fki9AD0lZKzvxo2LJ8A/TUyTF4pk=";
     };
   };
   copilot-vim = {
