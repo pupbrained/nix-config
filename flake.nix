@@ -2,7 +2,7 @@
   description = "Marshall's NixOS Config";
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
+    agenix.url = "github:yaxitech/ragenix";
     draconis.url = "github:pupbrained/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     glrnvim.url = "github:pupbrained/glrnvim-nix";
@@ -12,12 +12,13 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:pupbrained/nix-snow";
+    polymc.url = "github:PolyMC/PolyMC";
     replugged-overlay.url = "github:LunNova/replugged-nix-flake";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     tre.url = "github:dduan/tre";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
-    polymc.url = "github:PolyMC/PolyMC";
+    webcord.url = "github:fufexan/webcord-flake";
 
     better-codeblocks = {
       url = "github:replugged-org/better-codeblocks";
@@ -142,6 +143,7 @@
     nix-doom-emacs,
     hyprland,
     spicetify-nix,
+    webcord,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -176,7 +178,7 @@
 
         modules = [
           ./sys/nix/configuration.nix
-          agenix.nixosModule
+          agenix.nixosModules.age
           hyprland.nixosModules.default
           nix-ld.nixosModules.nix-ld
         ];

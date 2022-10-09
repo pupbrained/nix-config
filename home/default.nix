@@ -33,15 +33,8 @@
     deno
     discord-canary
     draconis
-    fenix.complete.cargo
-    fenix.complete.clippy
-    fenix.complete.miri
-    fenix.complete.rust-src
-    fenix.complete.rustc
-    fenix.complete.rustfmt
     file
     firefox-nightly-bin
-    fleet
     fractal-next
     gcc
     glib
@@ -60,7 +53,6 @@
     gsettings-desktop-schemas
     headsetcontrol
     helix
-    hyprpicker
     inotify-tools
     jamesdsp
     jellyfin-ffmpeg
@@ -85,7 +77,6 @@
     mold
     mpvScripts.mpris
     mullvad-vpn
-    nerdfonts
     nextcloud-client
     ngrok
     nil
@@ -97,7 +88,6 @@
     nodePackages.yo
     nodejs-16_x
     notion-app-enhanced
-    noto-fonts-cjk-sans
     nvui
     obs-studio
     odin
@@ -110,7 +100,6 @@
     picom
     playerctl
     polymc
-    premid
     pulseaudio
     python
     python310
@@ -120,6 +109,7 @@
     rnix-lsp
     rofi
     rust-analyzer-nightly
+    rustup
     scons
     scrot
     slurp
@@ -153,7 +143,7 @@
     # SNOW END
   ];
 
-  programs = {
+  programs = with pkgs; {
     direnv.enable = true;
     gitui.enable = true;
     gpg.enable = true;
@@ -163,7 +153,7 @@
       config.theme = "catppuccin";
 
       themes = {
-        catppuccin = builtins.readFile (pkgs.fetchFromGitHub
+        catppuccin = builtins.readFile (fetchFromGitHub
           {
             owner = "catppuccin";
             repo = "sublime-text";
@@ -261,14 +251,14 @@
 
     go = {
       enable = true;
-      package = pkgs.go_1_18;
+      package = pkgs.go_1_19;
     };
 
     kitty = {
       enable = true;
 
       font = {
-        name = "Iosevka Custom Medium";
+        name = "JetBrainsMono Nerd Font Mono";
         size = 12;
       };
 
@@ -355,7 +345,7 @@
       ];
     };
 
-    vscode = with pkgs; {
+    vscode = {
       enable = true;
       package = vscodeInsiders;
     };
@@ -384,7 +374,7 @@
     settings.StartupWMClass = "jetbrains-idea";
   };
 
-  systemd.user.services.polkit = {
+  systemd.user.services.polkit = with pkgs; {
     Unit = {
       Description = "A dbus session bus service that is used to bring up authentication dialogs";
       Documentation = ["man:polkit(8)"];
@@ -392,12 +382,17 @@
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      ExecStart = "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       RestartSec = 5;
       Restart = "always";
     };
     Install = {
       WantedBy = ["graphical-session.target"];
     };
+  };
+
+  i18n.inputMethod = with pkgs; {
+    enabled = "fcitx5";
+    package = fcitx5-with-addons;
   };
 }

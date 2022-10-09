@@ -1,42 +1,4 @@
 {
-    "astronaut-sddm-theme": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "astronaut-sddm-theme",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Keyitdev",
-            "repo": "sddm-astronaut-theme",
-            "rev": "ef7ff4199e0e78c37995938ad4ced402d34edf79",
-            "sha256": "sha256-I39W9U4j/MbyYp4BlB4sWuQ5GVf/z4bm4ohrSfIWcXI=",
-            "type": "github"
-        },
-        "version": "ef7ff4199e0e78c37995938ad4ced402d34edf79"
-    },
-    "coc-tailwindcss3": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "coc-tailwindcss3",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "yaegassy",
-            "repo": "coc-tailwindcss3",
-            "rev": "fb91c3c3a22e537acfac73a82814689f95d6e82b",
-            "sha256": "sha256-dcALAfFDXBGVvK6fki9AD0lZKzvxo2LJ8A/TUyTF4pk=",
-            "type": "github"
-        },
-        "version": "fb91c3c3a22e537acfac73a82814689f95d6e82b"
-    },
     "copilot-vim": {
         "cargoLocks": null,
         "extract": null,
@@ -55,30 +17,6 @@
             "type": "github"
         },
         "version": "af9da6457790b651871b687b8f47d130cde083fc"
-    },
-    "fleet": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./fleet-8dce51cab7a13caf1431a07368978bfc191b301c/Cargo.lock",
-                {}
-            ]
-        },
-        "extract": null,
-        "name": "fleet",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "dimensionhq",
-            "repo": "fleet",
-            "rev": "8dce51cab7a13caf1431a07368978bfc191b301c",
-            "sha256": "sha256-EZWY0KjJ68XvumyterziprbIe1wTU4NJbMuWW+gAt4c=",
-            "type": "github"
-        },
-        "version": "8dce51cab7a13caf1431a07368978bfc191b301c"
     },
     "nvim-cokeline": {
         "cargoLocks": null,
@@ -117,30 +55,6 @@
             "type": "github"
         },
         "version": "c72f1a3fc064f61cc5c5a578d7350240e26a27af"
-    },
-    "spyglass": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./spyglass-d41769ef45fa4e61776712a111c23e8893018d7d/Cargo.lock",
-                {}
-            ]
-        },
-        "extract": null,
-        "name": "spyglass",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "a5huynh",
-            "repo": "spyglass",
-            "rev": "d41769ef45fa4e61776712a111c23e8893018d7d",
-            "sha256": "sha256-9fMY+Y916XABPm2dzH18tkYFnWjVOrCWyAKpBJj8Jzc=",
-            "type": "github"
-        },
-        "version": "d41769ef45fa4e61776712a111c23e8893018d7d"
     },
     "zscroll": {
         "cargoLocks": null,

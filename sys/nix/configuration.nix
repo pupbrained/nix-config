@@ -30,7 +30,30 @@ with lib; {
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
-    extraModprobeConfig = "options hid_apple fnmode=1";
+    extraModprobeConfig = "options hid_apple fnmode=2";
+  };
+
+  fonts = {
+    enableDefaultFonts = true;
+    fontDir.enable = true;
+
+    fonts = with pkgs; [
+      nerdfonts
+      noto-fonts-cjk-sans
+      recursive
+      twemoji-color-font
+    ];
+
+    fontconfig = {
+      enable = true;
+      allowBitmaps = true;
+      defaultFonts = {
+        emoji = ["Twemoji"];
+        monospace = ["JetbrainsMono Nerd Font Mono"];
+        sansSerif = ["Google Sans Text"];
+      };
+      hinting.style = "hintfull";
+    };
   };
 
   networking = {
@@ -88,11 +111,17 @@ with lib; {
     };
   };
 
-  environment.loginShellInit = ''
-    dbus-update-activation-environment --systemd DISPLAY
-    eval $(ssh-agent)
-    eval $(gnome-keyring-daemon --start)
-  '';
+  environment = {
+    variables = {
+      NIXOS_OZONE_WL = "1";
+      GLFW_IM_MODULE = "true";
+    };
+    loginShellInit = ''
+      dbus-update-activation-environment --systemd DISPLAY
+      eval $(ssh-agent)
+      eval $(gnome-keyring-daemon --start)
+    '';
+  };
 
   security = {
     pam.services.sddm.enableGnomeKeyring = true;
@@ -102,8 +131,10 @@ with lib; {
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  i18n.extraLocaleSettings = {
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    extraLocaleSettings = {
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   hardware = {
@@ -115,6 +146,7 @@ with lib; {
     nvidia = {
       modesetting.enable = true;
       open = true;
+      powerManagement.enable = true;
     };
 
     opengl = {
@@ -144,6 +176,7 @@ with lib; {
     QT_QPA_PLATFORM="wayland"
     QT_WAYLAND_DISABLE_WINDOWDECORATION=1
     WLR_BACKEND="vulkan"
+    WLR_RENDERER="vulkan"
     GTK_THEME="Quixotic-pink"
   '';
 

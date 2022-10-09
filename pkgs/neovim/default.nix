@@ -11,8 +11,8 @@
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      pkgs.myCopilotVim
-      pkgs.myCokelinePlugin
+      pkgs.copilot-vim
+      pkgs.nvim-cokeline
 
       cmp_luasnip
       cmp-path

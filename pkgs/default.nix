@@ -2,42 +2,40 @@ inputs:
 inputs.nixpkgs.lib.composeManyExtensions [
   (final: prev: let
     sources = prev.callPackage ./_sources/generated.nix {};
+    catppuccin = "${prev.pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "discord";
+      rev = "d65e21cf2302355e1d8a50fe8f7714f6ebb1261d";
+      sha256 = "sha256-EN4YKCzkYe9xOtv9tPLPVHXJOj1XODrnLy+SSZWObSY=";
+    }}/themes/mocha.theme.css";
+    hsl = "${prev.pkgs.fetchFromGitHub {
+      owner = "DiscordStyles";
+      repo = "HorizontalServerList";
+      rev = "b9fc8862f4bd1f24e575a687dbcf096ab338fe7f";
+      sha256 = "sha256-OIs3aI30cNyUYqSogGzzE4qsbIvtciON5aI+huag4Pg=";
+    }}/src/dist.css";
   in {
     inherit (inputs.vscodeInsiders.packages.${prev.system}) vscodeInsiders;
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
+    inherit (inputs.nil.packages.${prev.system}) nil;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
     riff = inputs.riff.defaultPackage.${prev.system};
     glrnvim = inputs.glrnvim.defaultPackage.${prev.system};
-    hyprpicker = inputs.hyprpicker.packages.${prev.system}.default;
-    inherit (inputs.nil.packages.${prev.system}) nil;
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
-    fleet = prev.rustPlatform.buildRustPackage rec {
-      inherit (sources.fleet) pname version src;
-      cargoLock = sources.fleet.cargoLock."Cargo.lock";
-
-      buildInputs = [prev.pkgs.openssl];
-      nativeBuildInputs = [prev.pkgs.pkg-config];
-    };
-
-    spyglass = prev.rustPlatform.buildRustPackage rec {
-      inherit (sources.spyglass) pname version src;
-      cargoLock = sources.spyglass.cargoLock."Cargo.lock";
-
-      buildInputs = [prev.pkgs.openssl prev.pkgs.dbus];
-      nativeBuildInputs = [prev.pkgs.pkg-config];
-    };
-
-    openasar = prev.stdenv.mkDerivation rec {
-      inherit (sources.openasar) pname version src;
-    };
+    revolt = final.callPackage ./revolt.nix {};
+    nvui = prev.libsForQt5.callPackage ./nvui.nix {};
 
     discord-canary = prev.discord-canary.override {
       nss = final.nss_latest;
       openasar = prev.pkgs.callPackage ./openasar.nix {};
       withOpenASAR = true;
+    };
+
+    openasar = prev.stdenv.mkDerivation rec {
+      inherit (sources.openasar) pname version src;
     };
 
     kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
@@ -52,8 +50,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       };
     };
 
-    nvui = prev.libsForQt5.callPackage ./nvui.nix {};
-
     waybar = prev.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       patchPhase = ''
@@ -65,34 +61,19 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.zscroll) src pname version;
     });
 
-    myCopilotVim = prev.vimPlugins.copilot-vim.overrideAttrs (o: {
+    copilot-vim = prev.vimPlugins.copilot-vim.overrideAttrs (o: {
       inherit (sources.copilot-vim) src pname version;
     });
 
-    myCokelinePlugin = prev.vimUtils.buildVimPlugin {
+    nvim-cokeline = prev.vimUtils.buildVimPlugin {
       inherit (sources.nvim-cokeline) src pname version;
     };
-
-    myTailwindPlugin = prev.vimUtils.buildVimPlugin {
-      inherit (sources.coc-tailwindcss3) src pname version;
-    };
-
-    myAstroPlugin = prev.vimUtils.buildVimPlugin {
-      inherit (sources.vim-astro) src pname version;
-    };
-
-    web-greeter = final.callPackage ./web-greeter.nix {
-      web-greeter-src = inputs.web-greeter;
-    };
-
-    revolt = final.callPackage ./revolt.nix {};
 
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
       nvidiaPatches = true;
     };
-
-    mySddmTheme = prev.plasma5Packages.callPackage ./astronaut-sddm-theme {inherit sources;};
   })
+
   inputs.replugged-overlay.overlay
   inputs.fenix.overlay
   inputs.polymc.overlay
