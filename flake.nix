@@ -18,7 +18,6 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     tre.url = "github:dduan/tre";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
-    webcord.url = "github:fufexan/webcord-flake";
 
     better-codeblocks = {
       url = "github:replugged-org/better-codeblocks";
@@ -143,7 +142,6 @@
     nix-doom-emacs,
     hyprland,
     spicetify-nix,
-    webcord,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;

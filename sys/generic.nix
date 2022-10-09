@@ -50,7 +50,6 @@ in {
         "https://statix.cachix.org"
         "https://nix-community.cachix.org"
         "https://helix.cachix.org"
-        "https://webcord.cachix.org"
       ];
 
       trusted-public-keys = [
@@ -58,7 +57,6 @@ in {
         "statix.cachix.org-1:Z9E/g1YjCjU117QOOt07OjhljCoRZddiAm4VVESvais="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        "webcord.cachix.org-1:l555jqOZGHd2C9+vS8ccdh8FhqnGe8L78QrHNn+EFEs="
       ];
 
       warn-dirty = false;
