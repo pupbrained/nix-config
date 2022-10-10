@@ -20,7 +20,6 @@ with pkgs; {
     audacity
     authy
     bacon
-    bandwhich
     binutils
     brightnessctl
     btop
