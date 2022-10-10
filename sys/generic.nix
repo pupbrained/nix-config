@@ -31,7 +31,6 @@ in {
   nixpkgs = {
     config = {
       allowUnfree = true;
-      allowBroken = true;
     };
     overlays = [(import ../pkgs inputs)];
   };
@@ -118,11 +117,12 @@ in {
     };
   };
 
-  time.timeZone = "America/New_York";
-  security.sudo.wheelNeedsPassword = false;
   programs = {
     dconf.enable = true;
     steam.enable = true;
     command-not-found.enable = false;
   };
+
+  time.timeZone = "America/New_York";
+  security.sudo.wheelNeedsPassword = false;
 }

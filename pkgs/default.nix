@@ -2,12 +2,14 @@ inputs:
 inputs.nixpkgs.lib.composeManyExtensions [
   (final: prev: let
     sources = prev.callPackage ./_sources/generated.nix {};
+
     catppuccin = "${prev.pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "discord";
       rev = "d65e21cf2302355e1d8a50fe8f7714f6ebb1261d";
       sha256 = "sha256-EN4YKCzkYe9xOtv9tPLPVHXJOj1XODrnLy+SSZWObSY=";
     }}/themes/mocha.theme.css";
+
     hsl = "${prev.pkgs.fetchFromGitHub {
       owner = "DiscordStyles";
       repo = "HorizontalServerList";
@@ -18,6 +20,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.vscodeInsiders.packages.${prev.system}) vscodeInsiders;
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
     inherit (inputs.nil.packages.${prev.system}) nil;
+    inherit (inputs.vencord.packages.${prev.system}) vencord;
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
     riff = inputs.riff.defaultPackage.${prev.system};
@@ -27,16 +30,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     revolt = final.callPackage ./revolt.nix {};
     nvui = prev.libsForQt5.callPackage ./nvui.nix {};
-
-    discord-canary = prev.discord-canary.override {
-      nss = final.nss_latest;
-      openasar = prev.pkgs.callPackage ./openasar.nix {};
-      withOpenASAR = true;
-    };
-
-    openasar = prev.stdenv.mkDerivation rec {
-      inherit (sources.openasar) pname version src;
-    };
 
     kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
@@ -74,7 +67,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
     };
   })
 
-  inputs.replugged-overlay.overlay
   inputs.fenix.overlay
   inputs.polymc.overlay
 ]

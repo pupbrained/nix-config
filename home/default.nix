@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+with pkgs; {
   imports = [
     ./dotfiles.nix
     ../pkgs/neovim/default.nix
@@ -11,7 +12,7 @@
     inputs.spicetify-nix.homeManagerModule
   ];
 
-  home.packages = with pkgs; [
+  home.packages = [
     # SNOW BEGIN
     acpi
     alejandra
@@ -31,7 +32,6 @@
     comma
     ddcutil
     deno
-    discord-canary
     draconis
     file
     firefox-nightly-bin
@@ -125,6 +125,7 @@
     unrar
     unzip
     usbimager
+    vencord
     waybar
     wf-recorder
     wget
@@ -162,11 +163,6 @@
           }
           + "/Catppuccin.tmTheme");
       };
-    };
-
-    doom-emacs = {
-      enable = false;
-      doomPrivateDir = ../dotfiles/doom.d;
     };
 
     exa = {
@@ -227,14 +223,14 @@
     mpv = {
       enable = true;
 
-      scripts = with pkgs; [
+      scripts = [
         mpvScripts.mpris
       ];
     };
 
     git = {
       enable = true;
-      userName = "marsupialgutz";
+      userName = "pupbrained";
       userEmail = "mars@possums.xyz";
       delta.enable = true;
       lfs.enable = true;
@@ -258,7 +254,7 @@
       enable = true;
 
       font = {
-        name = "JetBrainsMono Nerd Font Mono";
+        name = "Maple Mono NF";
         size = 12;
       };
 
@@ -374,7 +370,7 @@
     settings.StartupWMClass = "jetbrains-idea";
   };
 
-  systemd.user.services.polkit = with pkgs; {
+  systemd.user.services.polkit = {
     Unit = {
       Description = "A dbus session bus service that is used to bring up authentication dialogs";
       Documentation = ["man:polkit(8)"];
@@ -391,7 +387,7 @@
     };
   };
 
-  i18n.inputMethod = with pkgs; {
+  i18n.inputMethod = {
     enabled = "fcitx5";
     package = fcitx5-with-addons;
   };

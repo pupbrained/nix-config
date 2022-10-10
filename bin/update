@@ -1,4 +1,4 @@
-pushd pkgs/       
+pushd pkgs/
 nvfetcher
 popd
 nix flake update
