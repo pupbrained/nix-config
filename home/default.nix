@@ -220,20 +220,11 @@ with pkgs; {
       enableFishIntegration = true;
     };
 
-    mpv = {
-      enable = true;
-
-      scripts = [
-        mpvScripts.mpris
-      ];
-    };
-
     git = {
       enable = true;
       userName = "pupbrained";
-      userEmail = "mars@possums.xyz";
+      userEmail = "mars@pupbrained.xyz";
       delta.enable = true;
-      lfs.enable = true;
 
       signing = {
         signByDefault = true;
@@ -316,6 +307,14 @@ with pkgs; {
         color7 = "#BAC2DE";
         color15 = "#BAC2DE";
       };
+    };
+
+    mpv = {
+      enable = true;
+
+      scripts = [
+        mpvScripts.mpris
+      ];
     };
 
     navi = {
