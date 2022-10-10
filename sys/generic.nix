@@ -118,6 +118,7 @@ in {
   };
 
   programs = {
+    ccache.enable = true;
     dconf.enable = true;
     steam.enable = true;
     command-not-found.enable = false;
