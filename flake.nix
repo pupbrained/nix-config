@@ -13,6 +13,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:pupbrained/nix-snow";
+    nur.url = "github:nix-community/NUR";
     polymc.url = "github:PolyMC/PolyMC";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -29,6 +30,7 @@
     home-manager,
     nixos-wsl,
     nix-doom-emacs,
+    nur,
     hyprland,
     spicetify-nix,
     ...
@@ -62,6 +64,7 @@
           ./sys/nix/configuration.nix
           agenix.nixosModules.age
           hyprland.nixosModules.default
+          nur.nixosModules.nur
         ];
       };
 
@@ -73,6 +76,7 @@
           ./sys/wsl.nix
           agenix.nixosModule
           nixos-wsl.nixosModules.wsl
+          nur.nixosModules.nur
         ];
       };
     };

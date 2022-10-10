@@ -1051,6 +1051,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1665368368,
+        "narHash": "sha256-Ju7ZqwxK3BAFv1vcK1fdUOpdoTmPAe1wCemOvCkKb/0=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "75a751e312cded6508aa9a945011e8cda0ed77a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "ob-racket": {
       "flake": false,
       "locked": {
@@ -1202,6 +1217,7 @@
         "nix-snow": "nix-snow",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_15",
+        "nur": "nur",
         "polymc": "polymc",
         "riff": "riff",
         "spicetify-nix": "spicetify-nix",

@@ -10,6 +10,7 @@ with pkgs; {
     ../pkgs/neovim/default.nix
     inputs.nix-doom-emacs.hmModule
     inputs.spicetify-nix.homeManagerModule
+    inputs.nur.nixosModules.nur
   ];
 
   home.packages = [
@@ -33,7 +34,6 @@ with pkgs; {
     deno
     draconis
     file
-    firefox-nightly-bin
     fractal-next
     gcc
     glib
@@ -167,6 +167,57 @@ with pkgs; {
     exa = {
       enable = true;
       enableAliases = true;
+    };
+
+    firefox = {
+      enable = true;
+
+      package = firefox-nightly-bin;
+
+      extensions = with config.nur.repos.rycee.firefox-addons; [
+        add-custom-search-engine
+        adnauseam
+        darkreader
+        don-t-fuck-with-paste
+        https-everywhere
+        i-dont-care-about-cookies
+        protondb-for-steam
+        react-devtools
+        return-youtube-dislikes
+        sponsorblock
+        stylus
+        to-deepl
+        tridactyl
+        ublock-origin
+        unpaywall
+        violentmonkey
+      ];
+
+      profiles = {
+        marshall = {
+          settings = {
+            "general.smoothScroll.currentVelocityWeighting" = "0.15";
+            "general.smoothScroll.mouseWheel.durationMaxMS" = 250;
+            "general.smoothScroll.mouseWheel.durationMinMS" = 250;
+            "general.smoothScroll.msdPhysics.enabled" = true;
+            "general.smoothScroll.msdPhysics.motionBeginSpringConstant" = 400;
+            "general.smoothScroll.msdPhysics.regularSpringConstant" = 600;
+            "general.smoothScroll.msdPhysics.slowdownMinDeltaMS" = 120;
+            "general.smoothScroll.other.durationMaxMS" = 500;
+            "general.smoothScroll.pages.durationMaxMS" = 350;
+            "general.smoothScroll.stopDecelerationWeighting" = "0.8";
+            "gfx.webrender.all" = true;
+            "svg.context-properties.content.enabled" = true;
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            # TODO: Make this work
+            "userChrome.FilledMenuIcons-Enabled" = false;
+            "userChrome.OneLine-Enabled" = true;
+            "userChrome.ProtonTabs-Enabled" = true;
+          };
+
+          userChrome = builtins.readFile ../dotfiles/firefox/userChrome.css;
+        };
+      };
     };
 
     fish = {
