@@ -194,6 +194,7 @@ with pkgs; {
         firefox-addons.adblock-for-youtube
         firefox-addons.betterviewer
         firefox-addons.buster-captcha-solver
+        firefox-addons.catppuccin-mocha-mauve
         firefox-addons.clearurls
         firefox-addons.disconnect
         firefox-addons.docsafterdark
