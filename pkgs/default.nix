@@ -20,7 +20,10 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.vscodeInsiders.packages.${prev.system}) vscodeInsiders;
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
     inherit (inputs.nil.packages.${prev.system}) nil;
-    inherit (inputs.vencord.packages.${prev.system}) vencord;
+
+    discord-patched = inputs.vencord.packages.${prev.system}.discord-patched.override {
+      inherit (final) discord-canary;
+    };
 
     draconis = inputs.draconis.defaultPackage.${prev.system};
     riff = inputs.riff.defaultPackage.${prev.system};
@@ -65,6 +68,17 @@ inputs.nixpkgs.lib.composeManyExtensions [
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
       nvidiaPatches = true;
     };
+
+    discord-canary = prev.discord-canary.override {
+      nss = final.nss_latest;
+      withOpenASAR = true;
+    };
+
+    openasar = prev.stdenv.mkDerivation rec {
+      inherit (sources.openasar) pname version src;
+    };
+
+    firefox-addons = prev.callPackages ./firefox-addons {};
   })
 
   inputs.fenix.overlay

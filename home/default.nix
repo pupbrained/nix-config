@@ -32,6 +32,7 @@ with pkgs; {
     comma
     ddcutil
     deno
+    discord-patched
     draconis
     file
     fractal-next
@@ -124,7 +125,6 @@ with pkgs; {
     unrar
     unzip
     usbimager
-    vencord
     waybar
     wf-recorder
     wget
@@ -180,17 +180,34 @@ with pkgs; {
         darkreader
         don-t-fuck-with-paste
         https-everywhere
-        i-dont-care-about-cookies
         protondb-for-steam
         react-devtools
         return-youtube-dislikes
         sponsorblock
-        stylus
         to-deepl
         tridactyl
         ublock-origin
         unpaywall
         violentmonkey
+        firefox-addons.absolute-enable-right-click
+        firefox-addons.active-forks
+        firefox-addons.adblock-for-youtube
+        firefox-addons.betterviewer
+        firefox-addons.buster-captcha-solver
+        firefox-addons.clearurls
+        firefox-addons.disconnect
+        firefox-addons.docsafterdark
+        firefox-addons.font-fingerprint-defender
+        firefox-addons.hyperchat
+        firefox-addons.istilldontcareaboutcookies
+        firefox-addons.mpris-integration
+        firefox-addons.pinunpin-tab
+        firefox-addons.pronoundb
+        firefox-addons.svg-export
+        firefox-addons.ttv-lol
+        firefox-addons.twitch-points-autoclicker
+        firefox-addons.webnowplaying-companion
+        firefox-addons.youtube-addon
       ];
 
       profiles = {

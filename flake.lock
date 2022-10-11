@@ -483,11 +483,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1665413965,
-        "narHash": "sha256-QerUvVuB6zA7nqFRoaUBnngLafa7eL9O63uDt7cLILA=",
+        "lastModified": 1665437770,
+        "narHash": "sha256-0up6k+ATaxv1X60nQuslcIirUQqkbl1m5pCFnH3TJtE=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "f55f56f26049ec97dab2cdbaf6445e9166c72b7d",
+        "rev": "ae91f6610ff00495c777fa3d996056061ea5c6b9",
         "type": "github"
       },
       "original": {
@@ -818,11 +818,11 @@
     },
     "nixpkgs_15": {
       "locked": {
-        "lastModified": 1665293210,
-        "narHash": "sha256-qQTfWlvaEfyuIpnD9dU5f2B/YoZbmSq+T5B7ryOgciM=",
+        "lastModified": 1665335818,
+        "narHash": "sha256-LcjvAr6vKTu9a8NOgcE/ZR0Q9M9lwGHI85Aw0s6vFeQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ce1a1bdb98547274597258330b46c86b71e87e5b",
+        "rev": "f4aa32330098a5108aace65ffea283a757deaa07",
         "type": "github"
       },
       "original": {
@@ -1143,6 +1143,22 @@
       "original": {
         "owner": "arnested",
         "repo": "php-extras",
+        "type": "github"
+      }
+    },
+    "pnpm2nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1594396611,
+        "narHash": "sha256-UXOUQ+2A89/zaxYhTHiRrRBU5exbUWrg+FoJYMcNwuI=",
+        "owner": "nix-community",
+        "repo": "pnpm2nix",
+        "rev": "f67be0925a91b92f54d99dbdead7a06920b979ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "pnpm2nix",
         "type": "github"
       }
     },
@@ -1489,14 +1505,15 @@
     },
     "vencord": {
       "inputs": {
-        "nixpkgs": "nixpkgs_20"
+        "nixpkgs": "nixpkgs_20",
+        "pnpm2nix": "pnpm2nix"
       },
       "locked": {
-        "lastModified": 1665360355,
-        "narHash": "sha256-DfH1Az88tdCAJaavKUf+Tcfq0DCfSSgvozWqJ2Dx54E=",
+        "lastModified": 1665445336,
+        "narHash": "sha256-vWw2m1gqUUKDks6w8o+NccvsH8PWt3bx1j/TQM2ZsA0=",
         "owner": "pupbrained",
         "repo": "Vencord-nix",
-        "rev": "ad55490267fc6af3aea874f088adcf67b94f3951",
+        "rev": "6e0a17f1c34b5b231e92a256588bcc2515e0ec87",
         "type": "github"
       },
       "original": {
