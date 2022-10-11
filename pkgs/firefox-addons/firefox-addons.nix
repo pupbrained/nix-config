@@ -68,6 +68,18 @@
       platforms = platforms.all;
     };
   };
+  "catppuccin-mocha-mauve" = buildFirefoxXpiAddon {
+    pname = "catppuccin-mocha-mauve";
+    version = "2.0";
+    addonId = "{d090b7ee-a385-4d54-b9a4-f7164d17756d}";
+    url = "https://addons.mozilla.org/firefox/downloads/file/3954870/catppuccin_mocha_mauve-2.0.xpi";
+    sha256 = "143064145c18a7dddcbe7c45b162bff318caaa3ed3a448440e6dba7d27bb4e16";
+    meta = with lib; {
+      description = "Firefox theme based on <a href=\"https://prod.outgoing.prod.webservices.mozgcp.net/v1/110954a3f2718cf03892676379416caed51099b639f643aaf12989b7e698f073/https%3A//github.com/catppuccin/catppuccin\" rel=\"nofollow\">https://github.com/catppuccin/catppuccin</a>";
+      license = licenses.cc-by-30;
+      platforms = platforms.all;
+    };
+  };
   "clearurls" = buildFirefoxXpiAddon {
     pname = "clearurls";
     version = "1.25.0";
