@@ -12,11 +12,11 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "af9da6457790b651871b687b8f47d130cde083fc",
-            "sha256": "sha256-K3Qs9L9kM2AJtwY7FqoBRIthTpqdg0YRD28WfJjodrY=",
+            "rev": "8ba151a20bc1d7a5c72e592e51bfc925d5bbb837",
+            "sha256": "sha256-GmwR+S5sQnVUbVShP53jNpSKMZaoeh9Rf37v89wAJ3M=",
             "type": "github"
         },
-        "version": "af9da6457790b651871b687b8f47d130cde083fc"
+        "version": "8ba151a20bc1d7a5c72e592e51bfc925d5bbb837"
     },
     "nvim-cokeline": {
         "cargoLocks": null,
