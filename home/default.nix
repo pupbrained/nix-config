@@ -291,6 +291,7 @@ with pkgs; {
 
     git = {
       enable = true;
+      package = pkgs.gitAndTools.gitFull;
       userName = "pupbrained";
       userEmail = "mars@pupbrained.xyz";
       delta.enable = true;
