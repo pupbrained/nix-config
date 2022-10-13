@@ -11,6 +11,7 @@
     nil.url = "github:oxalica/nil";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-modded.url = "github:PedroHLC/nixpkgs/zen-kernels-6.0.1-zen1-5.19.15-lqx1";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
@@ -27,6 +28,7 @@
     agenix,
     fenix,
     nixpkgs,
+    nixpkgs-modded,
     home-manager,
     nixos-wsl,
     nix-doom-emacs,
@@ -36,6 +38,7 @@
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
+    lib-modded = nixpkgs-modded.lib;
     forSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
     homeConfigurations.marshall = home-manager.lib.homeManagerConfiguration {
@@ -56,7 +59,7 @@
     };
 
     nixosConfigurations = {
-      nix = lib.nixosSystem {
+      nix = lib-modded.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
 
