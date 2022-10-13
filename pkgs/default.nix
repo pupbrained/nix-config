@@ -31,8 +31,9 @@ inputs.nixpkgs.lib.composeManyExtensions [
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
+    jetbrains-fleet = final.callPackage ./fleet.nix {};
     revolt = final.callPackage ./revolt.nix {};
-    nvui = prev.libsForQt5.callPackage ./nvui.nix {};
+    nvui = final.libsForQt5.callPackage ./nvui.nix {};
 
     kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;

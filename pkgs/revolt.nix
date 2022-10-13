@@ -40,6 +40,7 @@ stdenv.mkDerivation rec {
     makeWrapper
     copyDesktopItems
   ];
+
   buildInputs = [
     electron
 

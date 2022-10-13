@@ -58,6 +58,7 @@ with pkgs; {
     jellyfin-ffmpeg
     jetbrains.idea-ultimate
     jetbrains.webstorm
+    jetbrains-fleet
     jq
     keybase
     keychain
