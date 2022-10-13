@@ -94,9 +94,15 @@ with lib; {
 
     xserver = {
       enable = true;
-
-      displayManager.startx.enable = true;
       videoDrivers = ["nvidia"];
+
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland = true;
+          nvidiaWayland = true;
+        };
+      };
     };
   };
 
