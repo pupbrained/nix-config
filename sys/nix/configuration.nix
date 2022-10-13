@@ -29,7 +29,8 @@ with lib; {
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelParams = ["module_blacklist=i915"];
+    kernelPackages = pkgs.linuxPackages_zen;
     extraModprobeConfig = "options hid_apple fnmode=2";
   };
 
@@ -96,13 +97,7 @@ with lib; {
       enable = true;
       videoDrivers = ["nvidia"];
 
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-          nvidiaWayland = true;
-        };
-      };
+      displayManager.startx.enable = true;
     };
   };
 
