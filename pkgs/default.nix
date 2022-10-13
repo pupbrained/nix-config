@@ -31,9 +31,11 @@ inputs.nixpkgs.lib.composeManyExtensions [
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
+    gradience = final.callPackage ./gradience.nix {};
     jetbrains-fleet = final.callPackage ./fleet.nix {};
-    revolt = final.callPackage ./revolt.nix {};
     nvui = final.libsForQt5.callPackage ./nvui.nix {};
+    python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};
+    revolt = final.callPackage ./revolt.nix {};
 
     kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
