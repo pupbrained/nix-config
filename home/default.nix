@@ -270,8 +270,12 @@ with pkgs; {
       shellAliases = {
         se = "sudoedit";
         gc = "git commit";
-        ga = "git add .";
-        gcap = "ga; gc; git pushall";
+        ga = "git add";
+        gap = "git add -p";
+        gcap = "ga .; gc; git pushall";
+        gcp = "gc; git pushall";
+        gs = "git status";
+        gd = "git diff";
         cat = "bat";
       };
 
