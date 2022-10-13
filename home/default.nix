@@ -41,6 +41,7 @@ with pkgs; {
     glrnvim
     gnome.eog
     gnome.geary
+    gnome.gnome-tweaks
     gnome.nautilus
     gnome.seahorse
     gnome.zenity
@@ -48,6 +49,7 @@ with pkgs; {
     gotktrix
     gparted
     gpick
+    gradience
     grex
     grim
     gsettings-desktop-schemas
@@ -56,9 +58,9 @@ with pkgs; {
     inotify-tools
     jamesdsp
     jellyfin-ffmpeg
+    jetbrains-fleet
     jetbrains.idea-ultimate
     jetbrains.webstorm
-    jetbrains-fleet
     jq
     keybase
     keychain
@@ -69,7 +71,6 @@ with pkgs; {
     libnotify
     libsForQt5.qtstyleplugin-kvantum
     lite-xl
-    llvmPackages_rocm.llvm.out
     lua52Packages.lgi
     lxappearance
     mate.engrampa
@@ -118,7 +119,6 @@ with pkgs; {
     statix
     stylua
     sumneko-lua-language-server
-    swaybg
     swaynotificationcenter
     tealdeer
     thefuck
