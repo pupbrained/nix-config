@@ -2287,3 +2287,7 @@ spacer[part="overflow-end-indicator"]
 .extensionPage {
   display: none !important;
 }
+
+#unified-extensions-button {
+  display: none !important;
+}
