@@ -13,6 +13,7 @@
     plugins = with pkgs.vimPlugins; [
       pkgs.copilot-vim
       pkgs.nvim-cokeline
+      pkgs.nvim-staline
 
       cmp_luasnip
       cmp-path
@@ -27,14 +28,15 @@
       lazygit-nvim
       lightspeed-nvim
       lspkind-nvim
-      lualine-nvim
       luasnip
+      markdown-preview-nvim
       null-ls-nvim
       nvim-autopairs
       nvim-cmp
       nvim-lspconfig
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       nvim-tree-lua
+      nvim-web-devicons
       presence-nvim
       telescope-nvim
       telescope-fzf-native-nvim
