@@ -68,6 +68,15 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.nvim-cokeline) src pname version;
     };
 
+    spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {
+      src = prev.pkgs.fetchFromGitHub {
+        owner = "amurzeau";
+        repo = "spotifywm";
+        rev = "a2b5efd5439b0404f1836cc9a681417627531a00";
+        sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+      };
+    });
+
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
       nvidiaPatches = true;
     };

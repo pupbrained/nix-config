@@ -403,9 +403,14 @@ with pkgs; {
 
     spicetify = {
       enable = true;
-
       theme = "catppuccin-mocha";
       colorScheme = "mauve";
+
+      spotifyPackage = pkgs.spotify-unwrapped.overrideAttrs (o: {
+        postInstall = ''
+          wrapProgram $out/bin/spotify --prefix LD_PRELOAD : "${pkgs.spotifywm-fixed}/lib/spotifywm.so"
+        '';
+      });
 
       enabledExtensions = [
         "fullAppDisplay.js"
