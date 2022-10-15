@@ -181,21 +181,22 @@ with pkgs; {
         darkreader
         don-t-fuck-with-paste
         https-everywhere
+        new-tab-override
         protondb-for-steam
         react-devtools
         return-youtube-dislikes
         sponsorblock
         to-deepl
-        tridactyl
         ublock-origin
         unpaywall
+        vimium
         violentmonkey
         firefox-addons.absolute-enable-right-click
         firefox-addons.active-forks
         firefox-addons.adblock-for-youtube
         firefox-addons.betterviewer
         firefox-addons.buster-captcha-solver
-        firefox-addons.catppuccin-mocha-mauve
+        firefox-addons.catppuccin-mocha-sky
         firefox-addons.clearurls
         firefox-addons.disconnect
         firefox-addons.docsafterdark
