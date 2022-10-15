@@ -26,6 +26,17 @@
       sha256 = "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=";
     };
   };
+  nvim-staline = {
+    pname = "nvim-staline";
+    version = "c2ac9411815cf7fb135d798174ff5782e1b64075";
+    src = fetchFromGitHub {
+      owner = "tamton-aquib";
+      repo = "staline.nvim";
+      rev = "c2ac9411815cf7fb135d798174ff5782e1b64075";
+      fetchSubmodules = false;
+      sha256 = "sha256-y7vuzCuwYN8+eSTP2bffh1ATjlbOyObpOobgM51Zl5c=";
+    };
+  };
   openasar = {
     pname = "openasar";
     version = "7a04cb57dff43f328de78addc234e9d21ff079a8";

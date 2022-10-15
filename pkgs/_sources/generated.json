@@ -37,6 +37,25 @@
         },
         "version": "501f93ec84af0d505d95d3827cad470b9c5e86dc"
     },
+    "nvim-staline": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nvim-staline",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "tamton-aquib",
+            "repo": "staline.nvim",
+            "rev": "c2ac9411815cf7fb135d798174ff5782e1b64075",
+            "sha256": "sha256-y7vuzCuwYN8+eSTP2bffh1ATjlbOyObpOobgM51Zl5c=",
+            "type": "github"
+        },
+        "version": "c2ac9411815cf7fb135d798174ff5782e1b64075"
+    },
     "openasar": {
         "cargoLocks": null,
         "extract": null,

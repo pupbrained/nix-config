@@ -318,11 +318,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1665792122,
+        "lastModified": 1665795948,
         "narHash": "sha256-nPo9/X9WDG08yOtkGC+Y6R4fG/tC9DuzFvMi7OW26/Y=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "9066e59a7b63870ce6a66c38c337afe0c7101362",
+        "rev": "b05e9309ade981b2e2e6b4735a982450b01a182a",
         "type": "github"
       },
       "original": {
@@ -1053,11 +1053,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1665788726,
-        "narHash": "sha256-6kRYefjO1xnV5pktALYKdH+J3F1c6Es8P3Tdy7BXf8s=",
+        "lastModified": 1665806969,
+        "narHash": "sha256-PcMThtGo6KN8CAICFYnsRanwpR+I2ih9pdqbjFSARyw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "be40fb543c7445a8827da43d59cdd1dedf783f56",
+        "rev": "3f453b07e1e1184f6f9b74b6ba740f9e0c550d6a",
         "type": "github"
       },
       "original": {
@@ -1509,11 +1509,11 @@
         "pnpm2nix": "pnpm2nix"
       },
       "locked": {
-        "lastModified": 1665618760,
-        "narHash": "sha256-zpCaQ9fOlcP3JnqjPcS3zftjwCrMB0Oc9xVEUIYnDUU=",
+        "lastModified": 1665799710,
+        "narHash": "sha256-Fna9pv0v2UhDTKxBn9G13kDdI0KzOyShszxhTjy0WFQ=",
         "owner": "pupbrained",
         "repo": "Vencord-nix",
-        "rev": "33a64c754fad045c41ea490223498fe681c1a13b",
+        "rev": "e06b2ed314464bca095a24f285ac1f56ae96d071",
         "type": "github"
       },
       "original": {
