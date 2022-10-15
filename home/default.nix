@@ -407,15 +407,29 @@ with pkgs; {
       colorScheme = "mauve";
 
       spotifyPackage = pkgs.spotify-unwrapped.overrideAttrs (o: {
-        postInstall = ''
-          wrapProgram $out/bin/spotify --prefix LD_PRELOAD : "${pkgs.spotifywm-fixed}/lib/spotifywm.so"
-        '';
+        installPhase =
+          o.installPhase
+          + ''
+            wrapProgram $out/bin/spotify --prefix LD_PRELOAD : "${pkgs.spotifywm-fixed}/lib/spotifywm.so"
+          '';
       });
 
       enabledExtensions = [
-        "fullAppDisplay.js"
+        "fullAppDisplayMod.js"
         "shuffle+.js"
         "hidePodcasts.js"
+        "playNext.js"
+        "volumePercentage.js"
+        "genre.js"
+        "history.js"
+        "lastfm.js"
+        "copyToClipboard.js"
+        "showQueueDuration.js"
+        "songStats.js"
+        "fullAlbumDate.js"
+        "keyboardShortcut.js"
+        "powerBar.js"
+        "playlistIcons.js"
       ];
     };
 
