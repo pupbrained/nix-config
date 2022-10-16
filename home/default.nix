@@ -13,6 +13,11 @@ with pkgs; {
     inputs.nur.nixosModules.nur
   ];
 
+  home.file.".mozilla/firefox/marshall/chrome" = {
+    source = ../dotfiles/firefox;
+    recursive = true;
+  };
+
   home.packages = [
     # SNOW BEGIN
     acpi
@@ -229,13 +234,10 @@ with pkgs; {
             "gfx.webrender.all" = true;
             "svg.context-properties.content.enabled" = true;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-            # TODO: Make this work
-            "userChrome.FilledMenuIcons-Enabled" = false;
+            "userChrome.FilledMenuIcons-Enabled" = true;
             "userChrome.OneLine-Enabled" = true;
             "userChrome.ProtonTabs-Enabled" = true;
           };
-
-          userChrome = builtins.readFile ../dotfiles/firefox/userChrome.css;
         };
       };
     };
