@@ -32,34 +32,28 @@ with pkgs; {
     cachix
     cargo-edit
     cargo-udeps
-    cht-sh
     cmake
     comma
-    ddcutil
-    deno
     discord-patched
     draconis
     file
-    fractal-next
     gcc
     glib
     glrnvim
     gnome.eog
+    gnome.file-roller
     gnome.geary
     gnome.gnome-tweaks
     gnome.nautilus
     gnome.seahorse
     gnome.zenity
     gnumake
-    gotktrix
-    gparted
     gpick
     gradience
     grex
     grim
     gsettings-desktop-schemas
     headsetcontrol
-    helix
     inotify-tools
     jamesdsp
     jellyfin-ffmpeg
@@ -75,10 +69,7 @@ with pkgs; {
     libffi
     libnotify
     libsForQt5.qtstyleplugin-kvantum
-    lite-xl
-    lua52Packages.lgi
     lxappearance
-    mate.engrampa
     micro
     minecraft
     mold
@@ -92,7 +83,6 @@ with pkgs; {
     nodePackages.generator-code
     nodePackages.pnpm
     nodePackages.typescript-language-server
-    nodePackages.yo
     nodejs-16_x
     notion-app-enhanced
     nvui
@@ -101,36 +91,28 @@ with pkgs; {
     openal
     openjdk16-bootstrap
     p7zip
-    pamixer
-    papirus-icon-theme
     pavucontrol
-    picom
     playerctl
     polymc
     pulseaudio
     python
     python310
-    ranger
     revolt
     riff
     rnix-lsp
     rofi
     rust-analyzer-nightly
     rustup
-    scons
     scrot
     slurp
-    sony-headphones-client
     statix
     stylua
     sumneko-lua-language-server
     swaynotificationcenter
     tealdeer
-    thefuck
     tre
     unrar
     unzip
-    usbimager
     waybar
     wf-recorder
     wget
@@ -141,17 +123,13 @@ with pkgs; {
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
-    xdotool
-    xonsh
     yarn
-    zee
     zscroll
     # SNOW END
   ];
 
   programs = with pkgs; {
     direnv.enable = true;
-    gitui.enable = true;
     gpg.enable = true;
 
     bat = {
@@ -244,10 +222,6 @@ with pkgs; {
 
     fish = {
       enable = true;
-
-      interactiveShellInit = ''
-        ${pkgs.thefuck}/bin/thefuck --alias tf | source
-      '';
 
       plugins = [
         {
@@ -392,11 +366,6 @@ with pkgs; {
       scripts = [
         mpvScripts.mpris
       ];
-    };
-
-    navi = {
-      enable = true;
-      enableFishIntegration = true;
     };
 
     nix-index = {
