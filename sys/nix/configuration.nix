@@ -49,8 +49,8 @@ with lib; {
       enable = true;
       allowBitmaps = true;
       defaultFonts = {
-        emoji = ["Twemoji"];
-        monospace = ["JetbrainsMono Nerd Font Mono"];
+        emoji = ["Twitter Color Emoji"];
+        monospace = ["Maple Mono NF"];
         sansSerif = ["Google Sans Text"];
       };
       hinting.style = "hintfull";
