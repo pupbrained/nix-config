@@ -69,7 +69,6 @@ with lib; {
 
   services = {
     blueman.enable = true;
-    flatpak.enable = true;
     mullvad-vpn.enable = true;
 
     gnome = {
@@ -86,11 +85,6 @@ with lib; {
         enable = true;
         support32Bit = true;
       };
-    };
-
-    tor = {
-      enable = true;
-      torsocks.enable = true;
     };
 
     xserver = {
@@ -114,9 +108,21 @@ with lib; {
 
   environment = {
     variables = {
-      NIXOS_OZONE_WL = "1";
-      GLFW_IM_MODULE = "true";
+      NIXPKGS_ALLOW_UNFREE = "1";
+      GLFW_IM_MODULE = "ibus";
+      LIBVA_DRIVER_NAME = "nvidia";
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      GPG_TTY = "$TTY";
+      CLUTTER_BACKEND = "wayland";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      WLR_BACKEND = "vulkan";
+      WLR_RENDERER = "vulkan";
+      GTK_THEME = "Quixotic-pink";
     };
+
     loginShellInit = ''
       dbus-update-activation-environment --systemd DISPLAY
       eval $(ssh-agent)
@@ -125,7 +131,6 @@ with lib; {
   };
 
   security = {
-    pam.services.sddm.enableGnomeKeyring = true;
     polkit.enable = true;
     rtkit.enable = true;
   };
@@ -167,25 +172,7 @@ with lib; {
     pulseaudio.enable = false;
   };
 
-  environment.extraInit = ''
-    export LIBVA_DRIVER_NAME="nvidia"
-    export GBM_BACKEND="nvidia-drm"
-    export __GLX_VENDOR_LIBRARY_NAME="nvidia"
-    export WLR_NO_HARDWARE_CURSORS=1
-    export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
-    export GPG_TTY="$TTY"
-    CLUTTER_BACKEND="wayland"
-    XDG_SESSION_TYPE="wayland"
-    QT_QPA_PLATFORM="wayland"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-    WLR_BACKEND="vulkan"
-    WLR_RENDERER="vulkan"
-    GTK_THEME="Quixotic-pink"
-  '';
-
   documentation.man.man-db.enable = false;
-
-  virtualisation.docker.enable = true;
 
   nix.settings.trusted-users = ["root" "marshall"];
 
