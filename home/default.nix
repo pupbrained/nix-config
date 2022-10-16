@@ -261,7 +261,6 @@ with pkgs; {
         export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
         export EDITOR=nvim
         export VISUAL=nvim
-        export NIXPKGS_ALLOW_UNFREE=1
       '';
     };
 
@@ -449,10 +448,5 @@ with pkgs; {
     Install = {
       WantedBy = ["graphical-session.target"];
     };
-  };
-
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    package = fcitx5-with-addons;
   };
 }

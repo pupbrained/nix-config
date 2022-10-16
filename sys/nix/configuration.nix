@@ -136,6 +136,8 @@ with lib; {
     extraLocaleSettings = {
       LC_TIME = "en_US.UTF-8";
     };
+    inputMethod.enabled = "ibus";
+    inputMethod.ibus.engines = with pkgs.ibus-engines; [uniemoji];
   };
 
   hardware = {
