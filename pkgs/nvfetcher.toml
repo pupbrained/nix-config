@@ -13,7 +13,3 @@ fetch.github = "tamton-aquib/staline.nvim"
 [zscroll]
 src.git = "https://github.com/noctuid/zscroll"
 fetch.github = "noctuid/zscroll"
-
-[openasar]
-src.git = "https://github.com/GooseMod/OpenAsar"
-fetch.github = "GooseMod/OpenAsar"

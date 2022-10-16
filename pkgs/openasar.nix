@@ -14,8 +14,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "GooseMod";
     repo = "OpenAsar";
-    rev = "78204759a3d111d7da6c57f1533d56a25c79f161";
-    hash = "sha256-/1Mlww5/ulOi9ZZ/UVec2KHCvDCh0iuFViPinkNSoEY=";
+    rev = "7a04cb57dff43f328de78addc234e9d21ff079a8";
+    hash = "sha256-6zYXv+iAfDEFHQ4FwNVEA4+zWiDyeLvkm17f4LuaCJg=";
   };
 
   postPatch = ''
