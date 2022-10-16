@@ -85,37 +85,13 @@ inputs.nixpkgs.lib.composeManyExtensions [
       nvidiaPatches = true;
     };
 
-    discord-canary =
-      (prev.discord-canary.overrideAttrs
-        (
-          o: let
-            binaryName = "DiscordCanary";
-            inherit (final) runtimeShell lib electron_20;
-          in {
-            nativeBuildInputs = o.nativeBuildInputs ++ [final.nodePackages.asar];
-            postInstall =
-              (o.postInstall or "")
-              + ''
-                rm $out/opt/${binaryName}/${binaryName}
-                cat << EOF > $out/opt/${binaryName}/${binaryName}
-                #!${runtimeShell}
-                ${lib.getExe electron_20} "$out/opt/${binaryName}/resources/app.asar" "$@"
-                EOF
-                chmod +x $out/opt/${binaryName}/${binaryName}
-              '';
-          }
-        ))
-      .override
-      {
-        nss = final.nss_latest;
-        openasar = final.callPackage ./openasar.nix {};
-        withOpenASAR = true;
-      };
+    discord-canary = prev.discord-canary.override {
+      nss = final.nss_latest;
+      openasar = final.callPackage ./openasar.nix {};
+      withOpenASAR = true;
+    };
 
-    firefox-addons =
-      prev.callPackages
-      ./firefox-addons
-      {};
+    firefox-addons = prev.callPackages ./firefox-addons {};
   })
 
   inputs.fenix.overlay
