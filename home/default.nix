@@ -93,7 +93,6 @@ with pkgs; {
     p7zip
     pavucontrol
     playerctl
-    polymc
     pulseaudio
     python
     python310
