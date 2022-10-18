@@ -6,17 +6,12 @@
   bash,
   nodePackages,
   unzip,
+  src,
+  pname,
+  version,
 }:
 stdenv.mkDerivation rec {
-  pname = "openasar";
-  version = "unstable-2022-09-29";
-
-  src = fetchFromGitHub {
-    owner = "GooseMod";
-    repo = "OpenAsar";
-    rev = "7a04cb57dff43f328de78addc234e9d21ff079a8";
-    hash = "sha256-6zYXv+iAfDEFHQ4FwNVEA4+zWiDyeLvkm17f4LuaCJg=";
-  };
+  inherit pname version src;
 
   postPatch = ''
     # Hardcode unzip path

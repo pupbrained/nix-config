@@ -10,6 +10,10 @@ fetch.github = "noib3/nvim-cokeline"
 src.git = "https://github.com/tamton-aquib/staline.nvim"
 fetch.github = "tamton-aquib/staline.nvim"
 
+[openasar]
+src.git = "https://github.com/GooseMod/OpenAsar"
+fetch.github = "GooseMod/OpenAsar"
+
 [zscroll]
 src.git = "https://github.com/noctuid/zscroll"
 fetch.github = "noctuid/zscroll"

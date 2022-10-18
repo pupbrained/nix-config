@@ -87,13 +87,15 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     discord-canary = prev.discord-canary.override {
       nss = final.nss_latest;
-      openasar = final.callPackage ./openasar.nix {};
+      openasar = final.callPackage ./openasar.nix {inherit (sources.openasar) src pname version;};
       withOpenASAR = true;
     };
 
-    firefox-addons = prev.callPackages ./firefox-addons {};
+    firefox-addons =
+      prev.callPackages
+      ./firefox-addons
+      {};
   })
 
   inputs.fenix.overlay
-  inputs.polymc.overlay
 ]
