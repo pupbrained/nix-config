@@ -49,7 +49,7 @@ with lib; {
       enable = true;
       allowBitmaps = true;
       defaultFonts = {
-        emoji = ["Twitter Color Emoji"];
+        emoji = ["Noto Color Emoji"];
         monospace = ["Maple Mono NF"];
         sansSerif = ["Google Sans Text"];
       };
