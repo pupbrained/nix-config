@@ -13,6 +13,10 @@ with pkgs; {
     inputs.nur.nixosModules.nur
   ];
 
+  manual.html.enable = false;
+  manual.json.enable = false;
+  manual.manpages.enable = false;
+
   home.file.".mozilla/firefox/marshall/chrome" = {
     source = ../dotfiles/firefox;
     recursive = true;

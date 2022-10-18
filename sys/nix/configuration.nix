@@ -173,6 +173,7 @@ with lib; {
   };
 
   documentation.man.man-db.enable = false;
+  documentation.enable = false;
 
   nix.settings.trusted-users = ["root" "marshall"];
 
