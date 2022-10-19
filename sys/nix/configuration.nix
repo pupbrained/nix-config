@@ -91,7 +91,8 @@ with lib; {
       enable = true;
       videoDrivers = ["nvidia"];
 
-      displayManager.startx.enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
     };
   };
 

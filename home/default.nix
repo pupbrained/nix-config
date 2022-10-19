@@ -17,6 +17,10 @@ with pkgs; {
   manual.json.enable = false;
   manual.manpages.enable = false;
 
+  qt.enable = true;
+  qt.style.package = pkgs.libsForQt5.qtstyleplugins;
+  qt.style.name = "motif";
+
   home.file.".mozilla/firefox/marshall/chrome" = {
     source = ../dotfiles/firefox;
     recursive = true;
