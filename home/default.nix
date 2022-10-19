@@ -40,6 +40,7 @@ with pkgs; {
     comma
     discord-patched
     draconis
+    edgedb
     file
     gcc
     glib
