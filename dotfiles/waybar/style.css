@@ -50,6 +50,7 @@ tooltip {
 #custom-date,
 #custom-notification,
 #custom-media,
+#custom-cava,
 #clock,
 #battery,
 #pulseaudio,
@@ -64,9 +65,16 @@ tooltip {
 #custom-media {
   background-color: #1e1e2e;
   color: #f5c2e7;
-  padding: 0 15px;
-  border-radius: 15px;
+  padding-right: 15px;
+  border-radius: 0 15px 15px 0;
   margin-right: 10px;
+}
+
+#custom-cava {
+  background-color: #1e1e2e;
+  color: #f5c2e7;
+  padding-left: 15px;
+  border-radius: 15px 0 0 15px;
 }
 
 #custom-notification {
@@ -87,12 +95,11 @@ tooltip {
 
 #clock {
   color: #cba6f7;
-  border-radius: 0px 15px 15px 0px;
+  border-radius: 0 15px 15px 0;
 }
 
 #network {
   color: #fab387;
-  border-radius: 0px 0px 0px 0px;
 }
 
 #pulseaudio {

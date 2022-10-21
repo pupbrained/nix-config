@@ -14,6 +14,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/cava",
     "custom/media"
   ],
   "wlr/workspaces": {
@@ -73,6 +74,9 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "custom/cava": {
+    "exec": "$HOME/.config/waybar/cava.sh"
   },
   "clock": {
     "format": "  {:%I:%M %p} ",
