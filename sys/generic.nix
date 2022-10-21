@@ -4,29 +4,6 @@
   ...
 }: let
   sources = pkgs.callPackage ../_sources/generated.nix {};
-  configure-gtk = pkgs.writeTextFile {
-    name = "configure-gtk";
-    destination = "/bin/configure-gtk";
-    executable = true;
-    text = let
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      config="$HOME/.config/gtk-3.0/settings.ini"
-      gnome_schema=org.gnome.desktop.interface
-      gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-      icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-      cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-      font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
-      gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
-      gsettings set "$gnome_schema" icon-theme "$icon_theme"
-      gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
-      gsettings set "$gnome_schema" font-name "$font_name"
-      gnome_schema=org.gnome.desktop.wm.preferences
-      gsettings set "$gnome_schema" button-layout ':'
-    '';
-  };
 in {
   nixpkgs = {
     config = {
@@ -34,10 +11,6 @@ in {
     };
     overlays = [(import ../pkgs inputs)];
   };
-
-  environment.systemPackages = with pkgs; [
-    configure-gtk
-  ];
 
   nix = {
     package = pkgs.nixVersions.unstable;

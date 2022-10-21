@@ -82,6 +82,15 @@ inputs.nixpkgs.lib.composeManyExtensions [
       };
     });
 
+    mpv-unwrapped = prev.mpv-unwrapped.overrideAttrs (o: {
+      src = prev.pkgs.fetchFromGitHub {
+        owner = "mpv-player";
+        repo = "mpv";
+        rev = "48ad2278c7a1fc2a9f5520371188911ef044b32c";
+        sha256 = "sha256-6qbv34ysNQbI/zff6rAnVW4z6yfm2t/XL/PF7D/tjv4=";
+      };
+    });
+
     hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
       nvidiaPatches = true;
     };

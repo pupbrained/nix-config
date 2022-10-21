@@ -108,20 +108,20 @@ with lib; {
 
   environment = {
     variables = {
-      NIXPKGS_ALLOW_UNFREE = "1";
+      CLUTTER_BACKEND = "wayland";
+      DEFAULT_BROWSER = "${pkgs.firefox-nightly-bin}/bin/firefox";
+      GBM_BACKEND = "nvidia-drm";
       GLFW_IM_MODULE = "ibus";
+      GPG_TTY = "$TTY";
       LIBSEAT_BACKEND = "logind";
       LIBVA_DRIVER_NAME = "nvidia";
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      WLR_NO_HARDWARE_CURSORS = "1";
-      GPG_TTY = "$TTY";
-      CLUTTER_BACKEND = "wayland";
+      NIXPKGS_ALLOW_UNFREE = "1";
       QT_QPA_PLATFORM = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       WLR_BACKEND = "vulkan";
+      WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER = "vulkan";
-      GTK_THEME = "Quixotic-pink";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
 
     loginShellInit = ''

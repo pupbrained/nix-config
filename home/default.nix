@@ -32,6 +32,7 @@ with pkgs; {
     cachix
     cargo-edit
     cargo-udeps
+    cava
     cmake
     comma
     discord-patched
@@ -428,7 +429,25 @@ with pkgs; {
   };
 
   xdg = {
-    mimeApps.enable = true;
+    mimeApps = {
+      enable = true;
+
+      defaultApplications = {
+        "image/png" = "eog.desktop";
+        "image/jpeg" = "eog.desktop";
+        "image/gif" = "eog.desktop";
+        "image/webp" = "eog.desktop";
+        "text/html" = "firefox.desktop";
+        "text/plain" = "nvim.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
+        "video/mp4" = "mpv.desktop";
+        "video/webm" = "mpv.desktop";
+        "video/H264" = "mpv.desktop";
+      };
+    };
 
     desktopEntries."idea-ultimate" = {
       name = "Intellij IDEA";
@@ -439,6 +458,8 @@ with pkgs; {
   };
 
   gtk = {
+    enable = true;
+
     theme = {
       package = pkgs.catppuccin-gtk;
       name = "Catppuccin-Mocha-Mauve";
