@@ -110,6 +110,7 @@ with lib; {
     variables = {
       NIXPKGS_ALLOW_UNFREE = "1";
       GLFW_IM_MODULE = "ibus";
+      LIBSEAT_BACKEND = "logind";
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
