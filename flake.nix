@@ -14,10 +14,11 @@
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
+    prism-launcher.url = "github:PrismLauncher/PrismLauncher";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     tre.url = "github:dduan/tre";
-    vencord.url = "github:pupbrained/Vencord-nix";
+    vencord.url = "github:pupbrained/vencord-nix-flake";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
   };
 

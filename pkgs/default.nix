@@ -20,6 +20,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.vscodeInsiders.packages.${prev.system}) vscodeInsiders;
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
     inherit (inputs.nil.packages.${prev.system}) nil;
+    inherit (inputs.prism-launcher.packages.${prev.system}) prismlauncher;
 
     discord-patched = inputs.vencord.packages.${prev.system}.discord-patched.override {
       inherit (final) discord-canary;

@@ -98,6 +98,7 @@ with pkgs; {
     p7zip
     pavucontrol
     playerctl
+    prismlauncher
     pulseaudio
     python
     python310
