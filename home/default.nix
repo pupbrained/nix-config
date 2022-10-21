@@ -427,11 +427,37 @@ with pkgs; {
     };
   };
 
-  xdg.desktopEntries."idea-ultimate" = {
-    name = "Intellij IDEA";
-    exec = "steam-run idea-ultimate";
-    icon = "idea-ultimate";
-    settings.StartupWMClass = "jetbrains-idea";
+  xdg = {
+    mimeApps.enable = true;
+
+    desktopEntries."idea-ultimate" = {
+      name = "Intellij IDEA";
+      exec = "steam-run idea-ultimate";
+      icon = "idea-ultimate";
+      settings.StartupWMClass = "jetbrains-idea";
+    };
+  };
+
+  gtk = {
+    theme = {
+      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin-Mocha-Mauve";
+    };
+
+    cursorTheme = {
+      package = pkgs.capitaine-cursors;
+      name = "capitaine-cursors";
+    };
+
+    iconTheme = {
+      package = pkgs.kora-icon-theme;
+      name = "kora";
+    };
+
+    font = {
+      name = "Google Sans Text";
+      size = 11;
+    };
   };
 
   systemd.user.services.polkit = {
