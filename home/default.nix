@@ -13,122 +13,133 @@ with pkgs; {
     inputs.nur.nixosModules.nur
   ];
 
-  home.file.".mozilla/firefox/marshall/chrome" = {
-    source = ../dotfiles/firefox;
-    recursive = true;
-  };
+  home = {
+    file.".mozilla/firefox/marshall/chrome" = {
+      source = ../dotfiles/firefox;
+      recursive = true;
+    };
 
-  home.packages = [
-    # SNOW BEGIN
-    acpi
-    alejandra
-    android-tools
-    audacity
-    authy
-    bacon
-    binutils
-    brightnessctl
-    btop
-    cachix
-    cargo-edit
-    cargo-udeps
-    cava
-    cmake
-    comma
-    discord-patched
-    draconis
-    edgedb
-    file
-    gcc
-    glib
-    glrnvim
-    gnome.eog
-    gnome.file-roller
-    gnome.geary
-    gnome.gnome-tweaks
-    gnome.nautilus
-    gnome.seahorse
-    gnome.zenity
-    gnumake
-    gpick
-    gradience
-    grex
-    grim
-    gsettings-desktop-schemas
-    headsetcontrol
-    inotify-tools
-    jamesdsp
-    jellyfin-ffmpeg
-    jetbrains-fleet
-    jetbrains.idea-ultimate
-    jetbrains.webstorm
-    jq
-    keybase
-    keychain
-    kotatogram-desktop
-    lazygit
-    libappindicator
-    libffi
-    libnotify
-    libsForQt5.qtstyleplugin-kvantum
-    lxappearance
-    micro
-    minecraft
-    mold
-    mpvScripts.mpris
-    mullvad-vpn
-    nextcloud-client
-    ngrok
-    nil
-    nix-prefetch-scripts
-    nix-snow
-    nodePackages.generator-code
-    nodePackages.pnpm
-    nodePackages.typescript-language-server
-    nodejs-16_x
-    notion-app-enhanced
-    nvui
-    obs-studio
-    odin
-    openal
-    openjdk16-bootstrap
-    p7zip
-    pavucontrol
-    playerctl
-    prismlauncher
-    pulseaudio
-    python
-    python310
-    revolt
-    riff
-    rnix-lsp
-    rofi
-    rust-analyzer-nightly
-    rustup
-    scrot
-    slurp
-    statix
-    stylua
-    sumneko-lua-language-server
-    swaynotificationcenter
-    tealdeer
-    tre
-    unrar
-    unzip
-    waybar
-    wf-recorder
-    wget
-    wineWowPackages.waylandFull
-    wl-clipboard
-    wl-color-picker
-    xclip
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    yarn
-    zscroll
-    # SNOW END
-  ];
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.catppuccin-cursors;
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      size = 24;
+    };
+
+    packages = [
+      # SNOW BEGIN
+      acpi
+      alejandra
+      android-tools
+      audacity
+      authy
+      bacon
+      binutils
+      brightnessctl
+      btop
+      cachix
+      cargo-edit
+      cargo-udeps
+      cava
+      cmake
+      comma
+      discord-patched
+      draconis
+      edgedb
+      file
+      gcc
+      glib
+      glrnvim
+      gnome.eog
+      gnome.file-roller
+      gnome.geary
+      gnome.gnome-tweaks
+      gnome.nautilus
+      gnome.seahorse
+      gnome.zenity
+      gnumake
+      gpick
+      gradience
+      grex
+      grim
+      gsettings-desktop-schemas
+      headsetcontrol
+      inotify-tools
+      jamesdsp
+      jellyfin-ffmpeg
+      jetbrains-fleet
+      jetbrains.idea-ultimate
+      jetbrains.webstorm
+      jq
+      keybase
+      keychain
+      kotatogram-desktop
+      lazygit
+      libappindicator
+      libffi
+      libnotify
+      libsForQt5.qtstyleplugin-kvantum
+      lxappearance
+      micro
+      minecraft
+      mold
+      mpvScripts.mpris
+      mullvad-vpn
+      nextcloud-client
+      ngrok
+      nil
+      nix-prefetch-scripts
+      nix-snow
+      nodePackages.generator-code
+      nodePackages.pnpm
+      nodePackages.typescript-language-server
+      nodejs-16_x
+      notion-app-enhanced
+      nvui
+      obs-studio
+      odin
+      openal
+      openjdk16-bootstrap
+      p7zip
+      pavucontrol
+      playerctl
+      prismlauncher
+      pulseaudio
+      python
+      python310
+      revolt
+      riff
+      rnix-lsp
+      rofi
+      rust-analyzer-nightly
+      rustup
+      scrot
+      slurp
+      statix
+      stylua
+      sumneko-lua-language-server
+      swaynotificationcenter
+      tealdeer
+      tre
+      ulauncher
+      unrar
+      unzip
+      waybar
+      wf-recorder
+      wget
+      wineWowPackages.waylandFull
+      wl-clipboard
+      wl-color-picker
+      xclip
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      yarn
+      zscroll
+      # SNOW END
+    ];
+  };
 
   programs = with pkgs; {
     direnv.enable = true;
@@ -435,10 +446,11 @@ with pkgs; {
       enable = true;
 
       defaultApplications = {
-        "image/png" = "eog.desktop";
-        "image/jpeg" = "eog.desktop";
-        "image/gif" = "eog.desktop";
-        "image/webp" = "eog.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "image/png" = "gnome.org.eog.desktop";
+        "image/jpeg" = "gnome.org.eog.desktop";
+        "image/gif" = "gnome.org.eog.desktop";
+        "image/webp" = "gnome.org.eog.desktop";
         "text/html" = "firefox.desktop";
         "text/plain" = "nvim.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
@@ -467,19 +479,24 @@ with pkgs; {
       name = "Catppuccin-Mocha-Mauve";
     };
 
-    cursorTheme = {
-      package = pkgs.capitaine-cursors;
-      name = "capitaine-cursors";
-    };
-
     iconTheme = {
-      package = pkgs.kora-icon-theme;
-      name = "kora";
+      package = pkgs.whitesur-icon-theme;
+      name = "WhiteSur-dark";
     };
 
     font = {
       name = "Google Sans Text";
       size = 11;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+
+    style = {
+      package = pkgs.adwaita-qt;
+      name = "adwaita-dark";
     };
   };
 

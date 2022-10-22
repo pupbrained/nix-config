@@ -32,6 +32,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
+    catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
     gradience = final.callPackage ./gradience.nix {};
     jetbrains-fleet = final.callPackage ./fleet.nix {};
     nvui = final.libsForQt5.callPackage ./nvui.nix {};
