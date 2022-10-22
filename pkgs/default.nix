@@ -69,10 +69,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.nvim-cokeline) src pname version;
     };
 
-    nvim-staline = prev.vimUtils.buildVimPlugin {
-      inherit (sources.nvim-staline) src pname version;
-    };
-
     spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {
       src = prev.pkgs.fetchFromGitHub {
         owner = "amurzeau";
