@@ -117,6 +117,8 @@ wk.register({
     r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
     s = { "<cmd>Telescope git_status<cr>", "Git Status" },
   },
+  z = { "<cmd>ZenMode<cr>", "Zen Mode" },
+  t = { "<cmd>Twilight<cr>", "Twilight" },
 }, { prefix = "<Leader>" })
 
 vim.keymap.set('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>')
@@ -130,15 +132,75 @@ vim.keymap.set('n', '<M-k>', '<C-W>k')
 
 local colors = {
   blue   = '#89b4fa',
-  cyan   = '#89dceb',
-  black  = '#1e1e2e',
+  cyan   = '#94e2d5',
+  black  = '#141421',
   white  = '#cdd6f4',
-  red    = '#f38ba8',
-  violet = '#CBA6F7',
-  grey   = '#12131F',
+  red    = '#cdd6f4',
+  violet = '#cba6f7',
+  grey   = '#181d2d',
 }
 
-require('staline').setup()
+local bubbles_theme = {
+  normal = {
+    a = { fg = colors.black, bg = colors.violet },
+    b = { fg = colors.white, bg = colors.grey },
+    c = { fg = colors.black, bg = colors.black },
+  },
+
+  insert = { a = { fg = colors.black, bg = colors.blue } },
+  visual = { a = { fg = colors.black, bg = colors.cyan } },
+  replace = { a = { fg = colors.black, bg = colors.red } },
+
+  inactive = {
+    a = { fg = colors.white, bg = colors.black },
+    b = { fg = colors.white, bg = colors.black },
+    c = { fg = colors.black, bg = colors.black },
+  },
+}
+
+local nvim_tree_shift =  {
+  function ()
+    return string.rep(' ', vim.api.nvim_win_get_width(require'nvim-tree.view'.get_winnr()) - 1)
+  end,
+  cond = require('nvim-tree.view').is_visible,
+  color = 'NvimTreeNormal'
+}
+
+require('lualine').setup {
+  options = {
+    theme = bubbles_theme,
+    component_separators = '|',
+    section_separators = { left = '', right = '' },
+    refresh = {
+      statusline = 100,
+      tabline = 100,
+      winbar = 100,
+    }
+  },
+  sections = {
+    lualine_a = {
+      nvim_tree_shift,
+      { 'mode', separator = { left = '' }, right_padding = 2 },
+    },
+    lualine_b = { 'filename', 'branch' },
+    lualine_c = { 'fileformat' },
+    lualine_x = { 'lsp_progress' },
+    lualine_y = { 'filetype', 'progress' },
+    lualine_z = {
+      { 'location', separator = { right = '' }, left_padding = 2 },
+    },
+  },
+  inactive_sections = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = { 'location' },
+  },
+  tabline = {},
+  extensions = {},
+}
 
 vim.opt.list = true
 
@@ -233,13 +295,22 @@ require('cokeline').setup({
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-require 'FTerm'.setup({
+require('FTerm').setup({
   border     = 'rounded',
   dimensions = {
     height = 0.9,
     width = 0.9,
   },
 })
+
+require('zen-mode').setup {
+  plugins = {
+    kitty = {
+      enabled = true,
+      font = '+2',
+    },
+  },
+}
 
 local cmp = require('cmp')
 local lspkind = require('lspkind')

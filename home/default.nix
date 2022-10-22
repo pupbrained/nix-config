@@ -304,6 +304,8 @@ with pkgs; {
       settings = {
         editor = "nvim";
         shell_integration = true;
+        allow_remote_control = "socket-only";
+        listen_on = "unix:/tmp/kitty";
         placement_strategy = "center";
         hide_window_decorations = "titlebar-only";
         background_opacity = "0.8";

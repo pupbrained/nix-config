@@ -13,7 +13,6 @@
     plugins = with pkgs.vimPlugins; [
       pkgs.copilot-vim
       pkgs.nvim-cokeline
-      pkgs.nvim-staline
 
       cmp_luasnip
       cmp-path
@@ -28,6 +27,8 @@
       lazygit-nvim
       lightspeed-nvim
       lspkind-nvim
+      lualine-lsp-progress
+      lualine-nvim
       luasnip
       markdown-preview-nvim
       null-ls-nvim
@@ -41,9 +42,11 @@
       telescope-nvim
       telescope-fzf-native-nvim
       trouble-nvim
+      twilight-nvim
       which-key-nvim
       vim-cool
       vim-smoothie
+      zen-mode-nvim
     ];
 
     extraConfig = ''
