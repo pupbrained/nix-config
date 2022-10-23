@@ -41,13 +41,13 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
-      version = "0.26.3";
+      version = "0.26.4";
       format = "other";
       src = prev.pkgs.fetchFromGitHub {
         owner = "kovidgoyal";
         repo = "kitty";
         rev = "v${version}";
-        sha256 = "sha256-pFucI80sz8AOfA/zDlGy/HLvj5Z4z8t10nunkKhwOWw=";
+        sha256 = "sha256-pmEMLYEuDQOiE5TlwkObfBuARN9Yph/d3RQx3FBDWOw=";
       };
     };
 

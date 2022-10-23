@@ -31,7 +31,6 @@ with pkgs; {
       # SNOW BEGIN
       acpi
       alejandra
-      android-tools
       audacity
       authy
       bacon
@@ -84,7 +83,6 @@ with pkgs; {
       micro
       minecraft
       mold
-      mpvScripts.mpris
       mullvad-vpn
       ngrok
       nil
@@ -93,7 +91,7 @@ with pkgs; {
       nodePackages.generator-code
       nodePackages.pnpm
       nodePackages.typescript-language-server
-      nodejs-16_x
+      nodejs
       notion-app-enhanced
       nvui
       obs-studio
