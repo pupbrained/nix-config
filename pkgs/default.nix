@@ -33,6 +33,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
+    catppuccin-folders = final.callPackage ./catppuccin-folders.nix {};
     gradience = final.callPackage ./gradience.nix {};
     jetbrains-fleet = final.callPackage ./fleet.nix {};
     nvui = final.libsForQt5.callPackage ./nvui.nix {};
@@ -96,6 +97,11 @@ inputs.nixpkgs.lib.composeManyExtensions [
       nss = final.nss_latest;
       openasar = final.callPackage ./openasar.nix {inherit (sources.openasar) src pname version;};
       withOpenASAR = true;
+    };
+
+    catppuccin-folders = symlinkJoin {
+      name = "catppuccin-folders";
+      paths = [papirus-icon-theme papirus-folders];
     };
 
     firefox-addons = prev.callPackages ./firefox-addons {};

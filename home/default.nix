@@ -52,11 +52,8 @@ with pkgs; {
       glrnvim
       gnome.eog
       gnome.file-roller
-      gnome.geary
-      gnome.gnome-tweaks
       gnome.nautilus
       gnome.seahorse
-      gnome.zenity
       gnumake
       gpick
       gradience
@@ -119,7 +116,6 @@ with pkgs; {
       swaynotificationcenter
       tealdeer
       tre
-      ulauncher
       unrar
       unzip
       waybar
@@ -468,7 +464,7 @@ with pkgs; {
     };
 
     iconTheme = {
-      package = pkgs.whitesur-icon-theme;
+      package = pkgs.catppuccin-folders;
       name = "WhiteSur-dark";
     };
 
