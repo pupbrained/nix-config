@@ -3,14 +3,14 @@ inputs.nixpkgs.lib.composeManyExtensions [
   (final: prev: let
     sources = prev.callPackage ./_sources/generated.nix {};
 
-    catppuccin = "${prev.pkgs.fetchFromGitHub {
+    catppuccin = "${prev.fetchFromGitHub {
       owner = "catppuccin";
       repo = "discord";
       rev = "d65e21cf2302355e1d8a50fe8f7714f6ebb1261d";
       sha256 = "sha256-EN4YKCzkYe9xOtv9tPLPVHXJOj1XODrnLy+SSZWObSY=";
     }}/themes/mocha.theme.css";
 
-    hsl = "${prev.pkgs.fetchFromGitHub {
+    hsl = "${prev.fetchFromGitHub {
       owner = "DiscordStyles";
       repo = "HorizontalServerList";
       rev = "b9fc8862f4bd1f24e575a687dbcf096ab338fe7f";
@@ -39,11 +39,11 @@ inputs.nixpkgs.lib.composeManyExtensions [
     python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};
     revolt = final.callPackage ./revolt.nix {};
 
-    kitty = prev.pkgs.python3Packages.buildPythonApplication rec {
+    kitty = prev.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
       version = "0.26.4";
       format = "other";
-      src = prev.pkgs.fetchFromGitHub {
+      src = prev.fetchFromGitHub {
         owner = "kovidgoyal";
         repo = "kitty";
         rev = "v${version}";
@@ -71,7 +71,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     };
 
     spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {
-      src = prev.pkgs.fetchFromGitHub {
+      src = prev.fetchFromGitHub {
         owner = "amurzeau";
         repo = "spotifywm";
         rev = "a2b5efd5439b0404f1836cc9a681417627531a00";
@@ -80,7 +80,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     });
 
     mpv-unwrapped = prev.mpv-unwrapped.overrideAttrs (o: {
-      src = prev.pkgs.fetchFromGitHub {
+      src = prev.fetchFromGitHub {
         owner = "mpv-player";
         repo = "mpv";
         rev = "48ad2278c7a1fc2a9f5520371188911ef044b32c";
@@ -98,10 +98,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
       withOpenASAR = true;
     };
 
-    firefox-addons =
-      prev.callPackages
-      ./firefox-addons
-      {};
+    firefox-addons = prev.callPackages ./firefox-addons {};
   })
 
   inputs.fenix.overlay

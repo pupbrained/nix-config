@@ -255,15 +255,15 @@ with pkgs; {
       ];
 
       shellAliases = {
-        se = "sudoedit";
-        gc = "git commit";
+        cat = "bat";
         ga = "git add";
         gap = "git add -p";
+        gc = "git commit";
         gcap = "ga .; gc; git pushall";
         gcp = "gc; git pushall";
-        gs = "git status";
         gd = "git diff";
-        cat = "bat";
+        gs = "git status";
+        lg = "lazygit";
       };
 
       shellInit = ''
@@ -322,7 +322,7 @@ with pkgs; {
         scrollback_lines = 5000;
         wheel_scroll_multiplier = 5;
         touch_scroll_multiplier = 1;
-        tab_bar_min_tabs = 1;
+        tab_bar_min_tabs = 2;
         tab_bar_edge = "bottom";
         tab_bar_style = "powerline";
         tab_powerline_style = "slanted";
@@ -390,11 +390,7 @@ with pkgs; {
       colorScheme = "mauve";
 
       spotifyPackage = pkgs.spotify-unwrapped.overrideAttrs (o: {
-        installPhase =
-          o.installPhase
-          + ''
-            wrapProgram $out/bin/spotify --prefix LD_PRELOAD : "${pkgs.spotifywm-fixed}/lib/spotifywm.so"
-          '';
+        installPhase = o.installPhase + "wrapProgram $out/bin/spotify --prefix LD_PRELOAD : \"${pkgs.spotifywm-fixed}/lib/spotifywm.so\"";
       });
 
       enabledExtensions = [
@@ -429,6 +425,8 @@ with pkgs; {
   };
 
   services = {
+    kbfs.enable = true;
+    keybase.enable = true;
     mpris-proxy.enable = true;
 
     gpg-agent = {
@@ -458,13 +456,6 @@ with pkgs; {
         "video/webm" = "mpv.desktop";
         "video/H264" = "mpv.desktop";
       };
-    };
-
-    desktopEntries."idea-ultimate" = {
-      name = "Intellij IDEA";
-      exec = "steam-run idea-ultimate";
-      icon = "idea-ultimate";
-      settings.StartupWMClass = "jetbrains-idea";
     };
   };
 

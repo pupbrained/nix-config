@@ -9,7 +9,7 @@ vim.g.astro_typescript = 'enable'
 vim.o.showmode = false
 
 vim.cmd('set mouse=a')
-vim.cmd('set guifont=Iosevka\\ Custom\\ Medium:h14')
+vim.cmd('set guifont=Maple\\ Mono\\ NF:h14')
 
 vim.g.catppuccin_flavour = "mocha"
 require("catppuccin").setup({
@@ -396,3 +396,5 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+vim.cmd('autocmd BufEnter * TwilightEnable')

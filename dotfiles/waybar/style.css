@@ -75,6 +75,7 @@ tooltip {
   color: #f5c2e7;
   padding-left: 15px;
   border-radius: 15px 0 0 15px;
+  letter-spacing: 2px;
 }
 
 #custom-notification {
