@@ -86,7 +86,6 @@ with pkgs; {
       mold
       mpvScripts.mpris
       mullvad-vpn
-      nextcloud-client
       ngrok
       nil
       nix-prefetch-scripts
