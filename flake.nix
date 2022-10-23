@@ -18,7 +18,7 @@
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     tre.url = "github:dduan/tre";
-    vencord.url = "github:pupbrained/vencord-nix-flake";
+    vencord.url = "github:pupbrained/vencord-nix-flake/3fbd0ebf209dc54cf152dac41f7b984d3e23dc1c";
     vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
   };
 
