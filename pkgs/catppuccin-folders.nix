@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  papirus-icon-theme,
 }:
 stdenv.mkDerivation rec {
   pname = "catppuccin-folders";
@@ -16,6 +17,9 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/icons/Papirus
-    cp -r $src/* $out/share/icons/Papirus
+    cp -r ${papirus-icon-theme}/share/icons/Papirus $out/share/icons
+    chmod -R u+rw $out
+    cp -r src/* $out/share/icons/Papirus
+    bash ./papirus-folders -C cat-mocha-red --theme $out/share/icons/Papirus -o
   '';
 }

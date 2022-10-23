@@ -99,11 +99,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
       withOpenASAR = true;
     };
 
-    catppuccin-folders = symlinkJoin {
-      name = "catppuccin-folders";
-      paths = [papirus-icon-theme papirus-folders];
-    };
-
     firefox-addons = prev.callPackages ./firefox-addons {};
   })
 

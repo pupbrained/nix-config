@@ -465,7 +465,7 @@ with pkgs; {
 
     iconTheme = {
       package = pkgs.catppuccin-folders;
-      name = "WhiteSur-dark";
+      name = "Papirus";
     };
 
     font = {
