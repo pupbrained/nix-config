@@ -34,6 +34,7 @@
       null-ls-nvim
       nvim-autopairs
       nvim-cmp
+      nvim-colorizer-lua
       nvim-lspconfig
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       nvim-tree-lua

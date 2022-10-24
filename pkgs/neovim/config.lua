@@ -210,6 +210,7 @@ require("indent_blankline").setup {
 }
 
 require('gitsigns').setup()
+require('colorizer').setup()
 
 require('nvim-treesitter.configs').setup {
   highlight = {
