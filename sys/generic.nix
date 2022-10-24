@@ -16,6 +16,9 @@ in {
     package = pkgs.nixVersions.unstable;
 
     settings = {
+      auto-optimise-store = true;
+      warn-dirty = false;
+
       substituters = [
         "https://cache.nixos.org"
         "https://cache.nixos.org/"
@@ -31,7 +34,7 @@ in {
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
 
-      warn-dirty = false;
+      trusted-users = ["marshall"];
     };
 
     extraOptions = ''
@@ -66,9 +69,10 @@ in {
     shell = pkgs.fish;
 
     extraGroups = [
-      "wheel"
-      "networkmanager"
+      "asbusers"
       "i2c"
+      "networkmanager"
+      "wheel"
     ];
 
     openssh.authorizedKeys.keys = [
@@ -91,6 +95,7 @@ in {
   };
 
   programs = {
+    adb.enable = false;
     ccache.enable = true;
     dconf.enable = true;
     steam.enable = true;
