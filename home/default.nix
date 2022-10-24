@@ -88,13 +88,12 @@ with pkgs; {
       nodePackages.generator-code
       nodePackages.pnpm
       nodePackages.typescript-language-server
-      nodejs
+      nodejs-16_x # for copilot
       notion-app-enhanced
       nvui
       obs-studio
       odin
       openal
-      openjdk16-bootstrap
       p7zip
       pavucontrol
       playerctl
@@ -295,6 +294,11 @@ with pkgs; {
     go = {
       enable = true;
       package = pkgs.go_1_19;
+    };
+
+    java = {
+      enable = true;
+      package = pkgs.jdk;
     };
 
     kitty = {
