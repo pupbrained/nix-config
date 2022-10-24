@@ -464,11 +464,11 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1666463764,
-        "narHash": "sha256-NmayV9S0s7CgNEA2QbIxDU0VCIiX6bIHu8PCQPnYHDM=",
+        "lastModified": 1666558342,
+        "narHash": "sha256-qiH0Zgig28yaSyebehrrYiX1y53Y/xFcQW+EFMRSVI0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "69d19b9839638fc487b370e0600a03577a559081",
+        "rev": "186d9399f9eb64fb06ea4385732c1cf1624ae2b6",
         "type": "github"
       },
       "original": {
@@ -483,11 +483,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1666473034,
-        "narHash": "sha256-UfnSWkp4gWf2AA6hyru9Gv1Rb5Ixvsx1RkZ2iVhgC3w=",
+        "lastModified": 1666566882,
+        "narHash": "sha256-SLMhZKityEEnhuc8Kb8MH+MmNiW169mec6T6XiIB4AY=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "10303259f7c6f3e64e74e9ca8a31d4223071d5f0",
+        "rev": "c6a3092b45da325ee41e39a76fd527d04580a65e",
         "type": "github"
       },
       "original": {
@@ -1509,11 +1509,11 @@
         "pnpm2nix": "pnpm2nix"
       },
       "locked": {
-        "lastModified": 1666553080,
-        "narHash": "sha256-LtGOJZLdcWTqroVDxHCyzTZNRpG/YkflPA8pcU6+T5U=",
+        "lastModified": 1666555705,
+        "narHash": "sha256-SjkrucPEcRWYaM0rNT/DnjCWjQsvY710Ua2ebUiKnBc=",
         "owner": "pupbrained",
         "repo": "vencord-nix-flake",
-        "rev": "61122cb6f00ab306008ccbe8ab53079cd7f7f8b2",
+        "rev": "8a949791ef25f911fca76ce1a3e83723d0c54388",
         "type": "github"
       },
       "original": {
