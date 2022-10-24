@@ -26,6 +26,13 @@ with lib; {
         efiSupport = true;
         useOSProber = true;
         version = 2;
+        extraConfig = ''
+          set theme=(hd1,gpt6)/${pkgs.fetchzip {
+            url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/asus.tar";
+            sha256 = "sha256-+yol6dzvaQ/ItlegTHJREqkUNGoJl4t66qEA0QPUDiw=";
+            stripRoot = false;
+          }}/theme.txt
+        '';
       };
     };
 
