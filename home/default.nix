@@ -81,12 +81,14 @@ with pkgs; {
       minecraft
       mold
       mullvad-vpn
+      mysql
       ngrok
       nil
       nix-prefetch-scripts
       nix-snow
       nodePackages.generator-code
       nodePackages.pnpm
+      nodePackages.prisma
       nodePackages.typescript-language-server
       nodejs-16_x # for copilot
       notion-app-enhanced
@@ -97,6 +99,7 @@ with pkgs; {
       p7zip
       pavucontrol
       playerctl
+      prisma-engines
       prismlauncher
       pulseaudio
       python
