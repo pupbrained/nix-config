@@ -25,7 +25,7 @@
       gitsigns-nvim
       indent-blankline-nvim
       lazygit-nvim
-      lightspeed-nvim
+      leap-nvim
       lspkind-nvim
       lualine-lsp-progress
       lualine-nvim

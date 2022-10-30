@@ -2288,6 +2288,6 @@ spacer[part="overflow-end-indicator"]
   display: none !important;
 }
 
-#unified-extensions-button {
+#unified-extensions-button, #alltabs-button {
   display: none !important;
 }

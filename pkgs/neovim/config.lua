@@ -313,6 +313,8 @@ require('zen-mode').setup {
   },
 }
 
+require('leap').add_default_mappings()
+
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 

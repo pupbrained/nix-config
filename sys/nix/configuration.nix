@@ -46,6 +46,7 @@ with lib; {
     fontDir.enable = true;
 
     fonts = with pkgs; [
+      inter
       nerdfonts
       noto-fonts-cjk-sans
       recursive
@@ -56,7 +57,6 @@ with lib; {
       enable = true;
       allowBitmaps = true;
       defaultFonts = {
-        emoji = ["Noto Color Emoji"];
         monospace = ["Maple Mono NF"];
         sansSerif = ["Google Sans Text"];
       };
