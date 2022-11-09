@@ -35,6 +35,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
     catppuccin-folders = final.callPackage ./catppuccin-folders.nix {};
     gradience = final.callPackage ./gradience.nix {};
+    httpie-desktop = final.callPackage ./httpie-desktop.nix {};
     jetbrains-fleet = final.callPackage ./fleet.nix {};
     nvui = final.libsForQt5.callPackage ./nvui.nix {};
     python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};

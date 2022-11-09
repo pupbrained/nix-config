@@ -6,13 +6,13 @@
 }: {
   copilot-vim = {
     pname = "copilot-vim";
-    version = "8ba151a20bc1d7a5c72e592e51bfc925d5bbb837";
+    version = "5a411d19ce7334ab10ba12516743fc25dad363fa";
     src = fetchFromGitHub {
       owner = "github";
       repo = "copilot.vim";
-      rev = "8ba151a20bc1d7a5c72e592e51bfc925d5bbb837";
+      rev = "5a411d19ce7334ab10ba12516743fc25dad363fa";
       fetchSubmodules = false;
-      sha256 = "sha256-GmwR+S5sQnVUbVShP53jNpSKMZaoeh9Rf37v89wAJ3M=";
+      sha256 = "sha256-8O+7tzQQR5+QHLgXpL+KOISaVn6iOpdfQAQfHtyI4uw=";
     };
   };
   nvim-cokeline = {
