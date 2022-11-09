@@ -76,6 +76,7 @@ with lib; {
 
   services = {
     blueman.enable = true;
+    flatpak.enable = true;
     mullvad-vpn.enable = true;
 
     gnome = {
@@ -184,7 +185,12 @@ with lib; {
 
   nix.settings.trusted-users = ["root" "marshall"];
 
-  xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   system.stateVersion = "21.11";
 }

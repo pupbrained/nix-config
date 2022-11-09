@@ -54,6 +54,7 @@ with pkgs; {
       gnome.file-roller
       gnome.nautilus
       gnome.seahorse
+      gnome.zenity
       gnumake
       gpick
       gradience
@@ -61,7 +62,9 @@ with pkgs; {
       grim
       gsettings-desktop-schemas
       headsetcontrol
+      httpie-desktop
       inotify-tools
+      insomnia
       jamesdsp
       jellyfin-ffmpeg
       jetbrains-fleet
@@ -101,6 +104,7 @@ with pkgs; {
       playerctl
       prisma-engines
       prismlauncher
+      pscale
       pulseaudio
       python
       python310
@@ -168,7 +172,6 @@ with pkgs; {
 
       extensions = with config.nur.repos.rycee.firefox-addons; [
         add-custom-search-engine
-        adnauseam
         darkreader
         don-t-fuck-with-paste
         https-everywhere
@@ -184,7 +187,6 @@ with pkgs; {
         violentmonkey
         firefox-addons.absolute-enable-right-click
         firefox-addons.active-forks
-        firefox-addons.adblock-for-youtube
         firefox-addons.betterviewer
         firefox-addons.buster-captcha-solver
         firefox-addons.catppuccin-mocha-sky
@@ -265,6 +267,8 @@ with pkgs; {
       };
 
       shellInit = ''
+        string match -q "$TERM_PROGRAM" "vscode"
+        and . (code-insiders --locate-shell-integration-path fish)
         export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/home/marshall/.npm-packages/bin"
         export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
         export EDITOR=nvim
@@ -444,6 +448,7 @@ with pkgs; {
       enable = true;
 
       defaultApplications = {
+        "application/x-ms-dos-executable" = "wine.desktop";
         "inode/directory" = "org.gnome.Nautilus.desktop";
         "image/png" = "gnome.org.eog.desktop";
         "image/jpeg" = "gnome.org.eog.desktop";
@@ -451,10 +456,13 @@ with pkgs; {
         "image/webp" = "gnome.org.eog.desktop";
         "text/html" = "firefox.desktop";
         "text/plain" = "nvim.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/pie" = "httpie.desktop";
         "x-scheme-handler/unknown" = "firefox.desktop";
+        "x-scheme-handler/vscode-insiders" = "code-insiders.desktop";
+        "x-www-browser" = "firefox.desktop";
         "video/mp4" = "mpv.desktop";
         "video/webm" = "mpv.desktop";
         "video/H264" = "mpv.desktop";
