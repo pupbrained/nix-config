@@ -79,6 +79,17 @@
           nur.nixosModules.nur
         ];
       };
+
+      server = lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+
+        modules = [
+          ./sys/server.nix
+          agenix.nixosModule
+          nur.nixosModules.nur
+        ];
+      };
     };
 
     apps.x86_64-linux.update-home = {
