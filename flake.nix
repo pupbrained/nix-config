@@ -74,7 +74,7 @@
 
         modules = [
           ./sys/wsl.nix
-          agenix.nixosModule
+          agenix.nixosModules.age
           nixos-wsl.nixosModules.wsl
           nur.nixosModules.nur
         ];
@@ -85,8 +85,8 @@
         specialArgs = {inherit inputs;};
 
         modules = [
-          ./sys/server.nix
-          agenix.nixosModule
+          ./sys/server/configuration.nix
+          agenix.nixosModules.age
           nur.nixosModules.nur
         ];
       };
