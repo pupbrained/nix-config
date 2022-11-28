@@ -43,14 +43,18 @@ with pkgs; {
       cava
       cmake
       comma
-      discord-patched
+      cozette
+      discord-canary
       draconis
       edgedb
+      emacs
       file
       gcc
+      gh
+      gitoxide
+      gleam
       glib
       glrnvim
-      gnome.eog
       gnome.file-roller
       gnome.nautilus
       gnome.seahorse
@@ -66,8 +70,6 @@ with pkgs; {
       inotify-tools
       insomnia
       jamesdsp
-      jellyfin-ffmpeg
-      jetbrains-fleet
       jetbrains.idea-ultimate
       jetbrains.webstorm
       jq
@@ -79,6 +81,7 @@ with pkgs; {
       libffi
       libnotify
       libsForQt5.qtstyleplugin-kvantum
+      lucky-commit
       lxappearance
       micro
       minecraft
@@ -86,7 +89,6 @@ with pkgs; {
       mullvad-vpn
       mysql
       ngrok
-      nil
       nix-prefetch-scripts
       nix-snow
       nodePackages.generator-code
@@ -96,7 +98,7 @@ with pkgs; {
       nodejs-16_x # for copilot
       notion-app-enhanced
       nvui
-      obs-studio
+      obsidian
       odin
       openal
       p7zip
@@ -114,6 +116,7 @@ with pkgs; {
       rofi
       rust-analyzer-nightly
       rustup
+      sapling
       scrot
       slurp
       statix
@@ -193,7 +196,6 @@ with pkgs; {
         firefox-addons.clearurls
         firefox-addons.disconnect
         firefox-addons.docsafterdark
-        firefox-addons.font-fingerprint-defender
         firefox-addons.hyperchat
         firefox-addons.istilldontcareaboutcookies
         firefox-addons.mpris-integration
@@ -235,15 +237,6 @@ with pkgs; {
 
       plugins = [
         {
-          name = "tide";
-          src = pkgs.fetchFromGitHub {
-            owner = "IlanCosman";
-            repo = "tide";
-            rev = "73c7b469aa603e580e14eca21ab31abed49c6214";
-            sha256 = "14h6x3q3lswivfwkm8b87lm1hcwim9jyygvrlm22la7ca1al5frm";
-          };
-        }
-        {
           name = "catppuccin";
           src = pkgs.fetchFromGitHub {
             owner = "catppuccin";
@@ -264,6 +257,7 @@ with pkgs; {
         gd = "git diff";
         gs = "git status";
         lg = "lazygit";
+        ssh = "kitty +kitten ssh";
       };
 
       shellInit = ''
@@ -389,6 +383,12 @@ with pkgs; {
     nix-index = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    oh-my-posh = {
+      enable = true;
+      enableFishIntegration = true;
+      useTheme = "catppuccin";
     };
 
     spicetify = {
