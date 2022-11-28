@@ -99,14 +99,18 @@ with lib; {
       enable = true;
       videoDrivers = ["nvidia"];
 
-      displayManager.startx.enable = true;
+      displayManager.sddm = {
+        enable = true;
+      };
     };
   };
 
   programs = {
+    adb.enable = true;
+    dconf.enable = true;
     fish.enable = true;
-    ccache.enable = true;
     gamemode.enable = true;
+    steam.enable = true;
 
     hyprland = {
       enable = true;
@@ -147,11 +151,12 @@ with lib; {
   powerManagement.cpuFreqGovernor = "performance";
 
   i18n = {
+    inputMethod.enabled = "ibus";
+    inputMethod.ibus.engines = with pkgs.ibus-engines; [uniemoji];
+
     extraLocaleSettings = {
       LC_TIME = "en_US.UTF-8";
     };
-    inputMethod.enabled = "ibus";
-    inputMethod.ibus.engines = with pkgs.ibus-engines; [uniemoji];
   };
 
   hardware = {
@@ -164,6 +169,7 @@ with lib; {
       modesetting.enable = true;
       open = true;
       powerManagement.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     opengl = {
@@ -185,12 +191,7 @@ with lib; {
 
   nix.settings.trusted-users = ["root" "marshall"];
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
+  xdg.portal.enable = true;
 
   system.stateVersion = "21.11";
 }

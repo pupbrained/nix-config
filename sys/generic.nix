@@ -9,6 +9,7 @@ in {
     config = {
       allowUnfree = true;
     };
+
     overlays = [(import ../pkgs inputs)];
   };
 
@@ -95,10 +96,7 @@ in {
   };
 
   programs = {
-    adb.enable = false;
     ccache.enable = true;
-    dconf.enable = true;
-    steam.enable = true;
     command-not-found.enable = false;
   };
 
