@@ -56,6 +56,44 @@
         },
         "version": "7a04cb57dff43f328de78addc234e9d21ff079a8"
     },
+    "sapling": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sapling",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "facebook",
+            "repo": "sapling",
+            "rev": "c4e447440b0328b2cfd5c53f93f3b2f054e7e8a9",
+            "sha256": "sha256-qUM/g7nMco6uIbgHOOCht2K1HkBwVtwUdJRi/P1DAcs=",
+            "type": "github"
+        },
+        "version": "c4e447440b0328b2cfd5c53f93f3b2f054e7e8a9"
+    },
+    "sddm": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sddm",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "sddm",
+            "repo": "sddm",
+            "rev": "3e486499b9300ce8f9c62bd102e5119b27a2fad1",
+            "sha256": "sha256-Y9WPm0MLWl/s0e0aoKKk0SSojqBrI/RdyxkgOz2Tk38=",
+            "type": "github"
+        },
+        "version": "3e486499b9300ce8f9c62bd102e5119b27a2fad1"
+    },
     "zscroll": {
         "cargoLocks": null,
         "extract": null,

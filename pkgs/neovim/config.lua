@@ -7,7 +7,7 @@ vim.o.expandtab = true
 vim.g.mapleader = ' '
 vim.g.astro_typescript = 'enable'
 vim.o.showmode = false
-
+vim.o.undofile = true
 vim.cmd('set mouse=a')
 vim.cmd('set guifont=Maple\\ Mono\\ NF:h14')
 
