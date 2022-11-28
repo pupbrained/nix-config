@@ -60,6 +60,10 @@ inputs.nixpkgs.lib.composeManyExtensions [
       '';
     });
 
+    bluez = prev.bluez.overrideAttrs (oldAttrs: {
+      doCheck = false;
+    });
+
     zscroll = prev.zscroll.overrideAttrs (o: {
       inherit (sources.zscroll) src pname version;
     });
@@ -71,6 +75,18 @@ inputs.nixpkgs.lib.composeManyExtensions [
     nvim-cokeline = prev.vimUtils.buildVimPlugin {
       inherit (sources.nvim-cokeline) src pname version;
     };
+
+    libsForQt5 =
+      prev.libsForQt5
+      // {
+        sddm = prev.libsForQt5.sddm.overrideAttrs (o: {
+          inherit (sources.sddm) src pname version;
+          patches = [
+            ./sddm-ignore-config-mtime.patch
+            ./sddm-default-session.patch
+          ];
+        });
+      };
 
     spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {
       src = prev.fetchFromGitHub {
@@ -103,5 +119,5 @@ inputs.nixpkgs.lib.composeManyExtensions [
     firefox-addons = prev.callPackages ./firefox-addons {};
   })
 
-  inputs.fenix.overlay
+  inputs.fenix.overlays.default
 ]
