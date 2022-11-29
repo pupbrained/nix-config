@@ -56,25 +56,6 @@
         },
         "version": "7a04cb57dff43f328de78addc234e9d21ff079a8"
     },
-    "sapling": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "sapling",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "facebook",
-            "repo": "sapling",
-            "rev": "d81eb55f69b428d7300c43aaa3dfc17393f79238",
-            "sha256": "sha256-HSBHvDcK807AyIa2U51NDTQ8ZNwI9X9hdq1QsCaiGxA=",
-            "type": "github"
-        },
-        "version": "d81eb55f69b428d7300c43aaa3dfc17393f79238"
-    },
     "sddm": {
         "cargoLocks": null,
         "extract": null,

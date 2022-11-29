@@ -14,11 +14,6 @@ fetch.github = "GooseMod/OpenAsar"
 src.git = "https://github.com/noctuid/zscroll"
 fetch.github = "noctuid/zscroll"
 
-[sapling]
-src.git = "https://github.com/facebook/sapling"
-fetch.github = "facebook/sapling"
-cargoLocks = ["Cargo.lock"]
-
 [sddm]
 src.git = "https://github.com/sddm/sddm"
 fetch.github = "sddm/sddm"
