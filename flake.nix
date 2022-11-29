@@ -38,21 +38,40 @@
     inherit (nixpkgs) lib;
     forSystems = lib.genAttrs lib.systems.flakeExposed;
   in {
-    homeConfigurations.marshall = home-manager.lib.homeManagerConfiguration {
-      extraSpecialArgs = {inherit inputs;};
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-        overlays = [(import ./pkgs inputs)];
+    homeConfigurations = {
+      marshall = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = {inherit inputs;};
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+          overlays = [(import ./pkgs inputs)];
+        };
+        modules = [
+          ./home
+          {
+            home.stateVersion = "22.05";
+            home.username = "marshall";
+            home.homeDirectory = "/home/marshall";
+          }
+        ];
       };
-      modules = [
-        ./home
-        {
-          home.stateVersion = "22.05";
-          home.username = "marshall";
-          home.homeDirectory = "/home/marshall";
-        }
-      ];
+
+      server = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = {inherit inputs;};
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+          overlays = [(import ./pkgs inputs)];
+        };
+        modules = [
+          ./home/server.nix
+          {
+            home.stateVersion = "23.05";
+            home.username = "marshall";
+            home.homeDirectory = "/home/marshall";
+          }
+        ];
+      };
     };
 
     nixosConfigurations = {
@@ -101,6 +120,19 @@
           echo $old_profile
           nix profile remove $old_profile
           ${self.homeConfigurations.marshall.activationPackage}/activate || (echo "restoring old profile"; ${inputs.nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
+        '')
+        .outPath;
+    };
+
+    apps.x86_64-linux.update-server-home = {
+      type = "app";
+      program =
+        (inputs.nixpkgs.legacyPackages.x86_64-linux.writeScript "update-server-home" ''
+          set -euo pipefail
+          old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
+          echo $old_profile
+          nix profile remove $old_profile
+          ${self.homeConfigurations.server.activationPackage}/activate || (echo "restoring old profile"; ${inputs.nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
         '')
         .outPath;
     };

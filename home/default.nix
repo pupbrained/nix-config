@@ -7,7 +7,7 @@
 with pkgs; {
   imports = [
     ./dotfiles.nix
-    ../pkgs/neovim/default.nix
+    ../pkgs/neovim
     inputs.nix-doom-emacs.hmModule
     inputs.spicetify-nix.homeManagerModule
     inputs.nur.nixosModules.nur
