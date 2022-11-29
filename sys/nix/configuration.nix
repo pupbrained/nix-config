@@ -108,7 +108,6 @@ with lib; {
   programs = {
     adb.enable = true;
     dconf.enable = true;
-    fish.enable = true;
     gamemode.enable = true;
     steam.enable = true;
 

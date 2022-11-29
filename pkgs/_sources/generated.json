@@ -69,11 +69,11 @@
             "name": null,
             "owner": "facebook",
             "repo": "sapling",
-            "rev": "c4e447440b0328b2cfd5c53f93f3b2f054e7e8a9",
-            "sha256": "sha256-qUM/g7nMco6uIbgHOOCht2K1HkBwVtwUdJRi/P1DAcs=",
+            "rev": "d81eb55f69b428d7300c43aaa3dfc17393f79238",
+            "sha256": "sha256-HSBHvDcK807AyIa2U51NDTQ8ZNwI9X9hdq1QsCaiGxA=",
             "type": "github"
         },
-        "version": "c4e447440b0328b2cfd5c53f93f3b2f054e7e8a9"
+        "version": "d81eb55f69b428d7300c43aaa3dfc17393f79238"
     },
     "sddm": {
         "cargoLocks": null,

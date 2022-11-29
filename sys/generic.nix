@@ -96,6 +96,7 @@ in {
   };
 
   programs = {
+    fish.enable = true;
     ccache.enable = true;
     command-not-found.enable = false;
   };
