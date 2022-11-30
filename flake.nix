@@ -10,7 +10,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nil.url = "github:oxalica/nil";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:pupbrained/nixpkgs/nixos-unstable-small";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
