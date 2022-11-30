@@ -21,6 +21,10 @@ require("catppuccin").setup({
 })
 vim.cmd('colorscheme catppuccin')
 
+require('nu').setup({
+    complete_cmd_names = true,
+})
+
 local home = os.getenv('HOME')
 local db = require('dashboard')
 db.custom_center = {

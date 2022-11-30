@@ -6,6 +6,10 @@ fetch.github = "github/copilot.vim"
 src.git = "https://github.com/noib3/nvim-cokeline"
 fetch.github = "noib3/nvim-cokeline"
 
+[nvim-nu]
+src.git = "https://github.com/LhKipp/nvim-nu"
+fetch.github = "LhKipp/nvim-nu"
+
 [openasar]
 src.git = "https://github.com/GooseMod/OpenAsar"
 fetch.github = "GooseMod/OpenAsar"
@@ -17,3 +21,4 @@ fetch.github = "noctuid/zscroll"
 [sddm]
 src.git = "https://github.com/sddm/sddm"
 fetch.github = "sddm/sddm"
+

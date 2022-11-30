@@ -13,6 +13,7 @@
     plugins = with pkgs.vimPlugins; [
       pkgs.copilot-vim
       pkgs.nvim-cokeline
+      pkgs.nvim-nu
 
       cmp_luasnip
       cmp-path
