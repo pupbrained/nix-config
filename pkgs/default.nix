@@ -43,14 +43,26 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     kitty = prev.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
-      version = "0.26.4";
+      version = "0.26.5";
       format = "other";
       src = prev.fetchFromGitHub {
         owner = "kovidgoyal";
         repo = "kitty";
         rev = "v${version}";
-        sha256 = "sha256-pmEMLYEuDQOiE5TlwkObfBuARN9Yph/d3RQx3FBDWOw=";
+        sha256 = "sha256-UloBlV26HnkvbzP/NynlPI77z09MBEVgtrg5SeTmwB4=";
       };
+    };
+
+    prisma-engines = prev.rustPlatform.buildRustPackage rec {
+      inherit (prev.prisma-engines) pname OPENSSL_NO_VENDOR nativeBuildInputs buildInputs preBuild cargoBuildFlags postInstall doCheck;
+      version = "4.7.0";
+      src = prev.fetchFromGitHub {
+        owner = "prisma";
+        repo = "prisma-engines";
+        rev = version;
+        sha256 = "sha256-mpKrCRZQ7CS/Rf2KfpszE2/KACNClHxfrLFJ+iaVhZE=";
+      };
+      cargoSha256 = "sha256-NIbOx0xR5qStIfe8TptMqu3Dx6zVl2qBDzr/41ANsrk=";
     };
 
     waybar = prev.waybar.overrideAttrs (oldAttrs: {
@@ -74,6 +86,10 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     nvim-cokeline = prev.vimUtils.buildVimPlugin {
       inherit (sources.nvim-cokeline) src pname version;
+    };
+
+    nvim-nu = prev.vimUtils.buildVimPlugin {
+      inherit (sources.nvim-nu) src pname version;
     };
 
     libsForQt5 =
