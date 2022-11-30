@@ -8,6 +8,7 @@ with pkgs; {
   imports = [
     ./dotfiles.nix
     ../pkgs/neovim
+    ../pkgs/nushell
     inputs.nix-doom-emacs.hmModule
     inputs.spicetify-nix.homeManagerModule
     inputs.nur.nixosModules.nur
@@ -119,6 +120,7 @@ with pkgs; {
       sapling
       scrot
       slurp
+      starship
       statix
       stylua
       sumneko-lua-language-server
@@ -313,6 +315,7 @@ with pkgs; {
       settings = {
         editor = "nvim";
         shell_integration = true;
+        confirm_os_window_close = 0;
         allow_remote_control = "socket-only";
         listen_on = "unix:/tmp/kitty";
         placement_strategy = "center";
@@ -383,12 +386,6 @@ with pkgs; {
     nix-index = {
       enable = true;
       enableFishIntegration = true;
-    };
-
-    oh-my-posh = {
-      enable = true;
-      enableFishIntegration = true;
-      useTheme = "catppuccin";
     };
 
     spicetify = {
