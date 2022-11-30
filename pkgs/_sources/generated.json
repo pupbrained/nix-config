@@ -37,6 +37,25 @@
         },
         "version": "501f93ec84af0d505d95d3827cad470b9c5e86dc"
     },
+    "nvim-nu": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nvim-nu",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "LhKipp",
+            "repo": "nvim-nu",
+            "rev": "94f237c219ae6bbb18e2f214783e0f1370eda27b",
+            "sha256": "sha256-Ai2ot7d0TPQNDtY9Z/CPej5yJq7d6gZm1WJPW52L8/k=",
+            "type": "github"
+        },
+        "version": "94f237c219ae6bbb18e2f214783e0f1370eda27b"
+    },
     "openasar": {
         "cargoLocks": null,
         "extract": null,

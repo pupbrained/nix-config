@@ -26,6 +26,17 @@
       sha256 = "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=";
     };
   };
+  nvim-nu = {
+    pname = "nvim-nu";
+    version = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
+    src = fetchFromGitHub {
+      owner = "LhKipp";
+      repo = "nvim-nu";
+      rev = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
+      fetchSubmodules = false;
+      sha256 = "sha256-Ai2ot7d0TPQNDtY9Z/CPej5yJq7d6gZm1WJPW52L8/k=";
+    };
+  };
   openasar = {
     pname = "openasar";
     version = "7a04cb57dff43f328de78addc234e9d21ff079a8";

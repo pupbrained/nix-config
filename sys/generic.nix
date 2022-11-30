@@ -67,7 +67,7 @@ in {
   users.users.marshall = {
     isNormalUser = true;
     home = "/home/marshall";
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
 
     extraGroups = [
       "asbusers"
@@ -96,7 +96,6 @@ in {
   };
 
   programs = {
-    fish.enable = true;
     ccache.enable = true;
     command-not-found.enable = false;
   };
