@@ -18,5 +18,9 @@ with pkgs; {
     gcc
     gnumake
     riff
+    nodePackages.pnpm
+    openvscode-server
   ];
+
+  services.gpg-agent.pinentryFlavor = "tty";
 }
