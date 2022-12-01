@@ -105,6 +105,7 @@ with lib; {
     comma
     python311Packages.pip
     python311Packages.miniupnpc
+    zoxide
   ];
 
   services.postgresql = {
@@ -147,7 +148,7 @@ with lib; {
 
       code.pupbrained.xyz {
       	tls /etc/letsencrypt/live/code.pupbrained.xyz/fullchain.pem /etc/letsencrypt/live/code.pupbrained.xyz/privkey.pem
-      	reverse_proxy 127.0.0.1:3152
+      	reverse_proxy 127.0.0.1:4444
       }
 
       img.pupbrained.xyz {
@@ -170,6 +171,12 @@ with lib; {
       	}
       }
     '';
+  };
+
+  services.code-server = {
+    enable = true;
+    hashedPassword = "$argon2i$v=19$m=4096,t=3,p=1$Piudktf1TdrQSZDvAk/WvA$sS5DWrrczVNjVK3hx3DFk2sg8Iw7i7wilmi7ATlB454";
+    user = "marshall";
   };
 
   powerManagement.cpuFreqGovernor = "performance";
