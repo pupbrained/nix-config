@@ -15,12 +15,11 @@ alias cat = bat
 alias ga = git add
 alias gap = git add -p
 alias gc = git commit
-alias gcap = ga . && gc && git pushall
-alias gcp = gc && git pushall
+alias gcap = ga .; gc; git pushall
+alias gcp = gc; git pushall
 alias gd = git diff
 alias gs = git status
 alias lg = lazygit
-alias ssh = kitty +kitten ssh
 
 let-env config = ($env | default {} config).config
 let-env config = ($env.config | default {} hooks)

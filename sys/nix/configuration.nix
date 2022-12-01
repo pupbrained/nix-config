@@ -50,6 +50,7 @@ with lib; {
       nerdfonts
       noto-fonts-cjk-sans
       recursive
+      rubik
       twemoji-color-font
     ];
 
@@ -132,6 +133,8 @@ with lib; {
       WLR_BACKEND = "vulkan";
       WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER = "vulkan";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
 
