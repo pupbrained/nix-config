@@ -9,7 +9,6 @@ with pkgs; {
     ./dotfiles.nix
     ../pkgs/neovim
     ../pkgs/nushell
-    inputs.nix-doom-emacs.hmModule
     inputs.spicetify-nix.homeManagerModule
     inputs.nur.nixosModules.nur
   ];
@@ -48,7 +47,6 @@ with pkgs; {
       discord-canary
       draconis
       edgedb
-      emacs
       file
       gcc
       gh

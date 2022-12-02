@@ -125,7 +125,8 @@ menupopup menu,
 menupopup menuitem:hover:not([disabled="true"]),
 menupopup menu:hover:not([disabled="true"]),
 .autocomplete-richlistitem:hover:not([disabled="true"]):not([selected="true"]) {
-    background-color: var(--arrowpanel-dimmed) !important;
+    background-color: var(--arrowpanel-dimmed-further) !important;
+    cursor: pointer;
 }
 
 menupopup menuitem:hover:active:not([disabled="true"]),
@@ -133,6 +134,7 @@ menupopup menu:hover:active:not([disabled="true"]),
 .autocomplete-richlistitem:hover:active:not([disabled="true"]),
 .autocomplete-richlistitem[selected="true"] {
     background-color: var(--arrowpanel-dimmed-further) !important;
+    cursor: pointer;
 }
 
 menupopup menuitem[disabled="true"],
