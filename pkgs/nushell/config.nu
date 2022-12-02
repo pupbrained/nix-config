@@ -1,9 +1,10 @@
 let-env config = {
   show_banner: false
+  buffer_editor: "nvim"
   hooks: {
     pre_prompt: [{
       code: "
-        let direnv = (/run/current-system/sw/bin/direnv export json | from json)
+        let direnv = (direnv export json | from json)
         let direnv = if ($direnv | length) == 1 { $direnv } else { {} }
         $direnv | load-env
       "
@@ -25,7 +26,7 @@ let-env config = ($env.config | default {} hooks)
 let-env config = ($env.config | update hooks ($env.config.hooks | default {} env_change))
 let-env config = ($env.config | update hooks.env_change ($env.config.hooks.env_change | default [] PWD))
 let-env config = ($env.config | update hooks.env_change.PWD ($env.config.hooks.env_change.PWD | append {|_, dir|
-  /run/current-system/sw/bin/zoxide add -- $dir
+  zoxide add -- $dir
 }))
 
 def-env __zoxide_z [...rest:string] {
@@ -33,13 +34,13 @@ def-env __zoxide_z [...rest:string] {
   let path = if (($rest | length) <= 1) && ($arg0 == '-' || ($arg0 | path expand | path type) == dir) {
     $arg0
   } else {
-    (/run/current-system/sw/bin/zoxide query --exclude $env.PWD -- $rest | str trim -r -c "\n")
+    (zoxide query --exclude $env.PWD -- $rest | str trim -r -c "\n")
   }
   cd $path
 }
 
 def-env __zoxide_zi  [...rest:string] {
-  cd $'(/run/current-system/sw/bin/zoxide query -i -- $rest | str trim -r -c "\n")'
+  cd $'(zoxide query -i -- $rest | str trim -r -c "\n")'
 }
 
 alias cd = __zoxide_z

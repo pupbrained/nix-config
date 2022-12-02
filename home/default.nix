@@ -61,6 +61,7 @@ with pkgs; {
       gnome.seahorse
       gnome.zenity
       gnumake
+      gopls
       gpick
       gradience
       grex

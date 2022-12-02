@@ -18,6 +18,10 @@ def create_left_prompt [] {
     /home/marshall/.nix-profile/bin/starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
 }
 
+def gcap [commitMsg] {
+  git add .; git commit -m $commitMsg; git push
+}
+
 let-env PROMPT_COMMAND = { create_left_prompt }
 let-env PROMPT_COMMAND_RIGHT = ""
 
@@ -26,3 +30,4 @@ let-env PROMPT_INDICATOR_VI_INSERT = ": "
 let-env PROMPT_INDICATOR_VI_NORMAL = "〉"
 let-env PROMPT_MULTILINE_INDICATOR = "::: "
 
+let-env EDITOR = "vi"

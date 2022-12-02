@@ -39,13 +39,13 @@
   };
   openasar = {
     pname = "openasar";
-    version = "7a04cb57dff43f328de78addc234e9d21ff079a8";
+    version = "f2da613f2b803ad97b43be5a7803f510619e578e";
     src = fetchFromGitHub {
       owner = "GooseMod";
       repo = "OpenAsar";
-      rev = "7a04cb57dff43f328de78addc234e9d21ff079a8";
+      rev = "f2da613f2b803ad97b43be5a7803f510619e578e";
       fetchSubmodules = false;
-      sha256 = "sha256-6zYXv+iAfDEFHQ4FwNVEA4+zWiDyeLvkm17f4LuaCJg=";
+      sha256 = "sha256-WQIqbyD7QXa5mfX7X3BQ0Hx2+Ye4k8csx9fhvowvYKw=";
     };
   };
   sddm = {
