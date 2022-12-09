@@ -36,6 +36,12 @@ with lib; {
       };
     };
 
+    plymouth = {
+      enable = true;
+      themePackages = [pkgs.adi1090x-plymouth];
+      theme = "colorful_loop";
+    };
+
     kernelParams = ["module_blacklist=i915"];
     kernelPackages = pkgs.linuxPackages_zen;
     extraModprobeConfig = "options hid_apple fnmode=2";
@@ -148,6 +154,7 @@ with lib; {
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+    pam.services.sddm.enableGnomeKeyring = true;
   };
 
   powerManagement.cpuFreqGovernor = "performance";
