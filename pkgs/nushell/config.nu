@@ -20,6 +20,7 @@ alias gp = git push
 alias gd = git diff
 alias gs = git status
 alias lg = lazygit
+alias up = ^update
 
 let-env config = ($env | default {} config).config
 let-env config = ($env.config | default {} hooks)

@@ -32,6 +32,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
+    adi1090x-plymouth = final.callPackage ./adi1090x-plymouth {};
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
     catppuccin-folders = final.callPackage ./catppuccin-folders.nix {};
     gradience = final.callPackage ./gradience.nix {};
@@ -51,18 +52,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
         rev = "v${version}";
         sha256 = "sha256-UloBlV26HnkvbzP/NynlPI77z09MBEVgtrg5SeTmwB4=";
       };
-    };
-
-    prisma-engines = prev.rustPlatform.buildRustPackage rec {
-      inherit (prev.prisma-engines) pname OPENSSL_NO_VENDOR nativeBuildInputs buildInputs preBuild cargoBuildFlags postInstall doCheck;
-      version = "4.7.0";
-      src = prev.fetchFromGitHub {
-        owner = "prisma";
-        repo = "prisma-engines";
-        rev = version;
-        sha256 = "sha256-mpKrCRZQ7CS/Rf2KfpszE2/KACNClHxfrLFJ+iaVhZE=";
-      };
-      cargoSha256 = "sha256-NIbOx0xR5qStIfe8TptMqu3Dx6zVl2qBDzr/41ANsrk=";
     };
 
     waybar = prev.waybar.overrideAttrs (oldAttrs: {

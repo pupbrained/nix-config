@@ -12,11 +12,11 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "5a411d19ce7334ab10ba12516743fc25dad363fa",
-            "sha256": "sha256-8O+7tzQQR5+QHLgXpL+KOISaVn6iOpdfQAQfHtyI4uw=",
+            "rev": "2f4f9259a5c0f927b31c4256cd3e4d7c6df87662",
+            "sha256": "sha256-hUQhdIVIzHQKICYhSOjbG+GObxvpkub94fD4ESGwhmo=",
             "type": "github"
         },
-        "version": "5a411d19ce7334ab10ba12516743fc25dad363fa"
+        "version": "2f4f9259a5c0f927b31c4256cd3e4d7c6df87662"
     },
     "nvim-cokeline": {
         "cargoLocks": null,
@@ -69,11 +69,11 @@
             "name": null,
             "owner": "GooseMod",
             "repo": "OpenAsar",
-            "rev": "f2da613f2b803ad97b43be5a7803f510619e578e",
-            "sha256": "sha256-WQIqbyD7QXa5mfX7X3BQ0Hx2+Ye4k8csx9fhvowvYKw=",
+            "rev": "9582d791090b3f687e2c4351430fa42f8ccb36e1",
+            "sha256": "sha256-DS03auE7uLOEGEY7PlF4w0FWPiyp5siALGK03GHl16M=",
             "type": "github"
         },
-        "version": "f2da613f2b803ad97b43be5a7803f510619e578e"
+        "version": "9582d791090b3f687e2c4351430fa42f8ccb36e1"
     },
     "sddm": {
         "cargoLocks": null,

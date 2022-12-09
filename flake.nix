@@ -7,10 +7,10 @@
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     glrnvim.url = "github:pupbrained/glrnvim-nix";
     home-manager.url = "github:nix-community/home-manager";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:pupbrained/Hyprland";
     nil.url = "github:oxalica/nil";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:pupbrained/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";

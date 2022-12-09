@@ -116,7 +116,6 @@ wk.register({
   g = {
     name = "Git",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout Branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" },
     g = { "<cmd>LazyGit<cr>", "LazyGit" },
     r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
     s = { "<cmd>Telescope git_status<cr>", "Git Status" },
@@ -169,6 +168,8 @@ local nvim_tree_shift =  {
   cond = require('nvim-tree.view').is_visible,
   color = 'NvimTreeNormal'
 }
+
+require('Comment').setup()
 
 require('lualine').setup {
   options = {
@@ -404,4 +405,3 @@ require("nvim-tree").setup({
   },
 })
 
-vim.cmd('autocmd BufEnter * TwilightEnable')

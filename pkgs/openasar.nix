@@ -23,7 +23,6 @@ stdenv.mkDerivation rec {
 
   buildPhase = ''
     runHook preBuild
-    bash scripts/injectPolyfills.sh
     substituteInPlace src/index.js --replace 'nightly' '${version}'
     ${nodejs}/bin/node scripts/strip.js
     ${nodePackages.asar}/bin/asar pack src app.asar

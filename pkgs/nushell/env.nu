@@ -18,8 +18,10 @@ def create_left_prompt [] {
     /home/marshall/.nix-profile/bin/starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
 }
 
-def gcap [commitMsg] {
-  git add .; git commit -m $commitMsg; git push
+def gcap [] {
+  git add .
+  git commit
+  git push
 }
 
 let-env PROMPT_COMMAND = { create_left_prompt }
