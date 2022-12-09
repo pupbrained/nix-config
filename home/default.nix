@@ -44,6 +44,7 @@ with pkgs; {
       cmake
       comma
       cozette
+      curlie
       discord-canary
       draconis
       edgedb
@@ -93,7 +94,6 @@ with pkgs; {
       nix-snow
       nodePackages.generator-code
       nodePackages.pnpm
-      nodePackages.prisma
       nodePackages.typescript-language-server
       nodejs-16_x # for copilot
       notion-app-enhanced
@@ -104,7 +104,6 @@ with pkgs; {
       p7zip
       pavucontrol
       playerctl
-      prisma-engines
       prismlauncher
       pscale
       pulseaudio
@@ -290,6 +289,10 @@ with pkgs; {
 
       aliases = {
         "pushall" = "!git remote | xargs -L1 git push";
+      };
+
+      extraConfig = {
+        push.autoSetupRemote = true;
       };
     };
 
