@@ -1,3 +1,7 @@
+[sddm-theme]
+src.git = "https://github.com/L4ki/Dexy-Plasma-Themes"
+fetch.github = "L4ki/Dexy-Plasma-Themes"
+
 [copilot-vim]
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"

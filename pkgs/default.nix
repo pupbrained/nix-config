@@ -32,7 +32,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
 
-    adi1090x-plymouth = final.callPackage ./adi1090x-plymouth {};
+    adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
     catppuccin-folders = final.callPackage ./catppuccin-folders.nix {};
     gradience = final.callPackage ./gradience.nix {};
@@ -122,6 +122,8 @@ inputs.nixpkgs.lib.composeManyExtensions [
     };
 
     firefox-addons = prev.callPackages ./firefox-addons {};
+
+    sddm-dexy-theme = prev.plasma5Packages.callPackage ./sddm-theme.nix {inherit sources;};
   })
 
   inputs.fenix.overlays.default

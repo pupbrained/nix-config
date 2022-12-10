@@ -94,6 +94,25 @@
         },
         "version": "3e486499b9300ce8f9c62bd102e5119b27a2fad1"
     },
+    "sddm-theme": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sddm-theme",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "L4ki",
+            "repo": "Dexy-Plasma-Themes",
+            "rev": "7d308a296cd8313df6075677bd122580802e47bd",
+            "sha256": "sha256-EyUX3t7IXD9lypkr2jcnwi72UxEd+rPbO76YJsbVu74=",
+            "type": "github"
+        },
+        "version": "7d308a296cd8313df6075677bd122580802e47bd"
+    },
     "zscroll": {
         "cargoLocks": null,
         "extract": null,
@@ -107,10 +126,10 @@
             "name": null,
             "owner": "noctuid",
             "repo": "zscroll",
-            "rev": "788be9650b647f61f8f899054ad1213eee42e8a4",
-            "sha256": "sha256-gEluWzCbztO4N1wdFab+2xH7l9w5HqZVzp2LrdjHSRM=",
+            "rev": "abee462af9bc50f7ed17c36c32e55c356ac5c133",
+            "sha256": "sha256-b9gQ11c2IOMx5sdpWhSxCnUPPZIbGMyBilsZYTF9TNw=",
             "type": "github"
         },
-        "version": "788be9650b647f61f8f899054ad1213eee42e8a4"
+        "version": "abee462af9bc50f7ed17c36c32e55c356ac5c133"
     }
 }

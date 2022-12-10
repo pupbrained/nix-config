@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  self,
   ...
 }: {
   programs.neovim = {
@@ -53,7 +54,7 @@
 
     extraConfig = ''
       lua << EOF
-      ${builtins.readFile ./config.lua}
+      ${builtins.readFile "${self}/dotfiles/nvim/config.lua"}
       EOF
     '';
   };

@@ -59,15 +59,26 @@
       sha256 = "sha256-Y9WPm0MLWl/s0e0aoKKk0SSojqBrI/RdyxkgOz2Tk38=";
     };
   };
+  sddm-theme = {
+    pname = "sddm-theme";
+    version = "7d308a296cd8313df6075677bd122580802e47bd";
+    src = fetchFromGitHub {
+      owner = "L4ki";
+      repo = "Dexy-Plasma-Themes";
+      rev = "7d308a296cd8313df6075677bd122580802e47bd";
+      fetchSubmodules = false;
+      sha256 = "sha256-EyUX3t7IXD9lypkr2jcnwi72UxEd+rPbO76YJsbVu74=";
+    };
+  };
   zscroll = {
     pname = "zscroll";
-    version = "788be9650b647f61f8f899054ad1213eee42e8a4";
+    version = "abee462af9bc50f7ed17c36c32e55c356ac5c133";
     src = fetchFromGitHub {
       owner = "noctuid";
       repo = "zscroll";
-      rev = "788be9650b647f61f8f899054ad1213eee42e8a4";
+      rev = "abee462af9bc50f7ed17c36c32e55c356ac5c133";
       fetchSubmodules = false;
-      sha256 = "sha256-gEluWzCbztO4N1wdFab+2xH7l9w5HqZVzp2LrdjHSRM=";
+      sha256 = "sha256-b9gQ11c2IOMx5sdpWhSxCnUPPZIbGMyBilsZYTF9TNw=";
     };
   };
 }
