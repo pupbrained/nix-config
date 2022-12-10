@@ -38,7 +38,7 @@
   in {
     homeConfigurations = {
       marshall = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {inherit inputs self;};
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
@@ -75,7 +75,7 @@
     nixosConfigurations = {
       nix = lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs self;};
 
         modules = [
           ./sys/nix/configuration.nix
