@@ -3,15 +3,16 @@
   config,
   pkgs,
   lib,
+  self,
   ...
 }:
 with lib; {
   disabledModules = ["services/hardware/udev.nix"];
 
   imports = [
-    ./hardware-configuration.nix
-    ../generic.nix
-    ../patches/udev.nix
+    "${self}/sys/nix/hardware-configuration.nix"
+    "${self}/sys/generic.nix"
+    "${self}/sys/patches/udev.nix"
   ];
 
   boot = {
@@ -108,6 +109,7 @@ with lib; {
 
       displayManager.sddm = {
         enable = true;
+        theme = "dexy-theme";
       };
     };
   };
@@ -149,6 +151,8 @@ with lib; {
       eval $(ssh-agent)
       eval $(gnome-keyring-daemon --start)
     '';
+
+    systemPackages = [pkgs.sddm-dexy-theme];
   };
 
   security = {

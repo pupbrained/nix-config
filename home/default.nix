@@ -7,8 +7,8 @@
 with pkgs; {
   imports = [
     ./dotfiles.nix
-    ../pkgs/neovim
-    ../pkgs/nushell
+    ../pkgs/neovim.nix
+    ../pkgs/nushell.nix
     inputs.spicetify-nix.homeManagerModule
     inputs.nur.nixosModules.nur
   ];
@@ -299,6 +299,24 @@ with pkgs; {
     go = {
       enable = true;
       package = pkgs.go_1_19;
+    };
+
+    helix = {
+      enable = true;
+      settings = {
+        theme = "catppuccin_mocha";
+        editor = {
+          line-number = "relative";
+          cursorline = true;
+          color-modes = true;
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "underline";
+          };
+          indent-guides.render = true;
+        };
+      };
     };
 
     java = {
