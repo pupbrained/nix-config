@@ -145,7 +145,6 @@
       cmp-buffer.enable = true;
       cmp-path.enable = true;
       cmp-nvim-lsp.enable = true;
-      lualine.enable = true;
       nvim-autopairs.enable = true;
 
       dashboard = {
@@ -307,6 +306,7 @@
       leap-nvim
       lspkind-nvim
       lualine-lsp-progress
+      lualine-nvim
       luasnip
       markdown-preview-nvim
       nvim-colorizer-lua

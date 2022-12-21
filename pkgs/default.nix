@@ -39,7 +39,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
     gradience = final.callPackage ./gradience.nix {};
     httpie-desktop = final.callPackage ./httpie-desktop.nix {};
     jetbrains-fleet = final.callPackage ./fleet.nix {};
-    nvui = final.libsForQt5.callPackage ./nvui.nix {};
     python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};
     revolt = final.callPackage ./revolt.nix {};
     sf-mono-liga = final.callPackage ./sf-mono-liga.nix {

@@ -11,7 +11,6 @@ with pkgs; {
     ./dotfiles.nix
     ../pkgs/nixvim.nix
     ../pkgs/nushell.nix
-    ../pkgs/espanso.nix
     inputs.spicetify-nix.homeManagerModule
     inputs.hyprland.homeManagerModules.default
     inputs.nur.nixosModules.nur
@@ -105,7 +104,6 @@ with pkgs; {
       nodePackages.typescript-language-server
       nodejs-16_x # for copilot
       notion-app-enhanced
-      nvui
       obsidian
       odin
       openal
@@ -493,8 +491,6 @@ with pkgs; {
     kbfs.enable = true;
     keybase.enable = true;
     mpris-proxy.enable = true;
-
-    espanso-m.enable = true;
 
     gpg-agent = {
       enable = true;
