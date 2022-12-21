@@ -21,6 +21,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
     inherit (inputs.nil.packages.${prev.system}) nil;
     inherit (inputs.prism-launcher.packages.${prev.system}) prismlauncher;
+    sf-mono-liga-src = inputs.sf-mono-liga;
 
     discord-patched = inputs.vencord.packages.${prev.system}.discord-patched.override {
       inherit (final) discord-canary;
@@ -41,6 +42,11 @@ inputs.nixpkgs.lib.composeManyExtensions [
     nvui = final.libsForQt5.callPackage ./nvui.nix {};
     python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};
     revolt = final.callPackage ./revolt.nix {};
+    sf-mono-liga = final.callPackage ./sf-mono-liga.nix {
+      src = final.sf-mono-liga-src;
+      version = "999-master";
+    };
+    nushell-pkg = final.callPackage ./nushell-pkg.nix {};
 
     kitty = prev.python3Packages.buildPythonApplication rec {
       inherit (prev.kitty) pname buildInputs outputs patches preCheck buildPhase nativeBuildInputs dontConfigure hardeningDisable installPhase preFixup passthru meta;
@@ -81,6 +87,10 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.nvim-nu) src pname version;
     };
 
+    move-nvim = prev.vimUtils.buildVimPlugin {
+      inherit (sources.move-nvim) src pname version;
+    };
+
     libsForQt5 =
       prev.libsForQt5
       // {
@@ -99,6 +109,17 @@ inputs.nixpkgs.lib.composeManyExtensions [
         repo = "spotifywm";
         rev = "a2b5efd5439b0404f1836cc9a681417627531a00";
         sha256 = "03bvm6nb9524km28h6mazs6613lvcmyzp1kg9iql2pcli9rfmi82";
+      };
+    });
+
+    starfetch = prev.starfetch.overrideAttrs (o: {
+      version = "0.0.4";
+
+      src = prev.fetchFromGitHub {
+        owner = "Haruno19";
+        repo = "starfetch";
+        rev = "0.0.4";
+        sha256 = "sha256-I2M/FlLRkGtD2+GcK1l5+vFsb5tCb4T3UJTPxRx68Ww=";
       };
     });
 
@@ -121,9 +142,15 @@ inputs.nixpkgs.lib.composeManyExtensions [
       withOpenASAR = true;
     };
 
+    discord-plugged = inputs.replugged.packages.${prev.system}.discord-plugged.override {
+      inherit (final) discord-canary;
+    };
+
     firefox-addons = prev.callPackages ./firefox-addons {};
 
-    sddm-dexy-theme = prev.plasma5Packages.callPackage ./sddm-theme.nix {inherit sources;};
+    sddm-dexy-theme = inputs.nixpkgs-old.legacyPackages.${prev.system}.plasma5Packages.callPackage ./sddm-theme.nix {inherit sources;};
+
+    inherit (inputs.nixpkgs-old.legacyPackages.${prev.system}.qt5) qtwebengine;
   })
 
   inputs.fenix.overlays.default

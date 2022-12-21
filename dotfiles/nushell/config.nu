@@ -47,4 +47,5 @@ def-env __zoxide_zi  [...rest:string] {
 alias cd = __zoxide_z
 alias cdi = __zoxide_zi
 
-/home/marshall/.nix-profile/bin/draconis
+#/home/marshall/.nix-profile/bin/draconis
+starfetch

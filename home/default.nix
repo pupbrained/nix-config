@@ -2,15 +2,20 @@
   inputs,
   pkgs,
   config,
+  spicetify-nix,
+  hyprland-contrib,
   ...
 }:
 with pkgs; {
   imports = [
     ./dotfiles.nix
-    ../pkgs/neovim.nix
+    ../pkgs/nixvim.nix
     ../pkgs/nushell.nix
+    ../pkgs/espanso.nix
     inputs.spicetify-nix.homeManagerModule
+    inputs.hyprland.homeManagerModules.default
     inputs.nur.nixosModules.nur
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   home = {
@@ -45,7 +50,7 @@ with pkgs; {
       comma
       cozette
       curlie
-      discord-canary
+      discord-plugged
       draconis
       edgedb
       file
@@ -68,9 +73,11 @@ with pkgs; {
       gsettings-desktop-schemas
       headsetcontrol
       httpie-desktop
+      hyprland-contrib.packages.${pkgs.system}.grimblast
       inotify-tools
       insomnia
       jamesdsp
+      jetbrains-fleet
       jetbrains.idea-ultimate
       jetbrains.webstorm
       jq
@@ -89,6 +96,7 @@ with pkgs; {
       mold
       mullvad-vpn
       mysql
+      neovide
       ngrok
       nix-prefetch-scripts
       nix-snow
@@ -118,6 +126,7 @@ with pkgs; {
       sapling
       scrot
       slurp
+      starfetch
       starship
       statix
       stylua
@@ -138,9 +147,39 @@ with pkgs; {
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
       yarn
+      zls
       zscroll
       # SNOW END
     ];
+
+    sessionVariables = {
+      CLUTTER_BACKEND = "wayland";
+      DEFAULT_BROWSER = "${pkgs.firefox-nightly-bin}/bin/firefox";
+      DIRENV_LOG_FORMAT = "";
+      DISABLE_QT5_COMPAT = "0";
+      GBM_BACKEND = "nvidia-drm";
+      GDK_BACKEND = "wayland";
+      GLFW_IM_MODULE = "ibus";
+      GPG_TTY = "$TTY";
+      LIBSEAT_BACKEND = "logind";
+      LIBVA_DRIVER_NAME = "nvidia";
+      NIXOS_OZONE_WL = "1";
+      NIXPKGS_ALLOW_UNFREE = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_STYLE_OVERRIDE = "kvantum";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      SDL_VIDEODRIVER = "wayland";
+      WLR_BACKEND = "vulkan";
+      WLR_DRM_NO_ATOMIC = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_RENDERER = "vulkan";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
   };
 
   programs = with pkgs; {
@@ -377,20 +416,20 @@ with pkgs; {
         mark3_foreground = "#1E1E2E";
         mark3_background = "#74C7EC";
         color0 = "#45475A";
-        color8 = "#45475A";
         color1 = "#F38BA8";
-        color9 = "#F38BA8";
         color2 = "#A6E3A1";
-        color10 = "#A6E3A1";
         color3 = "#F9E2AF";
-        color11 = "#F9E2AF";
         color4 = "#89B4FA";
-        color12 = "#89B4FA";
         color5 = "#F5C2E7";
-        color13 = "#F5C2E7";
         color6 = "#94E2D5";
-        color14 = "#94E2D5";
         color7 = "#BAC2DE";
+        color8 = "#45475A";
+        color9 = "#F38BA8";
+        color10 = "#A6E3A1";
+        color11 = "#F9E2AF";
+        color12 = "#89B4FA";
+        color13 = "#F5C2E7";
+        color14 = "#94E2D5";
         color15 = "#BAC2DE";
       };
     };
@@ -408,31 +447,33 @@ with pkgs; {
       enableFishIntegration = true;
     };
 
-    spicetify = {
+    spicetify = let
+      spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+    in {
       enable = true;
-      theme = "catppuccin-mocha";
-      colorScheme = "mauve";
+      theme = spicePkgs.themes.catppuccin-mocha;
+      colorScheme = "sky";
 
       spotifyPackage = pkgs.spotify-unwrapped.overrideAttrs (o: {
         installPhase = o.installPhase + "wrapProgram $out/bin/spotify --prefix LD_PRELOAD : \"${pkgs.spotifywm-fixed}/lib/spotifywm.so\"";
       });
 
-      enabledExtensions = [
-        "fullAppDisplayMod.js"
-        "shuffle+.js"
-        "hidePodcasts.js"
-        "playNext.js"
-        "volumePercentage.js"
-        "genre.js"
-        "history.js"
-        "lastfm.js"
-        "copyToClipboard.js"
-        "showQueueDuration.js"
-        "songStats.js"
-        "fullAlbumDate.js"
-        "keyboardShortcut.js"
-        "powerBar.js"
-        "playlistIcons.js"
+      enabledExtensions = with spicePkgs.extensions; [
+        fullAppDisplayMod
+        shuffle
+        hidePodcasts
+        playNext
+        volumePercentage
+        genre
+        history
+        lastfm
+        copyToClipboard
+        showQueueDuration
+        songStats
+        fullAlbumDate
+        keyboardShortcut
+        powerBar
+        playlistIcons
       ];
     };
 
@@ -452,6 +493,8 @@ with pkgs; {
     kbfs.enable = true;
     keybase.enable = true;
     mpris-proxy.enable = true;
+
+    espanso-m.enable = true;
 
     gpg-agent = {
       enable = true;
@@ -514,6 +557,12 @@ with pkgs; {
       package = pkgs.adwaita-qt;
       name = "adwaita-dark";
     };
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = hyprland-nvidia;
+    systemdIntegration = true;
   };
 
   systemd.user.services.polkit = {

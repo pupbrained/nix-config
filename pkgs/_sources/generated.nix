@@ -6,13 +6,24 @@
 }: {
   copilot-vim = {
     pname = "copilot-vim";
-    version = "2f4f9259a5c0f927b31c4256cd3e4d7c6df87662";
+    version = "324ec9eb69e20971b58340d0096c3caac7bc2089";
     src = fetchFromGitHub {
       owner = "github";
       repo = "copilot.vim";
-      rev = "2f4f9259a5c0f927b31c4256cd3e4d7c6df87662";
+      rev = "324ec9eb69e20971b58340d0096c3caac7bc2089";
       fetchSubmodules = false;
-      sha256 = "sha256-hUQhdIVIzHQKICYhSOjbG+GObxvpkub94fD4ESGwhmo=";
+      sha256 = "sha256-b3c/EQmObPKnT5pBbhAbAySGt2E+1UC0Zqm2vJJiv/4=";
+    };
+  };
+  move-nvim = {
+    pname = "move-nvim";
+    version = "2cd533590a133ae5fe751ca8081cd1a2047d7c7f";
+    src = fetchFromGitHub {
+      owner = "fedepujol";
+      repo = "move.nvim";
+      rev = "2cd533590a133ae5fe751ca8081cd1a2047d7c7f";
+      fetchSubmodules = false;
+      sha256 = "sha256-ePO+7tkrZUqA+DVOs3bVROSECmjKZchkPHPKFuP7Wo0=";
     };
   };
   nvim-cokeline = {
@@ -26,26 +37,15 @@
       sha256 = "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=";
     };
   };
-  nvim-nu = {
-    pname = "nvim-nu";
-    version = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
-    src = fetchFromGitHub {
-      owner = "LhKipp";
-      repo = "nvim-nu";
-      rev = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
-      fetchSubmodules = false;
-      sha256 = "sha256-Ai2ot7d0TPQNDtY9Z/CPej5yJq7d6gZm1WJPW52L8/k=";
-    };
-  };
   openasar = {
     pname = "openasar";
-    version = "9582d791090b3f687e2c4351430fa42f8ccb36e1";
+    version = "0b1d4685cb2c94f42441fc616eb24e69eda04647";
     src = fetchFromGitHub {
       owner = "GooseMod";
       repo = "OpenAsar";
-      rev = "9582d791090b3f687e2c4351430fa42f8ccb36e1";
+      rev = "0b1d4685cb2c94f42441fc616eb24e69eda04647";
       fetchSubmodules = false;
-      sha256 = "sha256-DS03auE7uLOEGEY7PlF4w0FWPiyp5siALGK03GHl16M=";
+      sha256 = "sha256-cRYXgVgA5B9MaDGJIACJYjFNDAMajReKud0akiGBR4Q=";
     };
   };
   sddm = {
@@ -61,13 +61,13 @@
   };
   sddm-theme = {
     pname = "sddm-theme";
-    version = "7d308a296cd8313df6075677bd122580802e47bd";
+    version = "89a4ab71cccb31d782f62c18e540e4fb935b6ef9";
     src = fetchFromGitHub {
       owner = "L4ki";
       repo = "Dexy-Plasma-Themes";
-      rev = "7d308a296cd8313df6075677bd122580802e47bd";
+      rev = "89a4ab71cccb31d782f62c18e540e4fb935b6ef9";
       fetchSubmodules = false;
-      sha256 = "sha256-EyUX3t7IXD9lypkr2jcnwi72UxEd+rPbO76YJsbVu74=";
+      sha256 = "sha256-7u/iPEI/1TxF5HeOFLLkgfAzYt8NO0tZGYh/YqyZqgk=";
     };
   };
   zscroll = {
