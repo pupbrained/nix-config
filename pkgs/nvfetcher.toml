@@ -10,6 +10,10 @@ fetch.github = "github/copilot.vim"
 src.git = "https://github.com/noib3/nvim-cokeline"
 fetch.github = "noib3/nvim-cokeline"
 
+[nvim-nu]
+src.git = "https://github.com/LhKipp/nvim-nu"
+fetch.github = "LhKipp/nvim-nu"
+
 [move-nvim]
 src.git = "https://github.com/fedepujol/move.nvim"
 fetch.github = "fedepujol/move.nvim"

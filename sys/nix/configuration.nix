@@ -168,7 +168,7 @@ with lib; {
       QT_STYLE_OVERRIDE = "kvantum";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SDL_VIDEODRIVER = "wayland";
-      # WINIT_UNIX_BACKEND = "x11";
+      WINIT_UNIX_BACKEND = "x11";
       WLR_BACKEND = "vulkan";
       WLR_DRM_NO_ATOMIC = "1";
       WLR_NO_HARDWARE_CURSORS = "1";

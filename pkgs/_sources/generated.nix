@@ -37,6 +37,17 @@
       sha256 = "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=";
     };
   };
+  nvim-nu = {
+    pname = "nvim-nu";
+    version = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
+    src = fetchFromGitHub {
+      owner = "LhKipp";
+      repo = "nvim-nu";
+      rev = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
+      fetchSubmodules = false;
+      sha256 = "sha256-Ai2ot7d0TPQNDtY9Z/CPej5yJq7d6gZm1WJPW52L8/k=";
+    };
+  };
   openasar = {
     pname = "openasar";
     version = "0b1d4685cb2c94f42441fc616eb24e69eda04647";
@@ -61,13 +72,13 @@
   };
   sddm-theme = {
     pname = "sddm-theme";
-    version = "89a4ab71cccb31d782f62c18e540e4fb935b6ef9";
+    version = "13cd7b981ee7f12d80bbd839469f1b2926f23a0d";
     src = fetchFromGitHub {
       owner = "L4ki";
       repo = "Dexy-Plasma-Themes";
-      rev = "89a4ab71cccb31d782f62c18e540e4fb935b6ef9";
+      rev = "13cd7b981ee7f12d80bbd839469f1b2926f23a0d";
       fetchSubmodules = false;
-      sha256 = "sha256-7u/iPEI/1TxF5HeOFLLkgfAzYt8NO0tZGYh/YqyZqgk=";
+      sha256 = "sha256-URcw3FfiBHnvi2nJtN8eQ28rhoRTo0z8l0ykpM+IOBA=";
     };
   };
   zscroll = {

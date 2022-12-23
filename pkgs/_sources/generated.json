@@ -56,6 +56,25 @@
         },
         "version": "501f93ec84af0d505d95d3827cad470b9c5e86dc"
     },
+    "nvim-nu": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nvim-nu",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "LhKipp",
+            "repo": "nvim-nu",
+            "rev": "94f237c219ae6bbb18e2f214783e0f1370eda27b",
+            "sha256": "sha256-Ai2ot7d0TPQNDtY9Z/CPej5yJq7d6gZm1WJPW52L8/k=",
+            "type": "github"
+        },
+        "version": "94f237c219ae6bbb18e2f214783e0f1370eda27b"
+    },
     "openasar": {
         "cargoLocks": null,
         "extract": null,
@@ -107,11 +126,11 @@
             "name": null,
             "owner": "L4ki",
             "repo": "Dexy-Plasma-Themes",
-            "rev": "89a4ab71cccb31d782f62c18e540e4fb935b6ef9",
-            "sha256": "sha256-7u/iPEI/1TxF5HeOFLLkgfAzYt8NO0tZGYh/YqyZqgk=",
+            "rev": "13cd7b981ee7f12d80bbd839469f1b2926f23a0d",
+            "sha256": "sha256-URcw3FfiBHnvi2nJtN8eQ28rhoRTo0z8l0ykpM+IOBA=",
             "type": "github"
         },
-        "version": "89a4ab71cccb31d782f62c18e540e4fb935b6ef9"
+        "version": "13cd7b981ee7f12d80bbd839469f1b2926f23a0d"
     },
     "zscroll": {
         "cargoLocks": null,
