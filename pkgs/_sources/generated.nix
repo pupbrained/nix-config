@@ -72,13 +72,13 @@
   };
   sddm-theme = {
     pname = "sddm-theme";
-    version = "13cd7b981ee7f12d80bbd839469f1b2926f23a0d";
+    version = "635c7f7734850b80cb97e1e0d04b1dbae627185c";
     src = fetchFromGitHub {
       owner = "L4ki";
       repo = "Dexy-Plasma-Themes";
-      rev = "13cd7b981ee7f12d80bbd839469f1b2926f23a0d";
+      rev = "635c7f7734850b80cb97e1e0d04b1dbae627185c";
       fetchSubmodules = false;
-      sha256 = "sha256-URcw3FfiBHnvi2nJtN8eQ28rhoRTo0z8l0ykpM+IOBA=";
+      sha256 = "sha256-ft3Wx/ZFIj2aydYVhb4MEJUrp7g3EsZGGssPbwZ3jXs=";
     };
   };
   zscroll = {

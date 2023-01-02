@@ -4,6 +4,7 @@
   "height": 52,
   "modules-left": [
     "wlr/workspaces"
+    // "wlr/taskbar"
   ],
   "modules-center": [
     "custom/notification",

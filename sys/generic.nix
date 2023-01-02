@@ -116,6 +116,12 @@ in {
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-tools
+  ];
+
   programs = {
     ccache.enable = true;
     command-not-found.enable = false;

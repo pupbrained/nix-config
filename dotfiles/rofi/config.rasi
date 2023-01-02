@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,drun,window";
+    modi: "run,drun";
     lines: 5;
     font: "Rec Mono Casual 14";
     show-icons: true;

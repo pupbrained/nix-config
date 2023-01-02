@@ -17,11 +17,11 @@ inputs.nixpkgs.lib.composeManyExtensions [
       sha256 = "sha256-OIs3aI30cNyUYqSogGzzE4qsbIvtciON5aI+huag4Pg=";
     }}/src/dist.css";
   in {
-    inherit (inputs.vscodeInsiders.packages.${prev.system}) vscodeInsiders;
     inherit (inputs.flake-firefox-nightly.packages.${prev.system}) firefox-nightly-bin;
     inherit (inputs.nil.packages.${prev.system}) nil;
     inherit (inputs.prism-launcher.packages.${prev.system}) prismlauncher;
-    sf-mono-liga-src = inputs.sf-mono-liga;
+    inherit (inputs.nixpkgs-catppuccin.legacyPackages.${prev.system}) catppuccin-gtk;
+    inherit (inputs.nixpkgs-old.legacyPackages.${prev.system}) gnome webkitgtk webkitgtk_4_1 webkitgtk_5_0;
 
     discord-patched = inputs.vencord.packages.${prev.system}.discord-patched.override {
       inherit (final) discord-canary;
@@ -32,6 +32,7 @@ inputs.nixpkgs.lib.composeManyExtensions [
     glrnvim = inputs.glrnvim.defaultPackage.${prev.system};
     tre = inputs.tre.defaultPackage.${prev.system};
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
+    nurl = inputs.nurl.packages.${prev.system}.default;
 
     adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
@@ -41,10 +42,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
     jetbrains-fleet = final.callPackage ./fleet.nix {};
     python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};
     revolt = final.callPackage ./revolt.nix {};
-    sf-mono-liga = final.callPackage ./sf-mono-liga.nix {
-      src = final.sf-mono-liga-src;
-      version = "999-master";
-    };
     nushell-pkg = final.callPackage ./nushell-pkg.nix {};
 
     kitty = prev.python3Packages.buildPythonApplication rec {
@@ -66,15 +63,15 @@ inputs.nixpkgs.lib.composeManyExtensions [
       '';
     });
 
-    bluez = prev.bluez.overrideAttrs (oldAttrs: {
+    bluez = prev.bluez.overrideAttrs (_: {
       doCheck = false;
     });
 
-    zscroll = prev.zscroll.overrideAttrs (o: {
+    zscroll = prev.zscroll.overrideAttrs (_: {
       inherit (sources.zscroll) src pname version;
     });
 
-    copilot-vim = prev.vimPlugins.copilot-vim.overrideAttrs (o: {
+    copilot-vim = prev.vimPlugins.copilot-vim.overrideAttrs (_: {
       inherit (sources.copilot-vim) src pname version;
     });
 
@@ -91,9 +88,9 @@ inputs.nixpkgs.lib.composeManyExtensions [
     };
 
     libsForQt5 =
-      prev.libsForQt5
+      inputs.nixpkgs-old.legacyPackages.${prev.system}.libsForQt5
       // {
-        sddm = prev.libsForQt5.sddm.overrideAttrs (o: {
+        sddm = inputs.nixpkgs-old.legacyPackages.${prev.system}.libsForQt5.sddm.overrideAttrs (o: {
           inherit (sources.sddm) src pname version;
           patches = [
             ./sddm-ignore-config-mtime.patch
@@ -104,10 +101,10 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {
       src = prev.fetchFromGitHub {
-        owner = "amurzeau";
+        owner = "dasJ";
         repo = "spotifywm";
-        rev = "a2b5efd5439b0404f1836cc9a681417627531a00";
-        sha256 = "03bvm6nb9524km28h6mazs6613lvcmyzp1kg9iql2pcli9rfmi82";
+        rev = "8624f539549973c124ed18753881045968881745";
+        sha256 = "sha256-AsXqcoqUXUFxTG+G+31lm45gjP6qGohEnUSUtKypew0=";
       };
     });
 
@@ -131,18 +128,12 @@ inputs.nixpkgs.lib.composeManyExtensions [
       };
     });
 
-    hyprland-nvidia = inputs.hyprland.packages.${prev.system}.default.override {
-      nvidiaPatches = true;
-    };
-
-    discord-canary = prev.discord-canary.override {
-      nss = final.nss_latest;
-      openasar = final.callPackage ./openasar.nix {inherit (sources.openasar) src pname version;};
-      withOpenASAR = true;
-    };
-
     discord-plugged = inputs.replugged.packages.${prev.system}.discord-plugged.override {
-      inherit (final) discord-canary;
+      discord-canary = prev.discord-canary.override {
+        nss = final.nss_latest;
+        openasar = final.callPackage ./openasar.nix {inherit (sources.openasar) src pname version;};
+        withOpenASAR = true;
+      };
     };
 
     firefox-addons = prev.callPackages ./firefox-addons {};

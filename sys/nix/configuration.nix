@@ -4,6 +4,7 @@
   pkgs,
   lib,
   self,
+  xdg-hyprland,
   ...
 }:
 with lib; {
@@ -55,7 +56,7 @@ with lib; {
     bright = ["1E1E2E" "F38BA8" "A6E3A1" "F9E2AF" "89B4FA" "F5C2E7" "94E2D5" "A6ADC8"];
   in {
     colors = normal ++ bright;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-u20b.psf.gz";
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-u18b.psf.gz";
     keyMap = "us";
   };
 
@@ -69,27 +70,16 @@ with lib; {
       noto-fonts-cjk-sans
       recursive
       rubik
-      sf-mono-liga
       twemoji-color-font
     ];
 
     fontconfig = {
       enable = true;
-      antialias = true;
-      allowBitmaps = true;
 
       defaultFonts = {
         monospace = ["Maple Mono NF"];
         sansSerif = ["Google Sans Text"];
       };
-
-      hinting = {
-        enable = true;
-        autohint = true;
-        style = "hintfull";
-      };
-
-      subpixel.lcdfilter = "default";
     };
   };
 
@@ -106,12 +96,12 @@ with lib; {
 
   services = {
     blueman.enable = true;
-    flatpak.enable = true;
     mullvad-vpn.enable = true;
 
     gnome = {
-      glib-networking.enable = true;
       gnome-keyring.enable = true;
+      gnome-browser-connector.enable = true;
+      sushi.enable = true;
     };
 
     pipewire = {
@@ -130,20 +120,22 @@ with lib; {
       videoDrivers = ["nvidia"];
 
       displayManager = {
-        defaultSession = "hyprland";
+        defaultSession = "gnome";
         sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
 
-        sddm = {
+        gdm = {
           enable = true;
-          theme = "dexy-theme";
+          wayland = true;
         };
       };
+      desktopManager.gnome.enable = true;
     };
+
+    udev.packages = [pkgs.gnome.gnome-settings-daemon];
   };
 
   programs = {
     adb.enable = true;
-    dconf.enable = true;
     gamemode.enable = true;
     steam.enable = true;
   };
@@ -156,6 +148,7 @@ with lib; {
       DISABLE_QT5_COMPAT = "0";
       GBM_BACKEND = "nvidia-drm";
       GDK_BACKEND = "wayland";
+      GDK_SCALE = "2";
       GLFW_IM_MODULE = "ibus";
       GPG_TTY = "$TTY";
       LIBSEAT_BACKEND = "logind";
@@ -164,8 +157,6 @@ with lib; {
       NIXPKGS_ALLOW_UNFREE = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-      QT_STYLE_OVERRIDE = "kvantum";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SDL_VIDEODRIVER = "wayland";
       WINIT_UNIX_BACKEND = "x11";
@@ -173,6 +164,7 @@ with lib; {
       WLR_DRM_NO_ATOMIC = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER = "vulkan";
+      XCURSOR_SIZE = "48";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
@@ -185,7 +177,7 @@ with lib; {
       eval $(gnome-keyring-daemon --start --daemonize --components=ssh)
     '';
 
-    systemPackages = [pkgs.sddm-dexy-theme];
+    systemPackages = [pkgs.gnomeExtensions.gsconnect];
   };
 
   security = {
@@ -220,7 +212,6 @@ with lib; {
       modesetting.enable = true;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
-
       powerManagement.enable = true;
     };
 
@@ -235,35 +226,30 @@ with lib; {
       ];
     };
 
-    enableRedistributableFirmware = true;
     i2c.enable = true;
     pulseaudio.enable = false;
   };
 
   documentation = {
     enable = true;
-    doc.enable = false;
-    dev.enable = false;
+    doc.enable = true;
+    dev.enable = true;
     man = {
       enable = true;
       man-db.enable = false;
     };
   };
 
-  nix.settings.trusted-users = ["root" "marshall"];
+  virtualisation = {
+    waydroid.enable = true;
+  };
 
   xdg.portal = {
     enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [xdg-hyprland.packages.${pkgs.system}.default];
   };
 
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
-  };
-
+  zramSwap.enable = true;
+  nix.settings.trusted-users = ["root" "marshall"];
   system.stateVersion = "21.11";
 }

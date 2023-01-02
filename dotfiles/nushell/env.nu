@@ -11,6 +11,8 @@ let-env ENV_CONVERSIONS = {
 
 let-env PATH = ($env.PATH | append "/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/marshall/.npm-packages/bin:/run/wrappers/bin:/home/marshall/.nix-profile/bin:/etc/profiles/per-user/marshall/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin")
 
+let-env NU_LIB_DIRS = "/home/marshall/.config/nushell/lib"
+
 let-env STARSHIP_SHELL = "nu"
 let width = ((term size).columns)
 
@@ -22,6 +24,10 @@ def gcap [] {
   git add .
   git commit
   git push
+}
+
+def run [name] {
+  nix run $"nixpkgs#($name)"
 }
 
 let-env PROMPT_COMMAND = { create_left_prompt }

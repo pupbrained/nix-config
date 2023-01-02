@@ -7,43 +7,42 @@
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     glrnvim.url = "github:pupbrained/glrnvim-nix";
     home-manager.url = "github:nix-community/home-manager";
-    hyprland.url = "github:pupbrained/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
+    neovim.url = "github:neovim/neovim?dir=contrib";
     nil.url = "github:oxalica/nil";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs-catppuccin.url = "github:fufexan/nixpkgs/catppuccin";
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
     nixvim.url = "github:pta2002/nixvim";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
+    nurl.url = "github:nix-community/nurl";
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
     replugged.url = "github:pupbrained/replugged";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     tre.url = "github:dduan/tre";
-    vencord.url = "github:pupbrained/vencord-nix-flake";
-    vscodeInsiders.url = "github:cideM/visual-studio-code-insiders-nix";
-
-    sf-mono-liga = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
+    xdg-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {
-    self,
     agenix,
     fenix,
-    nixpkgs,
-    nixpkgs-old,
     home-manager,
-    nixos-wsl,
-    nur,
     hyprland,
     hyprland-contrib,
-    spicetify-nix,
+    neovim,
+    nixos-wsl,
+    nixpkgs,
+    nixpkgs-old,
+    nur,
+    nurl,
     replugged,
-    sf-mono-liga,
+    spicetify-nix,
+    xdg-hyprland,
+    self,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -58,7 +57,7 @@
     homeConfigurations = {
       marshall = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs self spicetify-nix hyprland-contrib;};
+        extraSpecialArgs = {inherit inputs self spicetify-nix hyprland-contrib xdg-hyprland;};
         modules = [
           ./home
           {
@@ -87,7 +86,7 @@
     nixosConfigurations = {
       nix = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs self;};
+        specialArgs = {inherit inputs self xdg-hyprland;};
 
         modules = [
           ./sys/nix/configuration.nix

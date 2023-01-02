@@ -1,0 +1,6 @@
+#!/usr/bin/env nu
+
+enter pkgs
+nvfetcher
+exit
+nix flake update

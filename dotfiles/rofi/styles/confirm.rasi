@@ -15,7 +15,7 @@ window {
     location: center;
     y-offset: -20px;
 }
-
+k
 entry {
     expand: true;
     text-color: @accent;

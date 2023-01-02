@@ -7,6 +7,7 @@
 }: {
   programs.nixvim = {
     enable = true;
+    package = inputs.neovim.packages.${pkgs.system}.default;
     colorscheme = "carbonfox";
 
     options = {
@@ -14,6 +15,7 @@
       relativenumber = true;
       shiftwidth = 0;
       tabstop = 2;
+      showtabline = 2;
       expandtab = true;
       smarttab = true;
       showmode = false;
@@ -25,7 +27,7 @@
     globals = {
       mapleader = " ";
       catppuccin_flavor = "mocha";
-      rust_reccommended_style = false;
+      rust_recommended_style = false;
       neovide_cursor_animation_length = 0.025;
       neovide_cursor_vfx_mode = "railgun";
       neovide_refresh_rate = 144;
@@ -49,7 +51,7 @@
 
     maps = {
       normal = {
-        "<C-t>" = {
+        "<C-`>" = {
           silent = true;
           action = "<CMD>lua require('FTerm').toggle()<CR>";
         };
@@ -130,7 +132,7 @@
         };
       };
 
-      terminal."<C-t>" = {
+      terminal."<C-`>" = {
         silent = true;
         action = "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>";
       };
@@ -138,7 +140,7 @@
 
     extraConfigLua = ''
       vim.cmd("set mouse=a")
-      vim.cmd("set guifont=Maple\\ Mono\\ NF:h12")
+      vim.cmd("set guifont=Maple\\ Mono\\ NF:h14")
       require("indent_blankline").setup {show_current_context = true, show_current_context_start = true}
       require("gitsigns").setup()
       require("colorizer").setup()
@@ -744,6 +746,7 @@
       tabby-nvim
       trouble-nvim
       vim-cool
+      vim-smoothie
       vim-visual-multi
       zen-mode-nvim
     ];

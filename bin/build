@@ -1,14 +1,17 @@
-#!/usr/bin/env bash
-set -eo pipefail
+#!/usr/bin/env nu
 
-nix run nixpkgs#alejandra -- . -q
-nix run nixpkgs#statix -- fix .
+def main [
+  x?: string # specifies whether to rebuild home or system config
+] {
+  nix run "nixpkgs#alejandra" -- . -q
+  nix run "nixpkgs#statix" -- fix .
 
-if [ "$1" == "sys" ] || [ "$1" == "-s" ]; then
-  nix-shell -p git --run "nixos-rebuild switch --flake .# --impure --use-remote-sudo --option sandbox false"
-elif [ "$1" == "home" ] || [ "$1" == "-h" ]; then
-  nix run .#update-home --impure
-else
-  nix-shell -p git --run "nixos-rebuild switch --flake .# --impure --use-remote-sudo --option sandbox false"
-  nix run .#update-home --impure
-fi
+  if $x == "s" {
+    nix-shell -p git --run "nixos-rebuild switch --flake .# --impure --use-remote-sudo --option sandbox false"
+  } else if $x == "h" {
+    nix run ".#update-home" --impure
+  } else {
+    nix-shell -p git --run "nixos-rebuild switch --flake .# --impure --use-remote-sudo --option sandbox false"
+    nix run ".#update-home" --impure
+  }
+}

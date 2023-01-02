@@ -4,6 +4,7 @@
   config,
   spicetify-nix,
   hyprland-contrib,
+  xdg-hyprland,
   ...
 }:
 with pkgs; {
@@ -31,124 +32,140 @@ with pkgs; {
       size = 24;
     };
 
-    packages = [
-      # SNOW BEGIN
-      acpi
-      alejandra
-      audacity
-      authy
-      bacon
-      binutils
-      brightnessctl
-      btop
-      cachix
-      cargo-edit
-      cargo-udeps
-      cava
-      cmake
-      comma
-      cozette
-      curlie
-      discord-plugged
-      draconis
-      edgedb
-      file
-      gcc
-      gh
-      gitoxide
-      gleam
-      glib
-      glrnvim
-      gnome.file-roller
-      gnome.nautilus
-      gnome.seahorse
-      gnome.zenity
-      gnumake
-      gopls
-      gpick
-      gradience
-      grex
-      grim
-      gsettings-desktop-schemas
-      headsetcontrol
-      httpie-desktop
-      hyprland-contrib.packages.${pkgs.system}.grimblast
-      inotify-tools
-      insomnia
-      jamesdsp
-      jetbrains-fleet
-      jetbrains.idea-ultimate
-      jetbrains.webstorm
-      jq
-      keybase
-      keychain
-      kotatogram-desktop
-      lazygit
-      libappindicator
-      libffi
-      libnotify
-      libsForQt5.qtstyleplugin-kvantum
-      lucky-commit
-      lxappearance
-      micro
-      minecraft
-      mold
-      mullvad-vpn
-      mysql
-      neovide
-      ngrok
-      nix-prefetch-scripts
-      nix-snow
-      nodePackages.generator-code
-      nodePackages.pnpm
-      nodePackages.typescript-language-server
-      nodejs-16_x # for copilot
-      notion-app-enhanced
-      obsidian
-      odin
-      openal
-      p7zip
-      pavucontrol
-      playerctl
-      prismlauncher
-      pscale
-      pulseaudio
-      python
-      python310
-      revolt
-      riff
-      rnix-lsp
-      rofi
-      rust-analyzer-nightly
-      rustup
-      sapling
-      scrot
-      slurp
-      starfetch
-      starship
-      statix
-      stylua
-      sumneko-lua-language-server
-      swaynotificationcenter
-      tealdeer
-      tre
-      unrar
-      unzip
-      waybar
-      wf-recorder
-      wget
-      wineWowPackages.waylandFull
-      wl-clipboard
-      wl-color-picker
-      xclip
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-      yarn
-      zls
-      zscroll
-      # SNOW END
-    ];
+    packages =
+      builtins.attrValues
+      {
+        inherit (gnome) eog file-roller gnome-tweaks nautilus seahorse zenity;
+        inherit
+          (gnomeExtensions)
+          arcmenu
+          blur-my-shell
+          browser-tabs
+          burn-my-windows
+          clipman
+          emoji-selector
+          gnome-40-ui-improvements
+          just-perfection
+          mpris-label
+          openweather
+          pop-shell
+          rounded-window-corners
+          simply-workspaces
+          tray-icons-reloaded
+          vitals
+          ;
+        inherit (hyprland-contrib.packages.${pkgs.system}) grimblast;
+        inherit (nodePackages) generator-code pnpm typescript-language-server;
+        inherit (wineWowPackages) waylandFull;
+        inherit (xdg-hyprland.packages.${pkgs.system}) hyprland-share-picker;
+      }
+      ++ [
+        # SNOW BEGIN
+        acpi
+        alejandra
+        audacity
+        authy
+        bacon
+        binutils
+        brightnessctl
+        btop
+        cachix
+        carapace
+        cargo-edit
+        cargo-udeps
+        cava
+        cmake
+        comma
+        cozette
+        curlie
+        discord-plugged
+        draconis
+        edgedb
+        file
+        gcc
+        gh
+        gitoxide
+        gleam
+        glib
+        glrnvim
+        gnumake
+        gopls
+        gpick
+        gradience
+        grex
+        grim
+        gsettings-desktop-schemas
+        headsetcontrol
+        httpie-desktop
+        hyprpaper
+        inotify-tools
+        insomnia
+        jamesdsp
+        jetbrains-fleet
+        jq
+        keybase
+        keychain
+        kotatogram-desktop
+        lazygit
+        libappindicator
+        libffi
+        libgda6
+        libnotify
+        lucky-commit
+        lxappearance
+        micro
+        minecraft
+        mold
+        mullvad-vpn
+        mysql
+        neovide
+        ngrok
+        nix-prefetch-scripts
+        nix-snow
+        nodejs-16_x
+        notion-app-enhanced
+        nurl
+        obsidian
+        odin
+        openal
+        p7zip
+        pavucontrol
+        playerctl
+        prismlauncher
+        pscale
+        pulseaudio
+        python
+        python310
+        revolt
+        riff
+        rnix-lsp
+        rofi-wayland
+        rust-analyzer-nightly
+        rustup
+        sapling
+        scrot
+        slurp
+        starfetch
+        starship
+        statix
+        stylua
+        sumneko-lua-language-server
+        swaynotificationcenter
+        tealdeer
+        tre
+        unrar
+        unzip
+        waybar
+        wf-recorder
+        wget
+        wl-clipboard
+        wl-color-picker
+        xclip
+        yarn
+        zls
+        zscroll
+        # SNOW END
+      ];
 
     sessionVariables = {
       CLUTTER_BACKEND = "wayland";
@@ -157,6 +174,7 @@ with pkgs; {
       DISABLE_QT5_COMPAT = "0";
       GBM_BACKEND = "nvidia-drm";
       GDK_BACKEND = "wayland";
+      GDK_SCALE = "2";
       GLFW_IM_MODULE = "ibus";
       GPG_TTY = "$TTY";
       LIBSEAT_BACKEND = "logind";
@@ -165,14 +183,13 @@ with pkgs; {
       NIXPKGS_ALLOW_UNFREE = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-      QT_STYLE_OVERRIDE = "kvantum";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SDL_VIDEODRIVER = "wayland";
       WLR_BACKEND = "vulkan";
       WLR_DRM_NO_ATOMIC = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER = "vulkan";
+      XCURSOR_SIZE = "48";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
@@ -207,8 +224,11 @@ with pkgs; {
 
     firefox = {
       enable = true;
-
-      package = firefox-nightly-bin;
+      package = firefox-nightly-bin.override {
+        cfg = {
+          enableGnomeExtensions = true;
+        };
+      };
 
       extensions = with config.nur.repos.rycee.firefox-addons; [
         add-custom-search-engine
@@ -267,44 +287,6 @@ with pkgs; {
           };
         };
       };
-    };
-
-    fish = {
-      enable = true;
-
-      plugins = [
-        {
-          name = "catppuccin";
-          src = pkgs.fetchFromGitHub {
-            owner = "catppuccin";
-            repo = "fish";
-            rev = "cb79527f5bd53f103719649d34eff3fbae634155";
-            sha256 = "062biq1pjqwp3qc506q2cczy5w7ysy4109p3c5x45m24nqk0s9bj";
-          };
-        }
-      ];
-
-      shellAliases = {
-        cat = "bat";
-        ga = "git add";
-        gap = "git add -p";
-        gc = "git commit";
-        gcap = "ga .; gc; git pushall";
-        gcp = "gc; git pushall";
-        gd = "git diff";
-        gs = "git status";
-        lg = "lazygit";
-        ssh = "kitty +kitten ssh";
-      };
-
-      shellInit = ''
-        string match -q "$TERM_PROGRAM" "vscode"
-        and . (code-insiders --locate-shell-integration-path fish)
-        export PATH="$PATH:/home/marshall/.local/bin:/home/marshall/.cargo/bin:/home/marshall/go/bin:/home/marshall/.npm-packages/bin"
-        export NODE_PATH="/home/marshall/.npm-packages/lib/node_modules"
-        export EDITOR=nvim
-        export VISUAL=nvim
-      '';
     };
 
     fzf = {
@@ -366,7 +348,7 @@ with pkgs; {
 
       font = {
         name = "Maple Mono NF";
-        size = 12;
+        size = 14;
       };
 
       settings = {
@@ -376,7 +358,7 @@ with pkgs; {
         allow_remote_control = "socket-only";
         listen_on = "unix:/tmp/kitty";
         placement_strategy = "center";
-        hide_window_decorations = "titlebar-only";
+        hide_window_decorations = "yes";
         background_opacity = "0.8";
         dynamic_background_opacity = true;
         inactive_text_alpha = 1;
@@ -477,7 +459,13 @@ with pkgs; {
 
     vscode = {
       enable = true;
-      package = vscodeInsiders;
+      package = (pkgs.vscode.override {isInsiders = true;}).overrideAttrs (o: {
+        src = builtins.fetchTarball {
+          url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+          sha256 = "0za3yinia60spbmn1xsmp64lq0c6hyyhbyq42hxhdc0j54pbchfz";
+        };
+        version = "latest";
+      });
     };
 
     zoxide = {
@@ -530,8 +518,12 @@ with pkgs; {
     enable = true;
 
     theme = {
-      package = pkgs.catppuccin-gtk;
-      name = "Catppuccin-Mocha-Mauve";
+      package = pkgs.catppuccin-gtk.override {
+        tweaks = ["normal"];
+        accents = ["mauve"];
+        variant = "mocha";
+      };
+      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
     };
 
     iconTheme = {
@@ -557,7 +549,7 @@ with pkgs; {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland-nvidia;
+    nvidiaPatches = true;
     systemdIntegration = true;
   };
 
