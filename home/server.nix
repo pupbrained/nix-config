@@ -11,6 +11,7 @@ with pkgs; {
   ];
 
   home.packages = [
+    # SNOW BEGIN
     draconis
     starship
     ripgrep
@@ -20,6 +21,8 @@ with pkgs; {
     riff
     nodePackages.pnpm
     openvscode-server
+    starfetch
+    # SNOW END
   ];
 
   services.gpg-agent.pinentryFlavor = "tty";

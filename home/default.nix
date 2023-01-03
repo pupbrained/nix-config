@@ -33,33 +33,7 @@ with pkgs; {
     };
 
     packages =
-      builtins.attrValues
-      {
-        inherit (gnome) eog file-roller gnome-tweaks nautilus seahorse zenity;
-        inherit
-          (gnomeExtensions)
-          arcmenu
-          blur-my-shell
-          browser-tabs
-          burn-my-windows
-          clipman
-          emoji-selector
-          gnome-40-ui-improvements
-          just-perfection
-          mpris-label
-          openweather
-          pop-shell
-          rounded-window-corners
-          simply-workspaces
-          tray-icons-reloaded
-          vitals
-          ;
-        inherit (hyprland-contrib.packages.${pkgs.system}) grimblast;
-        inherit (nodePackages) generator-code pnpm typescript-language-server;
-        inherit (wineWowPackages) waylandFull;
-        inherit (xdg-hyprland.packages.${pkgs.system}) hyprland-share-picker;
-      }
-      ++ [
+      [
         # SNOW BEGIN
         acpi
         alejandra
@@ -97,6 +71,7 @@ with pkgs; {
         gsettings-desktop-schemas
         headsetcontrol
         httpie-desktop
+        hyprland-contrib.packages.${pkgs.system}.grimblast
         hyprpaper
         inotify-tools
         insomnia
@@ -158,14 +133,50 @@ with pkgs; {
         waybar
         wf-recorder
         wget
+        wineWowPackages.waylandFull
         wl-clipboard
         wl-color-picker
         xclip
+        xdg-hyprland.packages.${pkgs.system}.hyprland-share-picker
         yarn
         zls
         zscroll
         # SNOW END
-      ];
+      ]
+      ++ (with gnome; [
+        dconf-editor
+        eog
+        file-roller
+        gnome-tweaks
+        nautilus
+        seahorse
+        zenity
+      ])
+      ++ (with gnomeExtensions; [
+        arcmenu
+        blur-my-shell
+        browser-tabs
+        burn-my-windows
+        emoji-selector
+        gnome-40-ui-improvements
+        just-perfection
+        mpris-label
+        openweather
+        pano
+        pop-shell
+        rounded-window-corners
+        simply-workspaces
+        tray-icons-reloaded
+        vitals
+      ])
+      ++ (with nodePackages_latest; [
+        eslint
+        generator-code
+        pnpm
+        prettier
+        typescript
+        typescript-language-server
+      ]);
 
     sessionVariables = {
       CLUTTER_BACKEND = "wayland";
@@ -177,6 +188,7 @@ with pkgs; {
       GDK_SCALE = "2";
       GLFW_IM_MODULE = "ibus";
       GPG_TTY = "$TTY";
+      HOME_MANAGER_BACKUP_EXT = "bkp";
       LIBSEAT_BACKEND = "logind";
       LIBVA_DRIVER_NAME = "nvidia";
       NIXOS_OZONE_WL = "1";
@@ -459,13 +471,202 @@ with pkgs; {
 
     vscode = {
       enable = true;
-      package = (pkgs.vscode.override {isInsiders = true;}).overrideAttrs (o: {
-        src = builtins.fetchTarball {
-          url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-          sha256 = "0za3yinia60spbmn1xsmp64lq0c6hyyhbyq42hxhdc0j54pbchfz";
+
+      userSettings = {
+        breadcrumbs.enabled = false;
+        emmet.useInlineCompletions = true;
+        github.copilot.enable."*" = true;
+        javascript.updateImportsOnFileMove.enabled = "always";
+        scss.lint.unknownAtRules = "ignore";
+        security.workspace.trust.untrustedFiles = "open";
+        update.mode = "none";
+
+        "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
+        "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
+        "[javascript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+        "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
+        "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+        "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
+        "[rust]".editor.defaultFormatter = "rust-lang.rust-analyzer";
+        "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
+        "[typescript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+        "[typescriptreact]".eslint.validate = [
+          "javascript"
+          "javascriptreact"
+          "typescript"
+          "typescriptreact"
+        ];
+
+        editor = {
+          cursorBlinking = "smooth";
+          cursorSmoothCaretAnimation = "on";
+          cursorWidth = 2;
+          defaultFormatter = "rvest.vs-code-prettier-eslint";
+          find.addExtraSpaceOnTop = false;
+          fontFamily = "'Maple Mono NF'";
+          fontLigatures = true;
+          fontSize = 16;
+          formatOnSave = true;
+          guides.bracketPairs = true;
+          inlayHints.enabled = "off";
+          inlineSuggest.enabled = true;
+          largeFileOptimizations = false;
+          lineNumbers = "on";
+          linkedEditing = true;
+          maxTokenizationLineLength = 60000;
+          minimap.enabled = false;
+          quickSuggestions.strings = true;
+          renderWhitespace = "all";
+          smoothScrolling = true;
+          suggest.showStatusBar = true;
+          suggestSelection = "first";
+
+          bracketPairColorization = {
+            enabled = true;
+            independentColorPoolPerBracketType = true;
+          };
+
+          codeActionsOnSave.source = {
+            organizeImports = true;
+            fixAll.eslint = true;
+          };
+
+          unicodeHighlight.allowedCharacters = {
+            "️" = true;
+            "〇" = true;
+            "’" = true;
+          };
         };
-        version = "latest";
-      });
+
+        eslint = {
+          format.enable = true;
+          lintTask.enable = true;
+          useESLintClass = true;
+        };
+
+        explorer = {
+          confirmDragAndDrop = false;
+          confirmDelete = true;
+        };
+
+        files = {
+          autoSave = "afterDelay";
+          eol = "\n";
+          insertFinalNewline = true;
+
+          exclude = {
+            "**/.classpath" = true;
+            "**/.direnv" = true;
+            "**/.factorypath" = true;
+            "**/.git" = true;
+            "**/.project" = true;
+            "**/.settings" = true;
+          };
+        };
+
+        git = {
+          autofetch = true;
+          confirmSync = false;
+          enableSmartCommit = true;
+        };
+
+        rust-analyzer = {
+          procMacro.enable = false;
+          signatureInfo.documentation.enable = false;
+
+          rustfmt.extraArgs = [
+            "--config [tab_spaces=2]"
+          ];
+        };
+
+        terminal.integrated = {
+          cursorBlinking = true;
+          cursorStyle = "line";
+          cursorWidth = 2;
+          fontFamily = "'Maple Mono NF'";
+          fontSize = 16;
+          smoothScrolling = true;
+
+          ignoreProcessNames = [
+            "starship"
+            "bash"
+            "zsh"
+            "fish"
+            "nu"
+          ];
+        };
+
+        vim = {
+          enableNeovim = true;
+          neovimConfigPath = "~/.config/nvim/init.lua";
+          neovimPath = "/home/marshall/.nix-profile/bin/nvim";
+          neovimUseConfigFile = true;
+
+          cursorStylePerMode = {
+            normal = "block";
+            insert = "line";
+            replace = "underline";
+            visual = "block-outline";
+            visualblock = "block-outline";
+            visualline = "block-outline";
+          };
+        };
+
+        window = {
+          titleBarStyle = "custom";
+          zoomLevel = 1;
+        };
+
+        workbench = {
+          colorTheme = "Catppuccin Mocha";
+          iconTheme = "material-icon-theme";
+          smoothScrolling = true;
+        };
+      };
+
+      package = vscode-with-extensions.override {
+        vscodeExtensions = with vscode-extensions;
+          [
+            arrterian.nix-env-selector
+            bbenoist.nix
+            catppuccin.catppuccin-vsc
+            dbaeumer.vscode-eslint
+            esbenp.prettier-vscode
+            github.copilot
+            kamadorueda.alejandra
+            matklad.rust-analyzer
+            ms-vscode-remote.remote-ssh
+            pkief.material-product-icons
+            pkief.material-icon-theme
+            vscodevim.vim
+          ]
+          ++ vscode-utils.extensionsFromVscodeMarketplace [
+            {
+              name = "feather-vscode";
+              publisher = "melishev";
+              version = "1.0.1";
+              sha256 = "sha256-sFgNgNAFlTfx6m+Rp5lQxWnjSe7LLzB6N/gq7jQhRJs=";
+            }
+            {
+              name = "vs-code-prettier-eslint";
+              publisher = "rvest";
+              version = "5.0.4";
+              sha256 = "sha256-aLEAuFQQTxyFSfr7dXaYpm11UyBuDwBNa0SBCMJAVRI=";
+            }
+          ];
+        vscode =
+          (vscode.override {
+            isInsiders = true;
+          })
+          .overrideAttrs
+          (_: {
+            src = builtins.fetchTarball {
+              url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+              sha256 = "0za3yinia60spbmn1xsmp64lq0c6hyyhbyq42hxhdc0j54pbchfz";
+            };
+            version = "latest";
+          });
+      };
     };
 
     zoxide = {

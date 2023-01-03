@@ -34,7 +34,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
     nix-snow = inputs.nix-snow.defaultPackage.${prev.system};
     nurl = inputs.nurl.packages.${prev.system}.default;
 
-    adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
     catppuccin-folders = final.callPackage ./catppuccin-folders.nix {};
     gradience = final.callPackage ./gradience.nix {};
@@ -97,6 +96,12 @@ inputs.nixpkgs.lib.composeManyExtensions [
             ./sddm-default-session.patch
           ];
         });
+      };
+
+    gnomeExtensions =
+      prev.gnomeExtensions
+      // {
+        inherit (inputs.nixpkgs-pano.legacyPackages.${prev.system}.gnomeExtensions) pano;
       };
 
     spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {

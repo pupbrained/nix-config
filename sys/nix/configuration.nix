@@ -17,6 +17,11 @@ with lib; {
   ];
 
   boot = {
+    kernelParams = ["module_blacklist=i915"];
+    kernelPackages = pkgs.linuxPackages_zen;
+    extraModprobeConfig = "options hid_apple fnmode=2";
+    supportedFilesystems = ["btrfs" "ext4" "ntfs" "vfat"];
+
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -39,16 +44,6 @@ with lib; {
         '';
       };
     };
-
-    plymouth = {
-      enable = true;
-      themePackages = [pkgs.adi1090x-plymouth];
-      theme = "colorful_loop";
-    };
-
-    kernelParams = ["module_blacklist=i915"];
-    kernelPackages = pkgs.linuxPackages_zen;
-    extraModprobeConfig = "options hid_apple fnmode=2";
   };
 
   console = let
@@ -97,6 +92,7 @@ with lib; {
   services = {
     blueman.enable = true;
     mullvad-vpn.enable = true;
+    udev.packages = [pkgs.gnome.gnome-settings-daemon];
 
     gnome = {
       gnome-keyring.enable = true;
@@ -123,24 +119,47 @@ with lib; {
         defaultSession = "gnome";
         sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
 
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
+        gdm.enable = true;
       };
       desktopManager.gnome.enable = true;
     };
-
-    udev.packages = [pkgs.gnome.gnome-settings-daemon];
   };
 
   programs = {
     adb.enable = true;
+    dconf.enable = true;
     gamemode.enable = true;
     steam.enable = true;
   };
 
   environment = {
+    gnome.excludePackages =
+      (with pkgs; [
+        gnome-photos
+        gnome-tour
+      ])
+      ++ (with pkgs.gnome; [
+        cheese
+        gnome-music
+        gnome-terminal
+        gedit
+        epiphany
+        geary
+        evince
+        gnome-characters
+        totem
+        tali
+        iagno
+        hitori
+        atomix
+      ]);
+
+    loginShellInit = ''
+      dbus-update-activation-environment --systemd DISPLAY
+      eval $(ssh-agent)
+      eval $(gnome-keyring-daemon --start --daemonize --components=ssh)
+    '';
+
     variables = {
       CLUTTER_BACKEND = "wayland";
       DEFAULT_BROWSER = "${pkgs.firefox-nightly-bin}/bin/firefox";
@@ -170,19 +189,12 @@ with lib; {
       __GL_VRR_ALLOWED = "0";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
-
-    loginShellInit = ''
-      dbus-update-activation-environment --systemd DISPLAY
-      eval $(ssh-agent)
-      eval $(gnome-keyring-daemon --start --daemonize --components=ssh)
-    '';
-
-    systemPackages = [pkgs.gnomeExtensions.gsconnect];
   };
 
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+
     pam.services = {
       sddm.enableGnomeKeyring = true;
       swaylock.text = ''
@@ -246,7 +258,7 @@ with lib; {
 
   xdg.portal = {
     enable = true;
-    extraPortals = [xdg-hyprland.packages.${pkgs.system}.default];
+    # extraPortals = [xdg-hyprland.packages.${pkgs.system}.default];
   };
 
   zramSwap.enable = true;

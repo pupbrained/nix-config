@@ -15,6 +15,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixpkgs-catppuccin.url = "github:fufexan/nixpkgs/catppuccin";
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs-pano.url = "github:michojel/nixpkgs/gnome-shell-extension-pano";
     nixvim.url = "github:pta2002/nixvim";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
