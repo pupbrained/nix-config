@@ -3,6 +3,7 @@
 
   inputs = {
     agenix.url = "github:yaxitech/ragenix";
+    doom-emacs.url = "github:nix-community/nix-doom-emacs";
     draconis.url = "github:pupbrained/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     glrnvim.url = "github:pupbrained/glrnvim-nix";
@@ -11,12 +12,13 @@
     hyprland-contrib.url = "github:hyprwm/contrib";
     neovim.url = "github:neovim/neovim?dir=contrib";
     nil.url = "github:oxalica/nil";
+    nix-init.url = "github:nix-community/nix-init";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixpkgs-catppuccin.url = "github:fufexan/nixpkgs/catppuccin";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
-    nixpkgs-pano.url = "github:michojel/nixpkgs/gnome-shell-extension-pano";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/release-22.11";
     nixvim.url = "github:pta2002/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs-old";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
     nurl.url = "github:nix-community/nurl";
@@ -30,20 +32,22 @@
 
   outputs = {
     agenix,
+    doom-emacs,
     fenix,
     home-manager,
     hyprland,
     hyprland-contrib,
     neovim,
+    nix-init,
     nixos-wsl,
     nixpkgs,
     nixpkgs-old,
     nur,
     nurl,
     replugged,
+    self,
     spicetify-nix,
     xdg-hyprland,
-    self,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -58,7 +62,7 @@
     homeConfigurations = {
       marshall = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs self spicetify-nix hyprland-contrib xdg-hyprland;};
+        extraSpecialArgs = {inherit inputs self spicetify-nix hyprland-contrib xdg-hyprland doom-emacs nix-init;};
         modules = [
           ./home
           {

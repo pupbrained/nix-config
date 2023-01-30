@@ -6,7 +6,7 @@
   ...
 }: {
   programs.nixvim = {
-    enable = true;
+    enable = false;
     package = inputs.neovim.packages.${pkgs.system}.default;
     colorscheme = "carbonfox";
 
@@ -51,7 +51,7 @@
 
     maps = {
       normal = {
-        "<C-`>" = {
+        "<C-t>" = {
           silent = true;
           action = "<CMD>lua require('FTerm').toggle()<CR>";
         };
@@ -107,6 +107,10 @@
           silent = true;
           action = "<CMD>NvimTreeToggle<CR>";
         };
+        "<Leader>a" = {
+          silent = true;
+          action = "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>";
+        };
       };
 
       visual = {
@@ -132,7 +136,7 @@
         };
       };
 
-      terminal."<C-`>" = {
+      terminal."<C-t>" = {
         silent = true;
         action = "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>";
       };
@@ -725,6 +729,7 @@
     };
 
     extraPlugins = with pkgs.vimPlugins; [
+      pkgs.alternate-toggler-nvim
       pkgs.copilot-vim
       pkgs.move-nvim
       pkgs.nvim-nu

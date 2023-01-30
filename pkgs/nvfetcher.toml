@@ -18,6 +18,10 @@ fetch.github = "LhKipp/nvim-nu"
 src.git = "https://github.com/fedepujol/move.nvim"
 fetch.github = "fedepujol/move.nvim"
 
+[alternate-toggler-nvim]
+src.git = "https://github.com/rmagatti/alternate-toggler"
+fetch.github = "rmagatti/alternate-toggler"
+
 [openasar]
 src.git = "https://github.com/GooseMod/OpenAsar"
 fetch.github = "GooseMod/OpenAsar"
@@ -29,4 +33,3 @@ fetch.github = "noctuid/zscroll"
 [sddm]
 src.git = "https://github.com/sddm/sddm"
 fetch.github = "sddm/sddm"
-

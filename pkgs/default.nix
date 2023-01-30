@@ -36,7 +36,6 @@ inputs.nixpkgs.lib.composeManyExtensions [
 
     catppuccin-cursors = final.callPackage ./catppuccin-cursors.nix {};
     catppuccin-folders = final.callPackage ./catppuccin-folders.nix {};
-    gradience = final.callPackage ./gradience.nix {};
     httpie-desktop = final.callPackage ./httpie-desktop.nix {};
     jetbrains-fleet = final.callPackage ./fleet.nix {};
     python-material-color-utilities = final.callPackage ./material-color-utilities.nix {};
@@ -66,6 +65,14 @@ inputs.nixpkgs.lib.composeManyExtensions [
       doCheck = false;
     });
 
+    ell = prev.ell.overrideAttrs (_: {
+      doCheck = false;
+    });
+
+    libsecret = prev.libsecret.overrideAttrs (_: {
+      doCheck = false;
+    });
+
     zscroll = prev.zscroll.overrideAttrs (_: {
       inherit (sources.zscroll) src pname version;
     });
@@ -86,25 +93,19 @@ inputs.nixpkgs.lib.composeManyExtensions [
       inherit (sources.move-nvim) src pname version;
     };
 
-    libsForQt5 =
-      inputs.nixpkgs-old.legacyPackages.${prev.system}.libsForQt5
+    alternate-toggler-nvim = prev.vimUtils.buildVimPlugin {
+      inherit (sources.alternate-toggler-nvim) src pname version;
+    };
+
+    python310Packages =
+      inputs.nixpkgs-old.legacyPackages.${prev.system}.python310Packages
       // {
-        sddm = inputs.nixpkgs-old.legacyPackages.${prev.system}.libsForQt5.sddm.overrideAttrs (o: {
-          inherit (sources.sddm) src pname version;
-          patches = [
-            ./sddm-ignore-config-mtime.patch
-            ./sddm-default-session.patch
-          ];
+        afdko = inputs.nixpkgs-old.legacyPackages.${prev.system}.python310Packages.afdko.overrideAttrs (oldAttrs: {
+          doCheck = false;
         });
       };
 
-    gnomeExtensions =
-      prev.gnomeExtensions
-      // {
-        inherit (inputs.nixpkgs-pano.legacyPackages.${prev.system}.gnomeExtensions) pano;
-      };
-
-    spotifywm-fixed = prev.spotifywm.overrideAttrs (o: {
+    spotifywm-fixed = prev.spotifywm.overrideAttrs (_: {
       src = prev.fetchFromGitHub {
         owner = "dasJ";
         repo = "spotifywm";

@@ -3,61 +3,79 @@
   fetchgit,
   fetchurl,
   fetchFromGitHub,
+  dockerTools,
 }: {
+  alternate-toggler-nvim = {
+    pname = "alternate-toggler-nvim";
+    version = "9925bcfd7cee04b6c1f43c23edcf6c878552b7db";
+    src = fetchFromGitHub {
+      owner = "rmagatti";
+      repo = "alternate-toggler";
+      rev = "9925bcfd7cee04b6c1f43c23edcf6c878552b7db";
+      fetchSubmodules = false;
+      sha256 = "sha256-D3KfdFyrfXQOshTZsx55xQ9fILlsdzD0asHYwvEvfI4=";
+    };
+    date = "2022-11-08";
+  };
   copilot-vim = {
     pname = "copilot-vim";
-    version = "324ec9eb69e20971b58340d0096c3caac7bc2089";
+    version = "8c8416488ef21483dd5d2922ea194c05e9a3baaf";
     src = fetchFromGitHub {
       owner = "github";
       repo = "copilot.vim";
-      rev = "324ec9eb69e20971b58340d0096c3caac7bc2089";
+      rev = "8c8416488ef21483dd5d2922ea194c05e9a3baaf";
       fetchSubmodules = false;
-      sha256 = "sha256-b3c/EQmObPKnT5pBbhAbAySGt2E+1UC0Zqm2vJJiv/4=";
+      sha256 = "sha256-ao8o5j8o+n04sxFI+suVS6x1aecBnACjK99sjiUR+iM=";
     };
+    date = "2023-01-18";
   };
   move-nvim = {
     pname = "move-nvim";
-    version = "2cd533590a133ae5fe751ca8081cd1a2047d7c7f";
+    version = "4f72d2d86f4392cec1aa4e0a8c20314022a806ad";
     src = fetchFromGitHub {
       owner = "fedepujol";
       repo = "move.nvim";
-      rev = "2cd533590a133ae5fe751ca8081cd1a2047d7c7f";
+      rev = "4f72d2d86f4392cec1aa4e0a8c20314022a806ad";
       fetchSubmodules = false;
-      sha256 = "sha256-ePO+7tkrZUqA+DVOs3bVROSECmjKZchkPHPKFuP7Wo0=";
+      sha256 = "sha256-jVFG2iFTUTgXBkEDilM794SWZnb4f6lzHtWToUUnf5s=";
     };
+    date = "2023-01-25";
   };
   nvim-cokeline = {
     pname = "nvim-cokeline";
-    version = "501f93ec84af0d505d95d3827cad470b9c5e86dc";
+    version = "dc72c4a8dcbcc4763e33899876512b15c2d2aa4e";
     src = fetchFromGitHub {
       owner = "noib3";
       repo = "nvim-cokeline";
-      rev = "501f93ec84af0d505d95d3827cad470b9c5e86dc";
+      rev = "dc72c4a8dcbcc4763e33899876512b15c2d2aa4e";
       fetchSubmodules = false;
-      sha256 = "sha256-BQP4jOm55YeDfabsSdfEiRk2O7t7KARklSbyfBK5Zu0=";
+      sha256 = "sha256-r/KucmSVTAFhrmfKM+h9S+VMLquFoBJO6eGRGpn/H1M=";
     };
+    date = "2023-01-10";
   };
   nvim-nu = {
     pname = "nvim-nu";
-    version = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
+    version = "1aad12e866f6d53dd5ec31ada79767199334a4ca";
     src = fetchFromGitHub {
       owner = "LhKipp";
       repo = "nvim-nu";
-      rev = "94f237c219ae6bbb18e2f214783e0f1370eda27b";
+      rev = "1aad12e866f6d53dd5ec31ada79767199334a4ca";
       fetchSubmodules = false;
-      sha256 = "sha256-Ai2ot7d0TPQNDtY9Z/CPej5yJq7d6gZm1WJPW52L8/k=";
+      sha256 = "sha256-chKRCJ9Pto4Dxgk0W5jCWjkvkSfMsjWxM0QvZjOtTwg=";
     };
+    date = "2023-01-03";
   };
   openasar = {
     pname = "openasar";
-    version = "0b1d4685cb2c94f42441fc616eb24e69eda04647";
+    version = "40b27dd1b8dd48277207db1b165c220c3441484c";
     src = fetchFromGitHub {
       owner = "GooseMod";
       repo = "OpenAsar";
-      rev = "0b1d4685cb2c94f42441fc616eb24e69eda04647";
+      rev = "40b27dd1b8dd48277207db1b165c220c3441484c";
       fetchSubmodules = false;
-      sha256 = "sha256-cRYXgVgA5B9MaDGJIACJYjFNDAMajReKud0akiGBR4Q=";
+      sha256 = "sha256-tDJxcnbX0REu8DX+bQ7i4JzvLl6lRyB7+/dnAJI18Ss=";
     };
+    date = "2023-01-13";
   };
   sddm = {
     pname = "sddm";
@@ -69,17 +87,19 @@
       fetchSubmodules = false;
       sha256 = "sha256-Y9WPm0MLWl/s0e0aoKKk0SSojqBrI/RdyxkgOz2Tk38=";
     };
+    date = "2022-11-23";
   };
   sddm-theme = {
     pname = "sddm-theme";
-    version = "635c7f7734850b80cb97e1e0d04b1dbae627185c";
+    version = "a2bf35aacf3b4dc11dfcb2f323dcb5ae3b7db907";
     src = fetchFromGitHub {
       owner = "L4ki";
       repo = "Dexy-Plasma-Themes";
-      rev = "635c7f7734850b80cb97e1e0d04b1dbae627185c";
+      rev = "a2bf35aacf3b4dc11dfcb2f323dcb5ae3b7db907";
       fetchSubmodules = false;
-      sha256 = "sha256-ft3Wx/ZFIj2aydYVhb4MEJUrp7g3EsZGGssPbwZ3jXs=";
+      sha256 = "sha256-aSjOzazAPYPyn2egjJVTdcOZ8tzt6/oh/X8fTayIHI0=";
     };
+    date = "2023-01-27";
   };
   zscroll = {
     pname = "zscroll";
@@ -91,5 +111,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-b9gQ11c2IOMx5sdpWhSxCnUPPZIbGMyBilsZYTF9TNw=";
     };
+    date = "2022-12-09";
   };
 }

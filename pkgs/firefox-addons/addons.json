@@ -6,9 +6,6 @@
     "slug": "active-forks"
   },
   {
-    "slug": "adblock-for-youtube"
-  },
-  {
     "slug": "betterviewer"
   },
   {
@@ -21,13 +18,13 @@
     "slug": "clearurls"
   },
   {
+    "slug": "darkreader"
+  },
+  {
     "slug": "disconnect"
   },
   {
-    "slug": "docsafterdark"
-  },
-  {
-    "slug": "font-fingerprint-defender"
+    "slug": "don-t-fuck-with-paste"
   },
   {
     "slug": "hyperchat"
@@ -39,10 +36,22 @@
     "slug": "mpris-integration"
   },
   {
+    "slug": "new-tab-override"
+  },
+  {
     "slug": "pinunpin-tab"
   },
   {
     "slug": "pronoundb"
+  },
+  {
+    "slug": "react-devtools"
+  },
+  {
+    "slug": "return-youtube-dislikes"
+  },
+  {
+    "slug": "sponsorblock"
   },
   {
     "slug": "svg-export"
@@ -52,6 +61,18 @@
   },
   {
     "slug": "twitch-points-autoclicker"
+  },
+  {
+    "slug": "ublock-origin"
+  },
+  {
+    "slug": "unpaywall"
+  },
+  {
+    "slug": "vimium-ff"
+  },
+  {
+    "slug": "violentmonkey"
   },
   {
     "slug": "webnowplaying-companion"

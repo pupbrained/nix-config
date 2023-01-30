@@ -91,7 +91,6 @@ with lib; {
 
   services = {
     blueman.enable = true;
-    mullvad-vpn.enable = true;
     udev.packages = [pkgs.gnome.gnome-settings-daemon];
 
     gnome = {
@@ -119,7 +118,7 @@ with lib; {
         defaultSession = "gnome";
         sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
 
-        gdm.enable = true;
+        startx.enable = true;
       };
       desktopManager.gnome.enable = true;
     };
@@ -180,6 +179,7 @@ with lib; {
       SDL_VIDEODRIVER = "wayland";
       WINIT_UNIX_BACKEND = "x11";
       WLR_BACKEND = "vulkan";
+      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
       WLR_DRM_NO_ATOMIC = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER = "vulkan";
@@ -187,7 +187,7 @@ with lib; {
       _JAVA_AWT_WM_NONREPARENTING = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
   };
 
