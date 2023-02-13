@@ -1,17 +1,17 @@
 #!/usr/bin/env nu
 
 def main [
-  x?: string # specifies whether to rebuild home or system config
+  --home (-h) # Only update home-manager
+  --system (-s) # Only update system configuration
 ] {
   nix run "nixpkgs#alejandra" -- . -q
   nix run "nixpkgs#statix" -- fix .
 
-  if $x == "s" {
-    nix-shell -p git --run "nixos-rebuild switch --flake .# --impure --use-remote-sudo --option sandbox false"
-  } else if $x == "h" {
-    nix run ".#update-home" --impure
-  } else {
-    nix-shell -p git --run "nixos-rebuild switch --flake .# --impure --use-remote-sudo --option sandbox false"
+  if not $home {
+    nixos-rebuild switch --flake . --impure --use-remote-sudo --option sandbox false
+  }
+
+  if not $system {
     nix run ".#update-home" --impure
   }
 }

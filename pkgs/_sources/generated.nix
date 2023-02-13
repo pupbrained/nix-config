@@ -19,15 +19,15 @@
   };
   copilot-vim = {
     pname = "copilot-vim";
-    version = "8c8416488ef21483dd5d2922ea194c05e9a3baaf";
+    version = "c7d166ebda265370f38cec374e33f02eeec2f857";
     src = fetchFromGitHub {
       owner = "github";
       repo = "copilot.vim";
-      rev = "8c8416488ef21483dd5d2922ea194c05e9a3baaf";
+      rev = "c7d166ebda265370f38cec374e33f02eeec2f857";
       fetchSubmodules = false;
-      sha256 = "sha256-ao8o5j8o+n04sxFI+suVS6x1aecBnACjK99sjiUR+iM=";
+      sha256 = "sha256-Mo7SKK0FvjFpIncMr0WI/cl+9+6NCfZ+Y/wlprQwWMg=";
     };
-    date = "2023-01-18";
+    date = "2023-02-01";
   };
   move-nvim = {
     pname = "move-nvim";
@@ -79,27 +79,27 @@
   };
   sddm = {
     pname = "sddm";
-    version = "3e486499b9300ce8f9c62bd102e5119b27a2fad1";
+    version = "0a54d3abbb896d652bac7a495ed98b0617306a6c";
     src = fetchFromGitHub {
       owner = "sddm";
       repo = "sddm";
-      rev = "3e486499b9300ce8f9c62bd102e5119b27a2fad1";
+      rev = "0a54d3abbb896d652bac7a495ed98b0617306a6c";
       fetchSubmodules = false;
-      sha256 = "sha256-Y9WPm0MLWl/s0e0aoKKk0SSojqBrI/RdyxkgOz2Tk38=";
+      sha256 = "sha256-sS9HK/u78AFdPXjcybN3qA+koAN/fd1oLW7VkqqrvVQ=";
     };
-    date = "2022-11-23";
+    date = "2023-02-09";
   };
   sddm-theme = {
     pname = "sddm-theme";
-    version = "a2bf35aacf3b4dc11dfcb2f323dcb5ae3b7db907";
+    version = "3ab00faf635fcfca715b65dce74cda395a579f48";
     src = fetchFromGitHub {
       owner = "L4ki";
       repo = "Dexy-Plasma-Themes";
-      rev = "a2bf35aacf3b4dc11dfcb2f323dcb5ae3b7db907";
+      rev = "3ab00faf635fcfca715b65dce74cda395a579f48";
       fetchSubmodules = false;
-      sha256 = "sha256-aSjOzazAPYPyn2egjJVTdcOZ8tzt6/oh/X8fTayIHI0=";
+      sha256 = "sha256-0UscICAl2x7rBf9yYOU7S79MQyjFDdsLj3wUj3d5asE=";
     };
-    date = "2023-01-27";
+    date = "2023-02-11";
   };
   zscroll = {
     pname = "zscroll";

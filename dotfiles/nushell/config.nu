@@ -59,6 +59,11 @@ let-env config = {
   use_grid_icons: true
   use_ansi_coloring: true
   footer_mode: always
+  cursor_shape: {
+    emacs: line
+    vi_insert: block
+    vi_normal: underscore
+  }
   ls: {
     use_ls_colors: true
   }

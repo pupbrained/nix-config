@@ -2,24 +2,69 @@
   inputs,
   pkgs,
   config,
-  spicetify-nix,
-  nix-init,
-  hyprland-contrib,
-  xdg-hyprland,
   self,
   ...
 }:
 with pkgs; {
-  imports = [
+  imports = with inputs; [
     ./dotfiles.nix
     ../pkgs/nixvim.nix
     ../pkgs/nushell.nix
     ../pkgs/vscode.nix
-    inputs.doom-emacs.hmModule
-    inputs.spicetify-nix.homeManagerModule
-    inputs.hyprland.homeManagerModules.default
-    inputs.nur.nixosModules.nur
-    inputs.nixvim.homeManagerModules.nixvim
+    doom-emacs.hmModule
+    hyprland.homeManagerModules.default
+    nixvim.homeManagerModules.nixvim
+    nur.nixosModules.nur
+    spicetify-nix.homeManagerModule
+    stylix.homeManagerModules.stylix
+  ];
+
+  nix = {
+    package = pkgs.nixVersions.unstable;
+
+    registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
+
+    settings = {
+      auto-optimise-store = true;
+      builders-use-substitutes = true;
+      max-jobs = "auto";
+      flake-registry = "/etc/nix/registry.json";
+      keep-derivations = true;
+      keep-outputs = true;
+      warn-dirty = false;
+
+      substituters = [
+        "https://cache.nixos.org?priority=10"
+        "https://nix-community.cachix.org"
+        "https://fortuneteller2k.cachix.org"
+        "https://nixpkgs-wayland.cachix.org"
+        "https://helix.cachix.org"
+        "https://hyprland.cachix.org"
+      ];
+
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
+        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      ];
+
+      trusted-users = ["marshall"];
+    };
+
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      extra-sandbox-paths = /nix/var/cache/ccache
+      min-free = ${toString (100 * 1024 * 1024)}
+      max-free = ${toString (1024 * 1024 * 1024)}
+      cores = 6
+    '';
+  };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-18.1.0"
   ];
 
   home = {
@@ -41,8 +86,8 @@ with pkgs; {
         # SNOW BEGIN
         acpi
         alejandra
+        androidStudioPackages.canary
         audacity
-        authy
         bacon
         binutils
         brightnessctl
@@ -69,7 +114,6 @@ with pkgs; {
         glib
         glrnvim
         gnome-extension-manager
-        gnome.gnome-session
         gnumake
         gopls
         gpick
@@ -78,7 +122,6 @@ with pkgs; {
         gsettings-desktop-schemas
         headsetcontrol
         httpie-desktop
-        hyprland-contrib.packages.${pkgs.system}.grimblast
         hyprpaper
         igrep
         inotify-tools
@@ -89,7 +132,6 @@ with pkgs; {
         jq
         keybase
         keychain
-        kotatogram-desktop
         lazygit
         libappindicator
         libffi
@@ -98,14 +140,12 @@ with pkgs; {
         lucky-commit
         lxappearance
         micro
-        microsoft-edge-dev
         minecraft
         mold
         mullvad-vpn
         mysql
         neovide
         ngrok
-        nix-init.packages.${pkgs.system}.default
         nix-prefetch-scripts
         nix-snow
         nodejs-19_x
@@ -128,7 +168,6 @@ with pkgs; {
         rofi-wayland
         rust-analyzer-nightly
         rustup
-        sapling
         scrot
         slurp
         starfetch
@@ -138,7 +177,9 @@ with pkgs; {
         sumneko-lua-language-server
         swaynotificationcenter
         sx
+        tdesktop
         tealdeer
+        thunderbird-bin
         tre
         unrar
         unzip
@@ -146,21 +187,24 @@ with pkgs; {
         waybar
         wf-recorder
         wget
-        wineWowPackages.waylandFull
         wl-clipboard
         wl-color-picker
         xclip
-        xdg-hyprland.packages.${pkgs.system}.hyprland-share-picker
-        xorg.xinit
         yarn
         zls
         zscroll
         # SNOW END
       ]
+      ++ (with inputs; [
+        hyprland-contrib.packages.${pkgs.system}.grimblast
+        nix-init.packages.${pkgs.system}.default
+        xdg-hyprland.packages.${pkgs.system}.hyprland-share-picker
+      ])
       ++ (with gnome; [
         dconf-editor
         eog
         file-roller
+        gnome-session
         gnome-tweaks
         nautilus
         seahorse
@@ -170,20 +214,22 @@ with pkgs; {
         arcmenu
         blur-my-shell
         browser-tabs
-        burn-my-windows
         emoji-selector
         gnome-40-ui-improvements
-        gsconnect
         just-perfection
-        mpris-label
         no-overview
         openweather
         pano
-        pop-shell
+        (pop-shell.overrideAttrs (old: {
+          patches =
+            old.patches
+            ++ [
+              "${self}/pkgs/pop-shell-remove-tiling-exceptions.patch"
+            ];
+        }))
         rounded-window-corners
         space-bar
         tray-icons-reloaded
-        vitals
       ])
       ++ (with nodePackages_latest; [
         eslint
@@ -192,11 +238,16 @@ with pkgs; {
         prettier
         typescript
         typescript-language-server
+      ])
+      ++ (with jetbrains; [
+        idea-ultimate
+        webstorm
+        clion
       ]);
 
     sessionVariables = {
       CLUTTER_BACKEND = "wayland";
-      DEFAULT_BROWSER = "${pkgs.microsoft-edge-dev}/bin/microsoft-edge-dev";
+      DEFAULT_BROWSER = "${pkgs.firefox-nightly-bin}/bin/firefox";
       DIRENV_LOG_FORMAT = "";
       DISABLE_QT5_COMPAT = "0";
       EMACS_PATH_COPILOT = "${pkgs.fetchFromGitHub {
@@ -227,7 +278,44 @@ with pkgs; {
       _JAVA_AWT_WM_NONREPARENTING = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
-      # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
+  };
+
+  stylix = {
+    image = "${self}/dotfiles/hypr/wall.png";
+    polarity = "dark";
+    targets.vscode.enable = false;
+
+    base16Scheme = "${
+      fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "base16";
+        rev = "ca74b4070d6ead4213e92da1273fcc1853de7af8";
+        hash = "sha256-fZDsmJ+xFjOJDoI+bPki9W7PEI5lT5aGoCYtkatcZ8A=";
+      }
+    }/base16/mocha.yaml";
+
+    fonts = {
+      monospace = {
+        name = "Cartograph CF";
+        package = pkgs.hello;
+      };
+
+      sansSerif = {
+        name = "Rubik";
+        package = pkgs.rubik;
+      };
+
+      serif = {
+        name = "Rubik";
+        package = pkgs.rubik;
+      };
+
+      emoji = {
+        name = "Twemoji";
+        package = pkgs.twemoji-color-font;
+      };
     };
   };
 
@@ -254,7 +342,7 @@ with pkgs; {
     };
 
     doom-emacs = {
-      enable = true;
+      enable = false;
       doomPrivateDir = "${self}/dotfiles/emacs";
 
       emacsPackagesOverlay = self: super: {
@@ -279,42 +367,12 @@ with pkgs; {
     };
 
     firefox = {
-      enable = false;
+      enable = true;
       package = firefox-nightly-bin.override {
         cfg = {
           enableGnomeExtensions = true;
         };
       };
-
-      extensions = with firefox-addons; [
-        absolute-enable-right-click
-        active-forks
-        betterviewer
-        buster-captcha-solver
-        catppuccin-mocha-sky
-        clearurls
-        darkreader
-        disconnect
-        don-t-fuck-with-paste
-        hyperchat
-        istilldontcareaboutcookies
-        mpris-integration
-        new-tab-override
-        pinunpin-tab
-        pronoundb
-        react-devtools
-        return-youtube-dislikes
-        sponsorblock
-        svg-export
-        ttv-lol
-        twitch-points-autoclicker
-        ublock-origin
-        unpaywall
-        vimium-ff
-        violentmonkey
-        webnowplaying-companion
-        youtube-addon
-      ];
 
       profiles = {
         marshall = {
@@ -333,6 +391,33 @@ with pkgs; {
             "svg.context-properties.content.enabled" = true;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
+
+          extensions = with firefox-addons; [
+            absolute-enable-right-click
+            betterviewer
+            buster-captcha-solver
+            catppuccin-mocha-sky
+            clearurls
+            darkreader
+            don-t-fuck-with-paste
+            hyperchat
+            istilldontcareaboutcookies
+            mpris-integration
+            new-tab-override
+            pinunpin-tab
+            pronoundb
+            react-devtools
+            return-youtube-dislikes
+            sponsorblock
+            ttv-lol
+            twitch-points-autoclicker
+            ublock-origin
+            unpaywall
+            vimium-ff
+            violentmonkey
+            webnowplaying-companion
+            youtube-addon
+          ];
         };
       };
     };
@@ -376,7 +461,6 @@ with pkgs; {
       ];
 
       settings = {
-        theme = "catppuccin_mocha";
         editor = {
           line-number = "relative";
           cursorline = true;
@@ -398,11 +482,18 @@ with pkgs; {
 
     kitty = {
       enable = true;
+      package = pkgs.kitty.overrideAttrs (_: {
+        checkPhase = "";
+        preCheck = "";
+        installCheckPhase = "";
+        passthru.tests = {};
+      });
+      font.size = 14;
 
-      font = {
-        name = "Maple Mono NF";
-        size = 14;
-      };
+      extraConfig = ''
+        modify_font cell_height -5px
+        modify_font baseline 1.5
+      '';
 
       settings = {
         editor = "nvim";
@@ -427,43 +518,6 @@ with pkgs; {
         active_tab_font_style = "bold";
         inactive_tab_font_style = "normal";
         adjust_column_width = 0;
-        foreground = "#CDD6F4";
-        background = "#1E1E2E";
-        selection_foreground = "#1E1E2E";
-        selection_background = "#F5E0DC";
-        cursor = "#F5E0DC";
-        cursor_text_color = "#1E1E2E";
-        url_color = "#B4BEFE";
-        active_border_color = "#CBA6F7";
-        inactive_border_color = "#8E95B3";
-        bell_border_color = "#EBA0AC";
-        active_tab_foreground = "#11111B";
-        active_tab_background = "#CBA6F7";
-        inactive_tab_foreground = "#CDD6F4";
-        inactive_tab_background = "#181825";
-        tab_bar_background = "#11111B";
-        mark1_foreground = "#1E1E2E";
-        mark1_background = "#87B0F9";
-        mark2_foreground = "#1E1E2E";
-        mark2_background = "#CBA6F7";
-        mark3_foreground = "#1E1E2E";
-        mark3_background = "#74C7EC";
-        color0 = "#45475A";
-        color1 = "#F38BA8";
-        color2 = "#A6E3A1";
-        color3 = "#F9E2AF";
-        color4 = "#89B4FA";
-        color5 = "#F5C2E7";
-        color6 = "#94E2D5";
-        color7 = "#BAC2DE";
-        color8 = "#45475A";
-        color9 = "#F38BA8";
-        color10 = "#A6E3A1";
-        color11 = "#F9E2AF";
-        color12 = "#89B4FA";
-        color13 = "#F5C2E7";
-        color14 = "#94E2D5";
-        color15 = "#BAC2DE";
       };
     };
 
@@ -476,7 +530,7 @@ with pkgs; {
     };
 
     spicetify = let
-      spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+      spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
     in {
       enable = true;
       theme = spicePkgs.themes.catppuccin-mocha;
@@ -533,15 +587,15 @@ with pkgs; {
         "image/jpeg" = "gnome.org.eog.desktop";
         "image/gif" = "gnome.org.eog.desktop";
         "image/webp" = "gnome.org.eog.desktop";
-        "text/html" = "microsoft-edge-dev.desktop";
+        "text/html" = "firefox.desktop";
         "text/plain" = "nvim.desktop";
-        "x-scheme-handler/about" = "microsoft-edge-dev.desktop";
-        "x-scheme-handler/http" = "microsoft-edge-dev.desktop";
-        "x-scheme-handler/https" = "microsoft-edge-dev.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
         "x-scheme-handler/pie" = "httpie.desktop";
-        "x-scheme-handler/unknown" = "microsoft-edge-dev.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
         "x-scheme-handler/vscode-insiders" = "code-insiders.desktop";
-        "x-www-browser" = "microsoft-edge-dev.desktop";
+        "x-www-browser" = "firefox.desktop";
         "video/mp4" = "mpv.desktop";
         "video/webm" = "mpv.desktop";
         "video/H264" = "mpv.desktop";
@@ -552,23 +606,18 @@ with pkgs; {
   gtk = {
     enable = true;
 
-    theme = {
-      package = pkgs.catppuccin-gtk.override {
-        tweaks = ["rimless"];
-        accents = ["green"];
-        variant = "mocha";
-      };
-      name = "Catppuccin-Mocha-Standard-Sky-Dark";
-    };
+    # theme = {
+    #   package = pkgs.catppuccin-gtk.override {
+    #     tweaks = ["rimless"];
+    #     accents = ["green"];
+    #     variant = "mocha";
+    #   };
+    #   name = "Catppuccin-Mocha-Standard-Sky-Dark";
+    # };
 
     iconTheme = {
       package = pkgs.catppuccin-folders;
       name = "Papirus";
-    };
-
-    font = {
-      name = "Google Sans Text";
-      size = 11;
     };
   };
 

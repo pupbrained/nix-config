@@ -10,35 +10,34 @@
     home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
+    lanzaboote.url = "github:nix-community/lanzaboote";
     neovim.url = "github:neovim/neovim?dir=contrib";
     nil.url = "github:oxalica/nil";
     nix-init.url = "github:nix-community/nix-init";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    nixpkgs-catppuccin.url = "github:fufexan/nixpkgs/catppuccin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-old.url = "github:NixOS/nixpkgs/release-22.11";
+    nixpkgs-jetbrains.url = "github:rien/nixpkgs";
     nixvim.url = "github:pta2002/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs-old";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
     nurl.url = "github:nix-community/nurl";
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
-    replugged.url = "github:pupbrained/replugged";
+    replugged.url = "github:pupbrained/replugged/fce0db06a899f2e1433b92b17b039149b59decab";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    stylix.url = "github:dwarfmaster/stylix";
     tre.url = "github:dduan/tre";
     xdg-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {
     agenix,
-    doom-emacs,
     fenix,
     home-manager,
     hyprland,
-    hyprland-contrib,
     neovim,
-    nix-init,
     nixos-wsl,
     nixpkgs,
     nixpkgs-old,
@@ -46,8 +45,6 @@
     nurl,
     replugged,
     self,
-    spicetify-nix,
-    xdg-hyprland,
     ...
   } @ inputs: let
     inherit (nixpkgs) lib;
@@ -62,7 +59,7 @@
     homeConfigurations = {
       marshall = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs self spicetify-nix hyprland-contrib xdg-hyprland doom-emacs nix-init;};
+        extraSpecialArgs = {inherit inputs self;};
         modules = [
           ./home
           {
@@ -91,7 +88,7 @@
     nixosConfigurations = {
       nix = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs self xdg-hyprland;};
+        specialArgs = {inherit inputs self;};
 
         modules = [
           ./sys/nix/configuration.nix
@@ -132,7 +129,6 @@
           (inputs.nixpkgs.legacyPackages.x86_64-linux.writeScript "update-home" ''
             set -euo pipefail
             old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
-            echo $old_profile
             nix profile remove $old_profile
             ${self.homeConfigurations.marshall.activationPackage}/activate || (echo "restoring old profile"; ${inputs.nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
           '')
@@ -145,7 +141,6 @@
           (inputs.nixpkgs.legacyPackages.x86_64-linux.writeScript "update-server-home" ''
             set -euo pipefail
             old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
-            echo $old_profile
             nix profile remove $old_profile
             ${self.homeConfigurations.server.activationPackage}/activate || (echo "restoring old profile"; ${inputs.nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
           '')

@@ -14,34 +14,30 @@ with lib; {
     "${self}/sys/nix/hardware-configuration.nix"
     "${self}/sys/generic.nix"
     "${self}/sys/patches/udev.nix"
+    inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
   boot = {
+    bootspec.enable = true;
     kernelParams = ["module_blacklist=i915"];
     kernelPackages = pkgs.linuxPackages_zen;
-    extraModprobeConfig = "options hid_apple fnmode=2";
+    extraModprobeConfig = ''
+      options hid_apple fnmode=2
+      options kvm_intel nested=1
+    '';
     supportedFilesystems = ["btrfs" "ext4" "ntfs" "vfat"];
 
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+
     loader = {
+      systemd-boot.enable = lib.mkForce false;
+
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
-      };
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        version = 2;
-        gfxmodeEfi = "1920x1080";
-
-        extraConfig = ''
-          set theme=(hd1,gpt6)/${pkgs.fetchzip {
-            url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/asus.tar";
-            sha256 = "sha256-+yol6dzvaQ/ItlegTHJREqkUNGoJl4t66qEA0QPUDiw=";
-            stripRoot = false;
-          }}/theme.txt
-        '';
       };
     };
   };
@@ -91,6 +87,7 @@ with lib; {
 
   services = {
     blueman.enable = true;
+    flatpak.enable = true;
     udev.packages = [pkgs.gnome.gnome-settings-daemon];
 
     gnome = {
@@ -151,7 +148,10 @@ with lib; {
         iagno
         hitori
         atomix
+        yelp
       ]);
+
+    systemPackages = with pkgs; [sbctl clapper];
 
     loginShellInit = ''
       dbus-update-activation-environment --systemd DISPLAY
@@ -238,6 +238,8 @@ with lib; {
       ];
     };
 
+    video.hidpi.enable = true;
+
     i2c.enable = true;
     pulseaudio.enable = false;
   };
@@ -252,16 +254,13 @@ with lib; {
     };
   };
 
-  virtualisation = {
-    waydroid.enable = true;
-  };
-
   xdg.portal = {
     enable = true;
     # extraPortals = [xdg-hyprland.packages.${pkgs.system}.default];
   };
 
-  zramSwap.enable = true;
   nix.settings.trusted-users = ["root" "marshall"];
   system.stateVersion = "21.11";
+  time.hardwareClockInLocalTime = true;
+  zramSwap.enable = true;
 }

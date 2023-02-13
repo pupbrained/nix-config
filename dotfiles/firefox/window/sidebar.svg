@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173 133" width="173" height="133">
+	<title>Yeni Proje(2)</title>
+	<style>
+		.s0 { fill: context-fill } 
+		.s2 { fill: none;stroke: context-fill;stroke-width: 12 } 
+	</style>
+	<path id="Şekil 1 copy 4" class="s0" d="m20 34c0-3.3 2.7-6 6-6h16c3.3 0 6 2.7 6 6 0 3.3-2.7 6-6 6h-16c-3.3 0-6-2.7-6-6z"/>
+	<path id="Şekil 1 copy 6" class="s0" d="m20 53c0-3.3 2.7-6 6-6h16c3.3 0 6 2.7 6 6 0 3.3-2.7 6-6 6h-16c-3.3 0-6-2.7-6-6z"/>
+	<path id="Şekil 1 copy 7" class="s0" d="m20 72c0-3.3 2.7-6 6-6h16c3.3 0 6 2.7 6 6 0 3.3-2.7 6-6 6h-16c-3.3 0-6-2.7-6-6z"/>
+	<path id="Katman 3 copy" class="s0" d="m54 9h14v116h-14z"/>
+	<path id="Şekil 2 copy" class="s2" d="m6 17c0-6.1 4.9-11 11-11h139c6.1 0 11 4.9 11 11v99c0 6.1-4.9 11-11 11h-139c-6.1 0-11-4.9-11-11z"/>
+</svg>

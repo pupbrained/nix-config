@@ -21,7 +21,7 @@
     },
     "copilot-vim": {
         "cargoLocks": null,
-        "date": "2023-01-18",
+        "date": "2023-02-01",
         "extract": null,
         "name": "copilot-vim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "8c8416488ef21483dd5d2922ea194c05e9a3baaf",
-            "sha256": "sha256-ao8o5j8o+n04sxFI+suVS6x1aecBnACjK99sjiUR+iM=",
+            "rev": "c7d166ebda265370f38cec374e33f02eeec2f857",
+            "sha256": "sha256-Mo7SKK0FvjFpIncMr0WI/cl+9+6NCfZ+Y/wlprQwWMg=",
             "type": "github"
         },
-        "version": "8c8416488ef21483dd5d2922ea194c05e9a3baaf"
+        "version": "c7d166ebda265370f38cec374e33f02eeec2f857"
     },
     "move-nvim": {
         "cargoLocks": null,
@@ -121,7 +121,7 @@
     },
     "sddm": {
         "cargoLocks": null,
-        "date": "2022-11-23",
+        "date": "2023-02-09",
         "extract": null,
         "name": "sddm",
         "passthru": null,
@@ -133,15 +133,15 @@
             "name": null,
             "owner": "sddm",
             "repo": "sddm",
-            "rev": "3e486499b9300ce8f9c62bd102e5119b27a2fad1",
-            "sha256": "sha256-Y9WPm0MLWl/s0e0aoKKk0SSojqBrI/RdyxkgOz2Tk38=",
+            "rev": "0a54d3abbb896d652bac7a495ed98b0617306a6c",
+            "sha256": "sha256-sS9HK/u78AFdPXjcybN3qA+koAN/fd1oLW7VkqqrvVQ=",
             "type": "github"
         },
-        "version": "3e486499b9300ce8f9c62bd102e5119b27a2fad1"
+        "version": "0a54d3abbb896d652bac7a495ed98b0617306a6c"
     },
     "sddm-theme": {
         "cargoLocks": null,
-        "date": "2023-01-27",
+        "date": "2023-02-11",
         "extract": null,
         "name": "sddm-theme",
         "passthru": null,
@@ -153,11 +153,11 @@
             "name": null,
             "owner": "L4ki",
             "repo": "Dexy-Plasma-Themes",
-            "rev": "a2bf35aacf3b4dc11dfcb2f323dcb5ae3b7db907",
-            "sha256": "sha256-aSjOzazAPYPyn2egjJVTdcOZ8tzt6/oh/X8fTayIHI0=",
+            "rev": "3ab00faf635fcfca715b65dce74cda395a579f48",
+            "sha256": "sha256-0UscICAl2x7rBf9yYOU7S79MQyjFDdsLj3wUj3d5asE=",
             "type": "github"
         },
-        "version": "a2bf35aacf3b4dc11dfcb2f323dcb5ae3b7db907"
+        "version": "3ab00faf635fcfca715b65dce74cda395a579f48"
     },
     "zscroll": {
         "cargoLocks": null,

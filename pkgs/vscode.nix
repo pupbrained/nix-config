@@ -7,17 +7,17 @@
   ...
 }: {
   programs.vscode = with pkgs; {
-    enable = true;
+    enable = false;
     mutableExtensionsDir = true;
 
     extensions = with vscode-extensions;
       [
-        bbenoist.nix
         bradlc.vscode-tailwindcss
         catppuccin.catppuccin-vsc
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
         github.copilot
+        jnoortheen.nix-ide
         kamadorueda.alejandra
         matklad.rust-analyzer
         mkhl.direnv
@@ -206,55 +206,4 @@
         version = "latest";
       });
   };
-
-  home.file = let
-    inherit (lib) mkMerge concatMap;
-    cfg = config.programs.vscode;
-    subDir = "share/vscode/extensions";
-    extensionPath = ".vscode-insiders/extensions";
-
-    toPaths = ext:
-      map (k: {"${extensionPath}/${k}".source = "${ext}/${subDir}/${k}";})
-      (
-        if ext ? vscodeExtUniqueId
-        then [ext.vscodeExtUniqueId]
-        else builtins.attrNames (builtins.readDir (ext + "/${subDir}"))
-      );
-  in
-    mkMerge ((concatMap toPaths cfg.extensions)
-      ++ [
-        {
-          ".vscode-insiders/extensions/extensions.json".text = let
-            toExtensionJsonEntry = drv: rec {
-              identifier = {
-                id = "${drv.vscodeExtPublisher}.${drv.vscodeExtName} ";
-                uuid = "";
-              };
-
-              inherit (drv) version;
-
-              location = {
-                "$mid" = 1;
-                fsPath = drv.outPath + "/share/vscode/extensions/${drv.vscodeExtUniqueId}";
-                path = location.fsPath;
-                scheme = "file";
-              };
-
-              metadata = {
-                id = identifier.uuid;
-                publisherId = "";
-                publisherDisplayName = drv.vscodeExtPublisher;
-                targetPlatform = "undefined";
-                isApplicationScoped = false;
-                updated = false;
-                isPreReleaseVersion = false;
-                installedTimestamp = 0;
-                preRelease = false;
-              };
-            };
-            x = builtins.toJSON (map toExtensionJsonEntry config.programs.vscode.extensions);
-          in
-            x;
-        }
-      ]);
 }

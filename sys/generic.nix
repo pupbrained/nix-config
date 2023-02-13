@@ -9,6 +9,9 @@ in {
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-18.1.0"
+      ];
     };
 
     overlays = [(import ../pkgs inputs)];
@@ -19,9 +22,12 @@ in {
 
     gc = {
       automatic = true;
+      persistent = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
     };
+
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
 
     registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
 
@@ -35,7 +41,7 @@ in {
       warn-dirty = false;
 
       substituters = [
-        "https://cache.nixos.org?priority=10"
+        "https://cache.nixos.org"
         "https://nix-community.cachix.org"
         "https://fortuneteller2k.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
@@ -67,7 +73,6 @@ in {
     user.services.pipewire-pulse.path = [pkgs.pulseaudio];
 
     services = {
-      openssh.enable = true;
       NetworkManager-wait-online.enable = false;
 
       ssh-agent = {

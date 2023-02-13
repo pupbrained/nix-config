@@ -19,9 +19,9 @@
 
 (setq org-directory "~/org/")
 
-(setq doom-font (font-spec :family "Maple Mono NF" :size 16)
+(setq doom-font (font-spec :family "CartographCF Nerd Font" :size 16)
       doom-variable-pitch-font (font-spec :family "Google Sans")
-      doom-unicode-font (font-spec :family "Maple Mono NF")
-      doom-big-font (font-spec :family "Maple Mono NF" :size 20))
+      doom-unicode-font (font-spec :family "CartographCF Nerd Font")
+      doom-big-font (font-spec :family "CartographCF Nerd Font" :size 20))
 
 (setq display-line-numbers-type 'relative)

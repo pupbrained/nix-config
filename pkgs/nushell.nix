@@ -7,7 +7,6 @@
 }: {
   programs.nushell = {
     enable = true;
-    package = pkgs.nushell-pkg;
 
     configFile.source = "${self}/dotfiles/nushell/config.nu";
     envFile.source = "${self}/dotfiles/nushell/env.nu";
