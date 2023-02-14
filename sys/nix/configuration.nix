@@ -15,6 +15,7 @@ with lib; {
     "${self}/sys/generic.nix"
     "${self}/sys/patches/udev.nix"
     inputs.lanzaboote.nixosModules.lanzaboote
+    # inputs.stylix.nixosModules.stylix
   ];
 
   boot = {
@@ -202,6 +203,44 @@ with lib; {
       '';
     };
   };
+
+  # stylix = {
+  #   image = "${self}/dotfiles/hypr/wall.png";
+  #   polarity = "dark";
+  #   targets.vscode.enable = false;
+  #   homeManagerIntegration.autoImport = false;
+  #
+  #   base16Scheme = "${
+  #     pkgs.fetchFromGitHub {
+  #       owner = "catppuccin";
+  #       repo = "base16";
+  #       rev = "ca74b4070d6ead4213e92da1273fcc1853de7af8";
+  #       hash = "sha256-fZDsmJ+xFjOJDoI+bPki9W7PEI5lT5aGoCYtkatcZ8A=";
+  #     }
+  #   }/base16/mocha.yaml";
+  #
+  #   fonts = {
+  #     monospace = {
+  #       name = "Cartograph CF";
+  #       package = pkgs.hello;
+  #     };
+  #
+  #     sansSerif = {
+  #       name = "Rubik";
+  #       package = pkgs.rubik;
+  #     };
+  #
+  #     serif = {
+  #       name = "Rubik";
+  #       package = pkgs.rubik;
+  #     };
+  #
+  #     emoji = {
+  #       name = "Twemoji";
+  #       package = pkgs.twemoji-color-font;
+  #     };
+  #   };
+  # };
 
   powerManagement.cpuFreqGovernor = "performance";
 

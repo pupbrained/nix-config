@@ -7,7 +7,7 @@
   ...
 }: {
   programs.vscode = with pkgs; {
-    enable = false;
+    enable = true;
     mutableExtensionsDir = true;
 
     extensions = with vscode-extensions;
@@ -193,17 +193,17 @@
       };
     };
 
-    package =
-      (vscode.override {
-        isInsiders = true;
-      })
-      .overrideAttrs
-      (_: {
-        src = builtins.fetchTarball {
-          url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-          sha256 = "0za3yinia60spbmn1xsmp64lq0c6hyyhbyq42hxhdc0j54pbchfz";
-        };
-        version = "latest";
-      });
+    # package =
+    #   (vscode.override {
+    #     isInsiders = true;
+    #   })
+    #   .overrideAttrs
+    #   (_: {
+    #     src = builtins.fetchTarball {
+    #       url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+    #       sha256 = "0za3yinia60spbmn1xsmp64lq0c6hyyhbyq42hxhdc0j54pbchfz";
+    #     };
+    #     version = "latest";
+    #   });
   };
 }

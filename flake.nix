@@ -27,7 +27,7 @@
     replugged.url = "github:pupbrained/replugged/fce0db06a899f2e1433b92b17b039149b59decab";
     riff.url = "github:DeterminateSystems/riff";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    stylix.url = "github:dwarfmaster/stylix";
+    stylix.url = "github:danth/stylix";
     tre.url = "github:dduan/tre";
     xdg-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
