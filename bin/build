@@ -8,7 +8,7 @@ def main [
   nix run "nixpkgs#statix" -- fix .
 
   if not $home {
-    nixos-rebuild switch --flake . --impure --use-remote-sudo --option sandbox false
+    bash -c 'nixos-rebuild switch --flake . --impure --use-remote-sudo --option sandbox false |& , nom'
   }
 
   if not $system {

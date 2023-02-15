@@ -79,15 +79,15 @@
   };
   sddm = {
     pname = "sddm";
-    version = "0a54d3abbb896d652bac7a495ed98b0617306a6c";
+    version = "8f1e3df4768bd521034e02602c4410b06aaef7d5";
     src = fetchFromGitHub {
       owner = "sddm";
       repo = "sddm";
-      rev = "0a54d3abbb896d652bac7a495ed98b0617306a6c";
+      rev = "8f1e3df4768bd521034e02602c4410b06aaef7d5";
       fetchSubmodules = false;
-      sha256 = "sha256-sS9HK/u78AFdPXjcybN3qA+koAN/fd1oLW7VkqqrvVQ=";
+      sha256 = "sha256-T31O9+iDhH8Y9CleWoyxlOzio9L9clfrpMWzOLxuxTY=";
     };
-    date = "2023-02-09";
+    date = "2023-02-14";
   };
   sddm-theme = {
     pname = "sddm-theme";

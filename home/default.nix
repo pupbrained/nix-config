@@ -146,6 +146,7 @@ with pkgs; {
         mysql
         neovide
         ngrok
+        nix-output-monitor
         nix-prefetch-scripts
         nix-snow
         nodejs-19_x

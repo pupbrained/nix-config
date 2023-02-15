@@ -18,7 +18,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-old.url = "github:NixOS/nixpkgs/release-22.11";
     nixpkgs-jetbrains.url = "github:rien/nixpkgs";
-    nixvim.url = "github:pta2002/nixvim";
+    nixvim.url = "github:GaetanLepage/nixvim/fix-plugins-default";
     nixvim.inputs.nixpkgs.follows = "nixpkgs-old";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";

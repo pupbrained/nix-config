@@ -140,12 +140,8 @@
       };
 
       rust-analyzer = {
-        procMacro.enable = false;
+        procMacro.enable = true;
         signatureInfo.documentation.enable = false;
-
-        rustfmt.extraArgs = [
-          "--config [tab_spaces=2]"
-        ];
       };
 
       terminal.integrated = {
