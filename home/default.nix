@@ -431,7 +431,7 @@ with pkgs; {
 
       signing = {
         signByDefault = true;
-        key = "DB41891AE0A1ED4D";
+        key = "936BE82E6BD7DDE1";
       };
 
       aliases = {
