@@ -13,10 +13,11 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     neovim.url = "github:neovim/neovim?dir=contrib";
     nil.url = "github:oxalica/nil";
+    nix-index-database.url = "github:Mic92/nix-index-database";
     nix-init.url = "github:nix-community/nix-init";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/release-22.11";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
     nixpkgs-jetbrains.url = "github:rien/nixpkgs";
     nixvim.url = "github:GaetanLepage/nixvim/fix-plugins-default";
     nixvim.inputs.nixpkgs.follows = "nixpkgs-old";
