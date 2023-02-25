@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  self,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.vscode = with pkgs; {
     enable = true;
     mutableExtensionsDir = true;

@@ -1,35 +1,15 @@
-[sddm-theme]
-src.git = "https://github.com/L4ki/Dexy-Plasma-Themes"
-fetch.github = "L4ki/Dexy-Plasma-Themes"
+[alternate-toggler-nvim]
+src.git = "https://github.com/rmagatti/alternate-toggler"
+fetch.github = "rmagatti/alternate-toggler"
 
 [copilot-vim]
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"
 
-[nvim-cokeline]
-src.git = "https://github.com/noib3/nvim-cokeline"
-fetch.github = "noib3/nvim-cokeline"
-
-[nvim-nu]
-src.git = "https://github.com/LhKipp/nvim-nu"
-fetch.github = "LhKipp/nvim-nu"
-
 [move-nvim]
 src.git = "https://github.com/fedepujol/move.nvim"
 fetch.github = "fedepujol/move.nvim"
 
-[alternate-toggler-nvim]
-src.git = "https://github.com/rmagatti/alternate-toggler"
-fetch.github = "rmagatti/alternate-toggler"
-
-[openasar]
-src.git = "https://github.com/GooseMod/OpenAsar"
-fetch.github = "GooseMod/OpenAsar"
-
-[zscroll]
-src.git = "https://github.com/noctuid/zscroll"
-fetch.github = "noctuid/zscroll"
-
-[sddm]
-src.git = "https://github.com/sddm/sddm"
-fetch.github = "sddm/sddm"
+[nvim-cokeline]
+src.git = "https://github.com/noib3/nvim-cokeline"
+fetch.github = "noib3/nvim-cokeline"

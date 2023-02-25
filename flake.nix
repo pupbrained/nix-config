@@ -10,28 +10,19 @@
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
     glrnvim.url = "github:pupbrained/glrnvim-nix";
     home-manager.url = "github:nix-community/home-manager";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-contrib.url = "github:hyprwm/contrib";
-    lanzaboote.url = "github:nix-community/lanzaboote";
     neovim.url = "github:neovim/neovim?dir=contrib";
     nil.url = "github:oxalica/nil";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-init.url = "github:nix-community/nix-init";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
-    nixpkgs-jetbrains.url = "github:rien/nixpkgs";
     nixvim.url = "github:pta2002/nixvim";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
     nurl.url = "github:nix-community/nurl";
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
-    replugged.url = "github:pupbrained/replugged/fce0db06a899f2e1433b92b17b039149b59decab";
     riff.url = "github:DeterminateSystems/riff";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
-    stylix.url = "github:danth/stylix";
     tre.url = "github:dduan/tre";
-    xdg-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {
@@ -64,7 +55,7 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          ./sys/macbook/configuration.nix
+          ./sys/configuration.nix
           "${home-manager}/nix-darwin"
         ];
       };
