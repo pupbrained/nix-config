@@ -3,6 +3,8 @@
 
   inputs = {
     agenix.url = "github:yaxitech/ragenix";
+    darwin.url = "github:LnL7/nix-darwin/master";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
     doom-emacs.url = "github:nix-community/nix-doom-emacs";
     draconis.url = "github:pupbrained/draconis";
     flake-firefox-nightly.url = "github:colemickens/flake-firefox-nightly";
@@ -35,6 +37,7 @@
 
   outputs = {
     agenix,
+    darwin,
     fenix,
     home-manager,
     hyprland,
@@ -57,6 +60,17 @@
       overlays = [(import ./pkgs inputs)];
     };
   in {
+    darwinConfigurations = {
+      marshall = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs;};
+        system = "aarch64-darwin";
+        modules = [
+          ./sys/macbook/configuration.nix
+          "${home-manager}/nix-darwin"
+        ];
+      };
+    };
+
     homeConfigurations = {
       marshall = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
