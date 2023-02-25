@@ -21,8 +21,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-22.11";
     nixpkgs-jetbrains.url = "github:rien/nixpkgs";
-    nixvim.url = "github:GaetanLepage/nixvim/fix-plugins-default";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs-old";
+    nixvim.url = "github:pta2002/nixvim";
     nix-snow.url = "github:pupbrained/nix-snow";
     nur.url = "github:nix-community/NUR";
     nurl.url = "github:nix-community/nurl";
@@ -53,7 +52,7 @@
   } @ inputs: let
     inherit (nixpkgs) lib;
     forSystems = lib.genAttrs lib.systems.flakeExposed;
-    system = "x86_64-linux";
+    system = "aarch64-darwin";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
@@ -61,7 +60,8 @@
     };
   in {
     darwinConfigurations = {
-      marshall = darwin.lib.darwinSystem {
+      MacBook-Air = darwin.lib.darwinSystem {
+        inherit pkgs;
         specialArgs = {inherit inputs;};
         system = "aarch64-darwin";
         modules = [

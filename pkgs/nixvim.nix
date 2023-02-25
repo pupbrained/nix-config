@@ -4,11 +4,32 @@
   inputs,
   self,
   ...
-}: {
+}: let
+  sources = pkgs.callPackage ./_sources/generated.nix {};
+  copilot-vim = pkgs.vimPlugins.copilot-vim.overrideAttrs (_: {
+    inherit (sources.copilot-vim) src pname version;
+  });
+
+  codeium-vim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.codeium-vim) src pname version;
+  };
+
+  nvim-cokeline = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.nvim-cokeline) src pname version;
+  };
+
+  move-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.move-nvim) src pname version;
+  };
+
+  alternate-toggler-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.alternate-toggler-nvim) src pname version;
+  };
+in {
   programs.nixvim = {
     enable = true;
     package = inputs.neovim.packages.${pkgs.system}.default;
-    colorscheme = "catppuccin";
+    colorscheme = "carbonfox";
 
     options = {
       number = true;
@@ -56,7 +77,7 @@
         };
         "<C-h>" = {
           silent = true;
-          action = "<Plug>(cokeline-focus-prev)";
+          action = "<Plug>(cokeline-focus-pkgs)";
         };
         "<C-l>" = {
           silent = true;
@@ -150,7 +171,6 @@
       require("colorizer").setup()
       require("FTerm").setup({border = "rounded", dimensions = {height = 0.9, width = 0.9}})
       require("leap").add_default_mappings()
-      require("nu").setup({})
 
       require("catppuccin").setup({
         styles = {
@@ -350,7 +370,6 @@
           };
           tsserver.enable = true;
           gopls.enable = true;
-          zls.enable = true;
         };
       };
 
@@ -422,16 +441,17 @@
 
       treesitter = {
         enable = true;
-        nixGrammars = true;
+        nixGrammars = false;
+        ignoreInstall = ["smali"];
+        parserInstallDir = "/Users/marshall/.local/share/nvim/parser";
       };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
-      pkgs.alternate-toggler-nvim
-      pkgs.copilot-vim
-      pkgs.move-nvim
-      pkgs.nvim-cokeline
-      pkgs.nvim-nu
+      alternate-toggler-nvim
+      copilot-vim
+      move-nvim
+      nvim-cokeline
 
       catppuccin-nvim
       FTerm-nvim

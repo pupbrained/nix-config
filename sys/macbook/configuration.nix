@@ -1,7 +1,7 @@
 {
   inputs,
-  pkgs,
   config,
+  pkgs,
   ...
 }: {
   nix.package = pkgs.nixUnstable;
@@ -11,8 +11,10 @@
     home = "/Users/marshall";
   };
 
-  home-manager.users.marshall = {pkgs, ...}: {
-    specialArgs = { inherit inputs; };
-    imports = [ ../../home/mac.nix ];
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users.marshall = {pkgs, ...}: {
+      imports = [../../home/mac.nix];
+    };
   };
 }
