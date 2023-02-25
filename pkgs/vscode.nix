@@ -67,12 +67,13 @@
       ];
 
       editor = {
+        accessibilitySupport = "off";
         cursorBlinking = "smooth";
         cursorSmoothCaretAnimation = "on";
         cursorWidth = 2;
         defaultFormatter = "rvest.vs-code-prettier-eslint";
         find.addExtraSpaceOnTop = false;
-        fontFamily = "'Maple Mono NF'";
+        fontFamily = "'Cartograph CF'";
         fontLigatures = true;
         fontSize = 16;
         formatOnSave = true;
@@ -148,9 +149,13 @@
         cursorBlinking = true;
         cursorStyle = "line";
         cursorWidth = 2;
-        fontFamily = "'Maple Mono NF'";
+        fontFamily = "'Cartograph CF'";
         fontSize = 16;
         smoothScrolling = true;
+
+        env.osx = {
+          FIG_NEW_SESSION = "1";
+        };
 
         ignoreProcessNames = [
           "starship"
@@ -162,11 +167,6 @@
       };
 
       vim = {
-        enableNeovim = true;
-        neovimConfigPath = "~/.config/nvim/init.lua";
-        neovimPath = "/home/marshall/.nix-profile/bin/nvim";
-        neovimUseConfigFile = true;
-
         cursorStylePerMode = {
           normal = "block";
           insert = "line";
@@ -188,18 +188,5 @@
         smoothScrolling = true;
       };
     };
-
-    # package =
-    #   (vscode.override {
-    #     isInsiders = true;
-    #   })
-    #   .overrideAttrs
-    #   (_: {
-    #     src = builtins.fetchTarball {
-    #       url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-    #       sha256 = "0za3yinia60spbmn1xsmp64lq0c6hyyhbyq42hxhdc0j54pbchfz";
-    #     };
-    #     version = "latest";
-    #   });
   };
 }

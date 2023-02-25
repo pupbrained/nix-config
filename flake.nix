@@ -61,105 +61,12 @@
   in {
     darwinConfigurations = {
       MacBook-Air = darwin.lib.darwinSystem {
-        inherit pkgs;
+        inherit system;
         specialArgs = {inherit inputs;};
-        system = "aarch64-darwin";
         modules = [
           ./sys/macbook/configuration.nix
           "${home-manager}/nix-darwin"
         ];
-      };
-    };
-
-    homeConfigurations = {
-      marshall = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs self;};
-        modules = [
-          ./home
-          {
-            home.stateVersion = "22.05";
-            home.username = "marshall";
-            home.homeDirectory = "/home/marshall";
-          }
-        ];
-      };
-
-      server = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs;};
-
-        modules = [
-          ./home/server.nix
-          {
-            home.stateVersion = "23.05";
-            home.username = "marshall";
-            home.homeDirectory = "/home/marshall";
-          }
-        ];
-      };
-    };
-
-    nixosConfigurations = {
-      nix = lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs self;};
-
-        modules = [
-          ./sys/nix/configuration.nix
-          agenix.nixosModules.age
-          hyprland.nixosModules.default
-          nur.nixosModules.nur
-        ];
-      };
-
-      wsl = lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-
-        modules = [
-          ./sys/wsl.nix
-          agenix.nixosModules.age
-          nixos-wsl.nixosModules.wsl
-          nur.nixosModules.nur
-        ];
-      };
-
-      server = lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-
-        modules = [
-          ./sys/server/configuration.nix
-          agenix.nixosModules.age
-          nur.nixosModules.nur
-        ];
-      };
-    };
-
-    apps.x86_64-linux = {
-      update-home = {
-        type = "app";
-        program =
-          (inputs.nixpkgs.legacyPackages.x86_64-linux.writeScript "update-home" ''
-            set -euo pipefail
-            old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
-            nix profile remove $old_profile
-            ${self.homeConfigurations.marshall.activationPackage}/activate || (echo "restoring old profile"; ${inputs.nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
-          '')
-          .outPath;
-      };
-
-      update-server-home = {
-        type = "app";
-        program =
-          (inputs.nixpkgs.legacyPackages.x86_64-linux.writeScript "update-server-home" ''
-            set -euo pipefail
-            old_profile=$(nix profile list | grep home-manager-path | head -n1 | awk '{print $4}')
-            nix profile remove $old_profile
-            ${self.homeConfigurations.server.activationPackage}/activate || (echo "restoring old profile"; ${inputs.nixpkgs.legacyPackages.x86_64-linux.nix}/bin/nix profile install $old_profile)
-          '')
-          .outPath;
       };
     };
 
