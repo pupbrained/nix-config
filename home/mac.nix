@@ -36,14 +36,54 @@ with pkgs; {
     '';
   };
 
-  home.packages = [
-    alejandra
-    comma
-    ripgrep
-    fd
-    nurl
-    statix
-  ];
+  home.packages =
+    [
+      alejandra
+      bacon
+      btop
+      comma
+      cachix
+      cargo-edit
+      cargo-udeps
+      cmake
+      comma
+      curlie
+      fd
+      gcc
+      gh
+      gitoxide
+      gleam
+      igrep
+      jq
+      keybase
+      keychain
+      lazygit
+      neovide
+      nix-output-monitor
+      nix-prefetch-scripts
+      nodejs-19_x
+      nurl
+      python312
+      riff
+      ripgrep
+      rnix-lsp
+      starship
+      statix
+      tealdeer
+      wget
+      yarn
+    ]
+    ++ (with inputs; [
+      nix-init.packages.${pkgs.system}.default
+    ])
+    ++ (with nodePackages_latest; [
+      eslint
+      generator-code
+      pnpm
+      prettier
+      typescript
+      typescript-language-server
+    ]);
 
   programs = {
     direnv.enable = true;
