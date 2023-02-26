@@ -1,7 +1,5 @@
-#!/usr/bin/env nu
+#!/usr/bin/env bash
 
-def main [] {
-  alejandra . -q
-  statix fix .
-  ./result/sw/bin/darwin-rebuild switch --flake ".#" --impure
-}
+alejandra . -q
+statix fix .
+./result/sw/bin/darwin-rebuild switch --flake ".#" --impure

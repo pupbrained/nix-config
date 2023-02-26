@@ -30,25 +30,21 @@
     ...
   } @ inputs: let
     system = "aarch64-darwin";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [(import ./pkgs inputs)];
-    };
+    pkgs = import nixpkgs {inherit system;};
   in {
     darwinConfigurations = {
       MacBook-Air = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          ./sys/configuration.nix
+          ./sys.nix
           "${home-manager}/nix-darwin"
         ];
       };
     };
 
     devShells.${system}.default = pkgs.mkShellNoCC {
-      packages = with pkgs; [nvfetcher agenix.packages.${system}.default git alejandra];
+      packages = with pkgs; [alejandra agenix.packages.${system}.default git nvfetcher];
     };
 
     name = "dotfiles";

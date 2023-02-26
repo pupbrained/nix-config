@@ -1,8 +1,24 @@
-{inputs, ...}: let
-  pkgs = import inputs.nixpkgs {
-    system = "aarch64-darwin";
-    config.allowUnfree = true;
-    overlays = [(import ../pkgs inputs)];
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  sources = pkgs.callPackage ./_sources/generated.nix {};
+
+  alternate-toggler-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.alternate-toggler-nvim) src pname version;
+  };
+
+  copilot-vim = pkgs.vimPlugins.copilot-vim.overrideAttrs (_: {
+    inherit (sources.copilot-vim) src pname version;
+  });
+
+  move-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.move-nvim) src pname version;
+  };
+
+  nvim-cokeline = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.nvim-cokeline) src pname version;
   };
 in {
   programs.nixvim = {
@@ -427,10 +443,10 @@ in {
     };
 
     extraPlugins = with pkgs.vimPlugins; [
-      pkgs.alternate-toggler-nvim
-      pkgs.copilot-vim
-      pkgs.move-nvim
-      pkgs.nvim-cokeline
+      alternate-toggler-nvim
+      copilot-vim
+      move-nvim
+      nvim-cokeline
 
       catppuccin-nvim
       FTerm-nvim

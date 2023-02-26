@@ -66,11 +66,7 @@
     '';
   };
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = [(import ../pkgs inputs)];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   users.users.marshall = {
     name = "marshall";
@@ -80,7 +76,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users.marshall = {pkgs, ...}: {
-      imports = [../home/mac.nix];
+      imports = [./home.nix];
     };
   };
 }

@@ -6,11 +6,10 @@
 }:
 with pkgs; {
   imports = with inputs; [
-    ../pkgs/nixvim.nix
-    ../pkgs/bat.nix
-    ../pkgs/vscode.nix
+    pkgs/nixvim.nix
+    pkgs/bat.nix
+    pkgs/vscode.nix
     nixvim.homeManagerModules.nixvim
-    doom-emacs.hmModule
   ];
 
   nix = {
@@ -39,6 +38,7 @@ with pkgs; {
   home.packages =
     [
       alejandra
+      apksigner
       bacon
       btop
       comma
@@ -70,8 +70,9 @@ with pkgs; {
       starship
       statix
       tealdeer
+      unrar
+      unzip
       wget
-      yarn
     ]
     ++ (with inputs; [
       nix-init.packages.${pkgs.system}.default
@@ -83,6 +84,7 @@ with pkgs; {
       prettier
       typescript
       typescript-language-server
+      yarn
     ]);
 
   programs = {
