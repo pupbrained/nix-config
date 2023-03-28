@@ -2,14 +2,26 @@
 src.git = "https://github.com/rmagatti/alternate-toggler"
 fetch.github = "rmagatti/alternate-toggler"
 
+[barbar-nvim]
+src.git = "https://github.com/romgrk/barbar.nvim"
+fetch.github = "romgrk/barbar.nvim"
+
+[catppuccin-nvim]
+src.git = "https://github.com/catppuccin/nvim"
+fetch.github = "catppuccin/nvim"
+
 [copilot-vim]
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"
 
-[move-nvim]
-src.git = "https://github.com/fedepujol/move.nvim"
-fetch.github = "fedepujol/move.nvim"
+# [move-nvim]
+# src.git = "https://github.com/fedepujol/move.nvim"
+# fetch.github = "fedepujol/move.nvim"
 
-[nvim-cokeline]
-src.git = "https://github.com/noib3/nvim-cokeline"
-fetch.github = "noib3/nvim-cokeline"
+[illuminate-nvim]
+src.git = "https://github.com/RRethy/vim-illuminate"
+fetch.github = "RRethy/vim-illuminate"
+
+[overseer-nvim]
+src.git = "https://github.com/stevearc/overseer.nvim"
+fetch.github = "stevearc/overseer.nvim"

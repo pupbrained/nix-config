@@ -6,25 +6,23 @@
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     draconis.url = "github:pupbrained/draconis";
+    fenix.url = "github:nix-community/fenix";
     home-manager.url = "github:nix-community/home-manager";
-    neovim.url = "github:neovim/neovim?dir=contrib";
     nil.url = "github:oxalica/nil";
     nix-index-database.url = "github:Mic92/nix-index-database";
-    nix-init.url = "github:nix-community/nix-init";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.11";
     nixvim.url = "github:pta2002/nixvim";
     nix-snow.url = "github:pupbrained/nix-snow";
-    nur.url = "github:nix-community/NUR";
     nurl.url = "github:nix-community/nurl";
   };
 
   outputs = {
     agenix,
     darwin,
+    fenix,
     home-manager,
-    neovim,
     nixpkgs,
-    nur,
     nurl,
     self,
     ...
@@ -32,8 +30,10 @@
     system = "aarch64-darwin";
     pkgs = import nixpkgs {inherit system;};
   in {
+    packages.${system}.default = fenix.packages.${system}.minimal.toolchain;
+
     darwinConfigurations = {
-      MacBook-Air = darwin.lib.darwinSystem {
+      canis = darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [

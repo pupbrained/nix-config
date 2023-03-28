@@ -17,40 +17,64 @@
     };
     date = "2022-11-08";
   };
+  barbar-nvim = {
+    pname = "barbar-nvim";
+    version = "1c9d324c493650667ff621c835d552e56fd229ca";
+    src = fetchFromGitHub {
+      owner = "romgrk";
+      repo = "barbar.nvim";
+      rev = "1c9d324c493650667ff621c835d552e56fd229ca";
+      fetchSubmodules = false;
+      sha256 = "sha256-mMeaX8Y4zJbXc54CbRNXrFcPHg7E4CcilmC28J2UYc4=";
+    };
+    date = "2023-03-20";
+  };
+  catppuccin-nvim = {
+    pname = "catppuccin-nvim";
+    version = "73587f9c454da81679202f1668c30fea6cdafd5e";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "nvim";
+      rev = "73587f9c454da81679202f1668c30fea6cdafd5e";
+      fetchSubmodules = false;
+      sha256 = "sha256-UrHoESRYwALPo6LFFocEIM0CZa740tjxjvmYES7O5Rw=";
+    };
+    date = "2023-03-27";
+  };
   copilot-vim = {
     pname = "copilot-vim";
-    version = "9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b";
+    version = "b6e5624351ba735e25eb8864d7d22819aad00606";
     src = fetchFromGitHub {
       owner = "github";
       repo = "copilot.vim";
-      rev = "9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b";
+      rev = "b6e5624351ba735e25eb8864d7d22819aad00606";
       fetchSubmodules = false;
-      sha256 = "sha256-B+2hHNTrabj6O9F6OoskNIUsjJXLrt+4XgjuiRoM80s=";
+      sha256 = "sha256-EA9SNPRIIBG9eoV299h+5/AcF/NJYS8izsurLEW31bc=";
     };
-    date = "2023-02-15";
+    date = "2023-03-27";
   };
-  move-nvim = {
-    pname = "move-nvim";
-    version = "4f72d2d86f4392cec1aa4e0a8c20314022a806ad";
+  illuminate-nvim = {
+    pname = "illuminate-nvim";
+    version = "a2907275a6899c570d16e95b9db5fd921c167502";
     src = fetchFromGitHub {
-      owner = "fedepujol";
-      repo = "move.nvim";
-      rev = "4f72d2d86f4392cec1aa4e0a8c20314022a806ad";
+      owner = "RRethy";
+      repo = "vim-illuminate";
+      rev = "a2907275a6899c570d16e95b9db5fd921c167502";
       fetchSubmodules = false;
-      sha256 = "sha256-jVFG2iFTUTgXBkEDilM794SWZnb4f6lzHtWToUUnf5s=";
+      sha256 = "sha256-8dL3cBjQ2iY4D4gTxKVVmOGhxcSSRuDBvmEwwFIbWsQ=";
     };
-    date = "2023-01-25";
+    date = "2023-03-19";
   };
-  nvim-cokeline = {
-    pname = "nvim-cokeline";
-    version = "dc72c4a8dcbcc4763e33899876512b15c2d2aa4e";
+  overseer-nvim = {
+    pname = "overseer-nvim";
+    version = "123603ecc2d4676b001351a6bb04b0def475ac53";
     src = fetchFromGitHub {
-      owner = "noib3";
-      repo = "nvim-cokeline";
-      rev = "dc72c4a8dcbcc4763e33899876512b15c2d2aa4e";
+      owner = "stevearc";
+      repo = "overseer.nvim";
+      rev = "123603ecc2d4676b001351a6bb04b0def475ac53";
       fetchSubmodules = false;
-      sha256 = "sha256-r/KucmSVTAFhrmfKM+h9S+VMLquFoBJO6eGRGpn/H1M=";
+      sha256 = "sha256-2uQ5eoJBFkamW21/YxNxYD5YsuJH61zPmvt3oAVqWPQ=";
     };
-    date = "2023-01-10";
+    date = "2023-03-26";
   };
 }

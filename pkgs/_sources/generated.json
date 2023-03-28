@@ -19,9 +19,49 @@
         },
         "version": "9925bcfd7cee04b6c1f43c23edcf6c878552b7db"
     },
+    "barbar-nvim": {
+        "cargoLocks": null,
+        "date": "2023-03-20",
+        "extract": null,
+        "name": "barbar-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "romgrk",
+            "repo": "barbar.nvim",
+            "rev": "1c9d324c493650667ff621c835d552e56fd229ca",
+            "sha256": "sha256-mMeaX8Y4zJbXc54CbRNXrFcPHg7E4CcilmC28J2UYc4=",
+            "type": "github"
+        },
+        "version": "1c9d324c493650667ff621c835d552e56fd229ca"
+    },
+    "catppuccin-nvim": {
+        "cargoLocks": null,
+        "date": "2023-03-27",
+        "extract": null,
+        "name": "catppuccin-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "nvim",
+            "rev": "73587f9c454da81679202f1668c30fea6cdafd5e",
+            "sha256": "sha256-UrHoESRYwALPo6LFFocEIM0CZa740tjxjvmYES7O5Rw=",
+            "type": "github"
+        },
+        "version": "73587f9c454da81679202f1668c30fea6cdafd5e"
+    },
     "copilot-vim": {
         "cargoLocks": null,
-        "date": "2023-02-15",
+        "date": "2023-03-27",
         "extract": null,
         "name": "copilot-vim",
         "passthru": null,
@@ -33,17 +73,17 @@
             "name": null,
             "owner": "github",
             "repo": "copilot.vim",
-            "rev": "9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b",
-            "sha256": "sha256-B+2hHNTrabj6O9F6OoskNIUsjJXLrt+4XgjuiRoM80s=",
+            "rev": "b6e5624351ba735e25eb8864d7d22819aad00606",
+            "sha256": "sha256-EA9SNPRIIBG9eoV299h+5/AcF/NJYS8izsurLEW31bc=",
             "type": "github"
         },
-        "version": "9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b"
+        "version": "b6e5624351ba735e25eb8864d7d22819aad00606"
     },
-    "move-nvim": {
+    "illuminate-nvim": {
         "cargoLocks": null,
-        "date": "2023-01-25",
+        "date": "2023-03-19",
         "extract": null,
-        "name": "move-nvim",
+        "name": "illuminate-nvim",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -51,19 +91,19 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "fedepujol",
-            "repo": "move.nvim",
-            "rev": "4f72d2d86f4392cec1aa4e0a8c20314022a806ad",
-            "sha256": "sha256-jVFG2iFTUTgXBkEDilM794SWZnb4f6lzHtWToUUnf5s=",
+            "owner": "RRethy",
+            "repo": "vim-illuminate",
+            "rev": "a2907275a6899c570d16e95b9db5fd921c167502",
+            "sha256": "sha256-8dL3cBjQ2iY4D4gTxKVVmOGhxcSSRuDBvmEwwFIbWsQ=",
             "type": "github"
         },
-        "version": "4f72d2d86f4392cec1aa4e0a8c20314022a806ad"
+        "version": "a2907275a6899c570d16e95b9db5fd921c167502"
     },
-    "nvim-cokeline": {
+    "overseer-nvim": {
         "cargoLocks": null,
-        "date": "2023-01-10",
+        "date": "2023-03-26",
         "extract": null,
-        "name": "nvim-cokeline",
+        "name": "overseer-nvim",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -71,12 +111,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "noib3",
-            "repo": "nvim-cokeline",
-            "rev": "dc72c4a8dcbcc4763e33899876512b15c2d2aa4e",
-            "sha256": "sha256-r/KucmSVTAFhrmfKM+h9S+VMLquFoBJO6eGRGpn/H1M=",
+            "owner": "stevearc",
+            "repo": "overseer.nvim",
+            "rev": "123603ecc2d4676b001351a6bb04b0def475ac53",
+            "sha256": "sha256-2uQ5eoJBFkamW21/YxNxYD5YsuJH61zPmvt3oAVqWPQ=",
             "type": "github"
         },
-        "version": "dc72c4a8dcbcc4763e33899876512b15c2d2aa4e"
+        "version": "123603ecc2d4676b001351a6bb04b0def475ac53"
     }
 }

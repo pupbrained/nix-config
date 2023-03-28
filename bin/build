@@ -2,4 +2,4 @@
 
 alejandra . -q
 statix fix .
-./result/sw/bin/darwin-rebuild switch --flake ".#" --impure
+darwin-rebuild switch --flake ".#" --impure

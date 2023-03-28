@@ -5,26 +5,20 @@
 }: let
   sources = pkgs.callPackage ./_sources/generated.nix {};
 
-  alternate-toggler-nvim = pkgs.vimUtils.buildVimPlugin {
-    inherit (sources.alternate-toggler-nvim) src pname version;
-  };
+  mkVimPlugin = sources:
+    pkgs.vimUtils.buildVimPlugin {
+      inherit (sources) src pname version;
+    };
 
-  copilot-vim = pkgs.vimPlugins.copilot-vim.overrideAttrs (_: {
-    inherit (sources.copilot-vim) src pname version;
-  });
-
-  move-nvim = pkgs.vimUtils.buildVimPlugin {
-    inherit (sources.move-nvim) src pname version;
-  };
-
-  nvim-cokeline = pkgs.vimUtils.buildVimPlugin {
-    inherit (sources.nvim-cokeline) src pname version;
-  };
+  alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
+  barbar-nvim = mkVimPlugin sources.barbar-nvim;
+  catppuccin-nvim = mkVimPlugin sources.catppuccin-nvim;
+  copilot-vim = mkVimPlugin sources.copilot-vim;
+  illuminate-nvim = mkVimPlugin sources.illuminate-nvim;
+  overseer-nvim = mkVimPlugin sources.overseer-nvim;
 in {
   programs.nixvim = {
     enable = true;
-    package = inputs.neovim.packages.${pkgs.system}.default;
-    colorscheme = "carbonfox";
 
     options = {
       number = true;
@@ -43,25 +37,22 @@ in {
     globals = {
       mapleader = " ";
       rust_recommended_style = false;
-      neovide_cursor_animation_length = 0.025;
-      neovide_cursor_vfx_mode = "railgun";
-      neovide_refresh_rate = 144;
-      terminal_color_0 = "#45475A";
-      terminal_color_1 = "#F38BA8";
-      terminal_color_2 = "#A6E3A1";
-      terminal_color_3 = "#F9E2AF";
-      terminal_color_4 = "#89B4FA";
-      terminal_color_5 = "#F5C2E7";
-      terminal_color_6 = "#94E2D5";
-      terminal_color_7 = "#BAC2DE";
-      terminal_color_8 = "#45475A";
-      terminal_color_9 = "#F38BA8";
-      terminal_color_10 = "#A6E3A1";
-      terminal_color_11 = "#F9E2AF";
-      terminal_color_12 = "#89B4FA";
-      terminal_color_13 = "#F5C2E7";
-      terminal_color_14 = "#94E2D5";
-      terminal_color_15 = "#BAC2DE";
+      terminal_color_0 = "#45475a";
+      terminal_color_1 = "#f38ba8";
+      terminal_color_2 = "#a6e3a1";
+      terminal_color_3 = "#f9e2af";
+      terminal_color_4 = "#89b4fa";
+      terminal_color_5 = "#f5c2e7";
+      terminal_color_6 = "#94e2d5";
+      terminal_color_7 = "#bac2de";
+      terminal_color_8 = "#45475a";
+      terminal_color_9 = "#f38ba8";
+      terminal_color_10 = "#a6e3a1";
+      terminal_color_11 = "#f9e2af";
+      terminal_color_12 = "#89b4fa";
+      terminal_color_13 = "#f5c2e7";
+      terminal_color_14 = "#94e2d5";
+      terminal_color_15 = "#bac2de";
     };
 
     maps = {
@@ -72,31 +63,11 @@ in {
         };
         "<C-h>" = {
           silent = true;
-          action = "<Plug>(cokeline-focus-pkgs)";
+          action = "<CMD>BufferPrevious<CR>";
         };
         "<C-l>" = {
           silent = true;
-          action = "<Plug>(cokeline-focus-next)";
-        };
-        "<A-j>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveLine(1)<CR>";
-        };
-        "<A-k>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveLine(-1)<CR>";
-        };
-        "<A-h>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveHChar(-1)<CR>";
-        };
-        "<A-l>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveHChar(1)<CR>";
+          action = "<CMD>BufferNext<CR>";
         };
         "<Leader>lg" = {
           silent = true;
@@ -112,11 +83,11 @@ in {
         };
         "<Leader>be" = {
           silent = true;
-          action = "<Plug>(cokeline-pick-close)";
+          action = "<CMD>BufferPickDelete<CR>";
         };
         "<Leader>bj" = {
           silent = true;
-          action = "<Plug>(cokeline-pick-focus)";
+          action = "<CMD>BufferPick<CR>";
         };
         "<Leader>e" = {
           silent = true;
@@ -128,29 +99,6 @@ in {
         };
       };
 
-      visual = {
-        "<A-j>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveBlock(1)<CR>";
-        };
-        "<A-k>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveBlock(-1)<CR>";
-        };
-        "<A-h>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveHBlock(-1)<CR>";
-        };
-        "<A-l>" = {
-          silent = true;
-          noremap = true;
-          action = ":MoveHBlock(1)<CR>";
-        };
-      };
-
       terminal."<C-t>" = {
         silent = true;
         action = "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>";
@@ -158,223 +106,179 @@ in {
     };
 
     extraConfigLua = ''
-      vim.cmd("set mouse=a")
-      vim.cmd("set guifont=CartographCF\\ Nerd\\ Font:h14")
-
-      require("indent_blankline").setup {show_current_context = true, show_current_context_start = true}
-      require("gitsigns").setup()
-      require("colorizer").setup()
-      require("FTerm").setup({border = "rounded", dimensions = {height = 0.9, width = 0.9}})
-      require("leap").add_default_mappings()
-
-      require("catppuccin").setup({
+      require('catppuccin').setup({
+        flavour = 'mocha',
+        color_overrides = {
+          mocha = {
+            base = '#1e1e2f'
+          }
+        },
         styles = {
           comments = { "italic" },
-          conditionals = { "italic" },
-          loops = {},
-          functions = { "italic" },
-          keywords = {},
-          strings = {},
-          variables = { "italic" },
-          numbers = {},
-          booleans = { "italic" },
-          properties = {},
-          types = {},
-          operators = {},
+          properties = { "italic" },
+          functions = { "bold" },
+          keywords = { "italic" },
+          operators = { "bold" },
+          conditionals = { "bold" },
+          loops = { "bold" },
+          booleans = { "bold", "italic" }
         }
       })
 
-      local a = {
-        blue = "#89b4fa",
-        cyan = "#94e2d5",
-        black = "#1e1e2e",
-        white = "#cdd6f4",
-        violet = "#cba6f7",
-        grey = "#181d2d"
-      }
-      local b = {
-        normal = {a = {fg = a.black, bg = a.violet}, b = {fg = a.white, bg = a.grey}, c = {fg = a.black, bg = a.black}},
-        insert = {a = {fg = a.black, bg = a.blue}},
-        visual = {a = {fg = a.black, bg = a.cyan}},
-        replace = {a = {fg = a.black, bg = a.white}},
-        inactive = {a = {fg = a.white, bg = a.black}, b = {fg = a.white, bg = a.black}, c = {fg = a.black, bg = a.black}}
-      }
-      local c = {
-        function()
-          return string.rep(" ", vim.api.nvim_win_get_width(require "nvim-tree.view".get_winnr()) - 1)
-        end,
-        cond = require("nvim-tree.view").is_visible, color = "NvimTreeNormal"
-      }
-      require("lualine").setup {
-        options = {
-            theme = b,
-            component_separators = "|",
-            section_separators = {left = "", right = ""},
-            refresh = {statusline = 100, tabline = 100, winbar = 100}
-        },
-        sections = {
-            lualine_a = {c, {"mode", separator = {left = ""}, right_padding = 2}},
-            lualine_b = {"filename", "branch"},
-            lualine_c = {"fileformat"},
-            lualine_x = {"lsp_progress"},
-            lualine_y = {"filetype", "progress"},
-            lualine_z = {{"location", separator = {right = ""}, left_padding = 2}}
-        },
-        inactive_sections = {
-            lualine_a = {"filename"},
-            lualine_b = {},
-            lualine_c = {},
-            lualine_x = {},
-            lualine_y = {},
-            lualine_z = {"location"}
-        },
-        tabline = {},
-        extensions = {}
-      }
+      vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+      vim.cmd('set mouse=a')
+      vim.cmd('set guifont=IosevkaNerdFont\\ Nerd\\ Font:h18')
+      vim.cmd.colorscheme('catppuccin')
 
-      local d = require("cokeline/utils").get_hex
-      local e = require("cokeline/mappings").is_picking_focus
-      local f = require("cokeline/mappings").is_picking_close
-      require("cokeline").setup({
-        show_if_buffers_are_at_least = 2,
-        default_hl = {
-          fg = function(g)
-            return g.is_focused and d("Normal", "fg") or d("Comment", "fg")
-          end,
-          bg = d("ColorColumn", "bg")
-        },
-        components = {
-          {text = " ", bg = d("Normal", "bg")},
-          {text = "", fg = d("ColorColumn", "bg"), bg = d("Normal", "bg")},
-          {text = function(g)
-                    if e() or f() then
-                      return g.pick_letter .. " "
-                    end
-                    return g.devicon.icon
-                  end,
-           fg = function(g)
-                  if e() then
-                    return yellow
-                  end
-                  if f() then
-                    return red
-                  end
-                  if g.is_focused then
-                    return dark
-                  else
-                    return light
-                  end
-                end,
-           style = function(h)
-                    return (e() or f()) and "italic,bold" or nil
-                   end
-          },
-          {text = " "},
-          {text = function(g)
-                    return g.filename .. "  "
-                  end,
-           style = function(g)
-                   end
-          },
-          {text = "", delete_buffer_on_left_click = true},
-          {text = "", fg = d("ColorColumn", "bg"), bg = d("Normal", "bg")}
+      require('fidget').setup()
+      require('gitsigns').setup()
+      require('indent_blankline').setup()
+      require('mini.starter').setup()
+      require('mini.trailspace').setup()
+      require('mini.comment').setup()
+      require('mini.surround').setup()
+      require('mini.move').setup()
+      require('octo').setup()
+      require('overseer').setup()
+
+      require('barbecue').setup({
+        theme = 'catppuccin'
+      })
+
+      require('colorizer').setup({
+        user_default_options = {
+          names = false,
+          mode = 'virtualtext'
+        }
+      })
+
+      require("feline").setup({
+        components = require('catppuccin.groups.integrations.feline').get()
+      })
+
+      require('FTerm').setup({
+        border = 'rounded',
+        dimensions = {
+          height = 0.9,
+          width = 0.9
+        }
+      })
+
+      require('illuminate').configure({
+        min_count_to_highlight = 2
+      })
+
+      require('mini.indentscope').setup({
+        symbol = '│',
+        draw = {
+          delay = 50
+        }
+      })
+
+      require('mini.jump2d').setup({
+        mappings = {
+          start_jumping = 's'
+        }
+      })
+
+      require('nvim-treesitter.configs').setup({
+        rainbow = {
+          enable = true,
+          query = 'rainbow-parens',
+          strategy = require('ts-rainbow').strategy.global
         }
       })
     '';
 
     plugins = {
-      comment-nvim.enable = true;
       cmp_luasnip.enable = true;
       cmp-buffer.enable = true;
       cmp-path.enable = true;
       cmp-nvim-lsp.enable = true;
       nvim-autopairs.enable = true;
 
-      dashboard = {
+      barbar = {
         enable = true;
-        center = [
-          {
-            icon = "  ";
-            desc = "Find File                               ";
-            shortcut = "SPC f f";
-            action = "Telescope find_files";
-          }
-          {
-            icon = "  ";
-            desc = "Recently Used Files                     ";
-            shortcut = "SPC f h";
-            action = "Telescope oldfiles";
-          }
-          {
-            icon = "  ";
-            desc = "Find Word                               ";
-            shortcut = "SPC f w";
-            action = "Telescope live_grep";
-          }
-        ];
-        header = [
-          "          ▗▄▄▄       ▗▄▄▄▄    ▄▄▄▖          "
-          "          ▜███▙       ▜███▙  ▟███▛          "
-          "           ▜███▙       ▜███▙▟███▛           "
-          "            ▜███▙       ▜██████▛            "
-          "     ▟█████████████████▙ ▜████▛     ▟▙      "
-          "    ▟███████████████████▙ ▜███▙    ▟██▙     "
-          "           ▄▄▄▄▖           ▜███▙  ▟███▛     "
-          "          ▟███▛             ▜██▛ ▟███▛      "
-          "         ▟███▛               ▜▛ ▟███▛       "
-          "▟███████████▛                  ▟██████████▙ "
-          "▜██████████▛                  ▟███████████▛ "
-          "      ▟███▛ ▟▙               ▟███▛          "
-          "     ▟███▛ ▟██▙             ▟███▛           "
-          "    ▟███▛  ▜███▙           ▝▀▀▀▀            "
-          "    ▜██▛    ▜███▙ ▜██████████████████▛      "
-          "     ▜▛     ▟████▙ ▜████████████████▛       "
-          "           ▟██████▙       ▜███▙             "
-          "          ▟███▛▜███▙       ▜███▙            "
-          "         ▟███▛  ▜███▙       ▜███▙           "
-          "         ▝▀▀▀    ▀▀▀▀▘       ▀▀▀▘           "
-        ];
+        autoHide = true;
+        package = barbar-nvim;
+        diagnostics = {
+          error.enable = true;
+          hint.enable = true;
+          info.enable = true;
+          warn.enable = true;
+        };
       };
 
       lsp = {
         enable = true;
+
         onAttach = ''
-          if client.supports_method("textDocument/formatting") then
+          if client.server_capabilities.documentSymbolProvider then
+              require('nvim-navic').attach(client, bufnr)
+          end
+
+          if client.supports_method('textDocument/formatting') then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
+            vim.api.nvim_create_autocmd('BufWritePre', {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                if client.name == "null-ls" then
+                if client.name == 'null-ls' then
                   local util = require 'vim.lsp.util'
                   local params = util.make_formatting_params({})
                   client.request('textDocument/formatting', params, nil, bufnr)
                 end
                 vim.lsp.buf.format({bufnr = bufnr})
+                require('mini.trailspace').trim()
+                require('mini.trailspace').trim_last_lines()
               end,
+            })
+
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
+              command = 'silent! EslintFixAll',
+              group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
             })
           end
         '';
 
         servers = {
+          denols.enable = true;
           eslint.enable = true;
           rnix-lsp.enable = true;
-          rust-analyzer = {
-            enable = true;
-            settings.checkOnSave.command = "clippy";
-          };
           tsserver.enable = true;
           gopls.enable = true;
+
+          rust-analyzer = {
+            enable = true;
+
+            settings = {
+              checkOnSave = true;
+              check.command = "clippy";
+
+              imports.granularity = {
+                enforce = true;
+                group = "item";
+              };
+            };
+
+            extraSettings = {
+              unstable_features = true;
+              tab_spaces = 2;
+              reorder_impl_items = true;
+              indent_style = "Block";
+              normalize_comments = true;
+              max_width = 100;
+            };
+          };
         };
       };
 
       null-ls = {
         enable = true;
-        sources = {
-          formatting = {
-            alejandra.enable = true;
-          };
-        };
+        sources.formatting.alejandra.enable = true;
       };
 
       nvim-cmp = {
@@ -385,20 +289,26 @@ in {
         '';
 
         mapping = {
-          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-e>" = "cmp.mapping.close()";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<Tab>" = {
+            modes = ["i" "s"];
+            action = ''
+              function(fallback)
+                if cmp.visible() then
+                  cmp.select_next_item()
+                elseif require('luasnip').expandable() then
+                  require('luasnip').expand()
+                elseif require('luasnip').expand_or_jumpable() then
+                  require('luasnip').expand_or_jump()
+                else
+                  fallback()
+                end
+              end
+            '';
+          };
         };
 
-        snippet = {
-          expand = ''
-            function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          '';
-        };
+        snippet.expand = "luasnip";
 
         sources = [
           {name = "nvim_lsp";}
@@ -436,36 +346,41 @@ in {
 
       treesitter = {
         enable = true;
-        nixGrammars = false;
-        ignoreInstall = ["smali"];
-        parserInstallDir = "/Users/marshall/.local/share/nvim/parser";
+        nixGrammars = true;
       };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
       alternate-toggler-nvim
-      copilot-vim
-      move-nvim
-      nvim-cokeline
-
+      barbecue-nvim
       catppuccin-nvim
+      copilot-vim
+      diffview-nvim
+      feline-nvim
+      fidget-nvim
       FTerm-nvim
       gitsigns-nvim
+      illuminate-nvim
       indent-blankline-nvim
       lazygit-nvim
-      leap-nvim
       lspkind-nvim
-      lualine-lsp-progress
-      lualine-nvim
       luasnip
       markdown-preview-nvim
-      nightfox-nvim
+      mini-nvim
+      mkdir-nvim
       nvim-colorizer-lua
+      nvim-lightbulb
+      nvim-navic
+      nvim-ts-rainbow2
       nvim-web-devicons
+      octo-nvim
+      overseer-nvim
+      plenary-nvim
       presence-nvim
       trouble-nvim
       vim-cool
       vim-smoothie
+      vim-unimpaired
       vim-visual-multi
       zen-mode-nvim
     ];

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.vscode = with pkgs; {
     enable = true;
-    mutableExtensionsDir = true;
+    mutableExtensionsDir = false;
 
     extensions = with vscode-extensions;
       [
@@ -9,28 +9,60 @@
         catppuccin.catppuccin-vsc
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
-        github.copilot
         jnoortheen.nix-ide
         kamadorueda.alejandra
-        matklad.rust-analyzer
+        matklad.rust-analyzer-nightly
         mkhl.direnv
         ms-vscode-remote.remote-ssh
+        mvllow.rose-pine
         pkief.material-product-icons
         pkief.material-icon-theme
+        sumneko.lua
+        tamasfe.even-better-toml
         vscodevim.vim
       ]
       ++ vscode-utils.extensionsFromVscodeMarketplace [
         {
-          name = "vs-code-prettier-eslint";
-          publisher = "rvest";
-          version = "5.0.4";
-          sha256 = "sha256-aLEAuFQQTxyFSfr7dXaYpm11UyBuDwBNa0SBCMJAVRI=";
+          name = "catppuccin-vsc-icons";
+          publisher = "Catppuccin";
+          version = "0.1.0";
+          sha256 = "sha256-IVH+Z7yByJx5x8oH6sU21cf/t1FCMW8fWHd46m1jp/U=";
         }
         {
-          name = "tailwind-class-sorter";
-          publisher = "vdanchenkov";
-          version = "0.0.1";
-          sha256 = "sha256-hRcos9VgCaAdMMJBnJswzNrX8714ld/tOq+O6m9p3sI=";
+          name = "civet";
+          publisher = "danielx";
+          version = "0.3.6";
+          sha256 = "sha256-VYkI+vHwvIttpgy7hV5m63BmMwP0ZXRGRdiuPl9kDAc=";
+        }
+        {
+          name = "copilot-labs";
+          publisher = "github";
+          version = "0.12.791";
+          sha256 = "sha256-3StswisTiG1e+LZeAuquIXlqaFj0Lzk4WNy+6Af4giw=";
+        }
+        {
+          name = "copilot-nightly";
+          publisher = "github";
+          version = "1.78.10395";
+          sha256 = "sha256-nqCg/1nX+dD1UxEaBYZnrCdfYgpCXM+fe9YpZtHU1Gc=";
+        }
+        {
+          name = "gleam";
+          publisher = "Gleam";
+          version = "2.2.0";
+          sha256 = "sha256-eaGprPLJWJOIlK0UB+CcdXVon+jmzpz0X0gB6uBbvt4=";
+        }
+        {
+          name = "postcss";
+          publisher = "csstools";
+          version = "1.0.9";
+          sha256 = "sha256-5pGDKme46uT1/35WkTGL3n8ecc7wUBkHVId9VpT7c2U=";
+        }
+        {
+          name = "vs-code-prettier-eslint";
+          publisher = "rvest";
+          version = "5.1.0";
+          sha256 = "sha256-nOwmLjAmjElX+IAoxVBHlXEowM/GmlabwGd8KqGxB14=";
         }
       ];
 
@@ -39,15 +71,20 @@
       emmet.useInlineCompletions = true;
       github.copilot.enable."*" = true;
       javascript.updateImportsOnFileMove.enabled = "always";
+      typescript.updateImportsOnFileMove.enabled = "always";
       scss.lint.unknownAtRules = "ignore";
       security.workspace.trust.untrustedFiles = "open";
       update.mode = "none";
+      Lua.diagnostics.globals = [
+        "vim"
+      ];
 
       "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[javascript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
       "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+      "[lua]".editor.defaultFormatter = "sumneko.lua";
       "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
       "[rust]".editor.defaultFormatter = "rust-lang.rust-analyzer";
       "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
@@ -66,7 +103,7 @@
         cursorWidth = 2;
         defaultFormatter = "rvest.vs-code-prettier-eslint";
         find.addExtraSpaceOnTop = false;
-        fontFamily = "'Cartograph CF'";
+        fontFamily = "'Iosevka Comfy Wide'";
         fontLigatures = true;
         fontSize = 16;
         formatOnSave = true;
@@ -142,7 +179,7 @@
         cursorBlinking = true;
         cursorStyle = "line";
         cursorWidth = 2;
-        fontFamily = "'Cartograph CF'";
+        fontFamily = "'Iosevka Comfy Wide'";
         fontSize = 16;
         smoothScrolling = true;
 
@@ -172,7 +209,6 @@
 
       window = {
         titleBarStyle = "custom";
-        zoomLevel = 1;
       };
 
       workbench = {
