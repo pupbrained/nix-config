@@ -71,13 +71,12 @@
       emmet.useInlineCompletions = true;
       github.copilot.enable."*" = true;
       javascript.updateImportsOnFileMove.enabled = "always";
+      Lua.diagnostics.globals = ["vim"];
       typescript.updateImportsOnFileMove.enabled = "always";
       scss.lint.unknownAtRules = "ignore";
       security.workspace.trust.untrustedFiles = "open";
       update.mode = "none";
-      Lua.diagnostics.globals = [
-        "vim"
-      ];
+      window.titleBarStyle = "custom";
 
       "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
@@ -182,10 +181,7 @@
         fontFamily = "'Iosevka Comfy Wide'";
         fontSize = 16;
         smoothScrolling = true;
-
-        env.osx = {
-          FIG_NEW_SESSION = "1";
-        };
+        env.osx.FIG_NEW_SESSION = "1";
 
         ignoreProcessNames = [
           "starship"
@@ -196,19 +192,13 @@
         ];
       };
 
-      vim = {
-        cursorStylePerMode = {
-          normal = "block";
-          insert = "line";
-          replace = "underline";
-          visual = "block-outline";
-          visualblock = "block-outline";
-          visualline = "block-outline";
-        };
-      };
-
-      window = {
-        titleBarStyle = "custom";
+      vim.cursorStylePerMode = {
+        normal = "block";
+        insert = "line";
+        replace = "underline";
+        visual = "block-outline";
+        visualblock = "block-outline";
+        visualline = "block-outline";
       };
 
       workbench = {

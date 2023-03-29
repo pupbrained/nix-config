@@ -85,7 +85,7 @@ in {
           silent = true;
           action = "<CMD>BufferPickDelete<CR>";
         };
-        "<Leader>bj" = {
+        "<Leader>bf" = {
           silent = true;
           action = "<CMD>BufferPick<CR>";
         };
@@ -245,7 +245,6 @@ in {
         '';
 
         servers = {
-          denols.enable = true;
           eslint.enable = true;
           rnix-lsp.enable = true;
           tsserver.enable = true;

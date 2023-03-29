@@ -30,25 +30,21 @@
     system = "aarch64-darwin";
     pkgs = import nixpkgs {inherit system;};
   in {
+    name = "dotfiles";
+    formatter.${system} = pkgs.${system}.alejandra;
     packages.${system}.default = fenix.packages.${system}.minimal.toolchain;
 
-    darwinConfigurations = {
-      canis = darwin.lib.darwinSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./sys.nix
-          "${home-manager}/nix-darwin"
-        ];
-      };
+    darwinConfigurations.canis = darwin.lib.darwinSystem {
+      inherit system;
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./sys.nix
+        "${home-manager}/nix-darwin"
+      ];
     };
 
     devShells.${system}.default = pkgs.mkShellNoCC {
       packages = with pkgs; [alejandra agenix.packages.${system}.default git nvfetcher];
     };
-
-    name = "dotfiles";
-
-    formatter.${system} = pkgs.${system}.alejandra;
   };
 }

@@ -2,9 +2,7 @@
   programs.kitty = {
     enable = true;
 
-    package = pkgs.kitty.overrideAttrs (_: {
-      doCheck = false;
-    });
+    package = pkgs.kitty.overrideAttrs (_: {doCheck = false;});
 
     font = {
       name = "Iosevka Comfy";

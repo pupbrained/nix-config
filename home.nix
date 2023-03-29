@@ -8,10 +8,10 @@
     pkgs.nodePackages_latest
     // {
       pnpm = pkgs.nodePackages_latest.pnpm.override {
-        version = "8.0.0-rc.1";
+        version = "8.0.0";
         src = pkgs.fetchurl {
-          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.0.0-rc.1.tgz";
-          sha512 = "sha512-hZpolpTa/pieTu+IPrrUjRuV1pJH21dTeenWGOKYMLK336PrKGfG5QtDsg8jBWEwgokAR7e3bBKDPii//htM6Q==";
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.0.0.tgz";
+          sha512 = "sha512-Crsvd8LKb+SoEB/bQxRZrtSt5Ri8g9jmPg6MKyexMTI1pdLd44gPwVV6cZLq2jYYPv5q+gADPkYTbYr8SeFCeA==";
         };
       };
     };
@@ -38,9 +38,8 @@ in
         flake-registry = "/etc/nix/registry.json";
         keep-derivations = true;
         keep-outputs = true;
-        warn-dirty = false;
-
         trusted-users = ["marshall"];
+        warn-dirty = false;
       };
 
       extraOptions = ''
@@ -131,8 +130,8 @@ in
       direnv.enable = true;
       exa.enable = true;
       gpg.enable = true;
-      skim.enable = true;
       navi.enable = true;
+      skim.enable = true;
 
       gh = {
         enable = true;
