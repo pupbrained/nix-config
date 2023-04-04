@@ -8,10 +8,10 @@
     pkgs.nodePackages_latest
     // {
       pnpm = pkgs.nodePackages_latest.pnpm.override {
-        version = "8.0.0";
+        version = "8.1.0";
         src = pkgs.fetchurl {
-          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.0.0.tgz";
-          sha512 = "sha512-Crsvd8LKb+SoEB/bQxRZrtSt5Ri8g9jmPg6MKyexMTI1pdLd44gPwVV6cZLq2jYYPv5q+gADPkYTbYr8SeFCeA==";
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.1.0.tgz";
+          sha512 = "sha512-e2H73wTRxmc5fWF/6QJqbuwU6O3NRVZC1G1WFXG8EqfN/+ZBu8XVHJZwPH6Xh0DxbEoZgw8/wy2utgCDwPu4Sg==";
         };
       };
     };
@@ -20,6 +20,7 @@ in
     imports = with inputs; [
       pkgs/bat.nix
       pkgs/fish.nix
+      pkgs/helix.nix
       pkgs/kitty.nix
       pkgs/nixvim.nix
       pkgs/vscode.nix
@@ -70,6 +71,7 @@ in
           duf
           erlang
           fd
+          fend
           gcc
           gitoxide
           gleam
@@ -77,13 +79,13 @@ in
           huniq
           igrep
           iina
+          inputs.nickel.packages.${pkgs.system}.default
           jq
           jql
           keybase
           keychain
           lazygit
           macchina
-          neovide
           nix-output-monitor
           nix-prefetch-scripts
           nodejs-19_x

@@ -19,15 +19,15 @@
   };
   barbar-nvim = {
     pname = "barbar-nvim";
-    version = "1c9d324c493650667ff621c835d552e56fd229ca";
+    version = "ea71c4ba96d610e197889affb2d16c72e7f52954";
     src = fetchFromGitHub {
       owner = "romgrk";
       repo = "barbar.nvim";
-      rev = "1c9d324c493650667ff621c835d552e56fd229ca";
+      rev = "ea71c4ba96d610e197889affb2d16c72e7f52954";
       fetchSubmodules = false;
-      sha256 = "sha256-mMeaX8Y4zJbXc54CbRNXrFcPHg7E4CcilmC28J2UYc4=";
+      sha256 = "sha256-m1EyGiqdsN5UuNl24Wm8R+JBYTEDFi4NZA8hvn6EIuM=";
     };
-    date = "2023-03-20";
+    date = "2023-04-03";
   };
   catppuccin-nvim = {
     pname = "catppuccin-nvim";
@@ -53,6 +53,36 @@
     };
     date = "2023-03-27";
   };
+  emmet-vim = {
+    pname = "emmet-vim";
+    version = "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d";
+    src = fetchFromGitHub {
+      owner = "mattn";
+      repo = "emmet-vim";
+      rev = "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d";
+      fetchSubmodules = false;
+      sha256 = "sha256-VJa3AgbLW8Jow5Ka4NsN0cV3LLNLl0TLSHfMwhElaN0=";
+    };
+    date = "2021-12-05";
+  };
+  helix = {
+    pname = "helix";
+    version = "2bdb58fba46f8fedc238a431ba65b1dd668d7367";
+    src = fetchFromGitHub {
+      owner = "helix-editor";
+      repo = "helix";
+      rev = "2bdb58fba46f8fedc238a431ba65b1dd668d7367";
+      fetchSubmodules = false;
+      sha256 = "sha256-LoXwYGKDaWgWyd9tZULjodaXxe6MPXzWJn8zC8D/j8w=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./helix-2bdb58fba46f8fedc238a431ba65b1dd668d7367/Cargo.lock;
+      outputHashes = {
+        "tree-sitter-0.20.9" = "sha256-/PaFaASOT0Z8FpipX5uiRCjnv1kyZtg4B9+TnHA0yTY=";
+      };
+    };
+    date = "2023-04-04";
+  };
   illuminate-nvim = {
     pname = "illuminate-nvim";
     version = "a2907275a6899c570d16e95b9db5fd921c167502";
@@ -64,6 +94,30 @@
       sha256 = "sha256-8dL3cBjQ2iY4D4gTxKVVmOGhxcSSRuDBvmEwwFIbWsQ=";
     };
     date = "2023-03-19";
+  };
+  navbuddy-nvim = {
+    pname = "navbuddy-nvim";
+    version = "a0e36447f39442436dfbd371d7daea5c2dc9ec58";
+    src = fetchFromGitHub {
+      owner = "SmiteshP";
+      repo = "nvim-navbuddy";
+      rev = "a0e36447f39442436dfbd371d7daea5c2dc9ec58";
+      fetchSubmodules = false;
+      sha256 = "sha256-/CClMvW3tfoyR5GwEEDu8ogyLhGLbsY0andzMzJzZGU=";
+    };
+    date = "2023-04-02";
+  };
+  navic-nvim = {
+    pname = "navic-nvim";
+    version = "27124a773d362628b114cd12016e743dab4ccf3e";
+    src = fetchFromGitHub {
+      owner = "SmiteshP";
+      repo = "nvim-navic";
+      rev = "27124a773d362628b114cd12016e743dab4ccf3e";
+      fetchSubmodules = false;
+      sha256 = "sha256-1hUnU6CayNerK7olqhSkAQSW0zE6JIhsmZIBw2fyYnc=";
+    };
+    date = "2023-04-02";
   };
   overseer-nvim = {
     pname = "overseer-nvim";

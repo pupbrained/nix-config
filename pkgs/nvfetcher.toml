@@ -14,6 +14,15 @@ fetch.github = "catppuccin/nvim"
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"
 
+[emmet-vim]
+src.git = "https://github.com/mattn/emmet-vim"
+fetch.github = "mattn/emmet-vim"
+
+[helix]
+src.git = "https://github.com/helix-editor/helix"
+fetch.github = "helix-editor/helix"
+cargo_locks = ["Cargo.lock"]
+
 # [move-nvim]
 # src.git = "https://github.com/fedepujol/move.nvim"
 # fetch.github = "fedepujol/move.nvim"
@@ -22,6 +31,15 @@ fetch.github = "github/copilot.vim"
 src.git = "https://github.com/RRethy/vim-illuminate"
 fetch.github = "RRethy/vim-illuminate"
 
+[navbuddy-nvim]
+src.git = "https://github.com/SmiteshP/nvim-navbuddy"
+fetch.github = "SmiteshP/nvim-navbuddy"
+
+[navic-nvim]
+src.git = "https://github.com/SmiteshP/nvim-navic"
+fetch.github = "SmiteshP/nvim-navic"
+
 [overseer-nvim]
 src.git = "https://github.com/stevearc/overseer.nvim"
 fetch.github = "stevearc/overseer.nvim"
+

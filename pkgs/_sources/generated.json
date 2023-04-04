@@ -21,7 +21,7 @@
     },
     "barbar-nvim": {
         "cargoLocks": null,
-        "date": "2023-03-20",
+        "date": "2023-04-03",
         "extract": null,
         "name": "barbar-nvim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "romgrk",
             "repo": "barbar.nvim",
-            "rev": "1c9d324c493650667ff621c835d552e56fd229ca",
-            "sha256": "sha256-mMeaX8Y4zJbXc54CbRNXrFcPHg7E4CcilmC28J2UYc4=",
+            "rev": "ea71c4ba96d610e197889affb2d16c72e7f52954",
+            "sha256": "sha256-m1EyGiqdsN5UuNl24Wm8R+JBYTEDFi4NZA8hvn6EIuM=",
             "type": "github"
         },
-        "version": "1c9d324c493650667ff621c835d552e56fd229ca"
+        "version": "ea71c4ba96d610e197889affb2d16c72e7f52954"
     },
     "catppuccin-nvim": {
         "cargoLocks": null,
@@ -79,6 +79,53 @@
         },
         "version": "b6e5624351ba735e25eb8864d7d22819aad00606"
     },
+    "emmet-vim": {
+        "cargoLocks": null,
+        "date": "2021-12-05",
+        "extract": null,
+        "name": "emmet-vim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mattn",
+            "repo": "emmet-vim",
+            "rev": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d",
+            "sha256": "sha256-VJa3AgbLW8Jow5Ka4NsN0cV3LLNLl0TLSHfMwhElaN0=",
+            "type": "github"
+        },
+        "version": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d"
+    },
+    "helix": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./helix-2bdb58fba46f8fedc238a431ba65b1dd668d7367/Cargo.lock",
+                {
+                    "tree-sitter-0.20.9": "sha256-/PaFaASOT0Z8FpipX5uiRCjnv1kyZtg4B9+TnHA0yTY="
+                }
+            ]
+        },
+        "date": "2023-04-04",
+        "extract": null,
+        "name": "helix",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "helix-editor",
+            "repo": "helix",
+            "rev": "2bdb58fba46f8fedc238a431ba65b1dd668d7367",
+            "sha256": "sha256-LoXwYGKDaWgWyd9tZULjodaXxe6MPXzWJn8zC8D/j8w=",
+            "type": "github"
+        },
+        "version": "2bdb58fba46f8fedc238a431ba65b1dd668d7367"
+    },
     "illuminate-nvim": {
         "cargoLocks": null,
         "date": "2023-03-19",
@@ -98,6 +145,46 @@
             "type": "github"
         },
         "version": "a2907275a6899c570d16e95b9db5fd921c167502"
+    },
+    "navbuddy-nvim": {
+        "cargoLocks": null,
+        "date": "2023-04-02",
+        "extract": null,
+        "name": "navbuddy-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "SmiteshP",
+            "repo": "nvim-navbuddy",
+            "rev": "a0e36447f39442436dfbd371d7daea5c2dc9ec58",
+            "sha256": "sha256-/CClMvW3tfoyR5GwEEDu8ogyLhGLbsY0andzMzJzZGU=",
+            "type": "github"
+        },
+        "version": "a0e36447f39442436dfbd371d7daea5c2dc9ec58"
+    },
+    "navic-nvim": {
+        "cargoLocks": null,
+        "date": "2023-04-02",
+        "extract": null,
+        "name": "navic-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "SmiteshP",
+            "repo": "nvim-navic",
+            "rev": "27124a773d362628b114cd12016e743dab4ccf3e",
+            "sha256": "sha256-1hUnU6CayNerK7olqhSkAQSW0zE6JIhsmZIBw2fyYnc=",
+            "type": "github"
+        },
+        "version": "27124a773d362628b114cd12016e743dab4ccf3e"
     },
     "overseer-nvim": {
         "cargoLocks": null,

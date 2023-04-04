@@ -11,11 +11,17 @@
     };
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
-  barbar-nvim = mkVimPlugin sources.barbar-nvim;
   catppuccin-nvim = mkVimPlugin sources.catppuccin-nvim;
   copilot-vim = mkVimPlugin sources.copilot-vim;
   illuminate-nvim = mkVimPlugin sources.illuminate-nvim;
+  navbuddy-nvim = mkVimPlugin sources.navbuddy-nvim;
+  navic-nvim = mkVimPlugin sources.navic-nvim;
   overseer-nvim = mkVimPlugin sources.overseer-nvim;
+
+  emmet-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    inherit (sources.emmet-vim) src pname version;
+    buildInputs = [pkgs.zip];
+  };
 in {
   programs.nixvim = {
     enable = true;
@@ -37,6 +43,10 @@ in {
     globals = {
       mapleader = " ";
       rust_recommended_style = false;
+      neovide_cursor_animation_length = 0.025;
+      neovide_cursor_vfx_mode = "railgun";
+      neovide_refresh_rate = 165;
+      neovide_background_color = "#1e1e2f";
       terminal_color_0 = "#45475a";
       terminal_color_1 = "#f38ba8";
       terminal_color_2 = "#a6e3a1";
@@ -97,11 +107,20 @@ in {
           silent = true;
           action = "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>";
         };
+        "<Leader>rn" = {
+          silent = true;
+          action = "<CMD>lua require('renamer').rename()<CR>";
+        };
       };
 
       terminal."<C-t>" = {
         silent = true;
         action = "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>";
+      };
+
+      visual."<Leader>rn" = {
+        silent = true;
+        action = "<CMD>lua require('renamer').rename()<CR>";
       };
     };
 
@@ -142,6 +161,7 @@ in {
       require('mini.move').setup()
       require('octo').setup()
       require('overseer').setup()
+      require('renamer').setup()
 
       require('barbecue').setup({
         theme = 'catppuccin'
@@ -187,8 +207,39 @@ in {
         rainbow = {
           enable = true,
           query = 'rainbow-parens',
-          strategy = require('ts-rainbow').strategy.global
+          strategy = require('ts-rainbow').strategy.global,
+          disable = { 'tsx' }
         }
+      })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(tbl)
+          local set_offset = require('bufferline.api').set_offset
+
+          local bufwinid
+          local last_width
+          local autocmd = vim.api.nvim_create_autocmd('WinScrolled', {
+            callback = function()
+              bufwinid = bufwinid or vim.fn.bufwinid(tbl.buf)
+
+              local width = vim.api.nvim_win_get_width(bufwinid)
+              if width ~= last_width then
+                set_offset(width, 'FileTree')
+                last_width = width
+              end
+            end,
+          })
+
+          vim.api.nvim_create_autocmd('BufWipeout', {
+            buffer = tbl.buf,
+            callback = function()
+              vim.api.nvim_del_autocmd(autocmd)
+              set_offset(0)
+            end,
+            once = true,
+          })
+        end,
+        pattern = 'NvimTree', -- or any other filetree's `ft`
       })
     '';
 
@@ -202,7 +253,6 @@ in {
       barbar = {
         enable = true;
         autoHide = true;
-        package = barbar-nvim;
         diagnostics = {
           error.enable = true;
           hint.enable = true;
@@ -217,6 +267,7 @@ in {
         onAttach = ''
           if client.server_capabilities.documentSymbolProvider then
               require('nvim-navic').attach(client, bufnr)
+              require('nvim-navbuddy').attach(client, bufnr)
           end
 
           if client.supports_method('textDocument/formatting') then
@@ -237,9 +288,12 @@ in {
             })
 
             vim.api.nvim_create_autocmd('BufWritePre', {
-              pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
-              command = 'silent! EslintFixAll',
+              pattern = { '*.tsx', '*.jsx', '*.html' },
               group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
+              callback = function()
+                vim.cmd('silent!EslintFixAll')
+                vim.fn.setline(1, vim.fn.systemlist("rustywind --stdin 2>/dev/null", vim.fn.getline(1, '$')))
+              end,
             })
           end
         '';
@@ -247,6 +301,7 @@ in {
         servers = {
           eslint.enable = true;
           rnix-lsp.enable = true;
+          tailwindcss.enable = true;
           tsserver.enable = true;
           gopls.enable = true;
 
@@ -289,7 +344,7 @@ in {
 
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" = {
+          "<S-Tab>" = {
             modes = ["i" "s"];
             action = ''
               function(fallback)
@@ -355,6 +410,7 @@ in {
       catppuccin-nvim
       copilot-vim
       diffview-nvim
+      emmet-vim
       feline-nvim
       fidget-nvim
       FTerm-nvim
@@ -367,6 +423,8 @@ in {
       markdown-preview-nvim
       mini-nvim
       mkdir-nvim
+      navbuddy-nvim
+      nui-nvim
       nvim-colorizer-lua
       nvim-lightbulb
       nvim-navic
@@ -376,6 +434,7 @@ in {
       overseer-nvim
       plenary-nvim
       presence-nvim
+      renamer-nvim
       trouble-nvim
       vim-cool
       vim-smoothie

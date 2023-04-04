@@ -5,14 +5,9 @@
     package = pkgs.kitty.overrideAttrs (_: {doCheck = false;});
 
     font = {
-      name = "Iosevka Comfy";
-      size = 18;
+      name = "Iosevka Comfy Motion";
+      size = 16;
     };
-
-    extraConfig = ''
-      modify_font cell_height -5px
-      modify_font baseline 1.5
-    '';
 
     settings = {
       editor = "nvim";

@@ -1,5 +1,5 @@
 {
-  description = "Marshall's NixOS Config";
+  description = "Marshall's Nix-Darwin Config";
 
   inputs = {
     agenix.url = "github:yaxitech/ragenix";
@@ -8,6 +8,7 @@
     draconis.url = "github:pupbrained/draconis";
     fenix.url = "github:nix-community/fenix";
     home-manager.url = "github:nix-community/home-manager";
+    nickel.url = "github:tweag/nickel";
     nil.url = "github:oxalica/nil";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
