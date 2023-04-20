@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   sources = pkgs.callPackage ./_sources/generated.nix {};
 
   mkVimPlugin = sources:
@@ -12,10 +8,8 @@
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
   catppuccin-nvim = mkVimPlugin sources.catppuccin-nvim;
-  copilot-vim = mkVimPlugin sources.copilot-vim;
   illuminate-nvim = mkVimPlugin sources.illuminate-nvim;
   navbuddy-nvim = mkVimPlugin sources.navbuddy-nvim;
-  navic-nvim = mkVimPlugin sources.navic-nvim;
   overseer-nvim = mkVimPlugin sources.overseer-nvim;
 
   emmet-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -47,6 +41,7 @@ in {
       neovide_cursor_vfx_mode = "railgun";
       neovide_refresh_rate = 165;
       neovide_background_color = "#1e1e2f";
+      instant_username = "mars";
       terminal_color_0 = "#45475a";
       terminal_color_1 = "#f38ba8";
       terminal_color_2 = "#a6e3a1";
@@ -244,21 +239,36 @@ in {
     '';
 
     plugins = {
-      cmp_luasnip.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      cmp-nvim-lsp.enable = true;
+      copilot.enable = true;
       nvim-autopairs.enable = true;
 
       barbar = {
         enable = true;
         autoHide = true;
-        diagnostics = {
+        icons.diagnostics = {
           error.enable = true;
           hint.enable = true;
           info.enable = true;
           warn.enable = true;
         };
+      };
+
+      coq-nvim = {
+        enable = true;
+        autoStart = "shut-up";
+        installArtifacts = true;
+        recommendedKeymaps = true;
+      };
+
+      coq-thirdparty = {
+        enable = true;
+        sources = [
+          {
+            accept_key = "<C-j>";
+            short_name = "COP";
+            src = "copilot";
+          }
+        ];
       };
 
       lsp = {
@@ -300,7 +310,7 @@ in {
 
         servers = {
           eslint.enable = true;
-          rnix-lsp.enable = true;
+          nil_ls.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
           gopls.enable = true;
@@ -335,47 +345,47 @@ in {
         sources.formatting.alejandra.enable = true;
       };
 
-      nvim-cmp = {
-        enable = true;
+      # nvim-cmp = {
+      #   enable = true;
 
-        formatting.format = ''
-          require('lspkind').cmp_format({mode = 'symbol', maxwidth = 50})
-        '';
+      #   formatting.format = ''
+      #     require('lspkind').cmp_format({mode = 'symbol', maxwidth = 50})
+      #   '';
 
-        mapping = {
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<S-Tab>" = {
-            modes = ["i" "s"];
-            action = ''
-              function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                elseif require('luasnip').expandable() then
-                  require('luasnip').expand()
-                elseif require('luasnip').expand_or_jumpable() then
-                  require('luasnip').expand_or_jump()
-                else
-                  fallback()
-                end
-              end
-            '';
-          };
-        };
+      #   mapping = {
+      #     "<CR>" = "cmp.mapping.confirm({ select = true })";
+      #     "<S-Tab>" = {
+      #       modes = ["i" "s"];
+      #       action = ''
+      #         function(fallback)
+      #           if cmp.visible() then
+      #             cmp.select_next_item()
+      #           elseif require('luasnip').expandable() then
+      #             require('luasnip').expand()
+      #           elseif require('luasnip').expand_or_jumpable() then
+      #             require('luasnip').expand_or_jump()
+      #           else
+      #             fallback()
+      #           end
+      #         end
+      #       '';
+      #     };
+      #   };
 
-        snippet.expand = "luasnip";
+      #   snippet.expand = "luasnip";
 
-        sources = [
-          {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "path";}
-          {name = "buffer";}
-        ];
+      #   sources = [
+      #     {name = "nvim_lsp";}
+      #     {name = "luasnip";}
+      #     {name = "path";}
+      #     {name = "buffer";}
+      #   ];
 
-        window = {
-          completion.border = "rounded";
-          documentation.border = "rounded";
-        };
-      };
+      #   window = {
+      #     completion.border = "rounded";
+      #     documentation.border = "rounded";
+      #   };
+      # };
 
       nvim-tree = {
         enable = true;
@@ -408,7 +418,6 @@ in {
       alternate-toggler-nvim
       barbecue-nvim
       catppuccin-nvim
-      copilot-vim
       diffview-nvim
       emmet-vim
       feline-nvim
@@ -417,6 +426,7 @@ in {
       gitsigns-nvim
       illuminate-nvim
       indent-blankline-nvim
+      instant-nvim
       lazygit-nvim
       lspkind-nvim
       luasnip

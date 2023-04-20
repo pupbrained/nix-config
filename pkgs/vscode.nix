@@ -15,6 +15,7 @@
         mkhl.direnv
         ms-vscode-remote.remote-ssh
         mvllow.rose-pine
+        nvarner.typst-lsp
         pkief.material-product-icons
         pkief.material-icon-theme
         sumneko.lua
@@ -51,6 +52,12 @@
           publisher = "Gleam";
           version = "2.2.0";
           sha256 = "sha256-eaGprPLJWJOIlK0UB+CcdXVon+jmzpz0X0gB6uBbvt4=";
+        }
+        {
+          name = "vsliveshare";
+          publisher = "ms-vsliveshare";
+          version = "1.0.5834";
+          sha256 = "sha256-+KfivY8W1VtUxhdXuUKI5e1elo6Ert1Tsf4xVXsKB3Y=";
         }
         {
           name = "postcss";
@@ -102,9 +109,9 @@
         cursorWidth = 2;
         defaultFormatter = "rvest.vs-code-prettier-eslint";
         find.addExtraSpaceOnTop = false;
-        fontFamily = "'Iosevka Comfy Wide'";
+        fontFamily = "'Iosevka Comfy', 'Iosevka Nerd Font'";
         fontLigatures = true;
-        fontSize = 16;
+        fontSize = 18;
         formatOnSave = true;
         guides.bracketPairs = true;
         inlayHints.enabled = "off";
@@ -172,14 +179,24 @@
       rust-analyzer = {
         procMacro.enable = true;
         signatureInfo.documentation.enable = false;
+        check.command = "clippy";
+        checkOnSave.overrideCommand = [
+          "cargo"
+          "clippy"
+          "--fix"
+          "--workspace"
+          "--message-format=json"
+          "--all-targets"
+          "--allow-dirty"
+        ];
       };
 
       terminal.integrated = {
         cursorBlinking = true;
         cursorStyle = "line";
         cursorWidth = 2;
-        fontFamily = "'Iosevka Comfy Wide'";
-        fontSize = 16;
+        fontFamily = "'Iosevka Comfy', 'Iosevka Nerd Font'";
+        fontSize = 18;
         smoothScrolling = true;
         env.osx.FIG_NEW_SESSION = "1";
 

@@ -1,17 +1,16 @@
 {
   inputs,
   pkgs,
-  config,
   ...
 }: let
   nodePackages_latest =
     pkgs.nodePackages_latest
     // {
       pnpm = pkgs.nodePackages_latest.pnpm.override {
-        version = "8.1.0";
+        version = "8.2.0";
         src = pkgs.fetchurl {
-          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.1.0.tgz";
-          sha512 = "sha512-e2H73wTRxmc5fWF/6QJqbuwU6O3NRVZC1G1WFXG8EqfN/+ZBu8XVHJZwPH6Xh0DxbEoZgw8/wy2utgCDwPu4Sg==";
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.2.0.tgz";
+          sha512 = "sha512-f2/abl6GycxLgVZQtWA2zBJKMXcv2L86HGRwJ4qnS02gVzLgtFegC25qWKFtUunCY74GUwxq2A7yGAJEyOuCYg==";
         };
       };
     };
@@ -20,7 +19,6 @@ in
     imports = with inputs; [
       pkgs/bat.nix
       pkgs/fish.nix
-      pkgs/helix.nix
       pkgs/kitty.nix
       pkgs/nixvim.nix
       pkgs/vscode.nix
@@ -45,7 +43,6 @@ in
 
       extraOptions = ''
         experimental-features = nix-command flakes
-        extra-sandbox-paths = /nix/var/cache/ccache
         min-free = ${toString (100 * 1024 * 1024)}
         max-free = ${toString (1024 * 1024 * 1024)}
       '';
@@ -61,7 +58,6 @@ in
           bitwarden-cli
           btop
           bun
-          comma
           cachix
           cargo-edit
           cargo-udeps
@@ -79,7 +75,6 @@ in
           huniq
           igrep
           iina
-          inputs.nickel.packages.${pkgs.system}.default
           jq
           jql
           keybase
@@ -97,10 +92,11 @@ in
           riff
           ripgrep
           rm-improved
-          rnix-lsp
           rnr
           statix
           tokei
+          typst
+          typst-lsp
           unrar
           unzip
           upx
@@ -110,6 +106,11 @@ in
           yubikey-manager
           # SNOW END
         ]
+        ++ (with inputs; [
+          caligula.packages.${pkgs.system}.default
+          deadnix.packages.${pkgs.system}.default
+          nickel.packages.${pkgs.system}.default
+        ])
         ++ (with nodePackages_latest; [
           eslint
           generator-code
@@ -132,6 +133,7 @@ in
       direnv.enable = true;
       exa.enable = true;
       gpg.enable = true;
+      java.enable = true;
       navi.enable = true;
       skim.enable = true;
 
@@ -150,18 +152,16 @@ in
         package = pkgs.gitAndTools.gitFull;
         userName = "pupbrained";
         userEmail = "mars@pupbrained.xyz";
+        aliases."pushall" = "!git remote | xargs -L1 git push";
+
+        extraConfig = {
+          init.defaultBranch = "main";
+          push.autoSetupRemote = true;
+        };
 
         signing = {
           signByDefault = true;
           key = "874E22DF2F9DFCB5";
-        };
-
-        aliases = {
-          "pushall" = "!git remote | xargs -L1 git push";
-        };
-
-        extraConfig = {
-          push.autoSetupRemote = true;
         };
       };
 
@@ -169,14 +169,8 @@ in
         enable = true;
         package = pkgs.go_1_20;
         packages = {
-          # bubbletea
           "github.com/charmbracelet/bubbletea" = builtins.fetchGit "https://github.com/charmbracelet/bubbletea";
         };
-      };
-
-      java = {
-        enable = true;
-        package = pkgs.jdk;
       };
 
       lazygit = {
@@ -202,7 +196,7 @@ in
         settings = {
           jobs.disabled = true;
           palette = "catppuccin_mocha";
-          nix_shell.symbol = "❄️";
+          nix_shell.symbol = "❄️  ";
 
           palettes.catppuccin_mocha = {
             rosewater = "#f5e0dc";

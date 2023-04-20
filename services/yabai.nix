@@ -40,7 +40,6 @@
     yabai = {
       enable = true;
       package = pkgs.yabai;
-      enableScriptingAddition = false;
 
       config = {
         layout = "bsp";

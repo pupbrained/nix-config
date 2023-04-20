@@ -1,9 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
-  self,
-  lib,
   ...
 }: {
   programs.bat = with pkgs; {

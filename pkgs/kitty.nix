@@ -1,11 +1,14 @@
-{pkgs, ...}: {
+{inputs, ...}: let
+  system = "aarch64-darwin";
+  pkgs = import inputs.nixpkgs-kitty-latest {inherit system;};
+in {
   programs.kitty = {
     enable = true;
 
-    package = pkgs.kitty.overrideAttrs (_: {doCheck = false;});
+    package = pkgs.kitty;
 
     font = {
-      name = "Iosevka Comfy Motion";
+      name = "Iosevka Comfy";
       size = 16;
     };
 
