@@ -8,6 +8,7 @@
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
   catppuccin-nvim = mkVimPlugin sources.catppuccin-nvim;
+  codeium-vim = mkVimPlugin sources.codeium-vim;
   illuminate-nvim = mkVimPlugin sources.illuminate-nvim;
   navbuddy-nvim = mkVimPlugin sources.navbuddy-nvim;
   overseer-nvim = mkVimPlugin sources.overseer-nvim;
@@ -41,6 +42,7 @@ in {
       neovide_cursor_vfx_mode = "railgun";
       neovide_refresh_rate = 165;
       neovide_background_color = "#1e1e2f";
+      codeium_no_map_tab = 1;
       instant_username = "mars";
       terminal_color_0 = "#45475a";
       terminal_color_1 = "#f38ba8";
@@ -236,10 +238,12 @@ in {
         end,
         pattern = 'NvimTree', -- or any other filetree's `ft`
       })
+
+      vim.keymap.set('i', '<C-j>', function () return vim.fn['codeium#Accept']() end, { expr = true })
     '';
 
     plugins = {
-      copilot.enable = true;
+      # copilot.enable = true;
       nvim-autopairs.enable = true;
 
       barbar = {
@@ -262,13 +266,13 @@ in {
 
       coq-thirdparty = {
         enable = true;
-        sources = [
-          {
-            accept_key = "<C-j>";
-            short_name = "COP";
-            src = "copilot";
-          }
-        ];
+        # sources = [
+        #   {
+        #     accept_key = "<C-j>";
+        #     short_name = "COP";
+        #     src = "copilot";
+        #   }
+        # ];
       };
 
       lsp = {
@@ -328,7 +332,7 @@ in {
               };
             };
 
-            extraSettings = {
+            extraOptions.settings = {
               unstable_features = true;
               tab_spaces = 2;
               reorder_impl_items = true;
@@ -344,48 +348,6 @@ in {
         enable = true;
         sources.formatting.alejandra.enable = true;
       };
-
-      # nvim-cmp = {
-      #   enable = true;
-
-      #   formatting.format = ''
-      #     require('lspkind').cmp_format({mode = 'symbol', maxwidth = 50})
-      #   '';
-
-      #   mapping = {
-      #     "<CR>" = "cmp.mapping.confirm({ select = true })";
-      #     "<S-Tab>" = {
-      #       modes = ["i" "s"];
-      #       action = ''
-      #         function(fallback)
-      #           if cmp.visible() then
-      #             cmp.select_next_item()
-      #           elseif require('luasnip').expandable() then
-      #             require('luasnip').expand()
-      #           elseif require('luasnip').expand_or_jumpable() then
-      #             require('luasnip').expand_or_jump()
-      #           else
-      #             fallback()
-      #           end
-      #         end
-      #       '';
-      #     };
-      #   };
-
-      #   snippet.expand = "luasnip";
-
-      #   sources = [
-      #     {name = "nvim_lsp";}
-      #     {name = "luasnip";}
-      #     {name = "path";}
-      #     {name = "buffer";}
-      #   ];
-
-      #   window = {
-      #     completion.border = "rounded";
-      #     documentation.border = "rounded";
-      #   };
-      # };
 
       nvim-tree = {
         enable = true;
@@ -418,6 +380,7 @@ in {
       alternate-toggler-nvim
       barbecue-nvim
       catppuccin-nvim
+      codeium-vim
       diffview-nvim
       emmet-vim
       feline-nvim

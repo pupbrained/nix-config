@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-alejandra . -q
 statix fix .
+deadnix -eq .
+alejandra . -q
 darwin-rebuild switch --flake ".#" --impure

@@ -40,6 +40,25 @@
     yabai = {
       enable = true;
       package = pkgs.yabai;
+      #package = pkgs.stdenvNoCC.mkDerivation {
+      #  pname = "yabai";
+      #  version = "5.0.3";
+      #  src = ../pkgs/yabai.tar.gz;
+      #  sourceRoot = ".";
+      #  nativeBuildInputs = [pkgs.installShellFiles];
+      #  dontConfigure = true;
+      #  dontBuild = true;
+
+      #  installPhase = ''
+      #    runHook preInstall
+
+      #    mkdir -p $out
+      #    cp -r ./bin $out
+      #    installManPage ./doc/yabai.1
+
+      #    runHook postInstall
+      #  '';
+      #};
 
       config = {
         layout = "bsp";

@@ -66,6 +66,24 @@
           sha256 = "sha256-5pGDKme46uT1/35WkTGL3n8ecc7wUBkHVId9VpT7c2U=";
         }
         {
+          name = "rome";
+          publisher = "rome";
+          version = "0.23.20230427";
+          sha256 = "sha256-Z3y7OGuGZ6bRKToMONmZy7Qen72Tk4hPZlmriOMDYpA=";
+        }
+        {
+          name = "tauri-vscode";
+          publisher = "tauri-apps";
+          version = "0.2.6";
+          sha256 = "sha256-O9NxFemUgt9XmhL6BnNArkqbCNtHguSbvVOYwlT0zg4=";
+        }
+        {
+          name = "unocss";
+          publisher = "antfu";
+          version = "0.51.8";
+          sha256 = "sha256-HBVqYZUWkYhKHFHGx9uy1PiXobgoQ9PUVptztsgMUdI=";
+        }
+        {
           name = "vs-code-prettier-eslint";
           publisher = "rvest";
           version = "5.1.0";

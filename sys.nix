@@ -38,7 +38,11 @@ in {
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [font-awesome];
+    fonts = with pkgs; [
+      font-awesome
+      nerdfonts
+      monocraft
+    ];
   };
 
   nix = {
@@ -102,6 +106,8 @@ in {
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
+    useGlobalPkgs = true;
+    backupFileExtension = "bak";
 
     users.marshall = {...}: {
       imports = [./home.nix];
@@ -127,11 +133,13 @@ in {
       "apparency"
       "bitwarden"
       "datweatherdoe"
+      "devtoys"
       "dozer"
       "fig"
       "fing"
       "firefox"
       "google-assistant"
+      "gpg-suite"
       "height"
       "jetbrains-toolbox" # Imperative IDE installs because of github copilot
       "kitty" # Installed through brew because fig doesn't work well w/ nix version
@@ -182,7 +190,10 @@ in {
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [inputs.fenix.overlays.default];
+    overlays = with inputs; [
+      fenix.overlays.default
+      #ocaml-overlay.overlays.${pkgs.system}
+    ];
   };
 
   system = {

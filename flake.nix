@@ -3,17 +3,20 @@
 
   inputs = {
     caligula.url = "github:ifd3f/caligula";
+    codeium.url = "github:jcdickinson/codeium.nvim";
+    codeium.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     deadnix.url = "github:astro/deadnix";
     fenix.url = "github:nix-community/fenix";
     home-manager.url = "github:nix-community/home-manager";
-    nickel.url = "github:tweag/nickel";
     nil.url = "github:oxalica/nil";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-kitty-latest.url = "github:adamcstephens/nixpkgs/kitty/0.28.0";
     nixvim.url = "github:pta2002/nixvim";
     nurl.url = "github:nix-community/nurl";
+    ocaml-overlay.url = "github:nix-ocaml/nix-overlays";
+    ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {

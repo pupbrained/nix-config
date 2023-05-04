@@ -10,6 +10,10 @@ fetch.github = "romgrk/barbar.nvim"
 src.git = "https://github.com/catppuccin/nvim"
 fetch.github = "catppuccin/nvim"
 
+[codeium-vim]
+src.git = "https://github.com/Exafunction/codeium.vim"
+fetch.github = "Exafunction/codeium.vim"
+
 [copilot-vim]
 src.git = "https://github.com/github/copilot.vim"
 fetch.github = "github/copilot.vim"
