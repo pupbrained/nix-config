@@ -1,10 +1,8 @@
 {pkgs, ...}: let
-  sources = pkgs.callPackage ./_sources/generated.nix {};
+  sources = pkgs.callPackage ../_sources/generated.nix {};
 
   mkVimPlugin = sources:
-    pkgs.vimUtils.buildVimPlugin {
-      inherit (sources) src pname version;
-    };
+    pkgs.vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
   catppuccin-nvim = mkVimPlugin sources.catppuccin-nvim;
@@ -20,6 +18,7 @@
 in {
   programs.nixvim = {
     enable = true;
+    extraConfigLua = builtins.readFile ./init.lua;
 
     options = {
       number = true;
@@ -38,7 +37,7 @@ in {
     globals = {
       mapleader = " ";
       rust_recommended_style = false;
-      neovide_cursor_animation_length = 0.025;
+      neovide_cursor_animation_length = 2.5e-2;
       neovide_cursor_vfx_mode = "railgun";
       neovide_refresh_rate = 165;
       neovide_background_color = "#1e1e2f";
@@ -121,130 +120,11 @@ in {
       };
     };
 
-    extraConfigLua = ''
-      require('catppuccin').setup({
-        flavour = 'mocha',
-        color_overrides = {
-          mocha = {
-            base = '#1e1e2f'
-          }
-        },
-        styles = {
-          comments = { "italic" },
-          properties = { "italic" },
-          functions = { "bold" },
-          keywords = { "italic" },
-          operators = { "bold" },
-          conditionals = { "bold" },
-          loops = { "bold" },
-          booleans = { "bold", "italic" }
-        }
-      })
-
-      vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
-      vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
-      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
-      vim.cmd('set mouse=a')
-      vim.cmd('set guifont=IosevkaNerdFont\\ Nerd\\ Font:h18')
-      vim.cmd.colorscheme('catppuccin')
-
-      require('fidget').setup()
-      require('gitsigns').setup()
-      require('indent_blankline').setup()
-      require('mini.starter').setup()
-      require('mini.trailspace').setup()
-      require('mini.comment').setup()
-      require('mini.surround').setup()
-      require('mini.move').setup()
-      require('octo').setup()
-      require('overseer').setup()
-      require('renamer').setup()
-
-      require('barbecue').setup({
-        theme = 'catppuccin'
-      })
-
-      require('colorizer').setup({
-        user_default_options = {
-          names = false,
-          mode = 'virtualtext'
-        }
-      })
-
-      require("feline").setup({
-        components = require('catppuccin.groups.integrations.feline').get()
-      })
-
-      require('FTerm').setup({
-        border = 'rounded',
-        dimensions = {
-          height = 0.9,
-          width = 0.9
-        }
-      })
-
-      require('illuminate').configure({
-        min_count_to_highlight = 2
-      })
-
-      require('mini.indentscope').setup({
-        symbol = '│',
-        draw = {
-          delay = 50
-        }
-      })
-
-      require('mini.jump2d').setup({
-        mappings = {
-          start_jumping = 's'
-        }
-      })
-
-      require('nvim-treesitter.configs').setup({
-        rainbow = {
-          enable = true,
-          query = 'rainbow-parens',
-          strategy = require('ts-rainbow').strategy.global,
-          disable = { 'tsx' }
-        }
-      })
-
-      vim.api.nvim_create_autocmd('FileType', {
-        callback = function(tbl)
-          local set_offset = require('bufferline.api').set_offset
-
-          local bufwinid
-          local last_width
-          local autocmd = vim.api.nvim_create_autocmd('WinScrolled', {
-            callback = function()
-              bufwinid = bufwinid or vim.fn.bufwinid(tbl.buf)
-
-              local width = vim.api.nvim_win_get_width(bufwinid)
-              if width ~= last_width then
-                set_offset(width, 'FileTree')
-                last_width = width
-              end
-            end,
-          })
-
-          vim.api.nvim_create_autocmd('BufWipeout', {
-            buffer = tbl.buf,
-            callback = function()
-              vim.api.nvim_del_autocmd(autocmd)
-              set_offset(0)
-            end,
-            once = true,
-          })
-        end,
-        pattern = 'NvimTree', -- or any other filetree's `ft`
-      })
-
-      vim.keymap.set('i', '<C-j>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-    '';
-
     plugins = {
-      # copilot.enable = true;
+      comment-nvim.enable = true;
       nvim-autopairs.enable = true;
+      nvim-lightbulb.enable = true;
+      todo-comments.enable = true;
 
       barbar = {
         enable = true;
@@ -262,17 +142,6 @@ in {
         autoStart = "shut-up";
         installArtifacts = true;
         recommendedKeymaps = true;
-      };
-
-      coq-thirdparty = {
-        enable = true;
-        # sources = [
-        #   {
-        #     accept_key = "<C-j>";
-        #     short_name = "COP";
-        #     src = "copilot";
-        #   }
-        # ];
       };
 
       lsp = {
@@ -314,6 +183,7 @@ in {
 
         servers = {
           eslint.enable = true;
+          lua-ls.enable = true;
           nil_ls.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
@@ -346,7 +216,11 @@ in {
 
       null-ls = {
         enable = true;
-        sources.formatting.alejandra.enable = true;
+        sources.formatting = {
+          alejandra.enable = true;
+          nixfmt.enable = true;
+          stylua.enable = true;
+        };
       };
 
       nvim-tree = {
@@ -368,6 +242,7 @@ in {
       telescope = {
         enable = true;
         extensions.fzf-native.enable = true;
+        extraOptions.defaults.layout_config.vertical.height = 0.5;
       };
 
       treesitter = {
@@ -385,6 +260,7 @@ in {
       emmet-vim
       feline-nvim
       fidget-nvim
+      FixCursorHold-nvim
       FTerm-nvim
       gitsigns-nvim
       illuminate-nvim
@@ -408,6 +284,7 @@ in {
       plenary-nvim
       presence-nvim
       renamer-nvim
+      telescope-ui-select-nvim
       trouble-nvim
       vim-cool
       vim-smoothie

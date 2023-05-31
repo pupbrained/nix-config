@@ -41,4 +41,3 @@ fetch.github = "SmiteshP/nvim-navic"
 [overseer-nvim]
 src.git = "https://github.com/stevearc/overseer.nvim"
 fetch.github = "stevearc/overseer.nvim"
-

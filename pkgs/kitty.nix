@@ -1,11 +1,6 @@
-{inputs, ...}: let
-  system = "aarch64-darwin";
-  pkgs = import inputs.nixpkgs-kitty-latest {inherit system;};
-in {
+_: {
   programs.kitty = {
     enable = true;
-
-    package = pkgs.kitty;
 
     font = {
       name = "Iosevka Comfy";

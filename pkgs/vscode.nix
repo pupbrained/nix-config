@@ -9,6 +9,7 @@
         catppuccin.catppuccin-vsc
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
+        formulahendry.auto-rename-tag
         jnoortheen.nix-ide
         kamadorueda.alejandra
         matklad.rust-analyzer-nightly
@@ -16,18 +17,27 @@
         ms-vscode-remote.remote-ssh
         mvllow.rose-pine
         nvarner.typst-lsp
+        ocamllabs.ocaml-platform
         pkief.material-product-icons
         pkief.material-icon-theme
+        rubymaniac.vscode-paste-and-indent
         sumneko.lua
         tamasfe.even-better-toml
+        vincaslt.highlight-matching-tag
         vscodevim.vim
       ]
       ++ vscode-utils.extensionsFromVscodeMarketplace [
         {
+          name = "autoimport";
+          publisher = "steoates";
+          version = "1.5.4";
+          sha256 = "sha256-7iIwJJsoNbtTopc+BQ+195aSCLqdNAaGtMoxShyhBWY=";
+        }
+        {
           name = "catppuccin-vsc-icons";
           publisher = "Catppuccin";
-          version = "0.1.0";
-          sha256 = "sha256-IVH+Z7yByJx5x8oH6sU21cf/t1FCMW8fWHd46m1jp/U=";
+          version = "0.10.0";
+          sha256 = "sha256-ikDF2BL4/+JVo74iOrokJ188kYHxLKzqeAM6J75FjOE=";
         }
         {
           name = "civet";
@@ -38,14 +48,14 @@
         {
           name = "copilot-labs";
           publisher = "github";
-          version = "0.12.791";
-          sha256 = "sha256-3StswisTiG1e+LZeAuquIXlqaFj0Lzk4WNy+6Af4giw=";
+          version = "0.14.884";
+          sha256 = "sha256-44t4qdRjw/sdAmO6uW9CaLzs0hJcK+uQnpalCNB8AdM=";
         }
         {
           name = "copilot-nightly";
           publisher = "github";
-          version = "1.78.10395";
-          sha256 = "sha256-nqCg/1nX+dD1UxEaBYZnrCdfYgpCXM+fe9YpZtHU1Gc=";
+          version = "1.86.92";
+          sha256 = "sha256-h6tvHRU38AF9KxHPdyAnyIh44kJOhRJ9ku6GPnamXGU=";
         }
         {
           name = "gleam";
@@ -54,22 +64,16 @@
           sha256 = "sha256-eaGprPLJWJOIlK0UB+CcdXVon+jmzpz0X0gB6uBbvt4=";
         }
         {
-          name = "vsliveshare";
-          publisher = "ms-vsliveshare";
-          version = "1.0.5834";
-          sha256 = "sha256-+KfivY8W1VtUxhdXuUKI5e1elo6Ert1Tsf4xVXsKB3Y=";
-        }
-        {
           name = "postcss";
           publisher = "csstools";
           version = "1.0.9";
           sha256 = "sha256-5pGDKme46uT1/35WkTGL3n8ecc7wUBkHVId9VpT7c2U=";
         }
         {
-          name = "rome";
-          publisher = "rome";
-          version = "0.23.20230427";
-          sha256 = "sha256-Z3y7OGuGZ6bRKToMONmZy7Qen72Tk4hPZlmriOMDYpA=";
+          name = "stylua";
+          publisher = "JohnnyMorganz";
+          version = "1.5.0";
+          sha256 = "sha256-+v/xOB/r+AN1n+Y8LtprIIYckXBF8u57z3JxOS9982g=";
         }
         {
           name = "tauri-vscode";
@@ -80,8 +84,8 @@
         {
           name = "unocss";
           publisher = "antfu";
-          version = "0.51.8";
-          sha256 = "sha256-HBVqYZUWkYhKHFHGx9uy1PiXobgoQ9PUVptztsgMUdI=";
+          version = "0.51.13";
+          sha256 = "sha256-0v7irYNHIUcFDkjWLm18jgwFXBsR2ATQ3wWxb1Rx9uE=";
         }
         {
           name = "vs-code-prettier-eslint";
@@ -89,9 +93,41 @@
           version = "5.1.0";
           sha256 = "sha256-nOwmLjAmjElX+IAoxVBHlXEowM/GmlabwGd8KqGxB14=";
         }
+        {
+          name = "vscode-better-align";
+          publisher = "chouzz";
+          version = "1.4.2";
+          sha256 = "sha256-w30DAQpCxc3qP6/S/9qf/nQasLU3qy5flCBlTGRoYzk=";
+        }
+        {
+          name = "vscode-surround";
+          publisher = "yatki";
+          version = "1.5.0";
+          sha256 = "sha256-4IF6uR6DgJewmaUOUfziynSLvXXXUDv+RXjX1TH5Zso=";
+        }
+        {
+          name = "vsliveshare";
+          publisher = "ms-vsliveshare";
+          version = "1.0.5864";
+          sha256 = "sha256-UdI9iRvI/BaZj8ihFBCTFJGLZXxS3CtmoDw8JBPbzLY=";
+        }
+        {
+          name = "wrapSelection";
+          publisher = "konstantin";
+          version = "0.10.0";
+          sha256 = "sha256-bpQYJImY0bx+d/1jfL71a+WjSyBq6VGhw330OwB+Mho=";
+        }
       ];
 
     userSettings = {
+      auto-rename-tag.activationOnLanguage = [
+        "xml"
+        "javascript"
+        "typescript"
+        "javascriptreact"
+        "typescriptreact"
+        "php"
+      ];
       breadcrumbs.enabled = false;
       emmet.useInlineCompletions = true;
       github.copilot.enable."*" = true;
@@ -100,25 +136,21 @@
       typescript.updateImportsOnFileMove.enabled = "always";
       scss.lint.unknownAtRules = "ignore";
       security.workspace.trust.untrustedFiles = "open";
+      trunk.trunkGrayOutNonBlockingIssues = false;
       update.mode = "none";
-      window.titleBarStyle = "custom";
 
       "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[javascript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
       "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
-      "[lua]".editor.defaultFormatter = "sumneko.lua";
+      "[lua]".editor.defaultFormatter = "JohnnyMorganz.stylua";
       "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
+      "[postcss]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[rust]".editor.defaultFormatter = "rust-lang.rust-analyzer";
       "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
       "[typescript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
-      "[typescriptreact]".eslint.validate = [
-        "javascript"
-        "javascriptreact"
-        "typescript"
-        "typescriptreact"
-      ];
+      "[typescriptreact]".eslint.validate = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
 
       editor = {
         accessibilitySupport = "off";
@@ -185,6 +217,10 @@
           "**/.git" = true;
           "**/.project" = true;
           "**/.settings" = true;
+          "**/.trunk/*out/" = true;
+          "**/.trunk/*actions/" = true;
+          "**/.trunk/*logs/" = true;
+          "**/.trunk/*plugins/" = true;
         };
       };
 
@@ -218,13 +254,7 @@
         smoothScrolling = true;
         env.osx.FIG_NEW_SESSION = "1";
 
-        ignoreProcessNames = [
-          "starship"
-          "bash"
-          "zsh"
-          "fish"
-          "nu"
-        ];
+        ignoreProcessNames = ["starship" "bash" "zsh" "fish" "nu"];
       };
 
       vim.cursorStylePerMode = {
