@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
 statix fix .
-deadnix -eq .
-alejandra . -q
-darwin-rebuild switch --flake ".#" --impure
+nix fmt
+NIXPKGS_ALLOW_INSECURE=1 darwin-rebuild switch --flake ".#" --impure --show-trace

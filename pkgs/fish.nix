@@ -102,9 +102,13 @@
       fish_add_path /Users/marshall/.spicetify
       fish_add_path $PNPM_HOME
       fish_add_path /run/current-system/sw/bin
+      fish_add_path /Users/marshall/miniforge3/bin
+      fish_add_path /Users/marshall/.bun/bin
       set -gx LIBRARY_PATH /opt/homebrew/lib:/opt/homebrew/opt/libiconv/lib
       set -gx NIXPKGS_ALLOW_UNFREE 1
-      macchina
+      if test "$TERM_PROGRAM" != "vscode"
+        macchina
+      end
     '';
   };
 }

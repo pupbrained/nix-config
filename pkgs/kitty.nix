@@ -1,17 +1,28 @@
 _: {
   programs.kitty = {
     enable = true;
+    shellIntegration.mode = "enabled";
+    theme = "Catppuccin-Mocha";
 
     font = {
-      name = "Iosevka Comfy";
-      size = 16;
+      name = "Maple Mono SC NF";
+      size = 15;
     };
 
+    extraConfig = ''
+      font_features MapleMonoSCNF-Regular     +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+      font_features MapleMonoSCNF-Bold        +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+      font_features MapleMonoSCNF-BoldItalic  +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+      font_features MapleMonoSCNF-Italic      +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+      font_features MapleMonoSCNF-Light       +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+      font_features MapleMonoSCNF-LightItalic +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+    '';
+
     settings = {
+      background_blur = 32;
       editor = "nvim";
       hide_window_decorations = "titlebar-only";
       background_opacity = "0.85";
-      shell_integration = true;
       allow_remote_control = "socket-only";
       placement_strategy = "center";
       inactive_text_alpha = 1;
@@ -27,43 +38,6 @@ _: {
       active_tab_font_style = "bold";
       inactive_tab_font_style = "normal";
       adjust_column_width = 0;
-      foreground = "#CDD6F4";
-      background = "#1E1E2E";
-      selection_foreground = "#1E1E2E";
-      selection_background = "#F5E0DC";
-      cursor = "#F5E0DC";
-      cursor_text_color = "#1E1E2E";
-      url_color = "#F5E0DC";
-      active_border_color = "#B4BEFE";
-      inactive_border_color = "#6C7086";
-      bell_border_color = "#F9E2AF";
-      active_tab_foreground = "#11111B";
-      active_tab_background = "#CBA6F7";
-      inactive_tab_foreground = "#CDD6F4";
-      inactive_tab_background = "#181825";
-      tab_bar_background = "#11111B";
-      mark1_foreground = "#1E1E2E";
-      mark1_background = "#B4BEFE";
-      mark2_foreground = "#1E1E2E";
-      mark2_background = "#CBA6F7";
-      mark3_foreground = "#1E1E2E";
-      mark3_background = "#74C7EC";
-      color0 = "#45475A";
-      color8 = "#585B70";
-      color1 = "#F38BA8";
-      color9 = "#F38BA8";
-      color2 = "#A6E3A1";
-      color10 = "#A6E3A1";
-      color3 = "#F9E2AF";
-      color11 = "#F9E2AF";
-      color4 = "#89B4FA";
-      color12 = "#89B4FA";
-      color5 = "#F5C2E7";
-      color13 = "#F5C2E7";
-      color6 = "#94E2D5";
-      color14 = "#94E2D5";
-      color7 = "#BAC2DE";
-      color15 = "#A6ADC8";
     };
   };
 }

@@ -3,18 +3,8 @@
   pkgs,
   lib,
   ...
-}: let
-  fenix-complete = pkgs.fenix.complete.withComponents [
-    "cargo"
-    "clippy"
-    "rust-src"
-    "rustc"
-    "rustfmt"
-  ];
-in {
-  imports = [
-    ./services/yabai.nix
-  ];
+}: {
+  imports = [./services/yabai.nix];
 
   security.pam.enableSudoTouchIdAuth = true;
   services.nix-daemon.enable = true;
@@ -24,25 +14,14 @@ in {
     hostName = "canis";
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      fenix-complete
-      rust-analyzer-nightly
-    ];
-
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
-      font-awesome
-      nerdfonts
-      monocraft
-    ];
+    fonts = with pkgs; [font-awesome maple-mono monocraft nerdfonts];
   };
 
   nix = {
@@ -61,47 +40,24 @@ in {
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      max-jobs = "auto";
+      extra-experimental-features = "nix-command flakes";
       flake-registry = "/etc/nix/registry.json";
       keep-derivations = true;
       keep-outputs = true;
+      max-jobs = "auto";
       warn-dirty = false;
 
-      substituters = [
-        "https://cache.nixos.org"
-        "https://nix-community.cachix.org"
-        "https://fortuneteller2k.cachix.org"
-        "https://nixpkgs-wayland.cachix.org"
-        "https://helix.cachix.org"
-        "https://hyprland.cachix.org"
-      ];
+      extra-substituters = ["https://cache.nixos.org" "https://nix-community.cachix.org"];
 
-      trusted-substituters = [
-        "cache.nixos.org"
-        "nix-community.cachix.org"
-        "fortuneteller2k.cachix.org"
-        "nixpkgs-wayland.cachix.org"
-        "helix.cachix.org"
-        "hyprland.cachix.org"
-      ];
+      extra-trusted-substituters = ["cache.nixos.org" "nix-community.cachix.org"];
 
-      trusted-public-keys = [
+      extra-trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
-        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
 
       trusted-users = ["marshall"];
     };
-
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      min-free = ${toString (100 * 1024 * 1024)}
-      max-free = ${toString (1024 * 1024 * 1024)}
-    '';
   };
 
   home-manager = {
@@ -109,45 +65,61 @@ in {
     useGlobalPkgs = true;
     backupFileExtension = "bak";
 
-    users.marshall = {...}: {
-      imports = [./home.nix];
-    };
+    users.marshall = {...}: {imports = [./home.nix];};
   };
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";
+
+    onActivation = {
+      cleanup = "zap";
+      upgrade = true;
+    };
 
     brews = [
       "apktool"
+      "dune"
+      "jj"
       "libiconv"
-      "iproute2mac"
+      "miniupnpc"
       "pam_yubico"
       "pinentry-mac"
+      "rustup-init"
       "sketchybar"
       "switchaudio-osx"
-      "vlang"
     ];
 
     casks = [
+      "alt-tab"
       "apparency"
-      "bitwarden"
+      "arc"
+      "balenaetcher"
       "datweatherdoe"
       "devtoys"
-      "dozer"
+      "discord-canary"
+      "doll"
+      "duckduckgo"
       "fig"
-      "fing"
-      "firefox"
       "google-assistant"
+      "goneovim"
       "gpg-suite"
-      "height"
+      "grammarly-desktop"
+      "hiddenbar"
+      "httpie"
+      "hyper-canary"
       "jetbrains-toolbox" # Imperative IDE installs because of github copilot
+      "keka"
       "kitty" # Installed through brew because fig doesn't work well w/ nix version
-      "maccy"
-      "nextcloud"
+      "lapce"
+      "lastfm"
+      "latest"
+      "launchcontrol"
+      "mission-control-plus"
+      "mullvad-browser"
       "neovide"
       "ngrok"
-      "obsidian"
+      "notion-enhanced"
+      "orion"
       "prismlauncher"
       "qlcolorcode"
       "qlimagesize"
@@ -157,16 +129,25 @@ in {
       "quicklook-csv"
       "quicklook-json"
       "quicklookase"
-      "reminders-menubar"
+      "raycast"
       "sf-symbols"
       "slimhud"
       "spaceid"
       "steam"
       "suspicious-package"
-      "telegram-desktop"
+      "swiftbar"
+      "telegram"
       "temurin"
+      "termius-beta"
       "tetrio"
+      "transmission"
+      "unnaturalscrollwheels"
+      "vivaldi-snapshot"
+      "yubico-authenticator"
+      "yubico-yubikey-manager"
+      "zed"
       "zerotier-one"
+      "zettlr"
     ];
 
     taps = [
@@ -177,6 +158,11 @@ in {
       "homebrew/cask-drivers"
       "homebrew/services"
     ];
+
+    masApps = {
+      "Bitwarden" = 1352778147;
+      "Kimis - A Client for Misskey" = 1667275125;
+    };
   };
 
   programs = {
@@ -188,13 +174,7 @@ in {
     };
   };
 
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = with inputs; [
-      fenix.overlays.default
-      #ocaml-overlay.overlays.${pkgs.system}
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   system = {
     keyboard.enableKeyMapping = true;
@@ -221,4 +201,6 @@ in {
     name = "marshall";
     home = "/Users/marshall";
   };
+
+  documentation.enable = false;
 }

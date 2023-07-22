@@ -8,14 +8,8 @@ require('catppuccin').setup {
     },
   },
   styles = {
-    comments = { 'italic' },
     properties = { 'italic' },
-    functions = { 'bold' },
-    keywords = { 'italic' },
     operators = { 'bold' },
-    conditionals = { 'bold' },
-    loops = { 'bold' },
-    booleans = { 'bold', 'italic' },
   },
 }
 
@@ -40,9 +34,7 @@ require('renamer').setup {
   empty = true,
 }
 
-require('barbecue').setup {
-  theme = 'catppuccin',
-}
+require('barbecue').setup {}
 
 require('colorizer').setup {
   user_default_options = {
@@ -56,7 +48,6 @@ require('feline').setup {
 }
 
 require('FTerm').setup {
-  border = 'rounded',
   dimensions = {
     height = 0.9,
     width = 0.9,
@@ -122,5 +113,3 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.keymap.set('i', '<C-j>', function()
   return vim.fn['codeium#Accept']()
 end, { expr = true })
-
-require('lspconfig').ocamllsp.setup {}

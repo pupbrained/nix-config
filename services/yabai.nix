@@ -7,17 +7,17 @@
       skhdConfig = ''
         alt - return : open -na "Kitty" ~
         alt - w : open -na "Arc"
-        alt - d : scratchpad --toggle discord
-        alt - t : scratchpad --toggle telegram
+        # alt - d : scratchpad --toggle discord
+        # alt - t : scratchpad --toggle telegram
 
         cmd - space : yabai -m window --toggle float
 
         shift + cmd - q : yabai -m window --close
 
-        alt - h : yabai -m window --focus west
-        alt - j : yabai -m window --focus south
-        alt - k : yabai -m window --focus north
-        alt - l : yabai -m window --focus east
+        # alt - h : yabai -m window --focus west
+        # alt - j : yabai -m window --focus south
+        # alt - k : yabai -m window --focus north
+        # alt - l : yabai -m window --focus east
 
         shift + cmd - h : yabai -m window --swap west
         shift + cmd - j : yabai -m window --swap south
@@ -33,32 +33,12 @@
         shift + cmd - 7 : yabai -m window --space 7
         shift + cmd - 8 : yabai -m window --space 8
         shift + cmd - 9 : yabai -m window --space 9
-        shift + cmd - 0 : yabai -m window --space 10
       '';
     };
 
     yabai = {
       enable = true;
       package = pkgs.yabai;
-      #package = pkgs.stdenvNoCC.mkDerivation {
-      #  pname = "yabai";
-      #  version = "5.0.3";
-      #  src = ../pkgs/yabai.tar.gz;
-      #  sourceRoot = ".";
-      #  nativeBuildInputs = [pkgs.installShellFiles];
-      #  dontConfigure = true;
-      #  dontBuild = true;
-
-      #  installPhase = ''
-      #    runHook preInstall
-
-      #    mkdir -p $out
-      #    cp -r ./bin $out
-      #    installManPage ./doc/yabai.1
-
-      #    runHook postInstall
-      #  '';
-      #};
 
       config = {
         layout = "bsp";
@@ -67,8 +47,8 @@
         left_padding = 20;
         right_padding = 20;
         window_gap = 20;
-        focus_follows_mouse = "autoraise";
-        mouse_follows_focus = "off";
+        # focus_follows_mouse = "autoraise";
+        # mouse_follows_focus = "off";
       };
 
       extraConfig = ''
@@ -82,8 +62,8 @@
         yabai -m rule --add app='JetBrains Toolbox' manage=off layer=above
         yabai -m rule --add app='Mullvad VPN' manage=off layer=above
         yabai -m rule --add app='Google Assistant' manage=off layer=above
-        yabai -m rule --add app='Discord Canary' manage=off layer=above
         yabai -m rule --add app='Fig' border=off
+        yabai -m rule --add app='PsychEngine' border=off
       '';
     };
   };

@@ -1,37 +1,79 @@
 {
   description = "Marshall's Nix-Darwin Config";
 
+  nixConfig = {
+    auto-optimise-store = true;
+    builders-use-substitutes = true;
+    extra-experimental-features = "nix-command flakes";
+    flake-registry = "/etc/nix/registry.json";
+    keep-derivations = true;
+    keep-outputs = true;
+    max-jobs = "auto";
+    warn-dirty = false;
+
+    daemonIOLowPriority = true;
+    daemonProcessType = "Adaptive";
+
+    extra-substituters = ["https://cache.nixos.org" "https://nix-community.cachix.org"];
+
+    extra-trusted-substituters = ["cache.nixos.org" "nix-community.cachix.org"];
+
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+
+    trusted-users = ["marshall"];
+  };
+
   inputs = {
+    # Nix related inputs
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:pta2002/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     caligula.url = "github:ifd3f/caligula";
-    codeium.url = "github:jcdickinson/codeium.nvim";
-    codeium.inputs.nixpkgs.follows = "nixpkgs";
-    darwin.url = "github:LnL7/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
     deadnix.url = "github:astro/deadnix";
-    fenix.url = "github:nix-community/fenix";
-    home-manager.url = "github:nix-community/home-manager";
     nil.url = "github:oxalica/nil";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-kitty-latest.url = "github:adamcstephens/nixpkgs/kitty/0.28.0";
-    nixvim.url = "github:pta2002/nixvim";
     nurl.url = "github:nix-community/nurl";
-    ocaml-overlay.url = "github:nix-ocaml/nix-overlays";
-    ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = {
     darwin,
-    fenix,
     home-manager,
     nixpkgs,
+    treefmt-nix,
     ...
   } @ inputs: let
     system = "aarch64-darwin";
     pkgs = import nixpkgs {inherit system;};
   in {
     name = "dotfiles";
-    formatter.${system} = pkgs.${system}.alejandra;
-    packages.${system}.default = fenix.packages.${system}.minimal.toolchain;
+
+    formatter.${system} = treefmt-nix.lib.mkWrapper pkgs {
+      projectRootFile = "flake.nix";
+      programs = {
+        alejandra.enable = true;
+        deadnix.enable = true;
+        stylua.enable = true;
+      };
+    };
 
     darwinConfigurations.canis = darwin.lib.darwinSystem {
       inherit system;
@@ -39,6 +81,7 @@
       modules = [./sys.nix "${home-manager}/nix-darwin"];
     };
 
-    devShells.${system}.default = pkgs.mkShellNoCC {packages = with pkgs; [alejandra git nvfetcher];};
+    devShells.${system}.default =
+      pkgs.mkShellNoCC {packages = with pkgs; [alejandra git nvfetcher];};
   };
 }

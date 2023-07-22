@@ -1,4 +1,4 @@
 /.direnv
 /.vscode
-/.DS_Store
+.DS_Store
 result
