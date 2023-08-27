@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+statix fix
+nix fmt
+nixos-rebuild switch --flake . --impure --use-remote-sudo

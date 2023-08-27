@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pushd pkgs
+nvfetcher
+git add _sources
+popd
+nix flake update

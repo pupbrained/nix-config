@@ -1,0 +1,38 @@
+[alternate-toggler-nvim]
+src.git = "https://github.com/rmagatti/alternate-toggler"
+fetch.github = "rmagatti/alternate-toggler"
+
+# [catppuccin-nvim]
+# src.git = "https://github.com/catppuccin/nvim"
+# fetch.github = "catppuccin/nvim"
+
+[codeium-vim]
+src.git = "https://github.com/Exafunction/codeium.vim"
+fetch.github = "Exafunction/codeium.vim"
+
+[fidget-nvim]
+src.git = "https://github.com/j-hui/fidget.nvim"
+src.branch = "legacy"
+fetch.github = "j-hui/fidget.nvim"
+
+[illuminate-nvim]
+src.git = "https://github.com/RRethy/vim-illuminate"
+fetch.github = "RRethy/vim-illuminate"
+
+# [move-nvim]
+# src.git = "https://github.com/fedepujol/move.nvim"
+# fetch.github = "fedepujol/move.nvim"
+
+[navbuddy-nvim]
+src.git = "https://github.com/SmiteshP/nvim-navbuddy"
+fetch.github = "SmiteshP/nvim-navbuddy"
+
+[overseer-nvim]
+src.git = "https://github.com/stevearc/overseer.nvim"
+fetch.github = "stevearc/overseer.nvim"
+
+[gitui]
+src.git = "https://github.com/hendrikmaus/gitui"
+src.branch = "gpg-commit-signing"
+fetch.github = "hendrikmaus/gitui"
+cargo_locks = ["Cargo.lock"]
