@@ -1,26 +1,54 @@
 {
   description = "Personal NixOS-on-Asahi Configuration";
 
+  nixConfig = {
+    auto-optimise-store = true;
+    builders-use-substitutes = true;
+    extra-experimental-features = "nix-command flakes";
+    flake-registry = "/etc/nix/registry.json";
+    keep-derivations = true;
+    keep-outputs = true;
+    max-jobs = "auto";
+    warn-dirty = false;
+
+    daemonIOLowPriority = true;
+
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+      "https://dram.cachix.org"
+    ];
+
+    trusted-substituters = ["cache.nixos.org" "nix-community.cachix.org" "dram.cachix.org"];
+
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "dram.cachix.org-1:baoy1SXpwYdKbqdTbfKGTKauDDeDlHhUpC+QuuILEMY="
+    ];
+
+    trusted-users = ["marshall"];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-dram.url = "github:dramforever/nix-dram";
+    nix-software-center.url = "github:vlinkz/nix-software-center";
+    nixvim.url = "github:pta2002/nixvim";
+    nvfetcher.url = "github:berberman/nvfetcher";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixvim = {
-      url = "github:pta2002/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nvfetcher.url = "github:berberman/nvfetcher";
-
-    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

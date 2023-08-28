@@ -18,20 +18,75 @@ with pkgs; {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
+
+    overlays = [
+      (final: _prev: {
+        catppuccin-folders =
+          final.callPackage ./pkgs/catppuccin-folders.nix {};
+
+        codeium-ls = final.callPackage ./pkgs/codeium.nix {};
+      })
+    ];
   };
 
   home = {
     username = "marshall";
     homeDirectory = "/home/marshall";
 
+    file.codeium_ls = {
+      target = ".codeium/bin/e829be46431d9d5c061068a9b704357be77f6617/language_server_linux_arm";
+      source = "${codeium-ls}/bin/language_server_linux_arm";
+    };
+
     packages =
-      [armcord box64 distrobox firefox grc kitty macchina]
-      ++ (with gnomeExtensions; [pop-shell]);
+      [
+        adw-gtk3
+        armcord
+        box64
+        distrobox
+        edk2
+        firefox
+        gradience
+        grc
+        gtkcord4
+        jdk8
+        kitty
+        macchina
+        prismlauncher
+        wl-clipboard
+      ]
+      ++ (with gnomeExtensions; [
+        blur-my-shell
+        just-perfection
+        pop-shell
+        rounded-window-corners
+        user-themes-x
+      ]);
+  };
+
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "Adw-gtk3-dark";
+      package = adw-gtk3;
+    };
+
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Green-Cursors";
+      package = pkgs.catppuccin-cursors.mochaGreen;
+    };
+
+    iconTheme = {
+      package = pkgs.catppuccin-folders;
+      name = "Papirus";
+    };
   };
 
   programs = {
     exa.enable = true;
     nix-index-database.comma.enable = true;
+    ripgrep.enable = true;
 
     bat = {
       enable = true;
