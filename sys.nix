@@ -204,6 +204,11 @@ with pkgs; {
     dconf.enable = true;
     fish.enable = true;
 
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
     kdeconnect = {
       enable = true;
       package = pkgs.gnomeExtensions.gsconnect;

@@ -85,6 +85,7 @@ with pkgs; {
 
   programs = {
     exa.enable = true;
+    gpg.enable = true;
     nix-index-database.comma.enable = true;
     ripgrep.enable = true;
 
@@ -121,10 +122,10 @@ with pkgs; {
         push.autoSetupRemote = true;
       };
 
-      #   signing = {
-      #     signByDefault = true;
-      #     key = "874E22DF2F9DFCB5";
-      #   };
+      signing = {
+        signByDefault = true;
+        key = "EB1A2A9654FA74F8";
+      };
     };
 
     starship = {
