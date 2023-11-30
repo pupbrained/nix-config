@@ -19,11 +19,11 @@ _: {
     '';
 
     settings = {
+      allow_remote_control = "socket-only";
       background_blur = 32;
+      background_opacity = "0.85";
       editor = "nvim";
       hide_window_decorations = "titlebar-only";
-      background_opacity = "0.85";
-      allow_remote_control = "socket-only";
       placement_strategy = "center";
       inactive_text_alpha = 1;
       scrollback_lines = 5000;
@@ -38,6 +38,7 @@ _: {
       active_tab_font_style = "bold";
       inactive_tab_font_style = "normal";
       adjust_column_width = 0;
+      macos_option_as_alt = "both";
     };
   };
 }

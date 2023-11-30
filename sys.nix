@@ -21,11 +21,17 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [font-awesome maple-mono monocraft nerdfonts];
+    fonts = with pkgs; [font-awesome inter maple-mono monocraft nerdfonts];
   };
 
   nix = {
-    package = pkgs.nixVersions.unstable;
+    package =
+      inputs.nix-super.packages.${pkgs.system}.default.overrideAttrs
+      (_: _: {
+        checkPhase = "";
+        testPhase = "";
+        doCheck = false;
+      });
 
     gc = {
       automatic = true;
@@ -34,24 +40,24 @@
 
     daemonIOLowPriority = true;
     daemonProcessType = "Adaptive";
-
+    distributedBuilds = true;
     registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
 
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      extra-experimental-features = "nix-command flakes";
+      extra-experimental-features = "nix-command flakes auto-allocate-uids configurable-impure-env";
       flake-registry = "/etc/nix/registry.json";
       keep-derivations = true;
       keep-outputs = true;
       max-jobs = "auto";
       warn-dirty = false;
 
-      extra-substituters = ["https://cache.nixos.org" "https://nix-community.cachix.org"];
+      substituters = ["https://cache.nixos.org" "https://nix-community.cachix.org"];
 
-      extra-trusted-substituters = ["cache.nixos.org" "nix-community.cachix.org"];
+      trusted-substituters = ["cache.nixos.org" "nix-community.cachix.org"];
 
-      extra-trusted-public-keys = [
+      trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
@@ -79,13 +85,13 @@
     brews = [
       "apktool"
       "dune"
+      "grep"
       "jj"
       "libiconv"
       "miniupnpc"
       "pam_yubico"
       "pinentry-mac"
       "rustup-init"
-      "sketchybar"
       "switchaudio-osx"
     ];
 
@@ -94,6 +100,7 @@
       "apparency"
       "arc"
       "balenaetcher"
+      "beaver-notes-arm"
       "datweatherdoe"
       "devtoys"
       "discord-canary"
@@ -110,11 +117,10 @@
       "jetbrains-toolbox" # Imperative IDE installs because of github copilot
       "keka"
       "kitty" # Installed through brew because fig doesn't work well w/ nix version
-      "lapce"
       "lastfm"
       "latest"
       "launchcontrol"
-      "mission-control-plus"
+      "logitech-g-hub"
       "mullvad-browser"
       "neovide"
       "ngrok"
@@ -135,23 +141,21 @@
       "spaceid"
       "steam"
       "suspicious-package"
-      "swiftbar"
       "telegram"
       "temurin"
-      "termius-beta"
       "tetrio"
       "transmission"
       "unnaturalscrollwheels"
+      "utm-beta"
       "vivaldi-snapshot"
       "yubico-authenticator"
       "yubico-yubikey-manager"
-      "zed"
       "zerotier-one"
-      "zettlr"
     ];
 
     taps = [
       "DamascenoRafael/tap"
+      "Daniele-rolli/homebrew-beaver"
       "FelixKratz/formulae"
       "homebrew/cask-fonts"
       "homebrew/cask-versions"
@@ -159,10 +163,7 @@
       "homebrew/services"
     ];
 
-    masApps = {
-      "Bitwarden" = 1352778147;
-      "Kimis - A Client for Misskey" = 1667275125;
-    };
+    masApps."Kimis - A Client for Misskey" = 1667275125;
   };
 
   programs = {

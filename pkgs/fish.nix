@@ -69,9 +69,9 @@
     ];
 
     shellAliases = {
-      ls = "exa --icons";
-      ll = "exa --icons -l";
-      la = "exa --icons -a";
+      ls = "eza --icons";
+      ll = "eza --icons -l";
+      la = "eza --icons -a";
       gs = "git status";
       gd = "git diff";
       gc = "git commit";
@@ -109,6 +109,7 @@
       if test "$TERM_PROGRAM" != "vscode"
         macchina
       end
+      printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "fish"}}\x9c'
     '';
   };
 }

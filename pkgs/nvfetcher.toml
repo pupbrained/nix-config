@@ -2,37 +2,27 @@
 src.git = "https://github.com/rmagatti/alternate-toggler"
 fetch.github = "rmagatti/alternate-toggler"
 
-# [catppuccin-nvim]
-# src.git = "https://github.com/catppuccin/nvim"
-# fetch.github = "catppuccin/nvim"
+[codeium-nvim]
+src.git = "https://github.com/Exafunction/codeium.nvim"
+fetch.github = "Exafunction/codeium.nvim"
 
-[codeium-vim]
-src.git = "https://github.com/Exafunction/codeium.vim"
-fetch.github = "Exafunction/codeium.vim"
+[lsp-lens-nvim]
+src.git = "https://github.com/VidocqH/lsp-lens.nvim"
+fetch.github = "VidocqH/lsp-lens.nvim"
 
-[fidget-nvim]
-src.git = "https://github.com/j-hui/fidget.nvim"
-src.branch = "legacy"
-fetch.github = "j-hui/fidget.nvim"
+[statusline-lua]
+src.git = "https://github.com/pupbrained/statusline.lua"
+fetch.github = "pupbrained/statusline.lua"
 
-[illuminate-nvim]
-src.git = "https://github.com/RRethy/vim-illuminate"
-fetch.github = "RRethy/vim-illuminate"
+[buffertabs-nvim]
+src.git = "https://github.com/tomiis4/BufferTabs.nvim"
+fetch.github = "tomiis4/BufferTabs.nvim"
 
-# [move-nvim]
-# src.git = "https://github.com/fedepujol/move.nvim"
-# fetch.github = "fedepujol/move.nvim"
+[satellite-nvim]
+src.git = "https://github.com/lewis6991/satellite.nvim"
+fetch.github = "lewis6991/satellite.nvim"
 
-[navbuddy-nvim]
-src.git = "https://github.com/SmiteshP/nvim-navbuddy"
-fetch.github = "SmiteshP/nvim-navbuddy"
+[buffer-manager-nvim]
+src.git = "https://github.com/j-morano/buffer_manager.nvim"
+fetch.github = "j-morano/buffer_manager.nvim"
 
-[overseer-nvim]
-src.git = "https://github.com/stevearc/overseer.nvim"
-fetch.github = "stevearc/overseer.nvim"
-
-[gitui]
-src.git = "https://github.com/hendrikmaus/gitui"
-src.branch = "gpg-commit-signing"
-fetch.github = "hendrikmaus/gitui"
-cargo_locks = ["Cargo.lock"]

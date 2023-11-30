@@ -4,7 +4,7 @@
   nixConfig = {
     auto-optimise-store = true;
     builders-use-substitutes = true;
-    extra-experimental-features = "nix-command flakes";
+    extra-experimental-features = "nix-command flakes auto-allocate-uids";
     flake-registry = "/etc/nix/registry.json";
     keep-derivations = true;
     keep-outputs = true;
@@ -27,16 +27,18 @@
   };
 
   inputs = {
-    # Nix related inputs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+
     darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,8 +51,10 @@
 
     caligula.url = "github:ifd3f/caligula";
     deadnix.url = "github:astro/deadnix";
-    nil.url = "github:oxalica/nil";
+    neovim.url = "github:neovim/neovim?dir=contrib";
+    nix-super.url = "github:privatevoid-net/nix-super";
     nurl.url = "github:nix-community/nurl";
+    nvfetcher.url = "github:berberman/nvfetcher";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
@@ -81,7 +85,13 @@
       modules = [./sys.nix "${home-manager}/nix-darwin"];
     };
 
-    devShells.${system}.default =
-      pkgs.mkShellNoCC {packages = with pkgs; [alejandra git nvfetcher];};
+    devShells.${system}.default = pkgs.mkShellNoCC {
+      packages = with pkgs; [
+        alejandra
+        git
+        nixd
+        inputs.nvfetcher.packages.${system}.default
+      ];
+    };
   };
 }

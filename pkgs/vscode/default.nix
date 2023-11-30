@@ -9,19 +9,21 @@
       [
         bradlc.vscode-tailwindcss
         catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
         formulahendry.auto-close-tag
         foxundermoon.shell-format
-        github.copilot-chat
         github.vscode-pull-request-github
         ibm.output-colorizer
         jnoortheen.nix-ide
         kamadorueda.alejandra
         kamikillerto.vscode-colorize
+        mgt19937.typst-preview
         mkhl.direnv
         ms-vscode-remote.remote-ssh
+        nvarner.typst-lsp
         oderwat.indent-rainbow
         rubymaniac.vscode-paste-and-indent
         rust-lang.rust-analyzer
@@ -41,34 +43,22 @@
           sha256 = "sha256-7iIwJJsoNbtTopc+BQ+195aSCLqdNAaGtMoxShyhBWY=";
         }
         {
-          name = "catppuccin-vsc-icons";
-          publisher = "Catppuccin";
-          version = "0.12.0";
-          sha256 = "sha256-i47tY6DSVtV8Yf6AgZ6njqfhaUFGEpgbRcBF70l2Xe0=";
-        }
-        {
-          name = "civet";
-          publisher = "danielx";
-          version = "0.3.6";
-          sha256 = "sha256-VYkI+vHwvIttpgy7hV5m63BmMwP0ZXRGRdiuPl9kDAc=";
-        }
-        {
           name = "console-ninja";
           publisher = "wallabyjs";
-          version = "0.0.182";
-          sha256 = "sha256-xclu531vjCiKOV/k5ZoOGiElzrvDuyk6LsrCKHJxG6Q=";
+          version = "0.0.226";
+          sha256 = "sha256-4JR/2U0qgZ3yiaKKPW0PMT8xMS874Hz+6iagsVI4pdg=";
         }
         {
           name = "copilot";
           publisher = "github";
-          version = "1.95.237";
-          sha256 = "sha256-9H1jEGaHURz+bThRBF4+yDgT5BYRun+dDMq5CDcxOhk=";
+          version = "1.117.446";
+          sha256 = "sha256-Qb5cwYLzAsB9F6zAj7frEIeLd42ZzFvVgKzmge8Aoj8=";
         }
         {
           name = "copilot-chat";
           publisher = "github";
-          version = "0.3.2023061502";
-          sha256 = "sha256-sUoKwlPDMz+iQbmIsD2JhyDwmUQzOyCHXaXCUaizQ7k=";
+          version = "0.8.2023092701";
+          sha256 = "sha256-lB2nBrQXwOR/60pZ34ckzMrdainLCy7yfz40L+Ih2FM=";
         }
         {
           name = "copilot-labs";
@@ -85,8 +75,8 @@
         {
           name = "lintlens";
           publisher = "ghmcadams";
-          version = "7.2.0";
-          sha256 = "sha256-kXw1neLuWmnK/FNF0WfY2KAz0zakw5qtrSzc1SbqMj0=";
+          version = "7.4.2";
+          sha256 = "sha256-6HkujkPw1obi0Ea4fCYvJPAgxZQ0ROXAg7nMyc2/td8=";
         }
         {
           name = "postcss";
@@ -97,14 +87,14 @@
         {
           name = "pretty-ts-errors";
           publisher = "yoavbls";
-          version = "0.4.1";
-          sha256 = "sha256-vY/dVO9k3LcXLYH9eX9blKMB+mDGCWkmU9ZU62YvAcM=";
+          version = "0.5.0";
+          sha256 = "sha256-1zeOEM4q2TCVIQnBUbO+X2Xdx79FW8ggerF/n5Nlc0g=";
         }
         {
           name = "remote-explorer";
           publisher = "ms-vscode";
-          version = "0.4.0";
-          sha256 = "sha256-5OqwLiBoxf0brEXiMFkgJwSgB2LPdGTsaUm6/yG6Wj4=";
+          version = "0.4.1";
+          sha256 = "sha256-E0QsXIpCUjpoX6GNtzbI8/UzxTwWMpQpzVvsPhA+3t4=";
         }
         {
           name = "rome";
@@ -131,22 +121,16 @@
           sha256 = "sha256-aXZfR0Pva7/9QuY2AqSpC2SAGxQUZeFFPHexquLvdgo=";
         }
         {
-          name = "turbo-console-log";
-          publisher = "chakrounanas";
-          version = "2.9.3";
-          sha256 = "sha256-9tNdGLn54QCZgBg7H7zxv/24kJGcw2BwYJxLSnN3WgI=";
-        }
-        {
           name = "unocss";
           publisher = "antfu";
-          version = "0.52.7";
-          sha256 = "sha256-KVh+nQwpJ004apCE3tEKzec+fzRr8Ev4JvCuZcSOTFI=";
+          version = "0.54.1";
+          sha256 = "sha256-Jlwm1INhA+o2gZmYB8e9RBENJaeSxroCk2YzarYAWHQ=";
         }
         {
           name = "intellicode-api-usage-examples";
           publisher = "visualstudioexptteam";
-          version = "0.2.7";
-          sha256 = "sha256-SJN5w9DCtGaCXCXXtUMhdwuajd9Az01oqHdBQ9KeQyc=";
+          version = "0.2.8";
+          sha256 = "sha256-aXAS3QX+mrX0kJqf1LUsvguqRxxC0o+jj1bKQteXPNA=";
         }
         {
           name = "vscodeintellicode-insiders";
@@ -169,8 +153,8 @@
         {
           name = "vscode-dotnet-runtime";
           publisher = "ms-dotnettools";
-          version = "1.6.0";
-          sha256 = "sha256-A3m5IvPKgmF2Dix1/bHFGcrJYriYsFgRagkZNcWf/RA=";
+          version = "1.8.0";
+          sha256 = "sha256-qeO14EItKrG75SY1Xs3PkufWyE6Oef+ycSIO0Ps9+Sg=";
         }
         {
           name = "vscode-surround";
@@ -187,8 +171,8 @@
         {
           name = "vsliveshare";
           publisher = "ms-vsliveshare";
-          version = "1.0.5864";
-          sha256 = "sha256-UdI9iRvI/BaZj8ihFBCTFJGLZXxS3CtmoDw8JBPbzLY=";
+          version = "1.0.5883";
+          sha256 = "sha256-BNxLINcbat2F4PHCrKHKIuMpXW1q9aP2SDb0oIv48v0=";
         }
         {
           name = "wrapSelection";
@@ -213,15 +197,21 @@
 
     userSettings = {
       breadcrumbs.enabled = false;
+      console-ninja.featureSet = "Community";
       emmet.useInlineCompletions = true;
       errorLens.replaceLinebreaksSymbol = " - ";
       github.copilot.enable."*" = true;
       javascript.updateImportsOnFileMove.enabled = "always";
       Lua.diagnostics.globals = ["vim"];
-      typescript.updateImportsOnFileMove.enabled = "always";
+      nix.enableLanguageServer = true;
+      nix.serverPath = "nixd";
+      parallels-desktop.extension.path = "/Users/marshall/.parallels-desktop-vscode";
       scss.lint.unknownAtRules = "ignore";
       security.workspace.trust.untrustedFiles = "open";
       trunk.trunkGrayOutNonBlockingIssues = false;
+      typescript.updateImportsOnFileMove.enabled = "always";
+      typst-lsp.experimentalFormatterMode = "on";
+      typst-preview.fontPaths = ["/Library/Fonts"];
       update.mode = "none";
 
       "[javascript]" = {
@@ -245,6 +235,7 @@
       "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
       "[shellscript]".editor.defaultFormatter = "foxundermoon.shell-format";
       "[typescriptreact]".eslint.validate = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
+      "[typst]".editor.defaultFormatter = "nvarner.typst-lsp";
 
       dotnetAcquisitionExtension.existingDotnetPath = [
         {
@@ -259,13 +250,18 @@
         cursorSmoothCaretAnimation = "on";
         cursorWidth = 2;
         defaultFormatter = "rvest.vs-code-prettier-eslint";
+        detectIndentation = false;
         find.addExtraSpaceOnTop = false;
         fontFamily = "'Maple Mono', 'Iosevka Nerd Font'";
         fontLigatures = "'cv02', 'cv03', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05'";
         fontSize = 18;
         formatOnSave = true;
         guides.bracketPairs = true;
-        inlayHints.enabled = "off";
+        indentSize = "tabSize";
+        inlayHints = {
+          enabled = "on";
+          fontFamily = "'Inter'";
+        };
         inlineSuggest.enabled = true;
         largeFileOptimizations = false;
         lineNumbers = "on";
@@ -277,7 +273,7 @@
         smoothScrolling = true;
         suggest.showStatusBar = true;
         suggestSelection = "first";
-        terminal.integrated.env.osx.FIG_NEW_SESSION = "1";
+        tabSize = 2;
 
         bracketPairColorization = {
           enabled = true;
@@ -343,6 +339,11 @@
         ];
       };
 
+      remote.SSH = {
+        useLocalServer = false;
+        connectTimeout = 60;
+      };
+
       rust-analyzer = {
         procMacro.enable = true;
         checkOnSave = true;
@@ -364,6 +365,7 @@
         cursorBlinking = true;
         cursorStyle = "line";
         cursorWidth = 2;
+        defaultProfile.osx = "fish";
         fontFamily = "'Maple Mono', 'Iosevka Nerd Font'";
         fontSize = 18;
         smoothScrolling = true;

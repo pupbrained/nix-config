@@ -30,14 +30,14 @@
       x86_64-linux = "144rpi8jwavdip6xlnjdbp7d6csplsg4plif94r0k2r89laic7la";
       x86_64-darwin = "1xm2qgz35zrz0wlif775sz1sk0wx5gmdn1g5g84xpw1h9yimb656";
       aarch64-linux = "1iwg997dih369qhq2cian7qc1dgpy8x2lj4qxc5mvj1xbq0a0i52";
-      aarch64-darwin = "1nii1qsp6l5x24ndfi5d5s145873l5fqclpv4gcqfabw7p7vcqzj";
+      aarch64-darwin = "05sj7dzj58ip943ivf0khx1w8wx12l2pzwa537fdbsjny03ssmi1";
       armv7l-linux = "148s6g470r6vfphfqg33p20ck364rrn70w00badn6a4kzlgjmhyz";
     }
     .${system}
     or throwSystem;
 in
   callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
-    version = "1.81.0-insider";
+    version = "1.83.0-insider";
     pname = "vscode-insiders";
     updateScript = ./update-vscode-insiders.sh;
 
@@ -54,7 +54,7 @@ in
     sourceRoot = "";
 
     meta = with lib; {
-      description = ''
+      desc = ''
         Open source source code editor developed by Microsoft for Windows,
         Linux and macOS
       '';

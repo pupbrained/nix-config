@@ -14,10 +14,10 @@
 
         shift + cmd - q : yabai -m window --close
 
-        # alt - h : yabai -m window --focus west
-        # alt - j : yabai -m window --focus south
-        # alt - k : yabai -m window --focus north
-        # alt - l : yabai -m window --focus east
+        alt - h : yabai -m window --focus west
+        alt - j : yabai -m window --focus south
+        alt - k : yabai -m window --focus north
+        alt - l : yabai -m window --focus east
 
         shift + cmd - h : yabai -m window --swap west
         shift + cmd - j : yabai -m window --swap south
@@ -37,7 +37,7 @@
     };
 
     yabai = {
-      enable = true;
+      enable = false;
       package = pkgs.yabai;
 
       config = {
