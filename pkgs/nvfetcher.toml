@@ -14,10 +14,6 @@ fetch.github = "VidocqH/lsp-lens.nvim"
 src.git = "https://github.com/pupbrained/statusline.lua"
 fetch.github = "pupbrained/statusline.lua"
 
-[buffertabs-nvim]
-src.git = "https://github.com/tomiis4/BufferTabs.nvim"
-fetch.github = "tomiis4/BufferTabs.nvim"
-
 [satellite-nvim]
 src.git = "https://github.com/lewis6991/satellite.nvim"
 fetch.github = "lewis6991/satellite.nvim"
@@ -26,3 +22,10 @@ fetch.github = "lewis6991/satellite.nvim"
 src.git = "https://github.com/j-morano/buffer_manager.nvim"
 fetch.github = "j-morano/buffer_manager.nvim"
 
+[conceal-nvim]
+src.git = "https://github.com/Jxstxs/conceal.nvim"
+fetch.github = "Jxstxs/conceal.nvim"
+
+[diagflow-nvim]
+src.git = "https://github.com/dgagn/diagflow.nvim"
+fetch.github = "dgagn/diagflow.nvim"

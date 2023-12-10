@@ -10,8 +10,9 @@ with pkgs; let
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
   buffer-manager-nvim = mkVimPlugin sources.buffer-manager-nvim;
-  buffertabs-nvim = mkVimPlugin sources.buffertabs-nvim;
   codeium-nvim = mkVimPlugin sources.codeium-nvim;
+  conceal-nvim = mkVimPlugin sources.conceal-nvim;
+  diagflow-nvim = mkVimPlugin sources.diagflow-nvim;
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
 in {
   programs.nixvim = {
@@ -29,10 +30,6 @@ in {
         fidget = true;
         gitsigns = true;
         illuminate.enabled = true;
-        indent_blankline = {
-          enabled = true;
-          colored_indent_levels = true;
-        };
         leap = true;
         lsp_trouble = true;
         mini.enabled = true;
@@ -42,6 +39,11 @@ in {
         telescope.enabled = true;
         treesitter = true;
         treesitter_context = true;
+
+        indent_blankline = {
+          enabled = true;
+          colored_indent_levels = true;
+        };
       };
 
       styles = {
@@ -57,6 +59,8 @@ in {
 
     options = {
       number = true;
+      cursorline = true;
+      termguicolors = true;
       relativenumber = true;
       shiftwidth = 0;
       tabstop = 2;
@@ -71,9 +75,12 @@ in {
       foldlevel = 99;
       foldlevelstart = 99;
       foldenable = true;
+      conceallevel = 2;
     };
 
     globals = {
+      conceallevel = 2;
+      concealcursor = "nciv";
       mapleader = " ";
       Lf_WindowPosition = "popup";
       rust_recommended_style = false;
@@ -174,7 +181,6 @@ in {
       diffview.enable = true;
       emmet.enable = true;
       fidget.enable = true;
-      hardtime.enable = true;
       indent-blankline.enable = true;
       leap.enable = true;
       leap.addDefaultMappings = true;
@@ -189,33 +195,37 @@ in {
       rust-tools.enable = true;
       spider.enable = true;
       todo-comments.enable = true;
-      trouble.enable = true;
+      # trouble.enable = true;
+      # trouble.height = 15;
+      # trouble.autoOpen = true;
+      # trouble.autoClose = true;
       typst-vim.enable = true;
 
-      barbar = {
-        enable = false;
-        autoHide = true;
-        icons.diagnostics = {
-          error.enable = true;
-          hint.enable = true;
-          info.enable = true;
-          warn.enable = true;
-        };
+      bufferline = {
+        enable = true;
+        separatorStyle = "slope";
       };
 
       conform-nvim = {
         enable = true;
 
         formatters = {
-          rustfmt = {
-            args = [
-              "--config"
-              "unstable_features=true,tab_spaces=2,reorder_impl_items=true,indent_style=Block,normalize_comments=true,imports_granularity=Crate,imports_layout=HorizontalVertical,group_imports=StdExternalCrate"
-            ];
-          };
+          fourmolu.args = [
+            "--indentation=2"
+            "--ghc-opt"
+            "-XImportQualifiedPost"
+            "--stdin-input-file"
+            "$FILENAME"
+          ];
+
+          rustfmt.args = [
+            "--config"
+            "unstable_features=true,tab_spaces=2,reorder_impl_items=true,indent_style=Block,normalize_comments=true,imports_granularity=Crate,imports_layout=HorizontalVertical,group_imports=StdExternalCrate"
+          ];
         };
 
         formattersByFt = {
+          haskell = ["fourmolu"];
           lua = ["stylua"];
           nix = ["alejandra"];
           rust = ["rustfmt"];
@@ -223,11 +233,9 @@ in {
           typescript = ["eslint_d"];
         };
 
-        extraOptions = {
-          format_on_save = {
-            timeout_ms = 1000;
-            lsp_fallback = true;
-          };
+        extraOptions.format_on_save = {
+          timeout_ms = 1000;
+          lsp_fallback = true;
         };
       };
 
@@ -321,6 +329,7 @@ in {
         servers = {
           eslint.enable = true;
           gopls.enable = true;
+          #hls.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
           tailwindcss.enable = true;
@@ -369,6 +378,8 @@ in {
 
       nvim-cmp = {
         enable = true;
+
+        experimental.ghost_text.hlgroup = "Comment";
 
         sources = [
           {name = "codeium";}
@@ -438,14 +449,18 @@ in {
     extraPlugins = with vimPlugins; [
       alternate-toggler-nvim # Toggle booleans
       buffer-manager-nvim
-      buffertabs-nvim # Simple, fancy buffer tabs
       codeium-nvim # Codeium AI completion
+      conceal-nvim # Conceal symbols
+      diagflow-nvim
+      direnv-vim # Direnv support
       dressing-nvim # Fancier UI elements
       feline-nvim # Statusline
       FTerm-nvim # Floating terminal for neovim
+      haskell-tools-nvim # Haskell tools
       lazygit-nvim # Lazygit integration for neovim
       lsp-lens-nvim # JetBrains-style References and Definitions labels
       mkdir-nvim # Automatically create di
+      modicator-nvim
       neovim-fuzzy
       nui-nvim # UI components for neovim
       promise-async # Promises and async functions in lua
@@ -454,6 +469,7 @@ in {
       searchbox-nvim
       telescope-ui-select-nvim # Sets ui-select to use telescope
       vim-cool # Automatically remove highlights after search
+      vim-haskellConcealPlus
       vim-smoothie # Smooth scrolling
       vim-unimpaired # Handy bracket mappings
       vim-visual-multi # Multiple cursors for neovim

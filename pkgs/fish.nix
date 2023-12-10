@@ -106,6 +106,10 @@
       fish_add_path /Users/marshall/.bun/bin
       set -gx LIBRARY_PATH /opt/homebrew/lib:/opt/homebrew/opt/libiconv/lib
       set -gx NIXPKGS_ALLOW_UNFREE 1
+
+      set -gx ONYX_PATH /Users/marshall/.onyx
+      fish_add_path $ONYX_PATH/bin
+
       if test "$TERM_PROGRAM" != "vscode"
         macchina
       end

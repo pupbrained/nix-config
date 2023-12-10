@@ -5,17 +5,24 @@ _: {
     theme = "Catppuccin-Mocha";
 
     font = {
-      name = "Maple Mono SC NF";
-      size = 15;
+      name = "Victor Mono";
+      size = 16;
+    };
+
+    keybindings = {
+      "cmd+shift+enter" = "detach_window ask";
     };
 
     extraConfig = ''
-      font_features MapleMonoSCNF-Regular     +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
-      font_features MapleMonoSCNF-Bold        +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
-      font_features MapleMonoSCNF-BoldItalic  +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
-      font_features MapleMonoSCNF-Italic      +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
-      font_features MapleMonoSCNF-Light       +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
-      font_features MapleMonoSCNF-LightItalic +cv02 +cv03 +ss01 +ss02 +ss03 +ss04 +ss05
+      italic_font   Victor Mono Italic
+
+      font_features VictorMono-Medium      +ss01 +ss06
+      font_features VictorMono-Regular     +ss01 +ss06
+      font_features VictorMono-Bold        +ss01 +ss06
+      font_features VictorMono-BoldItalic  +ss01 +ss06
+      font_features VictorMono-Italic      +ss01 +ss06
+      font_features VictorMono-Light       +ss01 +ss06
+      font_features VictorMono-LightItalic +ss01 +ss06
     '';
 
     settings = {

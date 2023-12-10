@@ -4,10 +4,11 @@ vim.api.nvim_set_hl(0, 'IlluminatedWordWrite', { link = 'Visual' })
 vim.cmd('set guifont=Maple\\ Mono\\ SC\\ NF:h16')
 vim.cmd('set mouse=a')
 
-require('buffertabs').setup({ horizontal = 'right' })
+require('modicator').setup()
 require('telescope').load_extension('ui-select')
 require('codeium').setup()
 require('lsp-lens').setup()
+require('diagflow').setup()
 require('renamer').setup({ empty = true })
 require('dressing').setup()
 
@@ -28,3 +29,18 @@ require('searchbox').setup({
     },
   },
 })
+
+vim.g.haskell_tools = {
+  tools = {
+    hover = {
+      stylize_markdown = true,
+      auto_focus = true,
+    },
+  },
+}
+
+local conceal = require('conceal')
+
+conceal.setup()
+
+conceal.generate_conceals()

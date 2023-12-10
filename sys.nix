@@ -21,17 +21,24 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [font-awesome inter maple-mono monocraft nerdfonts];
+    fonts = with pkgs; [
+      font-awesome
+      inter
+      maple-mono
+      monocraft
+      nerdfonts
+      victor-mono
+    ];
   };
 
   nix = {
-    package =
-      inputs.nix-super.packages.${pkgs.system}.default.overrideAttrs
-      (_: _: {
-        checkPhase = "";
-        testPhase = "";
-        doCheck = false;
-      });
+    # package =
+    #   inputs.nix-super.packages.${pkgs.system}.default.overrideAttrs
+    #   (_: _: {
+    #     checkPhase = "";
+    #     testPhase = "";
+    #     doCheck = false;
+    #   });
 
     gc = {
       automatic = true;
@@ -46,16 +53,22 @@
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      extra-experimental-features = "nix-command flakes auto-allocate-uids configurable-impure-env";
+      extra-experimental-features = "nix-command flakes";
       flake-registry = "/etc/nix/registry.json";
       keep-derivations = true;
       keep-outputs = true;
       max-jobs = "auto";
       warn-dirty = false;
 
-      substituters = ["https://cache.nixos.org" "https://nix-community.cachix.org"];
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+      ];
 
-      trusted-substituters = ["cache.nixos.org" "nix-community.cachix.org"];
+      trusted-substituters = [
+        "cache.nixos.org"
+        "nix-community.cachix.org"
+      ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -145,6 +158,7 @@
       "temurin"
       "tetrio"
       "transmission"
+      "ubersicht"
       "unnaturalscrollwheels"
       "utm-beta"
       "vivaldi-snapshot"
