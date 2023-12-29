@@ -16,6 +16,7 @@
 
   environment.variables = {
     EDITOR = "nvim";
+    FLAKE = "/Users/marshall/nix-config";
     VISUAL = "nvim";
   };
 
@@ -32,14 +33,6 @@
   };
 
   nix = {
-    # package =
-    #   inputs.nix-super.packages.${pkgs.system}.default.overrideAttrs
-    #   (_: _: {
-    #     checkPhase = "";
-    #     testPhase = "";
-    #     doCheck = false;
-    #   });
-
     gc = {
       automatic = true;
       interval.Day = 7;
@@ -97,6 +90,7 @@
 
     brews = [
       "apktool"
+      "crystal"
       "dune"
       "grep"
       "jj"

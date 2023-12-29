@@ -5,10 +5,9 @@
 }:
 with pkgs; {
   imports = with inputs; [
-    pkgs/nixvim
-    pkgs/bat.nix
     pkgs/fish.nix
     pkgs/kitty.nix
+
     nixvim.homeManagerModules.nixvim
     nix-index-database.hmModules.nix-index
   ];
@@ -44,7 +43,9 @@ with pkgs; {
         fzy
         gcc
         git-cliff
+        gleam
         grc
+        helix
         huniq
         hurl
         igrep
@@ -54,10 +55,10 @@ with pkgs; {
         keychain
         macchina
         monolith
-        nixd
         nix-output-monitor
         nix-prefetch-scripts
-        nodejs_20
+        nixd
+        nodejs_21
         nurl
         pinentry_mac
         pkg-config
@@ -71,9 +72,8 @@ with pkgs; {
         tailspin
         tokei
         typst
-        typstfmt
         typst-live
-        typst-lsp
+        typstfmt
         unrar
         unzip
         upx
@@ -82,11 +82,11 @@ with pkgs; {
         xcp
         xh
         yubikey-manager
-        vlang
       ]
       ++ (with inputs; [
         caligula.packages.${pkgs.system}.default
         deadnix.packages.${pkgs.system}.default
+        nixvim-config.packages.${pkgs.system}.default
       ])
       ++ (with nodePackages_latest; [
         eslint
@@ -118,10 +118,26 @@ with pkgs; {
   programs = {
     eza.enable = true;
     gpg.enable = true;
-    nix-index.enable = true;
     nix-index-database.comma.enable = true;
+    nix-index.enable = true;
     skim.enable = true;
     tealdeer.enable = true;
+
+    bat = {
+      enable = true;
+      config.theme = "catppuccin";
+
+      themes.catppuccin = {
+        src = fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
+          hash = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+        };
+
+        file = "/Catppuccin-mocha.tmTheme";
+      };
+    };
 
     direnv = {
       enable = true;
@@ -141,10 +157,10 @@ with pkgs; {
       userName = "pupbrained";
       userEmail = "mars@pupbrained.xyz";
       aliases."pushall" = "!git remote | xargs -L1 git push";
+      difftastic.enable = true;
 
       extraConfig = {
         init.defaultBranch = "main";
-        merge.conflictStyle = "diff3";
         push.autoSetupRemote = true;
       };
 
@@ -156,7 +172,6 @@ with pkgs; {
 
     go = {
       enable = true;
-      package = pkgs.go_1_20;
 
       packages = {
         "github.com/charmbracelet/bubbletea" =
@@ -172,18 +187,16 @@ with pkgs; {
     lazygit = {
       enable = true;
 
-      settings = {
-        gui.theme = {
-          lightTheme = false;
-          activeBorderColor = ["#a6e3a1" "bold"];
-          inactiveBorderColor = ["#cdd6f4"];
-          optionsTextColor = ["#89b4fa"];
-          selectedLineBgColor = ["#313244"];
-          selectedRangeBgColor = ["#313244"];
-          cherryPickedCommitBgColor = ["#94e2d5"];
-          cherryPickedCommitFgColor = ["#89b4fa"];
-          unstagedChangesColor = ["red"];
-        };
+      settings.gui.theme = {
+        lightTheme = false;
+        activeBorderColor = ["#a6e3a1" "bold"];
+        inactiveBorderColor = ["#cdd6f4"];
+        optionsTextColor = ["#89b4fa"];
+        selectedLineBgColor = ["#313244"];
+        selectedRangeBgColor = ["#313244"];
+        cherryPickedCommitBgColor = ["#94e2d5"];
+        cherryPickedCommitFgColor = ["#89b4fa"];
+        unstagedChangesColor = ["red"];
       };
     };
 
