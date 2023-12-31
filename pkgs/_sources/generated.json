@@ -1,0 +1,42 @@
+{
+    "hlchunk-nvim": {
+        "cargoLocks": null,
+        "date": "2023-11-26",
+        "extract": null,
+        "name": "hlchunk-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "shellRaining",
+            "repo": "hlchunk.nvim",
+            "rev": "a17b86f7c9640410c168f2421bd3753124d40603",
+            "sha256": "sha256-7OCA/6xyoRKybfMDQ3G4fWu+lxarpbZPC6+dJYQaBuY=",
+            "type": "github"
+        },
+        "version": "a17b86f7c9640410c168f2421bd3753124d40603"
+    },
+    "hoverhints-nvim": {
+        "cargoLocks": null,
+        "date": "2023-11-23",
+        "extract": null,
+        "name": "hoverhints-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "soulis-1256",
+            "repo": "hoverhints.nvim",
+            "rev": "86fad985b91fe454469108924c1cdb378cbae1ce",
+            "sha256": "sha256-QQ+ISmwY6NnvzsnY2GZVxXh/2V6LYaXIjD7evScq4HQ=",
+            "type": "github"
+        },
+        "version": "86fad985b91fe454469108924c1cdb378cbae1ce"
+    }
+}

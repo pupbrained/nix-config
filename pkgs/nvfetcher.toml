@@ -1,0 +1,7 @@
+[hlchunk-nvim]
+src.git="https://github.com/shellRaining/hlchunk.nvim"
+fetch.github="shellRaining/hlchunk.nvim"
+
+[hoverhints-nvim]
+src.git="https://github.com/soulis-1256/hoverhints.nvim"
+fetch.github="soulis-1256/hoverhints.nvim"
