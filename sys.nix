@@ -26,7 +26,7 @@
 
   nix = {
     nixPath = ["nixpkgs=flake:nixpkgs"];
-    #package = inputs.nix-super.packages.${pkgs.system}.nix;
+    package = inputs.nix-super.packages.${pkgs.system}.nix;
     registry =
       (lib.mapAttrs (_: flake: {inherit flake;}))
       ((lib.filterAttrs (_: lib.isType "flake")) inputs);
