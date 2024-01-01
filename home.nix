@@ -24,7 +24,13 @@ with pkgs; {
       ];
     };
 
-    overlays = with inputs; [neovim-nightly-overlay.overlay rust-overlay.overlays.default];
+    overlays = with inputs; [
+      neovim-nightly-overlay.overlay
+      rust-overlay.overlays.default
+      (final: _: {
+        catppuccin-folders = final.callPackage ./pkgs/catppuccin-folders.nix {};
+      })
+    ];
   };
 
   home = {
@@ -62,14 +68,17 @@ with pkgs; {
         waybar
         winetricks
         wineWowPackages.staging
+        wl-clipboard
         woeusb-ng
         wofi
         xclip
 
-        cinnamon.nemo
-        gnome.file-roller
         (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
       ]
+      ++ (with gnome; [
+        file-roller
+        nautilus
+      ])
       ++ (with inputs; [
         thorium.packages.${pkgs.system}.default
         nh.packages.${pkgs.system}.default
@@ -141,9 +150,8 @@ with pkgs; {
   };
 
   services = {
-    espanso = {
-      enable = true;
-    };
+    cliphist.enable = true;
+    espanso.enable = true;
 
     kdeconnect = {
       enable = true;

@@ -7,6 +7,16 @@
   gtk = {
     enable = true;
 
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Green-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["green"];
+        size = "standard";
+        tweaks = ["rimless"];
+        variant = "mocha";
+      };
+    };
+
     cursorTheme = {
       package = pkgs.catppuccin-cursors.mochaGreen;
       name = "Catppuccin-Mocha-Green-Cursors";
@@ -26,7 +36,10 @@
     settings = {
       "$mod" = "SUPER";
 
-      decoration.rounding = 10;
+      decoration = {
+        blur.special = true;
+        rounding = 10;
+      };
       input.sensitivity = -0.4;
       monitor = "DP-1, 2560x1440@165, auto, auto";
 
@@ -123,6 +136,14 @@
           "alt, j, hycov:movefocus, d"
           "alt, k, hycov:movefocus, u"
           "alt, l, hycov:movefocus, r"
+
+          # Volume
+          ", XF86AudioRaiseVolume, exec, pw-volume change +5%"
+          ", XF86AudioLowerVolume, exec, pw-volume change -5%"
+          ", XF86AudioMute       , exec, pw-volume mute"
+          ", XF86AudioPlay       , exec, playerctl play-pause"
+          ", XF86AudioNext       , exec, playerctl next"
+          ", XF86AudioPrev       , exec, playerctl previous"
         ]
         ++ (
           # Sets up workspace binds from 1-10
