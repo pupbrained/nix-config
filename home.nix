@@ -7,8 +7,10 @@
 with pkgs; {
   imports = with inputs; [
     ./pkgs/fish.nix
+    ./pkgs/hyprland.nix
     ./pkgs/kitty.nix
 
+    hyprland.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     nixvim.homeManagerModules.nixvim
   ];
@@ -33,9 +35,10 @@ with pkgs; {
       [
         alejandra
         betterbird
+        blueberry
+        bluez
         bun
         clang
-        cloudflare-warp
         distrobox
         flite
         grc
@@ -50,13 +53,21 @@ with pkgs; {
         neovide
         obsidian
         plasma-browser-integration
+        playerctl
         prismlauncher
         protobuf
+        pw-volume
+        swaynotificationcenter
         vesktop
+        waybar
         winetricks
         wineWowPackages.staging
         woeusb-ng
+        wofi
         xclip
+
+        cinnamon.nemo
+        gnome.file-roller
         (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
       ]
       ++ (with inputs; [
@@ -126,13 +137,6 @@ with pkgs; {
         signByDefault = true;
         key = "1AC6742D7B475F34";
       };
-    };
-
-    gh = {
-      enable = true;
-      settings.git_protocol = "ssh";
-
-      extensions = with pkgs; [gh-eco gh-dash gh-markdown-preview];
     };
   };
 

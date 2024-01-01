@@ -42,7 +42,9 @@
 
     sessionVariables = {
       FLAKE = "/home/marshall/nix-config";
+      NIXOS_OZONE_WL = "1";
       PATH = ["/home/marshall/.cargo/bin"];
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
 
     persistence."/persist".directories = [
@@ -172,9 +174,11 @@
   networking = {
     hostName = "navis";
     networkmanager.enable = true;
+    useDHCP = false;
   };
 
   security = {
+    pam.services.gdm.enableGnomeKeyring = true;
     rtkit.enable = true;
 
     sudo.extraConfig = ''
@@ -185,9 +189,14 @@
   programs = {
     fish.enable = true;
     gnupg.agent.enable = true;
-    hyprland.enable = true;
+    nm-applet.enable = true;
     ssh.startAgent = true;
     steam.enable = true;
+
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
   };
 
   services = {
@@ -212,12 +221,10 @@
 
     xserver = {
       enable = true;
+      displayManager.gdm.enable = true;
       layout = "us";
       videoDrivers = ["nvidia"];
       xkbVariant = "";
-
-      desktopManager.plasma5.enable = true;
-      displayManager.sddm.enable = true;
     };
   };
 
@@ -225,7 +232,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILvbegZw+6NSR32YccrqLFXZoahP7o33gtnH0oNbDYSD"];
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "networkmanager"];
   };
 
   i18n = {
