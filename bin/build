@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+nh os switch
+nh home switch
