@@ -1,13 +1,34 @@
-{lib, ...}: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
+  gtk = {
+    enable = true;
+
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors.mochaGreen;
+      name = "Catppuccin-Mocha-Green-Cursors";
+    };
+
+    iconTheme = {
+      package = pkgs.catppuccin-folders;
+      name = "Papirus";
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
+
+    plugins = [inputs.hycov.packages.${pkgs.system}.hycov];
+
     settings = {
       "$mod" = "SUPER";
 
       decoration.rounding = 10;
-      exec-once = ["swaync" "waybar" "swww init"];
       input.sensitivity = -0.4;
-      monitor = "DP-1,2560x1440@165,0x0,1";
+      monitor = "DP-1, 2560x1440@165, auto, auto";
 
       bezier = [
         "linear  , 0.0 , 0.0, 1.0, 1.0"
@@ -18,6 +39,18 @@
         "border     , 1, 14 , default"
         "borderangle, 1, 100, linear  , loop"
         "windows    , 1, 5  , overshot, popin"
+      ];
+
+      exec-once = [
+        # Notifications
+        "swaync"
+        # Status Bar
+        "waybar"
+        # Wallpaper
+        "swww init"
+        # Clipboard
+        "wl-paste --type text  --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
       ];
 
       general = {
@@ -81,6 +114,15 @@
           # Special Workspace
           "$mod      , x, togglespecialworkspace"
           "$mod shift, x, movetoworkspace, special"
+
+          # Hycov
+          "ctrl alt, h, hycov:enteroverview"
+          "ctrl alt, m, hycov:leaveoverview"
+          "ctrl alt, k, hycov:toggleoverview"
+          "alt, h, hycov:movefocus, l"
+          "alt, j, hycov:movefocus, d"
+          "alt, k, hycov:movefocus, u"
+          "alt, l, hycov:movefocus, r"
         ]
         ++ (
           # Sets up workspace binds from 1-10
@@ -103,6 +145,12 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+
+      plugin.hycov = {
+        enable_hotarea = 0;
+        overview_gappi = 24;
+        overview_gappo = 60;
+      };
     };
   };
 }

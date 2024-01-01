@@ -67,6 +67,12 @@
       modules = [./sys.nix];
     };
 
+    homeConfigurations."marshall@navis" = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = {inherit inputs outputs;};
+      modules = [./home.nix];
+    };
+
     devShells.${system}.default = pkgs.mkShellNoCC {
       packages = with pkgs;
         [

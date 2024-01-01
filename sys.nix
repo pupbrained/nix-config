@@ -19,11 +19,6 @@
   system.stateVersion = "23.11";
   time.timeZone = "America/New_York";
 
-  home-manager = {
-    extraSpecialArgs = {inherit inputs outputs;};
-    users.marshall = import ./home.nix;
-  };
-
   nix = {
     nixPath = ["nixpkgs=flake:nixpkgs"];
     package = inputs.nix-super.packages.${pkgs.system}.nix;
